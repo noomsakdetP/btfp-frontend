@@ -1,0 +1,73 @@
+import {
+  Ban,
+  Bell,
+  CalendarDays,
+  ChartColumn,
+  ChevronDown,
+  CircleCheck,
+  CircleQuestionMark,
+  ClipboardCheck,
+  Download,
+  Eye,
+  FileText,
+  FileX,
+  FolderOpen,
+  Funnel,
+  GraduationCap,
+  Hourglass,
+  LayoutGrid,
+  ListChecks,
+  Pencil,
+  RotateCcw,
+  Search,
+  SearchX,
+  Send,
+  Signpost,
+  Trash,
+  TriangleAlert,
+  UserPlus,
+  Wallet,
+  X,
+  type IconNode,
+} from 'lucide';
+
+/**
+ * ไอคอนที่ระบบใช้ (Lucide ชุดเดียวกับใน Figma https://lucide.dev/icons)
+ *
+ * วิธีใช้:  <btfp-icon name="eye" size="16" />
+ * ไอคอนใหม่: import จาก 'lucide' แล้วเพิ่มในรายการนี้ ชื่อ key เป็น kebab-case ตามเว็บ Lucide
+ *
+ * ใช้แพ็กเกจ 'lucide' (ไฟล์แยกต่อไอคอน) แทน '@lucide/angular'
+ * เพราะ @lucide/angular รวมทุกไอคอนในไฟล์เดียว 11MB ทำให้ build Storybook ใช้แรมเกินเครื่อง
+ */
+export const BTFP_ICONS: Record<string, IconNode> = {
+  ban: Ban,
+  bell: Bell,
+  'calendar-days': CalendarDays,
+  'chart-column': ChartColumn,
+  'chevron-down': ChevronDown,
+  'circle-check': CircleCheck,
+  'circle-question-mark': CircleQuestionMark,
+  'clipboard-check': ClipboardCheck,
+  download: Download,
+  eye: Eye,
+  'file-text': FileText,
+  'file-x': FileX,
+  'folder-open': FolderOpen,
+  funnel: Funnel,
+  'graduation-cap': GraduationCap,
+  hourglass: Hourglass,
+  'layout-grid': LayoutGrid,
+  'list-checks': ListChecks,
+  pencil: Pencil,
+  'rotate-ccw': RotateCcw,
+  search: Search,
+  'search-x': SearchX,
+  send: Send,
+  signpost: Signpost,
+  trash: Trash,
+  'triangle-alert': TriangleAlert,
+  'user-plus': UserPlus,
+  wallet: Wallet,
+  x: X,
+};

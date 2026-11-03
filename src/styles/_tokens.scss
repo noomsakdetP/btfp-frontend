@@ -1,0 +1,129 @@
+// =====================================================================
+// Design tokens ของระบบ กทปส. (ดึงจาก Figma Variables)
+// ไฟล์ Figma: pGyEKPXYJ054QjRLVHu2FD  collection: primitives / semantic / component
+// อย่าแก้ค่าในนี้ตรง ๆ ถ้าค่าใน Figma ไม่เปลี่ยน ให้แก้ที่ Figma ก่อนแล้วค่อยอัปเดตไฟล์นี้
+// =====================================================================
+
+:root {
+  // ---------- primitives: color ----------
+  --btfp-blue-50: #eaf8ff;
+  --btfp-blue-100: #d0efff;
+  --btfp-blue-200: #a8e1fa;
+  --btfp-blue-300: #73cff2;
+  --btfp-blue-400: #38b7e7;
+  --btfp-blue-500: #0095db;
+  --btfp-blue-600: #0077b6;
+  --btfp-blue-700: #005e91;
+  --btfp-blue-800: #00466e;
+  --btfp-blue-900: #052f46;
+
+  --btfp-navy-50: #f0f7fa;
+  --btfp-navy-100: #ddebf2;
+  --btfp-navy-200: #b8d4e2;
+  --btfp-navy-300: #88b6cd;
+  --btfp-navy-400: #4d8cae;
+  --btfp-navy-500: #176b96;
+  --btfp-navy-600: #05547e;
+  --btfp-navy-700: #0a4263;
+  --btfp-navy-800: #0b3551;
+  --btfp-navy-900: #092a48;
+
+  --btfp-gray-50: #f8fafc;
+  --btfp-gray-100: #f1f5f9;
+  --btfp-gray-200: #e2e8f0;
+  --btfp-gray-300: #cbd5e1;
+  --btfp-gray-400: #94a3b8;
+  --btfp-gray-500: #64748b;
+  --btfp-gray-600: #475569;
+  --btfp-gray-700: #334155;
+  --btfp-gray-800: #1e293b;
+  --btfp-gray-900: #0f172a;
+
+  --btfp-red-50: #fff1f2;
+  --btfp-red-200: #fecdd3;
+  --btfp-red-600: #be123c;
+  --btfp-red-700: #9f1239;
+  --btfp-orange-600: #c2410c;
+  --btfp-green-50: #f0fdf4;
+  --btfp-green-200: #bbf7d0;
+  --btfp-green-600: #15803d;
+  --btfp-green-700: #166534;
+  --btfp-yellow-50: #fefce8;
+  --btfp-yellow-200: #fef08a;
+  --btfp-yellow-700: #854d0e;
+  --btfp-yellow-800: #713f12;
+
+  // ---------- semantic: color ----------
+  --btfp-bg-default: #ffffff;
+  --btfp-bg-subtle: var(--btfp-gray-50);
+  --btfp-bg-inverse: var(--btfp-navy-900);
+  --btfp-surface-raised: #ffffff;
+
+  --btfp-text-primary: var(--btfp-gray-800);
+  --btfp-text-secondary: var(--btfp-gray-600);
+  --btfp-text-disabled: var(--btfp-gray-400);
+  --btfp-text-inverse: #ffffff;
+  --btfp-text-heading: var(--btfp-navy-900);
+
+  --btfp-border-default: var(--btfp-gray-200);
+  --btfp-border-strong: var(--btfp-gray-400);
+
+  --btfp-action-primary: var(--btfp-blue-600);
+  --btfp-action-primary-hover: var(--btfp-blue-700);
+  --btfp-action-link: var(--btfp-blue-700);
+  --btfp-focus-ring: var(--btfp-blue-600);
+
+  --btfp-success-bg: var(--btfp-green-50);
+  --btfp-success-text: var(--btfp-green-700);
+  --btfp-success-border: var(--btfp-green-200);
+  --btfp-warning-bg: var(--btfp-yellow-50);
+  --btfp-warning-text: var(--btfp-yellow-800);
+  --btfp-warning-border: var(--btfp-yellow-200);
+  --btfp-danger-bg: var(--btfp-red-50);
+  --btfp-danger-text: var(--btfp-red-700);
+  --btfp-danger-border: var(--btfp-red-200);
+  --btfp-info-bg: var(--btfp-blue-50);
+  --btfp-info-text: var(--btfp-blue-700);
+  --btfp-info-border: var(--btfp-blue-200);
+
+  --btfp-icon-default: var(--btfp-gray-600);
+  --btfp-icon-subtle: var(--btfp-gray-400);
+  --btfp-icon-action: var(--btfp-blue-600);
+
+  // ---------- spacing ----------
+  --btfp-space-xs: 4px;
+  --btfp-space-sm: 8px;
+  --btfp-space-md: 16px;
+  --btfp-space-lg: 24px;
+  --btfp-space-xl: 32px;
+  --btfp-space-2xl: 48px;
+
+  // ---------- radius ----------
+  --btfp-radius-input: 4px;
+  --btfp-radius-tag: 4px;
+  --btfp-radius-button: 8px;
+  --btfp-radius-card: 12px;
+  --btfp-radius-full: 9999px;
+
+  // ---------- size ----------
+  --btfp-control-sm: 32px;
+  --btfp-control-md: 40px;
+  --btfp-control-lg: 48px;
+  --btfp-table-row: 56px;
+  --btfp-sidebar-width: 264px;
+  --btfp-topbar-height: 64px;
+
+  // ---------- component ----------
+  --btfp-sidebar-bg: var(--btfp-navy-900);
+  --btfp-sidebar-border: var(--btfp-navy-800);
+  --btfp-nav-item-text: var(--btfp-gray-300);
+  --btfp-nav-item-icon: var(--btfp-gray-400);
+  --btfp-nav-item-hover-bg: var(--btfp-navy-800);
+  --btfp-nav-item-active-bg: var(--btfp-blue-600);
+  --btfp-nav-group-label: var(--btfp-gray-400);
+  --btfp-table-header-bg: var(--btfp-gray-100);
+
+  // ---------- typography ----------
+  --btfp-font-body: 'Sarabun', sans-serif;
+  --btfp-font-heading: 'IBM Plex Sans Thai', 'Sarabun', sans-serif;
+}

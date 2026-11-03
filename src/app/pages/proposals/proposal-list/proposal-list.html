@@ -1,0 +1,484 @@
+<!--
+  B-01 ข้อเสนอโครงการ (เจ้าหน้าที่)
+  Figma: Back-end page > section "ข้อเสนอโครงการ" > frame 60:7997
+         ตัวกรองเพิ่มเติม (Drawer) frame 479:132339
+
+  หน้านี้เป็นโครง HTML สำหรับ dev
+  - ข้อความและแถวในตารางพิมพ์ตรงใน HTML ทั้งหมด (ยังไม่ต่อ API)
+  - ตัวเลือกใน select ใส่เป็นค่าคงที่ใน template ([options]="[...]")
+  - ตัวแปรใน .ts มีแค่สถานะเปิดปิด Drawer เท่านั้น
+  ตอนต่อ API: ดูหัวข้อ "ขั้นต่อไปของ dev" ใน README.md
+-->
+
+<nav class="breadcrumb" aria-label="เส้นทาง">
+  <ol>
+    <li><a routerLink="/">หน้าหลัก</a></li>
+    <li><a routerLink="/proposals">ยื่นขอรับทุน</a></li>
+    <li aria-current="page">ข้อเสนอโครงการ</li>
+  </ol>
+</nav>
+
+<!-- หัวหน้า -->
+<header class="page-header">
+  <div class="page-header__title">
+    <h1>ข้อเสนอโครงการ</h1>
+    <p>ประกาศทุนประจำปีงบประมาณ 2569 ครั้งที่ 1 แสดงเฉพาะข้อเสนอใน TOR ของสำนักท่าน</p>
+  </div>
+  <div class="page-header__actions">
+    <p-button [outlined]="true" routerLink="/reports">
+      <btfp-icon name="chart-column" size="18" />
+      <span>รายงาน</span>
+    </p-button>
+    <btfp-export-button />
+  </div>
+</header>
+
+<!-- แท็บประเภททุน -->
+<p-tabs value="type-1" class="grant-tabs">
+  <p-tablist>
+    <p-tab value="all">ทุกประเภท (128)</p-tab>
+    <p-tab value="type-1">ทุนประเภท 1 (86)</p-tab>
+    <p-tab value="type-2">ทุนประเภท 2 (31)</p-tab>
+    <p-tab value="type-3">ทุนประเภท 3 (11)</p-tab>
+    <p-tab value="other">ทุนอื่นๆ (MOU/USO)</p-tab>
+  </p-tablist>
+</p-tabs>
+
+<!-- สรุปตามขั้นตอน (กดเพื่อกรองตามขั้นตอน) -->
+<section class="workflow-summary" aria-label="สรุปข้อเสนอตามขั้นตอน">
+  <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="12" caption="รอเจ้าหน้าที่รับเรื่อง" icon="send" />
+  <btfp-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="24" caption="ส่งกลับแก้ไข 5 รายการ" icon="clipboard-check" active />
+  <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="18" caption="รอความเห็นอนุกรรมการ" icon="list-checks" />
+  <btfp-kpi-card label="4. สรุปสาระสำคัญ" value="9" caption="เสนอคณะกรรมการบริหารฯ" icon="file-text" />
+  <btfp-kpi-card label="5. ผลการพิจารณา" value="23" caption="อนุมัติ 17 ไม่อนุมัติ 6" icon="circle-check" />
+</section>
+
+<!-- ตารางข้อเสนอ -->
+<section class="proposal-card" aria-label="รายการข้อเสนอโครงการ">
+  <!-- แถวตัวกรอง -->
+  <div class="filters">
+    <div class="btfp-field filters__search">
+      <label for="f-search">ค้นหา</label>
+      <p-iconfield>
+        <p-inputicon><btfp-icon name="search" size="16" /></p-inputicon>
+        <input id="f-search" type="search" pInputText placeholder="รหัส ชื่อโครงการ หรือหน่วยงาน" />
+      </p-iconfield>
+    </div>
+
+    <div class="btfp-field">
+      <label for="f-year">ปีงบประมาณ</label>
+      <p-select
+        inputId="f-year"
+        [options]="[
+          { label: '2569', value: '2569' },
+          { label: '2568', value: '2568' },
+          { label: '2567', value: '2567' }
+        ]"
+        optionLabel="label"
+        optionValue="value"
+        [ngModel]="'2569'"
+      />
+    </div>
+
+    <div class="btfp-field">
+      <label for="f-step">ขั้นตอน</label>
+      <p-select
+        inputId="f-step"
+        [options]="[
+          { label: 'ทั้งหมด', value: 'all' },
+          { label: '1. ยื่นเสนอโครงการ', value: '1' },
+          { label: '2. ตรวจสอบคุณสมบัติ', value: '2' },
+          { label: '3. ตรวจโครงการเบื้องต้น', value: '3' },
+          { label: '4. สรุปสาระสำคัญ', value: '4' },
+          { label: '5. ผลการพิจารณา', value: '5' }
+        ]"
+        optionLabel="label"
+        optionValue="value"
+        [ngModel]="'2'"
+      />
+    </div>
+
+    <div class="btfp-field">
+      <label for="f-status">สถานะ</label>
+      <p-select
+        inputId="f-status"
+        [options]="[
+          { label: 'ทั้งหมด', value: 'all' },
+          { label: 'ส่งแล้ว รอการตรวจสอบ', value: 'submitted' },
+          { label: 'รอการพิจารณา', value: 'pending' },
+          { label: 'ไม่ผ่าน รอแก้ไข', value: 'revise' },
+          { label: 'ไม่ผ่านคุณสมบัติ', value: 'rejected' }
+        ]"
+        optionLabel="label"
+        optionValue="value"
+        [ngModel]="'all'"
+      />
+    </div>
+
+    <div class="btfp-field">
+      <label for="f-officer">เจ้าหน้าที่</label>
+      <p-select
+        inputId="f-officer"
+        [options]="[
+          { label: 'ทั้งหมด', value: 'all' },
+          { label: 'กมลวรรณ ศรีสุข', value: 'u1' },
+          { label: 'ธนพล วัฒนะ', value: 'u2' },
+          { label: 'สุภาพร แสงทอง', value: 'u3' },
+          { label: 'ยังไม่มอบหมาย', value: 'none' }
+        ]"
+        optionLabel="label"
+        optionValue="value"
+        [ngModel]="'all'"
+      />
+    </div>
+
+    <p-button [outlined]="true" styleClass="filters__more" (onClick)="filterDrawerOpen.set(true)">
+      <btfp-icon name="funnel" size="18" />
+      <span>ตัวกรองเพิ่มเติม (10)</span>
+    </p-button>
+  </div>
+
+  <!-- ตัวกรองที่ใช้อยู่ -->
+  <div class="active-filters">
+    <span class="active-filters__label">ตัวกรองที่ใช้:</span>
+    <p-chip label="ทุนประเภท 1" [removable]="true" />
+    <p-chip label="ปีงบ 2569" [removable]="true" />
+    <p-chip label="ขั้นตอน 2" [removable]="true" />
+    <button type="button" class="btfp-link-button">ล้างทั้งหมด</button>
+  </div>
+
+  <!-- แถบจัดการรายการที่เลือก (แสดงเมื่อมีการเลือกอย่างน้อย 1 แถว) -->
+  <div class="bulk-actions">
+    <span class="bulk-actions__count">เลือกแล้ว 2 รายการ</span>
+    <p-button [outlined]="true" severity="secondary" size="small">
+      <btfp-icon name="user-plus" size="16" />
+      <span>มอบหมายเจ้าหน้าที่</span>
+    </p-button>
+    <p-button [outlined]="true" severity="secondary" size="small">
+      <btfp-icon name="download" size="16" />
+      <span>ส่งออกที่เลือก</span>
+    </p-button>
+    <button type="button" class="btfp-link-button">ยกเลิกการเลือก</button>
+  </div>
+
+  <!--
+    ตาราง: ตอนนี้เป็น <table> ธรรมดาเพื่อพิมพ์แถวตรงใน HTML
+    ตอนต่อ API ให้เปลี่ยนเป็น <p-table [value]="proposals()"> แล้วใช้ class เดิม (btfp-table) และความกว้างคอลัมน์เดิม
+    กฎ: แถวสูง 56px ข้อความบรรทัดเดียว ยาวเกินให้ตัด ... และมี title ให้อ่านเต็ม
+  -->
+  <div class="table-scroll">
+    <table class="btfp-table">
+      <colgroup>
+        <col style="width: 56px" />
+        <col style="width: 130px" />
+        <col style="width: 156px" />
+        <col style="width: 240px" />
+        <col style="width: 120px" />
+        <col style="width: 170px" />
+        <col style="width: 200px" />
+        <col style="width: 200px" />
+        <col style="width: 190px" />
+        <col style="width: 112px" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="cell-check">
+            <p-checkbox [binary]="true" [indeterminate]="true" ariaLabel="เลือกทั้งหมด" />
+          </th>
+          <th>เลขที่คำขอ</th>
+          <th>ชื่อโครงการ</th>
+          <th>หน่วยงาน</th>
+          <th>มาตรา</th>
+          <th class="cell-num">วงเงิน (บาท)</th>
+          <th>ขั้นตอน</th>
+          <th>สถานะ</th>
+          <th>ผู้รับผิดชอบ</th>
+          <th class="cell-actions">จัดการ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="is-selected">
+          <td class="cell-check"><p-checkbox [binary]="true" [ngModel]="true" ariaLabel="เลือก 2569/0042" /></td>
+          <td>2569/0042</td>
+          <td title="ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน">ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน</td>
+          <td title="มหาวิทยาลัยตัวอย่าง">มหาวิทยาลัยตัวอย่าง</td>
+          <td>52(2)</td>
+          <td class="cell-num">1,440,000.00</td>
+          <td>2. ตรวจสอบคุณสมบัติ</td>
+          <td><btfp-status-tag severity="info" icon="hourglass">รอการพิจารณา</btfp-status-tag></td>
+          <td>กมลวรรณ ศรีสุข</td>
+          <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0042" /></td>
+        </tr>
+        <tr class="is-selected">
+          <td class="cell-check"><p-checkbox [binary]="true" [ngModel]="true" ariaLabel="เลือก 2569/0041" /></td>
+          <td>2569/0041</td>
+          <td title="ระบบเตือนภัยพื้นที่ห่างไกล">ระบบเตือนภัยพื้นที่ห่างไกล</td>
+          <td title="มูลนิธิเพื่อสังคม">มูลนิธิเพื่อสังคม</td>
+          <td>52(1)</td>
+          <td class="cell-num">980,000.00</td>
+          <td>2. ตรวจสอบคุณสมบัติ</td>
+          <td><btfp-status-tag severity="warn" icon="rotate-ccw">ไม่ผ่าน รอแก้ไข</btfp-status-tag></td>
+          <td>กมลวรรณ ศรีสุข</td>
+          <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0041" /></td>
+        </tr>
+        <tr>
+          <td class="cell-check"><p-checkbox [binary]="true" [ngModel]="false" ariaLabel="เลือก 2569/0040" /></td>
+          <td>2569/0040</td>
+          <td title="แพลตฟอร์มสื่อสารสาธารณะเพื่อผู้สูงอายุ">แพลตฟอร์มสื่อสารสาธารณะเพื่อผู้สูงอายุ</td>
+          <td title="บริษัท นวัตกรรมไทย จำกัด">บริษัท นวัตกรรมไทย จำกัด</td>
+          <td>52(6)</td>
+          <td class="cell-num">2,400,000.00</td>
+          <td>2. ตรวจสอบคุณสมบัติ</td>
+          <td><btfp-status-tag severity="info" icon="send">ส่งแล้ว รอการตรวจสอบ</btfp-status-tag></td>
+          <td class="text-unassigned">ยังไม่มอบหมาย</td>
+          <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0040" /></td>
+        </tr>
+        <tr>
+          <td class="cell-check"><p-checkbox [binary]="true" [ngModel]="false" ariaLabel="เลือก 2569/0039" /></td>
+          <td>2569/0039</td>
+          <td title="ศูนย์ข้อมูลคลื่นความถี่ภูมิภาค">ศูนย์ข้อมูลคลื่นความถี่ภูมิภาค</td>
+          <td title="สถาบันวิจัยตัวอย่าง">สถาบันวิจัยตัวอย่าง</td>
+          <td>52(2)</td>
+          <td class="cell-num">3,100,000.00</td>
+          <td>2. ตรวจสอบคุณสมบัติ</td>
+          <td><btfp-status-tag severity="info" icon="hourglass">รอการพิจารณา</btfp-status-tag></td>
+          <td>ธนพล วัฒนะ</td>
+          <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0039" /></td>
+        </tr>
+        <tr>
+          <td class="cell-check"><p-checkbox [binary]="true" [ngModel]="false" ariaLabel="เลือก 2569/0038" /></td>
+          <td>2569/0038</td>
+          <td title="ห้องเรียนออนไลน์เพื่อผู้พิการทางการได้ยิน">ห้องเรียนออนไลน์เพื่อผู้พิการทางการได้ยิน</td>
+          <td title="สมาคมคนหูหนวกตัวอย่าง">สมาคมคนหูหนวกตัวอย่าง</td>
+          <td>52(6)</td>
+          <td class="cell-num">450,000.00</td>
+          <td>2. ตรวจสอบคุณสมบัติ</td>
+          <td><btfp-status-tag severity="danger" icon="ban">ไม่ผ่านคุณสมบัติ</btfp-status-tag></td>
+          <td>ธนพล วัฒนะ</td>
+          <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0038" /></td>
+        </tr>
+        <tr>
+          <td class="cell-check"><p-checkbox [binary]="true" [ngModel]="false" ariaLabel="เลือก 2569/0036" /></td>
+          <td>2569/0036</td>
+          <td title="พัฒนาทักษะผู้ประกาศชุมชน">พัฒนาทักษะผู้ประกาศชุมชน</td>
+          <td title="วิทยาลัยชุมชนตัวอย่าง">วิทยาลัยชุมชนตัวอย่าง</td>
+          <td>52(3)</td>
+          <td class="cell-num">760,000.00</td>
+          <td>2. ตรวจสอบคุณสมบัติ</td>
+          <td><btfp-status-tag severity="info" icon="hourglass">รอการพิจารณา</btfp-status-tag></td>
+          <td>สุภาพร แสงทอง</td>
+          <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0036" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- แบ่งหน้า -->
+  <footer class="table-footer">
+    <span class="table-footer__summary">แสดง 1–10 จาก 24 รายการ</span>
+    <div class="table-footer__controls">
+      <label class="table-footer__rpp" for="f-rpp">
+        แถวต่อหน้า
+        <p-select
+          inputId="f-rpp"
+          size="small"
+          [options]="[{ label: '10', value: 10 }, { label: '20', value: 20 }, { label: '50', value: 50 }]"
+          optionLabel="label"
+          optionValue="value"
+          [ngModel]="10"
+        />
+      </label>
+      <p-paginator [rows]="10" [totalRecords]="24" [first]="0" [showFirstLastIcon]="false" />
+    </div>
+  </footer>
+</section>
+
+<!-- ===================== B-01F ตัวกรองเพิ่มเติม (Drawer) ===================== -->
+<p-drawer
+  [visible]="filterDrawerOpen()"
+  (visibleChange)="filterDrawerOpen.set($event)"
+  position="right"
+  styleClass="filter-drawer"
+  [blockScroll]="true"
+>
+  <ng-template #header>
+    <div class="filter-drawer__title">
+      <h2>ตัวกรองเพิ่มเติม</h2>
+      <p>เลือกได้หลายเงื่อนไข ระบบจะแสดงข้อเสนอที่ตรงทุกเงื่อนไข</p>
+    </div>
+  </ng-template>
+
+  <div class="filter-drawer__body">
+    <fieldset class="filter-group">
+      <legend>ข้อมูลทุน</legend>
+      <div class="btfp-field">
+        <label for="d-section">มาตรา</label>
+        <p-multiselect
+          inputId="d-section"
+          [options]="[
+            { label: '52(1)', value: '52(1)' },
+            { label: '52(2)', value: '52(2)' },
+            { label: '52(3)', value: '52(3)' },
+            { label: '52(4)', value: '52(4)' },
+            { label: '52(5)', value: '52(5)' },
+            { label: '52(6)', value: '52(6)' }
+          ]"
+          optionLabel="label"
+          optionValue="value"
+          display="chip"
+          placeholder="ทั้งหมด"
+          [ngModel]="['52(1)', '52(2)']"
+          appendTo="body"
+        />
+      </div>
+      <div class="btfp-field">
+        <label for="d-tor">วัตถุประสงค์ / TOR ย่อย</label>
+        <p-select
+          inputId="d-tor"
+          [options]="[{ label: 'ทั้งหมด', value: 'all' }]"
+          optionLabel="label"
+          optionValue="value"
+          [ngModel]="'all'"
+          appendTo="body"
+        />
+      </div>
+      <div class="btfp-field">
+        <label for="d-business">ประเภทกิจการ</label>
+        <p-multiselect
+          inputId="d-business"
+          [options]="[
+            { label: 'กิจการกระจายเสียง', value: 'radio' },
+            { label: 'กิจการโทรทัศน์', value: 'tv' },
+            { label: 'กิจการโทรคมนาคม', value: 'telecom' }
+          ]"
+          optionLabel="label"
+          optionValue="value"
+          display="chip"
+          placeholder="ทั้งหมด"
+          appendTo="body"
+        />
+      </div>
+    </fieldset>
+
+    <fieldset class="filter-group">
+      <legend>ผู้ขอรับทุน</legend>
+      <div class="btfp-field">
+        <label for="d-applicant-type">ประเภทผู้ขอรับทุน</label>
+        <p-select
+          inputId="d-applicant-type"
+          [options]="[
+            { label: 'ทั้งหมด', value: 'all' },
+            { label: 'บุคคลธรรมดา', value: 'person' },
+            { label: 'นิติบุคคล', value: 'juristic' },
+            { label: 'หน่วยงานของรัฐ', value: 'gov' }
+          ]"
+          optionLabel="label"
+          optionValue="value"
+          [ngModel]="'all'"
+          appendTo="body"
+        />
+      </div>
+      <div class="btfp-field">
+        <!-- Figma ใช้ Forms/Autocomplete ตอนต่อ API ให้เปลี่ยนเป็น p-autocomplete ที่ค้นจาก API -->
+        <label for="d-agency">หน่วยงาน</label>
+        <p-select
+          inputId="d-agency"
+          [options]="[
+            { label: 'มหาวิทยาลัยตัวอย่าง', value: 'a1' },
+            { label: 'มูลนิธิเพื่อสังคม', value: 'a2' },
+            { label: 'บริษัท นวัตกรรมไทย จำกัด', value: 'a3' }
+          ]"
+          optionLabel="label"
+          optionValue="value"
+          [filter]="true"
+          filterPlaceholder="ค้นหาชื่อหน่วยงาน"
+          placeholder="ค้นหาชื่อหน่วยงาน"
+          [showClear]="true"
+          appendTo="body"
+        />
+      </div>
+      <div class="btfp-field">
+        <label for="d-province">จังหวัด</label>
+        <p-select
+          inputId="d-province"
+          [options]="[
+            { label: 'ทั้งหมด', value: 'all' },
+            { label: 'กรุงเทพมหานคร', value: '10' },
+            { label: 'เชียงใหม่', value: '50' },
+            { label: 'ขอนแก่น', value: '40' }
+          ]"
+          optionLabel="label"
+          optionValue="value"
+          [filter]="true"
+          [ngModel]="'all'"
+          appendTo="body"
+        />
+      </div>
+    </fieldset>
+
+    <fieldset class="filter-group">
+      <legend>วงเงินและวันที่</legend>
+      <div class="field-pair">
+        <div class="btfp-field">
+          <label for="d-budget-from">วงเงินขอรับ ตั้งแต่</label>
+          <p-inputgroup>
+            <p-inputnumber inputId="d-budget-from" [minFractionDigits]="2" [maxFractionDigits]="2" [ngModel]="1000000" />
+            <p-inputgroup-addon>THB</p-inputgroup-addon>
+          </p-inputgroup>
+        </div>
+        <div class="btfp-field">
+          <label for="d-budget-to">ถึง</label>
+          <p-inputgroup>
+            <p-inputnumber inputId="d-budget-to" [minFractionDigits]="2" [maxFractionDigits]="2" [ngModel]="5000000" />
+            <p-inputgroup-addon>THB</p-inputgroup-addon>
+          </p-inputgroup>
+        </div>
+      </div>
+      <div class="field-pair">
+        <div class="btfp-field">
+          <label for="d-date-from">วันที่ยื่น ตั้งแต่</label>
+          <btfp-datepicker inputId="d-date-from" />
+        </div>
+        <div class="btfp-field">
+          <label for="d-date-to">ถึง</label>
+          <btfp-datepicker inputId="d-date-to" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="filter-group">
+      <legend>ผลการตรวจสอบ</legend>
+      <span class="filter-group__sub">ผลตรวจความซ้ำซ้อน</span>
+      <div class="check-row">
+        <p-checkbox inputId="d-dup-none" [binary]="true" />
+        <label for="d-dup-none">ไม่พบความซ้ำซ้อน</label>
+      </div>
+      <div class="check-row">
+        <p-checkbox inputId="d-dup-partial" [binary]="true" />
+        <label for="d-dup-partial">พบซ้ำบางส่วน</label>
+      </div>
+      <div class="check-row">
+        <p-checkbox inputId="d-dup-high" [binary]="true" />
+        <label for="d-dup-high">พบซ้ำสูง</label>
+      </div>
+      <span class="filter-group__sub">กำหนดเวลา</span>
+      <div class="check-row">
+        <p-checkbox inputId="d-overdue" [binary]="true" />
+        <label for="d-overdue">เกินกำหนด</label>
+      </div>
+      <div class="check-row">
+        <p-checkbox inputId="d-due-soon" [binary]="true" />
+        <label for="d-due-soon">ใกล้ครบกำหนด (ภายใน 7 วัน)</label>
+      </div>
+    </fieldset>
+  </div>
+
+  <ng-template #footer>
+    <div class="filter-drawer__footer">
+      <p-button label="ล้างทั้งหมด" [text]="true" />
+      <span class="spacer"></span>
+      <p-button label="ยกเลิก" [outlined]="true" severity="secondary" (onClick)="filterDrawerOpen.set(false)" />
+      <p-button label="ใช้ตัวกรอง (3)" (onClick)="filterDrawerOpen.set(false)" />
+    </div>
+  </ng-template>
+</p-drawer>

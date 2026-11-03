@@ -1,0 +1,126 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--btfp-topbar-height);
+  padding: 0 24px;
+  background: var(--btfp-surface-raised);
+  border-bottom: 1px solid var(--btfp-border-default);
+}
+
+.topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.topbar__logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar__logo-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--btfp-border-default);
+}
+
+.topbar__divider {
+  width: 1px;
+  height: 32px;
+  background: var(--btfp-border-default);
+
+  &--short {
+    height: 24px;
+  }
+}
+
+.topbar__title {
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar__system {
+  font-family: var(--btfp-font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--btfp-text-heading);
+}
+
+.topbar__org {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--btfp-text-secondary);
+}
+
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar__user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: var(--btfp-icon-default);
+}
+
+.topbar__user-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar__user-name {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--btfp-text-primary);
+}
+
+.topbar__user-role {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--btfp-text-secondary);
+}
+
+:host ::ng-deep .p-avatar {
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+  background: var(--btfp-gray-100);
+  color: var(--btfp-text-secondary);
+  border: 1px solid var(--btfp-border-default);
+}
+
+.topbar__bell {
+  position: relative;
+  display: inline-flex;
+}
+
+.topbar__unread {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--btfp-red-600);
+  border: 1.5px solid var(--btfp-surface-raised);
+  pointer-events: none;
+}
