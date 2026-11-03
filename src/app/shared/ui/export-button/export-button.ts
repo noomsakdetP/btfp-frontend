@@ -19,7 +19,7 @@ export type BtfpExportFormat = 'xlsx' | 'pdf' | 'csv';
   imports: [Button, Menu, BtfpIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <p-button [outlined]="true" (onClick)="menu.toggle($event)" [ariaLabel]="label()">
+    <p-button [outlined]="true" severity="secondary" (onClick)="menu.toggle($event)" [ariaLabel]="label()">
       <btfp-icon name="download" size="18" />
       <span class="export__label">{{ label() }}</span>
       <btfp-icon name="chevron-down" size="16" />

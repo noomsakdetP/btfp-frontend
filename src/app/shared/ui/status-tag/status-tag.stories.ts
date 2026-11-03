@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
-import { BtfpStatusTag } from './status-tag';
+import { BTFP_STATUS, BtfpStatusTag } from './status-tag';
+
+const STATUSES = Object.keys(BTFP_STATUS);
 
 const meta: Meta<BtfpStatusTag> = {
   title: 'Components/Status Tag',
@@ -9,18 +11,19 @@ const meta: Meta<BtfpStatusTag> = {
     docs: {
       description: {
         component:
-          'ป้ายสถานะ สร้างบน `p-tag` ของ PrimeNG (Figma: DataDisplay/Tag) ข้อความใส่ระหว่างแท็ก ไอคอนใช้ชื่อ Lucide แบบ kebab-case',
+          'ป้ายสถานะ (Figma: Domain/Status Badge) ใส่ `status` อย่างเดียวได้สี ไอคอน และข้อความตาม Figma ครบ 14 สถานะ ไม่ต้องเลือกสีเอง ถ้าเป็นป้ายอื่นใส่ `severity` + `icon` + ข้อความเอง',
       },
     },
   },
   argTypes: {
-    severity: { control: 'select', options: ['info', 'success', 'warn', 'danger', 'secondary'] },
+    status: { control: 'select', options: STATUSES },
+    severity: { control: 'select', options: [undefined, 'info', 'success', 'warn', 'danger', 'secondary', 'navy', 'teal', 'orange'] },
     icon: { control: 'text' },
   },
-  args: { severity: 'info', icon: 'hourglass' },
+  args: { status: 'review' },
   render: (args) => ({
     props: args,
-    template: `<btfp-status-tag [severity]="severity" [icon]="icon">รอการพิจารณา</btfp-status-tag>`,
+    template: `<btfp-status-tag [status]="status" [severity]="severity" [icon]="icon" />`,
   }),
 };
 export default meta;
@@ -29,16 +32,32 @@ type Story = StoryObj<BtfpStatusTag>;
 export const Playground: Story = {};
 
 export const AllStatuses: Story = {
-  name: 'สถานะทั้งหมดในหน้า B-01',
+  name: 'ครบ 14 สถานะ',
+  parameters: { controls: { disable: true } },
+  render: () => ({
+    template: `
+      <div style="display:grid; grid-template-columns:max-content max-content; gap:12px 24px; align-items:center">
+        ${STATUSES.map(
+          (s) => `<code style="font-size:12px;color:var(--btfp-text-secondary)">status="${s}"</code><span><btfp-status-tag status="${s}" /></span>`,
+        ).join('')}
+      </div>`,
+  }),
+};
+
+export const Custom: Story = {
+  name: 'ป้ายอื่น (กำหนดสีเอง)',
+  parameters: { controls: { disable: true } },
   render: () => ({
     template: `
       <div style="display:flex; gap:12px; flex-wrap:wrap">
-        <btfp-status-tag severity="info" icon="send">ส่งแล้ว รอการตรวจสอบ</btfp-status-tag>
-        <btfp-status-tag severity="info" icon="hourglass">รอการพิจารณา</btfp-status-tag>
-        <btfp-status-tag severity="warn" icon="rotate-ccw">ไม่ผ่าน รอแก้ไข</btfp-status-tag>
-        <btfp-status-tag severity="danger" icon="ban">ไม่ผ่านคุณสมบัติ</btfp-status-tag>
-        <btfp-status-tag severity="success" icon="circle-check">อนุมัติ</btfp-status-tag>
-        <btfp-status-tag severity="secondary">ฉบับร่าง</btfp-status-tag>
+        <btfp-status-tag severity="info" icon="info">info</btfp-status-tag>
+        <btfp-status-tag severity="success" icon="circle-check">success</btfp-status-tag>
+        <btfp-status-tag severity="warn" icon="triangle-alert">warn</btfp-status-tag>
+        <btfp-status-tag severity="danger" icon="ban">danger</btfp-status-tag>
+        <btfp-status-tag severity="secondary">secondary</btfp-status-tag>
+        <btfp-status-tag severity="navy">navy</btfp-status-tag>
+        <btfp-status-tag severity="teal">teal</btfp-status-tag>
+        <btfp-status-tag severity="orange">orange</btfp-status-tag>
       </div>`,
   }),
 };

@@ -33,16 +33,23 @@ export const BtfpPreset = definePreset(Aura, {
       900: '#052f46',
       950: '#031d2c',
     },
+    // Figma state=focus: เส้น focus-ring (blue/600) + วงนอก 3px สี blue/200
     focusRing: {
       width: '2px',
       style: 'solid',
       color: '{primary.600}',
-      offset: '2px',
+      offset: '0',
+      shadow: '0 0 0 5px {primary.200}',
     },
+    // Figma Forms/*: สูง 40px ขอบซ้ายขวา 16px ตัวอักษร 16px มุม 4px
     formField: {
-      paddingX: '0.75rem',
-      paddingY: '0.5rem',
+      paddingX: '1rem',
+      paddingY: '0.375rem', // 6px + line-height 25.6px + เส้นขอบ 2px = 40px
       borderRadius: '4px', // radius/input
+      fontSize: '1rem',
+      focusRing: { width: '0', style: 'none', color: 'transparent', offset: '0', shadow: '0 0 0 3px {primary.200}' },
+      sm: { fontSize: '0.875rem', paddingX: '0.75rem', paddingY: '0.25rem' },
+      lg: { fontSize: '1rem', paddingX: '1rem', paddingY: '0.6875rem' },
     },
     colorScheme: {
       light: {
@@ -85,27 +92,45 @@ export const BtfpPreset = definePreset(Aura, {
           hoverBorderColor: '{surface.400}',
           focusBorderColor: '{primary.600}',
           invalidBorderColor: '#be123c',
-          placeholderColor: '{surface.500}',
+          placeholderColor: '{surface.600}', // text/secondary
+          disabledBackground: '{surface.50}', // input/bg/disabled
+          disabledColor: '{surface.400}', // text/disabled
           color: '{surface.800}',
         },
       },
     },
   },
   components: {
+    // Figma: Actions/Button และ Actions/IconButton
     button: {
       root: {
         borderRadius: '8px', // radius/button
         paddingX: '1rem',
-        paddingY: '0.4375rem', // 7px + line-height 24px + เส้นขอบ 2px = 40px ตาม Figma
+        paddingY: '0.4375rem', // 7px + line-height 24px + เส้นขอบ 2px = 40px
         gap: '0.5rem',
-        sm: { fontSize: '0.875rem', paddingX: '0.5rem', paddingY: '0.25rem' },
-        // Figma: Actions/Button Size=lg สูง 48px ขอบซ้ายขวา 24px ตัวอักษร 16px
-        lg: { fontSize: '1rem', paddingX: '1.5rem', paddingY: '0.6875rem' }, // 48px
+        iconOnlyWidth: '2.5rem',
+        sm: { fontSize: '0.875rem', paddingX: '0.5rem', paddingY: '0.28125rem', iconOnlyWidth: '2rem' }, // 32px
+        lg: { fontSize: '1rem', paddingX: '1.5rem', paddingY: '0.6875rem', iconOnlyWidth: '3rem' }, // 48px
         label: { fontWeight: '500' },
       },
       colorScheme: {
         light: {
-          // Figma: Actions/Button Variant=secondary พื้นขาว เส้น border/strong ข้อความ action/secondary
+          root: {
+            // Type=danger ใน Figma เป็นปุ่มพื้นอ่อน ไม่ใช่ปุ่มแดงทึบ
+            danger: {
+              background: '#fff1f2',
+              hoverBackground: '#ffe4e6',
+              activeBackground: '#fecdd3',
+              borderColor: '#fecdd3',
+              hoverBorderColor: '#fda4af',
+              activeBorderColor: '#fda4af',
+              color: '#9f1239',
+              hoverColor: '#9f1239',
+              activeColor: '#881337',
+              focusRing: { color: '{primary.600}', shadow: '0 0 0 5px {primary.200}' },
+            },
+          },
+          // Type=secondary พื้นขาว เส้น border/strong ข้อความ action/secondary
           outlined: {
             secondary: {
               hoverBackground: '{surface.50}',
@@ -114,8 +139,71 @@ export const BtfpPreset = definePreset(Aura, {
               color: '#0a4263',
             },
           },
+          // Type=tertiary / IconButton ghost: ข้อความ action/link พื้นตอนชี้ button/ghost/bg/hover
+          text: {
+            primary: { hoverBackground: '{surface.100}', activeBackground: '{surface.200}', color: '{primary.700}' },
+            secondary: { hoverBackground: '{surface.100}', activeBackground: '{surface.200}', color: '{surface.600}' },
+            danger: { hoverBackground: '#fff1f2', activeBackground: '#ffe4e6', color: '#be123c' },
+          },
         },
       },
+    },
+    // Figma: Forms/Checkbox 24px มุม 4px เส้น border/strong
+    checkbox: {
+      root: { width: '1.5rem', height: '1.5rem', borderRadius: '4px', borderColor: '{surface.400}', hoverBorderColor: '{surface.500}' },
+      icon: { size: '1rem' },
+    },
+    // Figma: Forms/Radio 24px จุดกลาง 8px
+    radiobutton: {
+      root: { width: '1.5rem', height: '1.5rem', borderColor: '{surface.400}', hoverBorderColor: '{surface.500}' },
+      icon: { size: '0.5rem' },
+    },
+    // Figma: Forms/Toggle 44x24 พื้นขาวเส้นเทา ปุ่มกลม 18px สีเทา เปิดแล้วพื้น primary ปุ่มขาว
+    toggleswitch: {
+      root: {
+        width: '2.75rem',
+        height: '1.5rem',
+        gap: '0.125rem',
+        borderColor: '{surface.400}',
+        hoverBorderColor: '{surface.500}',
+        checkedBorderColor: '{primary.color}',
+        checkedHoverBorderColor: '{primary.hover.color}',
+        background: '{surface.0}',
+        hoverBackground: '{surface.0}',
+      },
+      handle: {
+        size: '1.125rem',
+        background: '{surface.400}',
+        hoverBackground: '{surface.500}',
+        checkedBackground: '{surface.0}',
+        checkedHoverBackground: '{surface.0}',
+      },
+    },
+    // Figma: Forms/Segmented Control กรอบเทามุม 12px ช่องที่เลือกพื้น primary
+    togglebutton: {
+      root: {
+        padding: '0.25rem',
+        borderRadius: '12px',
+        fontWeight: '400',
+        fontSize: '1rem',
+        background: '{surface.50}',
+        checkedBackground: '{surface.50}',
+        hoverBackground: '{surface.50}',
+        borderColor: '{surface.200}',
+        checkedBorderColor: '{surface.200}',
+        color: '{surface.600}',
+        hoverColor: '{surface.800}',
+        checkedColor: '{surface.0}',
+      },
+      content: {
+        padding: '0.625rem 1rem',
+        borderRadius: '8px',
+        checkedBackground: '{primary.600}',
+        checkedShadow: '0 1px 3px rgba(15, 23, 41, 0.12)',
+      },
+    },
+    selectbutton: {
+      root: { borderRadius: '12px' },
     },
     card: {
       root: { borderRadius: '12px' },
@@ -126,26 +214,30 @@ export const BtfpPreset = definePreset(Aura, {
       footer: { padding: '1rem 1.5rem' },
       title: { fontSize: '1.25rem', fontWeight: '600' },
     },
+    // Figma: Navigation/Tabs ตัวอักษร 16px เส้นใต้ 3px ที่เลือกสี action/primary
     tabs: {
       tablist: { background: 'transparent', borderColor: '{surface.200}' },
       tab: {
-        padding: '0.5rem 1rem 0.75rem 1rem',
+        padding: '0.5rem 1rem 0.625rem 1rem',
         fontWeight: '400',
-        activeColor: '{primary.700}',
+        fontSize: '1rem',
+        activeColor: '{primary.600}',
+        hoverColor: '{surface.800}',
         color: '{surface.600}',
       },
       activeBar: { height: '3px', background: '{primary.600}' },
     },
+    // Figma: DataDisplay/Tag มุม 4px สูง 32px ตัวอักษร Regular 14 (เส้นขอบอยู่ใน styles.scss เพราะ p-tag ไม่มี token เส้นขอบ)
     tag: {
-      root: { fontSize: '0.8125rem', fontWeight: '500', padding: '0.125rem 0.5rem', gap: '0.25rem', borderRadius: '9999px' },
+      root: { fontSize: '0.875rem', fontWeight: '400', padding: '0.25rem 0.5rem', gap: '0.25rem', borderRadius: '4px', roundedBorderRadius: '9999px' },
+      icon: { size: '1rem' },
       colorScheme: {
         light: {
-          // Figma: color/feedback/*
           info: { background: '#eaf8ff', color: '#005e91' },
           success: { background: '#f0fdf4', color: '#166534' },
           warn: { background: '#fefce8', color: '#713f12' },
           danger: { background: '#fff1f2', color: '#9f1239' },
-          secondary: { background: '{surface.100}', color: '{surface.700}' },
+          secondary: { background: '{surface.50}', color: '{surface.600}' }, // Tone=neutral
         },
       },
     },
@@ -158,14 +250,29 @@ export const BtfpPreset = definePreset(Aura, {
         },
       },
     },
+    // Figma: Feedback/Tooltip พื้น bg/inverse ตัวอักษร 12px มุม 4px
+    tooltip: {
+      root: { background: '#092a48', color: '#ffffff', padding: '0.25rem 0.5rem', fontSize: '0.75rem', borderRadius: '4px', maxWidth: '20rem' },
+    },
+    // Figma: Navigation/PaginationItem 32px มุม 8px หน้าปัจจุบันพื้น primary
     paginator: {
       navButton: {
-        borderRadius: '6px',
+        borderRadius: '8px',
         width: '2rem',
         height: '2rem',
+        color: '{surface.800}',
+        hoverColor: '{surface.800}',
+        hoverBackground: '{surface.100}',
         selectedBackground: '{primary.600}',
         selectedColor: '#ffffff',
+        fontSize: '0.875rem',
       },
+    },
+    // Figma: DataDisplay/Avatar พื้น bg/subtle ตัวอักษร text/heading  S 32 = ค่าเริ่มต้น, M 40 = size="large", L 48 = size="xlarge"
+    avatar: {
+      root: { width: '2rem', height: '2rem', fontSize: '0.75rem', background: '{surface.50}', color: '#092a48' },
+      lg: { width: '2.5rem', height: '2.5rem', fontSize: '0.875rem' },
+      xl: { width: '3rem', height: '3rem', fontSize: '1rem' },
     },
   },
 });

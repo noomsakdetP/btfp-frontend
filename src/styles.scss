@@ -9,6 +9,76 @@
     box-sizing: border-box;
   }
 
+  // ---------- ส่วนเสริมของ PrimeNG ที่ preset ทำไม่ได้ ----------
+
+  // ช่องบังคับกรอก ข้อความช่วย และข้อความผิดพลาดใต้ช่อง (Figma Forms/*)
+  .btfp-required {
+    margin-left: 4px;
+    color: var(--btfp-danger-text);
+  }
+  .btfp-field__helper {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--btfp-text-secondary);
+  }
+  .btfp-field__error {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--btfp-danger-text);
+
+    btfp-icon {
+      display: inline-flex;
+      color: var(--btfp-icon-danger);
+    }
+  }
+
+  // ปุ่มขนาด S ใน Figma ใช้ตัวอักษร Regular
+  .p-button-sm .p-button-label {
+    font-weight: 400;
+  }
+
+  // แท็บที่เลือกตัวหนา Medium
+  .p-tab-active {
+    font-weight: 500;
+  }
+
+  // DataDisplay/Tag มีเส้นขอบตามสี (p-tag ไม่มี token เส้นขอบ)
+  .p-tag {
+    border: 1px solid var(--btfp-info-border);
+    line-height: 1.6;
+  }
+  .p-tag-success { border-color: var(--btfp-success-border); }
+  .p-tag-warn { border-color: var(--btfp-warning-border); }
+  .p-tag-danger { border-color: var(--btfp-danger-border); }
+  .p-tag-secondary { border-color: var(--btfp-border-default); }
+
+  // Segmented Control (p-selectbutton): กรอบเดียวพื้น bg/subtle มุม 12px ช่องห่างกัน 4px
+  .p-selectbutton {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--btfp-border-default);
+    border-radius: 12px;
+    background: var(--btfp-bg-subtle);
+
+    .p-togglebutton {
+      padding: 0;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+    }
+  }
+
+  // Avatar มีเส้นขอบ border/default
+  .p-avatar {
+    border: 1px solid var(--btfp-border-default);
+  }
+
   // ปุ่ม PrimeNG สืบ line-height 1.6 จาก body ทำให้สูง 44px ตั้งเป็น 1.5 ให้ได้ 40px (ขนาดปกติ) และ 48px (size="large") ตาม Figma
   .p-button {
     line-height: 1.5;
@@ -43,6 +113,21 @@
     color: var(--btfp-action-link);
   }
 
+  // ---------- ตัวอักษร (Figma: Typography/*) ใช้เป็น class ได้ทุกที่ ----------
+  .btfp-text-display-xl { font: 700 60px/1.2 var(--btfp-font-heading); }
+  .btfp-text-display { font: 700 40px/1.35 var(--btfp-font-heading); }
+  .btfp-text-h1 { font: 700 32px/1.35 var(--btfp-font-heading); }
+  .btfp-text-h2 { font: 600 24px/1.35 var(--btfp-font-heading); }
+  .btfp-text-h3 { font: 600 20px/1.35 var(--btfp-font-heading); }
+  .btfp-text-h4 { font: 600 18px/1.35 var(--btfp-font-heading); }
+  .btfp-text-body-l { font: 400 18px/1.6 var(--btfp-font-body); }
+  .btfp-text-body { font: 400 16px/1.6 var(--btfp-font-body); }
+  .btfp-text-body-medium { font: 500 16px/1.6 var(--btfp-font-body); }
+  .btfp-text-body-s { font: 400 14px/1.6 var(--btfp-font-body); }
+  .btfp-text-body-s-medium { font: 500 14px/1.6 var(--btfp-font-body); }
+  .btfp-text-table { font: 400 14px/1.5 var(--btfp-font-body); }
+  .btfp-text-caption { font: 400 12px/1.5 var(--btfp-font-body); }
+
   // ฟิลด์ฟอร์มแบบ "ป้ายชื่อด้านบน" ใช้ทั้งระบบ
   .btfp-field {
     display: flex;
@@ -50,10 +135,12 @@
     gap: var(--btfp-space-xs);
     min-width: 0;
 
+    // Figma Forms/*: ป้ายชื่อ Sarabun Medium 16 สี text/heading
     > label {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
-      color: var(--btfp-text-primary);
+      line-height: 1.6;
+      color: var(--btfp-text-heading);
     }
 
     .p-select,
@@ -96,12 +183,12 @@
   .btfp-checkbox {
     appearance: none;
     flex-shrink: 0;
-    width: 20px;
-    height: 20px;
+    width: 24px; // Figma Forms/Checkbox 24px เครื่องหมาย 16px
+    height: 24px;
     margin: 0;
     border: 1px solid var(--btfp-border-strong);
     border-radius: var(--btfp-radius-input);
-    background: var(--btfp-surface-raised) center / 14px no-repeat;
+    background: var(--btfp-surface-raised) center / 16px no-repeat;
     vertical-align: middle;
     cursor: pointer;
     transition: background-color 0.15s, border-color 0.15s;

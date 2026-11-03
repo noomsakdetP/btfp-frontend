@@ -24,7 +24,9 @@
 
 ทุกสีในโค้ดต้องมาจาก token (`src/styles/_tokens.scss` เป็น CSS variable `--btfp-*` และ `src/app/theme/btfp-preset.ts` สำหรับ PrimeNG) ห้ามใส่รหัสสีตรง
 
-**Primitive** (Figma collection `primitives`): blue, navy, teal, cool-gray, red, orange, green, yellow ระดับ 50 ถึง 900
+ดูค่าทั้งหมดใน Storybook หมวด **Foundations** (สี ตัวอักษร ระยะ มุมโค้ง เงา ไอคอน) ค่าใน `_tokens.scss` ตรงกับ Figma Variables ครบทุกตัว (primitives 102 ตัว semantic 63 ตัว component 26 ตัว)
+
+**Primitive** (Figma collection `primitives`): blue, navy, teal, cool-gray, red, orange, green, yellow ระดับ 50 ถึง 900 ในโค้ดชื่อ `--btfp-<สี>-<ระดับ>` (cool-gray ใช้ชื่อ `gray`)
 
 **Semantic** ที่ใช้บ่อย
 
@@ -61,14 +63,16 @@
 | Table | Sarabun Regular | 14 / 150% | ข้อมูลในตาราง |
 | Caption | Sarabun Regular | 12 / 150% | ข้อความช่วย หมายเหตุ |
 
-ฟอนต์โหลดจาก `@fontsource` ในโปรเจกต์ ไม่เรียกจาก Google Fonts (ใช้ได้ในเครือข่ายปิด)
+ใช้ในโค้ดเป็น class `.btfp-text-<ชื่อ>` เช่น `.btfp-text-h2` `.btfp-text-body-s-medium` `.btfp-text-caption` (อยู่ใน `src/styles.scss`)
+
+ฟอนต์โหลดจาก `@fontsource` ในโปรเจกต์ ไม่เรียกจาก Google Fonts (ใช้ได้ในเครือข่ายปิด) IBM Plex Sans Thai โหลดน้ำหนัก 500 600 700 Sarabun โหลด 400 500 600
 
 ### 2.3 ระยะห่าง มุมโค้ง ขนาด เงา
 
 | กลุ่ม | ค่า |
 | --- | --- |
-| Spacing | 4, 8, 12, 16, 24, 32, 48, 64 px (xs 4, sm 8, md 16, lg 24, xl 32, 2xl 48) |
-| Radius | input/tag 4, button 8, card/modal 12, card ใหญ่ 16, pill 9999 px |
+| Spacing | 4, 8, 12, 16, 24, 32, 48, 64 px (xs 4, sm 8, md 16, lg 24, xl 32, 2xl 48, 3xl 64) |
+| Radius | input/tag 4, button/inner 8, card/modal 12, card-lg 16, full 9999 px |
 | ความสูงช่องกรอกและปุ่ม | S 32, M 40, L 48 px (ค่าเริ่มต้น M) |
 | แถวตาราง | 56 px (หัวตาราง 44 px) |
 | Sidebar / TopBar | กว้าง 264 px / สูง 64 px |
@@ -93,7 +97,7 @@
 
 ### 2.5 ไอคอน
 
-Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื่อ>`) เส้นหนา 1.5 ขนาด 16px ลงมาใช้ 1.25 สีตามข้อความรอบข้าง
+Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื่อ>`) เส้นหนา 1.5 ขนาด 16px ลงมาใช้ 1.25 สีตามข้อความรอบข้าง ไอคอนที่ลงทะเบียนในโค้ดแล้วดูได้ที่ Storybook > Foundations > ไอคอน
 ใช้ใน code: `<btfp-icon name="eye" size="16" />` ชื่อที่ Lucide เปลี่ยนแล้วดูใน `CLAUDE.md`
 
 ---
@@ -106,10 +110,10 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 
 | Figma | ในโค้ด | สถานะ | หมายเหตุ |
 | --- | --- | --- | --- |
-| Actions/Button | `p-button` | PrimeNG | primary = ค่าเริ่มต้น, secondary = `outlined severity="secondary"` (พื้นขาว เส้น border/strong ข้อความ action/secondary), tertiary = `text`, danger = `severity="danger"` สูง 40px, `size="large"` สูง 48px |
-| Actions/IconButton | `p-button` + `btfp-icon` | PrimeNG | ต้องใส่ `ariaLabel` เสมอ |
+| Actions/Button | `p-button` | PrimeNG | primary = ค่าเริ่มต้น, secondary = `outlined severity="secondary"` (พื้นขาว เส้น border/strong ข้อความ action/secondary), tertiary = `text`, danger = `severity="danger"` (พื้นแดงอ่อนตาม Figma ไม่ใช่แดงทึบ) Size S = `size="small"` 32px, M 40px, L = `size="large"` 48px ดู Storybook หมวด PrimeNG (ธีม กทปส.) |
+| Actions/IconButton | `p-button` + `btfp-icon` | PrimeNG | ต้องใส่ `ariaLabel` และ `pTooltip` เสมอ ghost = `text` |
 | Actions/Export Menu Button | `btfp-export-button` | ทำแล้ว | ใช้ตัวเดียวทั้งระบบ ตัวเลือก Excel, PDF, CSV |
-| Forms/TextInput | `input pInputText` | PrimeNG | |
+| Forms/TextInput | `input pInputText` | PrimeNG | สูง 40 ขอบซ้ายขวา 16 ตัวอักษร 16 ครอบด้วย `.btfp-field` + `.btfp-required` `.btfp-field__helper` `.btfp-field__error` |
 | Forms/Textarea | `textarea pTextarea` | PrimeNG | |
 | Forms/Select | `p-select` | PrimeNG | |
 | Forms/MultiSelect | `p-multiselect` | PrimeNG | `display="chip"` |
@@ -118,16 +122,16 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง |
 | Forms/OtpInput | `p-inputotp` | PrimeNG | |
 | Forms/SearchField | `p-iconfield` + `p-inputicon` + `pInputText` | PrimeNG | |
-| Forms/Checkbox | `p-checkbox` (หน้าหุ่นจำลองใช้ `.btfp-checkbox`) | PrimeNG | |
-| Forms/Radio | `p-radiobutton` | PrimeNG | |
-| Forms/Toggle | `p-toggleswitch` | PrimeNG | |
-| Forms/Segmented Control | `p-selectbutton` | ต้องทำ | ต้องปรับ preset ให้ตรง Figma |
-| DataDisplay/Tag | `p-tag` / `p-chip` | PrimeNG | ตัวกรองที่ใช้อยู่ใช้ `p-chip removable` |
-| DataDisplay/Avatar | `p-avatar` | PrimeNG | |
-| Feedback/Tooltip | `pTooltip` | PrimeNG | |
+| Forms/Checkbox | `p-checkbox` (หน้าหุ่นจำลองใช้ `.btfp-checkbox`) | PrimeNG | 24px |
+| Forms/Radio | `p-radiobutton` | PrimeNG | 24px |
+| Forms/Toggle | `p-toggleswitch` | PrimeNG | 44x24 ตอนปิดพื้นขาวปุ่มเทา |
+| Forms/Segmented Control | `p-selectbutton` | PrimeNG | ปรับแล้ว (preset + `styles.scss`) |
+| DataDisplay/Tag | `p-tag` / `p-chip` | PrimeNG | Tone neutral = `severity="secondary"` มุม 4 สูง 32 มีเส้นขอบ ตัวกรองที่ใช้อยู่ใช้ `p-chip removable` |
+| DataDisplay/Avatar | `p-avatar` | PrimeNG | S 32 = ค่าเริ่มต้น, M 40 = `size="large"`, L 48 = `size="xlarge"` |
+| Feedback/Tooltip | `pTooltip` | PrimeNG | พื้น navy/900 ตัวอักษร 12 |
 | Navigation/Breadcrumb | HTML ในหน้า | ทำแล้ว | `p-breadcrumb` ต้องใช้ข้อมูลแบบ binding จึงไม่ใช้ในหน้าหุ่นจำลอง |
-| Navigation/Tabs | `p-tabs` | PrimeNG | |
-| Navigation/Pagination | `p-paginator` | PrimeNG | |
+| Navigation/Tabs | `p-tabs` | PrimeNG | ตัวอักษร 16 แท็บที่เลือก Medium blue/600 เส้นใต้ 3px |
+| Navigation/Pagination | `p-paginator` | PrimeNG | ปุ่ม 32 มุม 8 |
 | Navigation/Sidebar, NavItem, NavSubItem | `btfp-sidebar` | ทำแล้ว (เจ้าหน้าที่) | ผู้บริหารและผู้ดูแลระบบยังไม่ทำ, NavSubItem ยังไม่ทำ |
 | Navigation/TopBar | `btfp-topbar`, `btfp-public-topbar` | ทำแล้ว (back-office, front-office-guest) | front-office หลังเข้าสู่ระบบและแบบมือถือยังไม่ทำ |
 | Brand/Logo | `public/brand/logo-nbtc.png`, `logo-btfp.png` | ทำแล้ว | ดึงจาก Figma (PNG 4 เท่า) ถ้าได้ SVG ต้นฉบับให้แทนที่ |
@@ -136,7 +140,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 
 | Figma | ในโค้ด | สถานะ | หมายเหตุ |
 | --- | --- | --- | --- |
-| Domain/Status Badge | `btfp-status-tag` | ทำแล้ว ไม่ครบ | ดูข้อ 4 สีไม่ครบตาม Figma |
+| Domain/Status Badge | `btfp-status-tag` | ทำแล้ว | ครบ 14 สถานะ ใส่ `status="review"` ได้สี ไอคอน ข้อความตาม Figma ดูข้อ 4 |
 | Domain/KPI Stat Card | `btfp-kpi-card` | ทำแล้ว | Tone และ Trend ยังไม่ทำ |
 | Domain/Table Header Cell, Table Cell, Data Table | `.btfp-table` (ต่อ API ใช้ `p-table`) | ทำแล้ว | แถว 56 px บรรทัดเดียว |
 | Domain/Table Row Actions | `btfp-row-actions` | ทำแล้ว | ดู แก้ไข ลบ ลบต้องยืนยัน |
@@ -170,26 +174,26 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 
 ## 4. สถานะ (Status Badge)
 
-ป้ายสถานะมี 14 สถานะ ข้อความต้องตรงตามนี้ทุกหน้า
+ป้ายสถานะมี 14 สถานะ ใช้ `<btfp-status-tag status="..." />` อย่างเดียว ได้สี ไอคอน และข้อความตาม Figma ไม่ต้องเลือกสีเอง ค่าทั้งหมดอยู่ที่ `BTFP_STATUS` ใน `status-tag.ts`
 
-| สถานะ (Figma variant) | ข้อความ | พื้นใน Figma | btfp-status-tag ตอนนี้ |
-| --- | --- | --- | --- |
-| Draft | ฉบับร่าง | cool-gray/50 | `secondary` ตรง |
-| Send | ส่งแล้ว รอการตรวจสอบ | blue/50 | `info` ตรง |
-| Review | รอการพิจารณา | navy/50 | ใช้ `info` (blue) **ไม่ตรง** |
-| Suspend | ไม่ผ่าน รอแก้ไข | yellow/50 | `warn` ตรง |
-| Docs Incomplete | เอกสารไม่ครบ รอแก้ไข | yellow/50 | `warn` ตรง |
-| Not Qualified | ไม่ผ่านคุณสมบัติ | red/50 | `danger` ตรง |
-| Reject | ไม่อนุมัติ | red/50 | `danger` ตรง |
-| Passed Check | ผ่านการตรวจสอบ | teal/50 | **ยังไม่มีสี teal** |
-| Board | ผ่านความเห็นชอบ เสนอบอร์ด กสทช. | teal/50 | **ยังไม่มีสี teal** |
-| Submitted | อนุมัติ | green/50 | `success` ตรง |
-| In Progress | ดำเนินโครงการ | teal/50 | **ยังไม่มีสี teal** |
-| Awaiting Disbursement | รอเบิกจ่าย | navy/50 | **ยังไม่มีสี navy** |
-| Delayed | ล่าช้า | orange/50 | **ยังไม่มีสี orange** |
-| Closed | ปิดโครงการ | cool-gray/50 | `secondary` ตรง |
+ขนาดตาม Figma: สูง 32 มุมมน ขอบซ้ายขวา 8 ไอคอน 16 Sarabun Medium 14 สีพื้น /50 เส้นขอบ /200 ตัวอักษร /700 (yellow ใช้ /800)
 
-**ต้องแก้:** เพิ่ม severity `navy`, `teal`, `orange` ใน `btfp-status-tag` หรือเปลี่ยนให้รับ `status="review"` ตาม variant ใน Figma แทนการเลือกสีเอง (แนะนำแบบหลัง จะได้ไม่เลือกสีผิด) แล้วแก้หน้า B-01 ที่ใช้ "รอการพิจารณา" เป็นสี blue
+| สถานะ (Figma variant) | `status=` | ข้อความ | สี | ไอคอน |
+| --- | --- | --- | --- | --- |
+| Draft | `draft` | ฉบับร่าง | cool-gray | pencil |
+| Send | `send` | ส่งแล้ว รอการตรวจสอบ | blue (info) | send |
+| Review | `review` | รอการพิจารณา | navy | hourglass |
+| Suspend | `suspend` | ไม่ผ่าน รอแก้ไข | yellow (warn) | rotate-ccw |
+| Docs Incomplete | `docs-incomplete` | เอกสารไม่ครบ รอแก้ไข | yellow (warn) | circle-alert |
+| Not Qualified | `not-qualified` | ไม่ผ่านคุณสมบัติ | red (danger) | ban |
+| Reject | `reject` | ไม่อนุมัติ | red (danger) | circle-x |
+| Passed Check | `passed-check` | ผ่านการตรวจสอบ | teal | circle-check |
+| Board | `board` | ผ่านความเห็นชอบ เสนอบอร์ด กสทช. | teal | landmark |
+| Submitted | `submitted` | อนุมัติ | green (success) | circle-check |
+| In Progress | `in-progress` | ดำเนินโครงการ | teal | list-checks |
+| Awaiting Disbursement | `awaiting-disbursement` | รอเบิกจ่าย | navy | wallet |
+| Delayed | `delayed` | ล่าช้า | orange | calendar-clock |
+| Closed | `closed` | ปิดโครงการ | cool-gray | clipboard-check |
 
 ---
 

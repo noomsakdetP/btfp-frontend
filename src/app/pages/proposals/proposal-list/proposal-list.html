@@ -29,7 +29,7 @@
       <p>ประกาศทุนประจำปีงบประมาณ 2569 ครั้งที่ 1 แสดงเฉพาะข้อเสนอใน TOR ของสำนักท่าน</p>
     </div>
     <div class="flex shrink-0 flex-wrap gap-3">
-      <p-button outlined routerLink="/reports">
+      <p-button outlined severity="secondary" routerLink="/reports">
         <btfp-icon name="chart-column" size="18" />
         <span>รายงาน</span>
       </p-button>
@@ -89,7 +89,7 @@
         <p-select inputId="f-officer" placeholder="ทั้งหมด" styleClass="btfp-mock-value" />
       </div>
 
-      <p-button outlined routerLink="/proposals/filters" styleClass="w-full whitespace-nowrap wide:w-auto">
+      <p-button outlined severity="secondary" routerLink="/proposals/filters" styleClass="w-full whitespace-nowrap wide:w-auto">
         <btfp-icon name="funnel" size="18" />
         <span>ตัวกรองเพิ่มเติม (10)</span>
       </p-button>
@@ -132,8 +132,8 @@
           <col class="w-[240px]" />
           <col class="w-[120px]" />
           <col class="w-[170px]" />
-          <col class="w-[200px]" />
-          <col class="w-[200px]" />
+          <col class="w-[184px]" />
+          <col class="w-[216px]" />
           <col class="w-[190px]" />
           <col class="w-28" />
         </colgroup>
@@ -160,7 +160,7 @@
             <td>52(2)</td>
             <td class="cell-num">1,440,000.00</td>
             <td>2. ตรวจสอบคุณสมบัติ</td>
-            <td><btfp-status-tag severity="info" icon="hourglass">รอการพิจารณา</btfp-status-tag></td>
+            <td><btfp-status-tag status="review" /></td>
             <td>กมลวรรณ ศรีสุข</td>
             <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0042" /></td>
           </tr>
@@ -172,7 +172,7 @@
             <td>52(1)</td>
             <td class="cell-num">980,000.00</td>
             <td>2. ตรวจสอบคุณสมบัติ</td>
-            <td><btfp-status-tag severity="warn" icon="rotate-ccw">ไม่ผ่าน รอแก้ไข</btfp-status-tag></td>
+            <td><btfp-status-tag status="suspend" /></td>
             <td>กมลวรรณ ศรีสุข</td>
             <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0041" /></td>
           </tr>
@@ -184,7 +184,7 @@
             <td>52(6)</td>
             <td class="cell-num">2,400,000.00</td>
             <td>2. ตรวจสอบคุณสมบัติ</td>
-            <td><btfp-status-tag severity="info" icon="send">ส่งแล้ว รอการตรวจสอบ</btfp-status-tag></td>
+            <td><btfp-status-tag status="send" /></td>
             <td class="text-unassigned">ยังไม่มอบหมาย</td>
             <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0040" /></td>
           </tr>
@@ -196,7 +196,7 @@
             <td>52(2)</td>
             <td class="cell-num">3,100,000.00</td>
             <td>2. ตรวจสอบคุณสมบัติ</td>
-            <td><btfp-status-tag severity="info" icon="hourglass">รอการพิจารณา</btfp-status-tag></td>
+            <td><btfp-status-tag status="review" /></td>
             <td>ธนพล วัฒนะ</td>
             <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0039" /></td>
           </tr>
@@ -208,7 +208,7 @@
             <td>52(6)</td>
             <td class="cell-num">450,000.00</td>
             <td>2. ตรวจสอบคุณสมบัติ</td>
-            <td><btfp-status-tag severity="danger" icon="ban">ไม่ผ่านคุณสมบัติ</btfp-status-tag></td>
+            <td><btfp-status-tag status="not-qualified" /></td>
             <td>ธนพล วัฒนะ</td>
             <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0038" /></td>
           </tr>
@@ -220,7 +220,7 @@
             <td>52(3)</td>
             <td class="cell-num">760,000.00</td>
             <td>2. ตรวจสอบคุณสมบัติ</td>
-            <td><btfp-status-tag severity="info" icon="hourglass">รอการพิจารณา</btfp-status-tag></td>
+            <td><btfp-status-tag status="review" /></td>
             <td>สุภาพร แสงทอง</td>
             <td class="cell-actions"><btfp-row-actions actions="view" itemLabel="2569/0036" /></td>
           </tr>

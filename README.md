@@ -73,6 +73,8 @@ src/
       proposals/proposal-list-empty/  B-01E
       placeholder/                    หน้าชั่วคราวของเมนูที่ยังไม่ทำ
   docs/introduction.mdx        หน้าแรกของ Storybook
+  docs/foundations.stories.ts  Storybook หมวด Foundations (สี ตัวอักษร ระยะ ไอคอน)
+  app/theme/primeng.stories.ts Storybook หมวด PrimeNG (ธีม กทปส.)
 ```
 
 ---
@@ -82,7 +84,7 @@ src/
 | Component | ใช้แทน / สร้างบน | Figma |
 | --- | --- | --- |
 | `btfp-icon` | ไอคอน Lucide | icon/* |
-| `btfp-status-tag` | `p-tag` | DataDisplay/Tag |
+| `btfp-status-tag` | เขียนเอง (สีเกินที่ `p-tag` มี) ใส่ `status="review"` ได้ครบ 14 สถานะ | Domain/Status Badge |
 | `btfp-row-actions` | `p-button` + `p-confirmdialog` | Domain/Table Row Actions |
 | `btfp-kpi-card` | เขียนเอง (PrimeNG ไม่มี) | Domain/KPI Stat Card |
 | `btfp-empty-state` | เขียนเอง (PrimeNG ไม่มี) | Empty State |

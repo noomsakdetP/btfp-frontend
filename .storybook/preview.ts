@@ -4,6 +4,7 @@ import '@fontsource/sarabun/500.css';
 import '@fontsource/sarabun/600.css';
 import '@fontsource/ibm-plex-sans-thai/500.css';
 import '@fontsource/ibm-plex-sans-thai/600.css';
+import '@fontsource/ibm-plex-sans-thai/700.css';
 import '../src/tailwind.css';
 import '../src/styles.scss';
 
@@ -25,7 +26,7 @@ const preview: Preview = {
     controls: { expanded: true },
     a11y: { test: 'todo' },
     options: {
-      storySort: { order: ['เริ่มต้น', 'Components', 'Layout', 'Pages'] },
+      storySort: { order: ['เริ่มต้น', 'Foundations', 'PrimeNG (ธีม กทปส.)', 'Components', 'Layout', 'Pages'] },
     },
   },
 };

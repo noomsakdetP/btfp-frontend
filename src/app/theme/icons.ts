@@ -1,5 +1,8 @@
 import {
   Ban,
+  CalendarClock,
+  CircleAlert,
+  CircleX,
   Bell,
   CalendarDays,
   ChartColumn,
@@ -93,6 +96,9 @@ export const BTFP_ICONS: Record<string, IconNode> = {
   ban: Ban,
   bell: Bell,
   'calendar-days': CalendarDays,
+  'calendar-clock': CalendarClock,
+  'circle-alert': CircleAlert,
+  'circle-x': CircleX,
   'chart-column': ChartColumn,
   'chevron-down': ChevronDown,
   'circle-check': CircleCheck,

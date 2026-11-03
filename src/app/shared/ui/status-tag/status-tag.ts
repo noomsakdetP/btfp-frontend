@@ -1,56 +1,119 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { Tag } from 'primeng/tag';
 import { BtfpIcon } from '../icon/icon';
 
-export type BtfpStatusSeverity = 'info' | 'success' | 'warn' | 'danger' | 'secondary';
+/** สีของป้าย ตามชุดสีใน Figma */
+export type BtfpStatusSeverity = 'info' | 'success' | 'warn' | 'danger' | 'secondary' | 'navy' | 'teal' | 'orange';
+
+/** 14 สถานะของข้อเสนอโครงการ (Figma: Domain/Status Badge, property Status) */
+export type BtfpStatus =
+  | 'draft'
+  | 'send'
+  | 'review'
+  | 'suspend'
+  | 'docs-incomplete'
+  | 'not-qualified'
+  | 'reject'
+  | 'passed-check'
+  | 'board'
+  | 'submitted'
+  | 'in-progress'
+  | 'awaiting-disbursement'
+  | 'delayed'
+  | 'closed';
+
+/** สี ไอคอน และข้อความของแต่ละสถานะ ตรงกับ Figma ทุกค่า แก้ที่นี่ที่เดียว */
+export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; icon: string; label: string }> = {
+  draft: { severity: 'secondary', icon: 'pencil', label: 'ฉบับร่าง' },
+  send: { severity: 'info', icon: 'send', label: 'ส่งแล้ว รอการตรวจสอบ' },
+  review: { severity: 'navy', icon: 'hourglass', label: 'รอการพิจารณา' },
+  suspend: { severity: 'warn', icon: 'rotate-ccw', label: 'ไม่ผ่าน รอแก้ไข' },
+  'docs-incomplete': { severity: 'warn', icon: 'circle-alert', label: 'เอกสารไม่ครบ รอแก้ไข' },
+  'not-qualified': { severity: 'danger', icon: 'ban', label: 'ไม่ผ่านคุณสมบัติ' },
+  reject: { severity: 'danger', icon: 'circle-x', label: 'ไม่อนุมัติ' },
+  'passed-check': { severity: 'teal', icon: 'circle-check', label: 'ผ่านการตรวจสอบ' },
+  board: { severity: 'teal', icon: 'landmark', label: 'ผ่านความเห็นชอบ เสนอบอร์ด กสทช.' },
+  submitted: { severity: 'success', icon: 'circle-check', label: 'อนุมัติ' },
+  'in-progress': { severity: 'teal', icon: 'list-checks', label: 'ดำเนินโครงการ' },
+  'awaiting-disbursement': { severity: 'navy', icon: 'wallet', label: 'รอเบิกจ่าย' },
+  delayed: { severity: 'orange', icon: 'calendar-clock', label: 'ล่าช้า' },
+  closed: { severity: 'secondary', icon: 'clipboard-check', label: 'ปิดโครงการ' },
+};
 
 /**
- * btfp-status-tag : ป้ายสถานะ (Figma: DataDisplay/Tag แบบมีไอคอน)
+ * btfp-status-tag : ป้ายสถานะ (Figma: Domain/Status Badge)
  *
- * สร้างบน p-tag ของ PrimeNG ใช้ชื่อ input แบบเดียวกับ PrimeNG (severity)
- * ข้อความสถานะใส่เป็น content ระหว่างแท็กได้เลย
+ * วิธีใช้ที่แนะนำ: ใส่ status อย่างเดียว ได้สี ไอคอน และข้อความตาม Figma อัตโนมัติ ไม่ต้องเลือกสีเอง
+ *   <btfp-status-tag status="review" />                     แสดง "รอการพิจารณา" สี navy
  *
- * @example
- * <btfp-status-tag severity="info" icon="hourglass">รอการพิจารณา</btfp-status-tag>
+ * ใช้กับป้ายอื่นที่ไม่ใช่ 14 สถานะ: ใส่ severity + icon + ข้อความเอง
+ *   <btfp-status-tag severity="teal" icon="circle-check">ตรวจแล้ว</btfp-status-tag>
+ *
+ * ขนาดตาม Figma: สูง 32px มุมมน ขอบซ้ายขวา 8px ไอคอน 16px ตัวอักษร Sarabun Medium 14px
+ *
+ * ทำไมไม่ใช้ p-tag: p-tag มีสีแค่ 6 แบบ แต่ Figma ใช้ 8 ชุด (มี navy, teal, orange) ต้องเขียนสีเองอยู่ดี
  */
 @Component({
   selector: 'btfp-status-tag',
-  imports: [Tag, BtfpIcon],
+  imports: [BtfpIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { '[attr.data-severity]': 'resolvedSeverity()' },
   template: `
-    <p-tag [severity]="severity()" [rounded]="true" [styleClass]="tagClass()">
-      @if (icon()) {
-        <btfp-icon [name]="icon()!" size="14" />
-      }
-      <span class="btfp-status-tag__label"><ng-content /></span>
-    </p-tag>
+    @if (resolvedIcon(); as name) {
+      <btfp-icon [name]="name" size="16" />
+    }
+    <span class="label"><ng-content>{{ defaultLabel() }}</ng-content></span>
   `,
   styles: `
     :host {
+      --tag-bg: var(--btfp-info-bg);
+      --tag-border: var(--btfp-info-border);
+      --tag-text: var(--btfp-info-text);
       display: inline-flex;
+      align-items: center;
+      gap: 4px;
       max-width: 100%;
-    }
-    :host ::ng-deep .p-tag {
-      border: 1px solid transparent;
+      height: 32px;
+      padding: 0 8px;
+      border: 1px solid var(--tag-border);
+      border-radius: var(--btfp-radius-full);
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
       white-space: nowrap;
-      max-width: 100%;
+      vertical-align: middle;
     }
-    :host ::ng-deep .btfp-status-tag--info { border-color: var(--btfp-info-border); }
-    :host ::ng-deep .btfp-status-tag--success { border-color: var(--btfp-success-border); }
-    :host ::ng-deep .btfp-status-tag--warn { border-color: var(--btfp-warning-border); }
-    :host ::ng-deep .btfp-status-tag--danger { border-color: var(--btfp-danger-border); }
-    :host ::ng-deep .btfp-status-tag--secondary { border-color: var(--btfp-border-default); }
-    .btfp-status-tag__label {
+    :host btfp-icon {
+      display: inline-flex;
+      flex-shrink: 0;
+    }
+    .label {
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    :host([data-severity='success']) { --tag-bg: var(--btfp-success-bg); --tag-border: var(--btfp-success-border); --tag-text: var(--btfp-success-text); }
+    :host([data-severity='warn']) { --tag-bg: var(--btfp-warning-bg); --tag-border: var(--btfp-warning-border); --tag-text: var(--btfp-warning-text); }
+    :host([data-severity='danger']) { --tag-bg: var(--btfp-danger-bg); --tag-border: var(--btfp-danger-border); --tag-text: var(--btfp-danger-text); }
+    :host([data-severity='secondary']) { --tag-bg: var(--btfp-gray-50); --tag-border: var(--btfp-gray-200); --tag-text: var(--btfp-gray-700); }
+    :host([data-severity='navy']) { --tag-bg: var(--btfp-navy-50); --tag-border: var(--btfp-navy-200); --tag-text: var(--btfp-navy-700); }
+    :host([data-severity='teal']) { --tag-bg: var(--btfp-teal-50); --tag-border: var(--btfp-teal-200); --tag-text: var(--btfp-teal-700); }
+    :host([data-severity='orange']) { --tag-bg: var(--btfp-orange-50); --tag-border: var(--btfp-orange-200); --tag-text: var(--btfp-orange-700); }
   `,
 })
 export class BtfpStatusTag {
-  /** สีของป้าย: info ฟ้า, success เขียว, warn เหลือง, danger แดง, secondary เทา */
-  readonly severity = input<BtfpStatusSeverity>('info');
-  /** ชื่อไอคอน Lucide (kebab-case) ไม่ใส่ก็ได้ */
+  /** สถานะตาม Figma ใส่แล้วไม่ต้องใส่ severity / icon / ข้อความ */
+  readonly status = input<BtfpStatus>();
+  /** สีของป้าย (ใช้เมื่อไม่ได้ใส่ status หรืออยากเปลี่ยนสี) */
+  readonly severity = input<BtfpStatusSeverity>();
+  /** ชื่อไอคอน Lucide (kebab-case) */
   readonly icon = input<string>();
 
-  protected readonly tagClass = computed(() => `btfp-status-tag--${this.severity()}`);
+  private readonly preset = computed(() => {
+    const s = this.status();
+    return s ? BTFP_STATUS[s] : undefined;
+  });
+  protected readonly resolvedSeverity = computed(() => this.severity() ?? this.preset()?.severity ?? 'info');
+  protected readonly resolvedIcon = computed(() => this.icon() ?? this.preset()?.icon);
+  protected readonly defaultLabel = computed(() => this.preset()?.label ?? '');
 }

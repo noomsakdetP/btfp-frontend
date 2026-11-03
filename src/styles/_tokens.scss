@@ -5,7 +5,7 @@
 // =====================================================================
 
 :root {
-  // ---------- primitives: color ----------
+  // ---------- primitives: color (Figma: primitives/color/*  gray = cool-gray) ----------
   --btfp-blue-50: #eaf8ff;
   --btfp-blue-100: #d0efff;
   --btfp-blue-200: #a8e1fa;
@@ -28,6 +28,17 @@
   --btfp-navy-800: #0b3551;
   --btfp-navy-900: #092a48;
 
+  --btfp-teal-50: #eef9f8;
+  --btfp-teal-100: #d6efed;
+  --btfp-teal-200: #abdcda;
+  --btfp-teal-300: #7ac3c1;
+  --btfp-teal-400: #50a4a4;
+  --btfp-teal-500: #308082;
+  --btfp-teal-600: #276c6e;
+  --btfp-teal-700: #21575a;
+  --btfp-teal-800: #1c4649;
+  --btfp-teal-900: #173a3c;
+
   --btfp-gray-50: #f8fafc;
   --btfp-gray-100: #f1f5f9;
   --btfp-gray-200: #e2e8f0;
@@ -40,18 +51,51 @@
   --btfp-gray-900: #0f172a;
 
   --btfp-red-50: #fff1f2;
+  --btfp-red-100: #ffe4e6;
   --btfp-red-200: #fecdd3;
+  --btfp-red-300: #fda4af;
+  --btfp-red-400: #fb7185;
+  --btfp-red-500: #e11d48;
   --btfp-red-600: #be123c;
   --btfp-red-700: #9f1239;
+  --btfp-red-800: #881337;
+  --btfp-red-900: #4c0519;
+
+  --btfp-orange-50: #fff7ed;
+  --btfp-orange-100: #ffedd5;
+  --btfp-orange-200: #fed7aa;
+  --btfp-orange-300: #fdba74;
+  --btfp-orange-400: #fb923c;
+  --btfp-orange-500: #ea580c;
   --btfp-orange-600: #c2410c;
+  --btfp-orange-700: #9a3412;
+  --btfp-orange-800: #7c2d12;
+  --btfp-orange-900: #431407;
+
   --btfp-green-50: #f0fdf4;
+  --btfp-green-100: #dcfce7;
   --btfp-green-200: #bbf7d0;
+  --btfp-green-300: #86efac;
+  --btfp-green-400: #4ade80;
+  --btfp-green-500: #16a34a;
   --btfp-green-600: #15803d;
   --btfp-green-700: #166534;
+  --btfp-green-800: #14532d;
+  --btfp-green-900: #052e16;
+
   --btfp-yellow-50: #fefce8;
+  --btfp-yellow-100: #fef9c3;
   --btfp-yellow-200: #fef08a;
+  --btfp-yellow-300: #fde047;
+  --btfp-yellow-400: #facc15;
+  --btfp-yellow-500: #ca8a04;
+  --btfp-yellow-600: #a16207;
   --btfp-yellow-700: #854d0e;
   --btfp-yellow-800: #713f12;
+  --btfp-yellow-900: #422006;
+
+  --btfp-white: #ffffff;
+  --btfp-black: #000000;
 
   // ---------- semantic: color ----------
   --btfp-bg-default: #ffffff;
@@ -72,6 +116,8 @@
 
   --btfp-action-primary: var(--btfp-blue-600);
   --btfp-action-primary-hover: var(--btfp-blue-700);
+  --btfp-action-primary-pressed: var(--btfp-blue-800);
+  --btfp-action-primary-disabled: var(--btfp-gray-300);
   --btfp-action-secondary: var(--btfp-navy-700); // ข้อความปุ่มรอง (Figma: action/secondary)
   --btfp-action-link: var(--btfp-blue-700);
   --btfp-focus-ring: var(--btfp-blue-600);
@@ -91,7 +137,15 @@
 
   --btfp-icon-default: var(--btfp-gray-600);
   --btfp-icon-subtle: var(--btfp-gray-400);
+  --btfp-icon-strong: var(--btfp-navy-900);
+  --btfp-icon-brand: var(--btfp-blue-500);
   --btfp-icon-action: var(--btfp-blue-600);
+  --btfp-icon-disabled: var(--btfp-gray-300);
+  --btfp-icon-inverse: var(--btfp-white);
+  --btfp-icon-success: var(--btfp-green-600);
+  --btfp-icon-warning: var(--btfp-yellow-700);
+  --btfp-icon-danger: var(--btfp-red-600);
+  --btfp-icon-info: var(--btfp-blue-600);
 
   // ---------- spacing ----------
   --btfp-space-xs: 4px;
@@ -100,12 +154,16 @@
   --btfp-space-lg: 24px;
   --btfp-space-xl: 32px;
   --btfp-space-2xl: 48px;
+  --btfp-space-3xl: 64px;
 
   // ---------- radius ----------
   --btfp-radius-input: 4px;
   --btfp-radius-tag: 4px;
   --btfp-radius-button: 8px;
   --btfp-radius-card: 12px;
+  --btfp-radius-modal: 12px;
+  --btfp-radius-inner: 8px;
+  --btfp-radius-card-lg: 16px;
   --btfp-radius-full: 9999px;
 
   // ---------- elevation (Figma: Elevation/01-03) ----------
@@ -121,7 +179,16 @@
   --btfp-sidebar-width: 264px;
   --btfp-topbar-height: 64px;
 
-  // ---------- component ----------
+  // ---------- component (Figma: component/*) ----------
+  --btfp-input-border: var(--btfp-border-default);
+  --btfp-input-border-hover: var(--btfp-border-strong);
+  --btfp-input-border-focus: var(--btfp-focus-ring);
+  --btfp-input-border-error: var(--btfp-red-600);
+  --btfp-input-bg-disabled: var(--btfp-bg-subtle);
+  --btfp-card-bg: var(--btfp-surface-raised);
+  --btfp-card-border: var(--btfp-border-default);
+  --btfp-card-padding: var(--btfp-space-lg);
+  --btfp-button-ghost-hover-bg: var(--btfp-gray-100);
   --btfp-sidebar-bg: var(--btfp-navy-900);
   --btfp-sidebar-border: var(--btfp-navy-800);
   --btfp-nav-item-text: var(--btfp-gray-300);
