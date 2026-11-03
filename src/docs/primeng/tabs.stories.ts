@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { primengParameters, primengStoryImports } from './_shared';
+import { tabsPlayground } from './_playground';
 
 const meta: Meta = {
   title: "PrimeNG (ธีม กทปส.)/Navigation/Tabs",
@@ -34,6 +35,9 @@ export class MyPage {}
 `),
 };
 export default meta;
+
+/** ตัวแรกของหน้า Docs มีช่อง Controls ให้ลองเปลี่ยนค่า */
+export const Playground: StoryObj = tabsPlayground;
 
 export const Default: StoryObj = {
   name: "ตัวอย่าง",

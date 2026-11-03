@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { primengParameters, primengStoryImports, rowOf } from './_shared';
+import { tooltipPlayground } from './_playground';
 
 const meta: Meta = {
   title: "PrimeNG (ธีม กทปส.)/Feedback/Tooltip",
@@ -33,6 +34,9 @@ export class MyPage {}
 `),
 };
 export default meta;
+
+/** ตัวแรกของหน้า Docs มีช่อง Controls ให้ลองเปลี่ยนค่า */
+export const Playground: StoryObj = tooltipPlayground;
 
 export const Positions: StoryObj = {
   name: "Position",

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { primengParameters, primengStoryImports, rowOf } from './_shared';
+import { buttonPlayground } from './_playground';
 
 const meta: Meta = {
   title: "PrimeNG (ธีม กทปส.)/Actions/Button",
@@ -43,6 +44,9 @@ export class MyPage {}
 `),
 };
 export default meta;
+
+/** ตัวแรกของหน้า Docs มีช่อง Controls ให้ลองเปลี่ยนค่า */
+export const Playground: StoryObj = buttonPlayground;
 
 export const Types: StoryObj = {
   name: "Type",

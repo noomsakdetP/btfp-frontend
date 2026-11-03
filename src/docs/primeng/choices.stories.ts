@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { primengParameters, primengStoryImports, rowOf } from './_shared';
+import { choicesPlayground } from './_playground';
 
 const meta: Meta = {
   title: "PrimeNG (ธีม กทปส.)/Forms/Checkbox, Radio, Toggle",
@@ -40,6 +41,9 @@ export class MyPage {}
 `),
 };
 export default meta;
+
+/** ตัวแรกของหน้า Docs มีช่อง Controls ให้ลองเปลี่ยนค่า */
+export const Playground: StoryObj = choicesPlayground;
 
 export const Checkbox: StoryObj = {
   name: "Checkbox",

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { primengParameters, primengStoryImports, rowOf } from './_shared';
+import { avatarPlayground } from './_playground';
 
 const meta: Meta = {
   title: "PrimeNG (ธีม กทปส.)/Data Display/Avatar",
@@ -33,6 +34,9 @@ export class MyPage {}
 `),
 };
 export default meta;
+
+/** ตัวแรกของหน้า Docs มีช่อง Controls ให้ลองเปลี่ยนค่า */
+export const Playground: StoryObj = avatarPlayground;
 
 export const Sizes: StoryObj = {
   name: "Size",

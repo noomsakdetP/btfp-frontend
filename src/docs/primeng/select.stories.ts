@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { OPTIONS, field, helper, primengParameters, primengStoryImports } from './_shared';
+import { selectPlayground } from './_playground';
 
 const meta: Meta = {
   title: "PrimeNG (ธีม กทปส.)/Forms/Select และ MultiSelect",
@@ -49,6 +50,9 @@ export class MyPage {}
 `),
 };
 export default meta;
+
+/** ตัวแรกของหน้า Docs มีช่อง Controls ให้ลองเปลี่ยนค่า */
+export const Playground: StoryObj = selectPlayground;
 
 export const Select: StoryObj = {
   name: "Select",

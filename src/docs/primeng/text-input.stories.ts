@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { error, field, helper, primengParameters, primengStoryImports, rowOf } from './_shared';
+import { textInputPlayground } from './_playground';
 
 const meta: Meta = {
   title: "PrimeNG (ธีม กทปส.)/Forms/Text Input และ Textarea",
@@ -47,6 +48,9 @@ export class MyPage {}
 `),
 };
 export default meta;
+
+/** ตัวแรกของหน้า Docs มีช่อง Controls ให้ลองเปลี่ยนค่า */
+export const Playground: StoryObj = textInputPlayground;
 
 export const States: StoryObj = {
   name: "State",

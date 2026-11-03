@@ -9,6 +9,9 @@ const config: StorybookConfig = {
     { name: '@storybook/addon-docs', options: { mdxPluginOptions: { mdxCompileOptions: { remarkPlugins: [remarkGfm] } } } },
   ],
   framework: '@storybook/angular-vite',
+  // ปิด docgen server: ช่อง Controls ในหน้า Docs ของหมวด PrimeNG (ไม่มี component ให้อ่าน) จะได้แสดง
+  // และ Show code ใช้ template ของ story ตรง ๆ
+  features: { experimentalDocgenServer: false },
   staticDirs: ['../public', { from: './fonts', to: '/sb-fonts' }],
 };
 export default config;
