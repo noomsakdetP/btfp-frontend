@@ -4,7 +4,7 @@ import { ConfirmDialog } from 'primeng/confirmdialog';
 import { BtfpRowActions } from './row-actions';
 
 const meta: Meta<BtfpRowActions> = {
-  title: 'Components/Row Actions',
+  title: 'Components/Actions/Row Actions',
   component: BtfpRowActions,
   tags: ['autodocs'],
   decorators: [moduleMetadata({ imports: [ConfirmDialog] })],

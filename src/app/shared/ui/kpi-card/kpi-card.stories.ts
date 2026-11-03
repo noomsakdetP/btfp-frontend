@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { BtfpKpiCard } from './kpi-card';
 
 const meta: Meta<BtfpKpiCard> = {
-  title: 'Components/KPI Card',
+  title: 'Components/Data Display/KPI Card',
   component: BtfpKpiCard,
   tags: ['autodocs'],
   parameters: {

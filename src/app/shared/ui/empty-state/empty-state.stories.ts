@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { BtfpEmptyState } from './empty-state';
 
 const meta: Meta<BtfpEmptyState> = {
-  title: 'Components/Empty State',
+  title: 'Components/Feedback/Empty State',
   component: BtfpEmptyState,
   tags: ['autodocs'],
   parameters: {

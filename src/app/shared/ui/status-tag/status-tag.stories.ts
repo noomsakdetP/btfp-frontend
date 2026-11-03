@@ -4,7 +4,7 @@ import { BTFP_STATUS, BtfpStatusTag } from './status-tag';
 const STATUSES = Object.keys(BTFP_STATUS);
 
 const meta: Meta<BtfpStatusTag> = {
-  title: 'Components/Status Tag',
+  title: 'Components/Data Display/Status Tag',
   component: BtfpStatusTag,
   tags: ['autodocs'],
   parameters: {

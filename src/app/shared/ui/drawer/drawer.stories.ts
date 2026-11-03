@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { BtfpDrawer } from './drawer';
 
 const meta: Meta<BtfpDrawer> = {
-  title: 'Components/Drawer',
+  title: 'Components/Overlay/Drawer',
+  tags: ['autodocs'],
   component: BtfpDrawer,
   parameters: {
     layout: 'fullscreen',

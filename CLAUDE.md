@@ -52,7 +52,8 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
    - **Responsive ต้องไม่ทำให้หน้าตาต่างจาก Figma บนจอเดสก์ท็อป** กลุ่มที่ Figma วางเป็นแถวเดียว (เช่น การ์ด KPI)
      ให้คงแถวเดียวแล้วเลื่อนซ้ายขวาเมื่อจอแคบ ห้ามตัดลงบรรทัดใหม่ ถ้าจำเป็นต้องจัดใหม่ให้ถามผู้ใช้ก่อน
 2. **ใช้ PrimeNG ก่อน** ปรับหน้าตาที่ `src/app/theme/btfp-preset.ts` ไม่เขียน CSS ทับ PrimeNG ถ้าไม่จำเป็น
-3. ถ้า PrimeNG ไม่มี หรือมีกฎเฉพาะ ให้สร้าง `btfp-*` ใน `src/app/shared/ui/` พร้อม `.stories.ts` และ export ใน `index.ts`
+3. ถ้า PrimeNG ไม่มี หรือมีกฎเฉพาะ ให้สร้าง `btfp-*` ใน `src/app/shared/ui/` พร้อม `.stories.ts` (ใส่ `tags: ['autodocs']` และ title `Components/<หมวดตาม Figma>/<ชื่อ>`) และ export ใน `index.ts`
+   ปรับธีม PrimeNG แล้วให้อัปเดตหน้า Storybook ใน `src/docs/primeng/` (หนึ่งไฟล์ต่อ component มีตาราง Figma กับโค้ด)
 4. **สี ระยะ มุมโค้ง** ใช้ CSS variable `--btfp-*` จาก `src/styles/_tokens.scss` ห้ามใส่รหัสสีตรง
 5. **ไอคอน** `<btfp-icon name="eye" size="16" />` ไอคอนใหม่ต้องเพิ่มใน `src/app/theme/icons.ts` (import จาก `lucide`)
 6. **วันที่** ใช้ `<btfp-datepicker>` เสมอ (แสดง พ.ศ. เก็บ ค.ศ.)

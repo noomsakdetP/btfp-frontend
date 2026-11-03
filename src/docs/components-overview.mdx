@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/ภาพรวม" id="components-overview" />
+
+# Components (btfp-*)
+
+component กลางที่ทีมสร้างเอง อยู่ใน `src/app/shared/ui/` import จาก `src/app/shared/ui/index.ts` ที่เดียว
+
+สร้างเมื่อ PrimeNG **ไม่มี** component นั้น หรือ**มีแต่ระบบมีกฎเฉพาะ** ตั้งชื่อ input แบบ PrimeNG (`severity`, `size`, `label`) และรับค่าเป็น attribute ธรรมดาได้ เพื่อใช้ในหน้าหุ่นจำลองที่ไม่มี binding
+
+| หมวด | Component | Figma | ทำไมไม่ใช้ PrimeNG ตรง ๆ |
+| --- | --- | --- | --- |
+| Actions | `btfp-row-actions` | Domain/Table Row Actions | ต้องเรียง ดู แก้ไข ลบ และลบต้องยืนยันเสมอ |
+| | `btfp-export-button` | Actions/Export Menu Button | ใช้ตัวเดียวทั้งระบบ ตัวเลือก Excel, PDF, CSV |
+| Forms | `btfp-datepicker` | Forms/DatePicker | แสดงปี พ.ศ. แต่เก็บค่า ค.ศ. |
+| Data Display | `btfp-status-tag` | Domain/Status Badge | 14 สถานะ สีเกินที่ `p-tag` มี |
+| | `btfp-kpi-card` | Domain/KPI Stat Card | PrimeNG ไม่มี |
+| Feedback | `btfp-empty-state` | Empty State | PrimeNG ไม่มี |
+| Overlay | `btfp-drawer` | Drawer | `p-drawer` เปิดด้วย attribute ไม่ได้ |
+| Public website | `btfp-section-header`, `btfp-grant-call-card`, การ์ดต่าง ๆ, `btfp-hero-banner` | Public/*, Domain/Grant Call Card, Domain/Hero Banner | PrimeNG ไม่มี, `p-carousel` ต้องใช้ binding |
+
+ไอคอน `btfp-icon` ดูใน Foundations > ไอคอน
+
+**ทำ component ใหม่** สร้างใน `src/app/shared/ui/<ชื่อ>/` พร้อม `.stories.ts` (ใส่ `tags: ['autodocs']`) export ใน `index.ts` แล้วอัปเดตตารางใน `DESIGN.md`

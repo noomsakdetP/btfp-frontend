@@ -1,0 +1,54 @@
+import type { Meta, StoryObj } from '@storybook/angular-vite';
+import { primengParameters, primengStoryImports, rowOf } from './_shared';
+
+const meta: Meta = {
+  title: "PrimeNG (ธีม กทปส.)/Forms/Checkbox, Radio, Toggle",
+  id: 'primeng-choices',
+  tags: ['autodocs'],
+  decorators: [primengStoryImports],
+  parameters: primengParameters(`**Figma:** \`Forms/Checkbox, Forms/Radio, Forms/Toggle\`  
+**PrimeNG:** [\`p-checkbox\`](https://primeng.org/checkbox)
+
+\`\`\`ts
+import { Checkbox } from 'primeng/checkbox';
+import { RadioButton } from 'primeng/radiobutton';
+import { ToggleSwitch } from 'primeng/toggleswitch';
+\`\`\`
+
+| Figma | ในโค้ด |
+| --- | --- |
+| Checkbox Value=unchecked / checked | \`<p-checkbox [binary]="true" [(ngModel)]="..." />\` 24px |
+| Checkbox Value=indeterminate | \`[indeterminate]="true"\` (พื้น primary ขีดขาวตาม Figma) |
+| Radio | \`<p-radiobutton name="..." value="..." [(ngModel)]="..." />\` 24px |
+| Toggle Value=off / on | \`<p-toggleswitch [(ngModel)]="..." />\` 44x24 |
+| State=disabled | \`[disabled]="true"\` |
+| หน้าหุ่นจำลอง (ไม่มี binding) | \`<input type="checkbox" class="btfp-checkbox" checked>\` หัวตารางใช้ \`class="btfp-checkbox is-indeterminate"\` |
+
+ข้อความป้ายวางคู่ด้วย \`<label>\` ห่าง 8px คลิกที่ข้อความแล้วติ๊กได้
+`),
+};
+export default meta;
+
+export const Checkbox: StoryObj = {
+  name: "Checkbox",
+  args: { a: false, b: true },
+  render: (args) => ({ props: args, template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><p-checkbox [(ngModel)]="a" [binary]="true" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><p-checkbox [(ngModel)]="b" [binary]="true" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><p-checkbox [binary]="true" [indeterminate]="true" />เลือกบางส่วน</label><label style="display:flex;gap:8px;align-items:center;opacity:.5"><p-checkbox [binary]="true" [ngModel]="true" [disabled]="true" />ปิดใช้งาน</label>`) }),
+};
+
+export const Mock: StoryObj = {
+  name: "Checkbox ในหน้าหุ่นจำลอง",
+  parameters: { docs: { description: { story: `\`.btfp-checkbox\` เป็น HTML ธรรมดา หน้าตาเหมือน \`p-checkbox\`` } } },
+  render: () => ({ template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" checked />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox is-indeterminate" />เลือกบางส่วน</label>`) }),
+};
+
+export const Radio: StoryObj = {
+  name: "Radio",
+  args: { r: 'one' },
+  render: (args) => ({ props: args, template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><p-radiobutton name="r" value="one" [(ngModel)]="r" />ตัวเลือกทุน 1</label><label style="display:flex;gap:8px;align-items:center"><p-radiobutton name="r" value="two" [(ngModel)]="r" />ตัวเลือกทุน 2</label>`) }),
+};
+
+export const Toggle: StoryObj = {
+  name: "Toggle",
+  args: { t1: false, t2: true },
+  render: (args) => ({ props: args, template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><p-toggleswitch [(ngModel)]="t1" />ปิดอยู่</label><label style="display:flex;gap:8px;align-items:center"><p-toggleswitch [(ngModel)]="t2" />เปิดใช้งาน</label>`) }),
+};

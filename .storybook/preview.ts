@@ -26,7 +26,30 @@ const preview: Preview = {
     controls: { expanded: true },
     a11y: { test: 'todo' },
     options: {
-      storySort: { order: ['เริ่มต้น', 'Foundations', 'PrimeNG (ธีม กทปส.)', 'Components', 'Layout', 'Pages'] },
+      storySort: {
+        order: [
+          'เริ่มต้น',
+          'Foundations',
+          ['สี', 'ตัวอักษร', 'ระยะ มุมโค้ง เงา', 'ไอคอน'],
+          'PrimeNG (ธีม กทปส.)',
+          [
+            'ภาพรวม',
+            'Actions',
+            ['Button', 'Icon Button'],
+            'Forms',
+            ['Text Input และ Textarea', 'Select และ MultiSelect', 'Autocomplete, Currency, Search, OTP', 'Checkbox, Radio, Toggle', 'Segmented Control'],
+            'Data Display',
+            ['Tag และ Chip', 'Avatar'],
+            'Feedback',
+            'Navigation',
+            ['Tabs', 'Pagination', 'Breadcrumb'],
+          ],
+          'Components',
+          ['ภาพรวม', 'Actions', 'Forms', 'Data Display', 'Feedback', 'Overlay', 'Public website'],
+          'Layout',
+          'Pages',
+        ],
+      },
     },
   },
 };

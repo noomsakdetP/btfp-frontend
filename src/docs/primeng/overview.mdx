@@ -1,0 +1,55 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="PrimeNG (ธีม กทปส.)/ภาพรวม" id="primeng-overview" />
+
+# PrimeNG (ธีม กทปส.)
+
+หมวดนี้คือ component ของ **PrimeNG 21** ที่ปรับหน้าตาให้ตรงกับหน้า Design System ใน Figma แล้ว **ใช้ PrimeNG ตรง ๆ ได้เลย ไม่ต้องเขียน CSS ทับ**
+
+## ธีมตั้งไว้ที่ไหน
+
+| ไฟล์ | หน้าที่ |
+| --- | --- |
+| `src/app/theme/btfp-preset.ts` | ธีมหลัก สร้างจาก Aura แล้วทับค่าด้วย token ของ Figma (สี ขนาด มุมโค้ง เส้นโฟกัส) |
+| `src/app/app.config.ts` | `providePrimeNG` ใช้ preset ภาษาไทย และลำดับ CSS layer |
+| `src/styles.scss` | ส่วนที่ preset ทำไม่ได้ เช่น เส้นขอบของ Tag, Segmented Control, ป้ายชื่อช่องกรอก `.btfp-field` |
+| `src/app/theme/th-locale.ts` | ข้อความภาษาไทยของ PrimeNG (ปฏิทิน ตัวกรอง ฯลฯ) |
+
+ถ้า Figma เปลี่ยนค่า ให้แก้ที่ `btfp-preset.ts` ก่อน แก้ `styles.scss` เฉพาะเมื่อ PrimeNG ไม่มี token ให้ปรับ
+
+## Figma กับ PrimeNG
+
+| หมวด | Figma | PrimeNG |
+| --- | --- | --- |
+| Actions | Button, IconButton | `p-button` |
+| Forms | TextInput, Textarea | `pInputText`, `pTextarea` |
+| | Select, MultiSelect | `p-select`, `p-multiselect` |
+| | Autocomplete, CurrencyInput, SearchField, OtpInput | `p-autocomplete`, `p-inputnumber`, `p-iconfield`, `p-inputotp` |
+| | Checkbox, Radio, Toggle | `p-checkbox`, `p-radiobutton`, `p-toggleswitch` |
+| | Segmented Control | `p-selectbutton` |
+| | DatePicker | ใช้ `btfp-datepicker` (แสดง พ.ศ.) ดูใน Components |
+| Data Display | Tag | `p-tag`, `p-chip` |
+| | Avatar | `p-avatar` |
+| Feedback | Tooltip | `pTooltip` |
+| Navigation | Tabs, Pagination | `p-tabs`, `p-paginator` |
+| | Breadcrumb | HTML ในหน้าหุ่นจำลอง (`p-breadcrumb` ตอนต่อ API) |
+
+## กฎที่ต้องจำ
+
+1. ปุ่มรองใน Figma = `outlined severity="secondary"` ใส่ `outlined` อย่างเดียวจะเป็นขอบสีน้ำเงิน
+2. ปุ่มที่มีแต่ไอคอน ใส่ไอคอนใน `<ng-template #icon>` และใส่ `ariaLabel` กับ `pTooltip` ทุกครั้ง
+3. ช่องกรอกครอบด้วย `.btfp-field` เพื่อให้ป้ายชื่อ ข้อความช่วย และข้อความผิดพลาดตรง Figma
+4. ไอคอนใช้ `btfp-icon` ไม่ใช้ PrimeIcons
+5. ป้ายสถานะ 14 แบบใช้ `btfp-status-tag` ไม่ใช้ `p-tag`
+6. `p-select` และ `p-multiselect` ใน Drawer ใส่ `appendTo="body"`
+
+## หน้าหุ่นจำลอง (ไม่มี binding)
+
+| ต้องการ | เขียนแบบนี้ |
+| --- | --- |
+| ค่าที่เลือกไว้แล้วใน select | `<p-select placeholder="2569" styleClass="btfp-mock-value" />` |
+| checkbox ที่ติ๊กไว้ | `<input type="checkbox" class="btfp-checkbox" checked>` |
+| แท็บที่เลือก | `<p-tabs value="1">` |
+| ปุ่มปิดใช้งาน | `<p-button label="..." disabled />` |
+
+แต่ละหน้าในหมวดนี้มีแท็บ **Docs** บอกว่า variant ใน Figma ตรงกับ attribute ไหน และกด **Show code** ดูโค้ดของแต่ละตัวอย่างได้

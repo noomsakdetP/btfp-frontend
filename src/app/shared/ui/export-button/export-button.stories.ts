@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { BtfpExportButton } from './export-button';
 
 const meta: Meta<BtfpExportButton> = {
-  title: 'Components/Export Button',
+  title: 'Components/Actions/Export Button',
   component: BtfpExportButton,
   tags: ['autodocs'],
   parameters: {

@@ -1,0 +1,36 @@
+import type { Meta, StoryObj } from '@storybook/angular-vite';
+import { primengParameters, primengStoryImports, rowOf } from './_shared';
+
+const meta: Meta = {
+  title: "PrimeNG (ธีม กทปส.)/Data Display/Tag และ Chip",
+  id: 'primeng-tag',
+  tags: ['autodocs'],
+  decorators: [primengStoryImports],
+  parameters: primengParameters(`**Figma:** \`DataDisplay/Tag\`  
+**PrimeNG:** [\`p-tag\`](https://primeng.org/tag)
+
+\`\`\`ts
+import { Tag } from 'primeng/tag';
+import { Chip } from 'primeng/chip';
+\`\`\`
+
+| Figma | ในโค้ด |
+| --- | --- |
+| Tone=neutral | \`<p-tag severity="secondary" value="ทุนประเภท 1" />\` |
+| Tone=info / success / warning / danger | \`severity="info"\` / \`"success"\` / \`"warn"\` / \`"danger"\` |
+| ตัวกรองที่ใช้อยู่ (Tag + ปุ่มลบ) | \`<p-chip label="..." removable>\` + \`<ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template>\` |
+
+ป้าย**สถานะ** 14 แบบของข้อเสนอโครงการไม่ใช้ \`p-tag\` ให้ใช้ \`btfp-status-tag\` (ดู Components > Data Display > Status Tag)
+`),
+};
+export default meta;
+
+export const Tones: StoryObj = {
+  name: "Tone",
+  render: () => ({ template: rowOf(`<p-tag severity="secondary" value="ทุนประเภท 1" /><p-tag severity="info" value="ทุนประเภท 1" /><p-tag severity="success" value="ทุนประเภท 1" /><p-tag severity="warn" value="ทุนประเภท 1" /><p-tag severity="danger" value="ทุนประเภท 1" />`) }),
+};
+
+export const Chip: StoryObj = {
+  name: "ตัวกรองที่ใช้อยู่ (p-chip)",
+  render: () => ({ template: rowOf(`<span style="font-size:14px;color:var(--btfp-text-secondary)">ตัวกรองที่ใช้:</span><p-chip label="ทุนประเภท 1" [removable]="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip><p-chip label="ปีงบ 2569" [removable]="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>`) }),
+};

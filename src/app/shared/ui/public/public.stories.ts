@@ -8,7 +8,8 @@ import { BtfpNewsCard, BtfpProcessStep, BtfpResultCard, BtfpShowcaseCard } from 
 import { BtfpSectionHeader } from './section-header';
 
 const meta: Meta = {
-  title: 'Components/Public (เว็บไซต์สาธารณะ)',
+  title: 'Components/Public website/การ์ดและ Hero Banner',
+  tags: ['autodocs'],
   id: 'components-public',
   decorators: [
     moduleMetadata({

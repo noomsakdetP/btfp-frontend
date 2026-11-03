@@ -73,8 +73,8 @@ src/
       proposals/proposal-list-empty/  B-01E
       placeholder/                    หน้าชั่วคราวของเมนูที่ยังไม่ทำ
   docs/introduction.mdx        หน้าแรกของ Storybook
-  docs/foundations.stories.ts  Storybook หมวด Foundations (สี ตัวอักษร ระยะ ไอคอน)
-  app/theme/primeng.stories.ts Storybook หมวด PrimeNG (ธีม กทปส.)
+  docs/foundations/            Storybook หมวด Foundations (สี ตัวอักษร ระยะ ไอคอน)
+  docs/primeng/                Storybook หมวด PrimeNG (ธีม กทปส.) แยกไฟล์ละ component
 ```
 
 ---

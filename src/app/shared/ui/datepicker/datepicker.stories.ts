@@ -54,7 +54,7 @@ function toDate(iso?: string): Date | null {
 }
 
 const meta: Meta<DatepickerDemo> = {
-  title: 'Components/Datepicker (พ.ศ.)',
+  title: 'Components/Forms/Datepicker (พ.ศ.)',
   // กำหนด id เป็นภาษาอังกฤษ ลิงก์ของ story จะได้ไม่มีอักษรไทย
   id: 'components-datepicker',
   component: DatepickerDemo,

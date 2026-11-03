@@ -1,0 +1,29 @@
+import type { Meta, StoryObj } from '@storybook/angular-vite';
+import { primengParameters, primengStoryImports } from './_shared';
+
+const meta: Meta = {
+  title: "PrimeNG (ธีม กทปส.)/Navigation/Pagination",
+  id: 'primeng-pagination',
+  tags: ['autodocs'],
+  decorators: [primengStoryImports],
+  parameters: primengParameters(`**Figma:** \`Navigation/Pagination\`  
+**PrimeNG:** [\`p-paginator\`](https://primeng.org/paginator)
+
+\`\`\`ts
+import { Paginator } from 'primeng/paginator';
+\`\`\`
+
+| Figma | ในโค้ด |
+| --- | --- |
+| Layout=desktop | \`<p-paginator [rows]="10" [totalRecords]="..." [showFirstLastIcon]="false" />\` |
+| PaginationItem State=current | หน้าปัจจุบันพื้น primary ตัวอักษรขาว |
+
+ปุ่ม 32px มุม 8px ในหน้าหุ่นจำลองใส่เป็น attribute ได้ \`rows="10" totalRecords="24" showFirstLastIcon="false"\`
+`),
+};
+export default meta;
+
+export const Default: StoryObj = {
+  name: "ตัวอย่าง",
+  render: () => ({ template: `<p-paginator [rows]="10" [totalRecords]="120" [showFirstLastIcon]="false" />` }),
+};
