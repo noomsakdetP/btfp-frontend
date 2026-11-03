@@ -1,0 +1,367 @@
+// สไตล์หน้าตา (สี ตัวอักษร เส้น) เท่านั้น การจัดวางและ Responsive อยู่ใน class ของ Tailwind ใน landing.html
+
+:host {
+  display: block;
+}
+
+.bg-subtle {
+  background: var(--btfp-bg-subtle);
+}
+
+.bg-navy {
+  background: var(--btfp-navy-900);
+}
+
+.bg-info {
+  background: var(--btfp-blue-50);
+}
+
+.muted {
+  margin: 0;
+  color: var(--btfp-text-secondary);
+}
+
+.link,
+.more-link {
+  font-weight: 500;
+  color: var(--btfp-action-link);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--btfp-action-link);
+}
+
+.badge-on-image {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 2px 8px;
+  border-radius: var(--btfp-radius-tag);
+  background: var(--btfp-badge-on-image);
+  font-size: 12px;
+  color: var(--btfp-text-secondary);
+}
+
+// ---------- hero ----------
+.hero {
+  background: var(--btfp-navy-900);
+  color: var(--btfp-text-inverse);
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--btfp-radius-full);
+  background: var(--btfp-navy-800);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--btfp-blue-200);
+}
+
+.hero__title {
+  font-size: clamp(36px, 4.6vw, 60px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--btfp-text-inverse);
+}
+
+.hero__desc {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--btfp-text-on-dark);
+}
+
+.hero__note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 14px;
+  color: var(--btfp-text-on-dark);
+}
+
+:host ::ng-deep .hero__secondary.p-button {
+  background: var(--btfp-surface-raised);
+  color: var(--btfp-text-heading);
+}
+
+.hero__figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 760 / 560;
+  border-radius: var(--btfp-radius-card-lg, 16px);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  figcaption {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: var(--btfp-radius-button);
+    background: color-mix(in srgb, var(--btfp-navy-900) 85%, transparent);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--btfp-text-inverse);
+  }
+}
+
+// ---------- notice ----------
+.notice {
+  border: 1px solid var(--btfp-info-border);
+  border-radius: var(--btfp-radius-button);
+  background: var(--btfp-info-bg);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--btfp-info-text);
+
+  p {
+    margin: 0;
+  }
+}
+
+.notice__link {
+  font-weight: 400;
+  color: var(--btfp-action-link);
+}
+
+// ---------- scope ----------
+.scope-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 220px;
+  padding: 24px;
+  border: 1px solid var(--btfp-border-default);
+  border-radius: var(--btfp-radius-card);
+  background: var(--btfp-surface-raised);
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--btfp-text-secondary);
+  }
+}
+
+.scope-card__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--btfp-radius-button);
+  background: var(--btfp-info-bg);
+  color: var(--btfp-icon-action);
+}
+
+.scope-card__section {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--btfp-action-link);
+}
+
+// ---------- steps ----------
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:host ::ng-deep .on-dark-button.p-button {
+  background: var(--btfp-surface-raised);
+  border-color: var(--btfp-surface-raised);
+  color: var(--btfp-text-heading);
+}
+
+.system-bar {
+  border-radius: var(--btfp-radius-card);
+  background: var(--btfp-surface-raised);
+  font-size: 14px;
+  color: var(--btfp-text-heading);
+
+  a {
+    color: var(--btfp-action-link);
+    text-decoration: none;
+  }
+}
+
+.system-bar__divider {
+  width: 1px;
+  height: 28px;
+  background: var(--btfp-border-default);
+}
+
+.system-bar__status {
+  color: var(--btfp-text-secondary);
+}
+
+// ---------- stats ----------
+.stats-title,
+.faq-title {
+  font-size: clamp(26px, 2.6vw, 32px);
+  font-weight: 700;
+}
+
+.faq-title {
+  font-size: clamp(30px, 3.2vw, 40px);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 160px;
+  padding: 24px;
+  border: 1px solid var(--btfp-border-default);
+  border-radius: var(--btfp-radius-card);
+  background: var(--btfp-surface-raised);
+  font-size: 14px;
+  color: var(--btfp-text-secondary);
+
+  btfp-icon {
+    color: var(--btfp-icon-action);
+  }
+
+  strong {
+    font-family: var(--btfp-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--btfp-text-heading);
+  }
+}
+
+// ---------- FAQ ----------
+.help-box {
+  margin-top: 8px;
+  padding: 20px 24px;
+  border-radius: var(--btfp-radius-card);
+  background: var(--btfp-bg-subtle);
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--btfp-text-secondary);
+  }
+
+  a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--btfp-action-link);
+    text-decoration: none;
+  }
+}
+
+.faq {
+  border: 1px solid var(--btfp-border-default);
+  border-radius: var(--btfp-radius-card);
+  background: var(--btfp-surface-raised);
+
+  &[open] {
+    background: var(--btfp-bg-subtle);
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    font-family: var(--btfp-font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--btfp-text-heading);
+    list-style: none;
+    cursor: pointer;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--btfp-focus-ring);
+      outline-offset: 2px;
+      border-radius: var(--btfp-radius-card);
+    }
+
+    btfp-icon {
+      color: var(--btfp-icon-action);
+    }
+  }
+
+  .faq__minus {
+    display: none;
+  }
+
+  &[open] .faq__plus {
+    display: none;
+  }
+
+  &[open] .faq__minus {
+    display: inline-flex;
+  }
+
+  p {
+    margin: -6px 0 0;
+    padding: 0 20px 18px;
+    font-size: 14px;
+    color: var(--btfp-text-secondary);
+  }
+
+  .faq__todo {
+    font-style: italic;
+    color: var(--btfp-text-disabled);
+  }
+}
+
+// ---------- CTA ----------
+.cta {
+  background: var(--btfp-action-primary);
+}
+
+.cta__title {
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 700;
+  color: var(--btfp-text-inverse);
+}
+
+.cta__desc {
+  margin: 8px 0 0;
+  font-size: 18px;
+  color: var(--btfp-blue-50);
+}

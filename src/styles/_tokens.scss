@@ -64,6 +64,8 @@
   --btfp-text-disabled: var(--btfp-gray-400);
   --btfp-text-inverse: #ffffff;
   --btfp-text-heading: var(--btfp-navy-900);
+  --btfp-text-on-dark: #d7e5ee; // ข้อความรองบนพื้นน้ำเงินเข้ม (Figma ใช้ค่าตรง #d7e5ee)
+  --btfp-badge-on-image: rgba(255, 255, 255, 0.92); // ป้ายที่วางทับรูป
 
   --btfp-border-default: var(--btfp-gray-200);
   --btfp-border-strong: var(--btfp-gray-400);
@@ -104,6 +106,11 @@
   --btfp-radius-button: 8px;
   --btfp-radius-card: 12px;
   --btfp-radius-full: 9999px;
+
+  // ---------- elevation (Figma: Elevation/01-03) ----------
+  --btfp-shadow-1: 0 1px 3px rgba(9, 42, 72, 0.08);
+  --btfp-shadow-2: 0 4px 12px -2px rgba(9, 42, 72, 0.1);
+  --btfp-shadow-3: 0 12px 28px -6px rgba(9, 42, 72, 0.14);
 
   // ---------- size ----------
   --btfp-control-sm: 32px;

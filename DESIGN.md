@@ -129,8 +129,8 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Navigation/Tabs | `p-tabs` | PrimeNG | |
 | Navigation/Pagination | `p-paginator` | PrimeNG | |
 | Navigation/Sidebar, NavItem, NavSubItem | `btfp-sidebar` | ทำแล้ว (เจ้าหน้าที่) | ผู้บริหารและผู้ดูแลระบบยังไม่ทำ, NavSubItem ยังไม่ทำ |
-| Navigation/TopBar | `btfp-topbar` | ทำแล้ว (back-office) | front-office 4 แบบยังไม่ทำ |
-| Brand/Logo | `public/brand/*.svg` | ตัวแทน | รอไฟล์โลโก้จริง |
+| Navigation/TopBar | `btfp-topbar`, `btfp-public-topbar` | ทำแล้ว (back-office, front-office-guest) | front-office หลังเข้าสู่ระบบและแบบมือถือยังไม่ทำ |
+| Brand/Logo | `public/brand/logo-nbtc.png`, `logo-btfp.png` | ทำแล้ว | ดึงจาก Figma (PNG 4 เท่า) ถ้าได้ SVG ต้นฉบับให้แทนที่ |
 
 ### 3.2 Domain (เฉพาะระบบนี้)
 
@@ -153,8 +153,16 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Domain/Status History Timeline | `p-timeline` | ต้องทำ | |
 | Domain/Notification Item | `btfp-notification-item` | ต้องทำ | |
 | Domain/Address Fields | `btfp-address-fields` | ต้องทำ | จังหวัด อำเภอ ตำบล รหัสไปรษณีย์ |
-| Domain/Grant Call Card, Proposal Card, Grant Cover, Hero Banner | `btfp-*` | ต้องทำ | ฝั่งผู้ขอรับทุน |
-| Public/* (11 ตัว) | `btfp-public-*` | ต้องทำ | หน้า public |
+| Domain/Grant Call Card | `btfp-grant-call-card` | ทำแล้ว | state: open / closing-soon / closed |
+| Domain/Proposal Card, Grant Cover, Hero Banner | `btfp-*` | ต้องทำ | ฝั่งผู้ขอรับทุน |
+| Public/Section Header | `btfp-section-header` | ทำแล้ว | theme light / dark |
+| Public/Process Step | `btfp-process-step` | ทำแล้ว | |
+| Public/Project Showcase Card | `btfp-showcase-card` | ทำแล้ว | |
+| Public/Project Result Card | `btfp-result-card` | ทำแล้ว | |
+| Public/News Card | `btfp-news-card` | ทำแล้ว | |
+| Public/Accordion Item | `<details>` ในหน้า | ทำแล้ว | หน้าหุ่นจำลองใช้ HTML ล้วน ต่อ API แล้วใช้ `p-accordion` ได้ |
+| Public/CTA Banner, Footer, Cookie Consent | ในหน้าแรก, `btfp-public-footer`, `btfp-public-layout` | ทำแล้ว | |
+| Public/Objective Card, Announcement Bar, Utility Bar | | ต้องทำ | |
 | Drawer (ใน Figma วาดในหน้า B-01F) | `btfp-drawer` | ทำแล้ว | ห่อ `p-drawer` ให้เปิดด้วย attribute ได้ |
 
 ---

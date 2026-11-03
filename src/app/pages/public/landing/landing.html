@@ -1,0 +1,431 @@
+<!--
+  หน้าแรกเว็บไซต์สาธารณะ "ระบบประกาศทุนและผลงานทุน กทปส."
+  Figma: Front-end > section "หน้าแรก (เว็บไซต์สาธารณะ)" > frame 50:6410
+
+  หุ่นจำลอง markup + CSS เท่านั้น ไม่มีตัวแปรและ binding
+  - คำถามที่พบบ่อยเปิดปิดด้วย <details> ของ HTML
+  - ค่าใน select แสดงผ่าน placeholder
+  - รูปภาพดึงจาก Figma อยู่ใน public/images/landing (ภาพประกอบ ไม่ใช่ภาพโครงการจริง)
+
+  เนื้อหากว้างสุด 1600px (Figma: ขอบซ้ายขวา 160px ที่จอ 1920)
+  Responsive ใช้ class ของ Tailwind
+-->
+
+<!-- ===================== บทนำ ===================== -->
+<section class="hero">
+  <div class="mx-auto grid max-w-[1600px] items-center gap-10 px-4 py-12 md:px-8 md:py-16 lg:grid-cols-2 lg:gap-[72px] 2xl:px-0 2xl:pt-20 2xl:pb-[72px]">
+    <div class="flex flex-col items-start gap-7">
+      <span class="hero__badge">
+        <btfp-icon name="circle-check" size="16" />
+        เปิดรับข้อเสนอ ทุนประเภท 1 ประจำปีงบประมาณ 2569
+      </span>
+      <h1 class="hero__title">ยื่นขอรับทุน กทปส.<br />ประจำปีงบประมาณ 2569</h1>
+      <p class="hero__desc">
+        สำหรับโครงการด้านกิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม เพื่อประโยชน์สาธารณะ
+        ปิดรับข้อเสนอ 30 พ.ย. 2569 เวลา 16:30 น.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <p-button routerLink="/login">
+          <span>ยื่นข้อเสนอ</span>
+          <btfp-icon name="chevron-right" size="16" />
+        </p-button>
+        <p-button outlined severity="secondary" routerLink="/guide" styleClass="hero__secondary" label="ดาวน์โหลดคู่มือผู้ขอรับทุน" />
+      </div>
+      <p class="hero__note">
+        <btfp-icon name="building-complex" size="16" />
+        สำหรับหน่วยงานรัฐและเอกชน สถานศึกษา บริษัท สมาคม และมูลนิธิ
+      </p>
+    </div>
+
+    <figure class="hero__figure">
+      <img src="images/landing/hero.jpg" alt="ภาพประกอบ ชุมชน งานวิจัย และเทคโนโลยีการสื่อสาร" />
+      <span class="badge-on-image">ภาพประกอบ</span>
+      <figcaption>
+        <btfp-icon name="radio-tower" size="20" />
+        โครงสร้างพื้นฐานการสื่อสาร งานวิจัย และทักษะดิจิทัลที่เข้าถึงชุมชนทั่วประเทศ
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== ประกาศทุนที่เปิดรับ ===================== -->
+<section class="py-16 2xl:py-[104px]">
+  <div class="mx-auto flex max-w-[1600px] flex-col gap-10 px-4 md:px-8 2xl:px-0">
+    <btfp-section-header
+      eyebrow="ประกาศทุนที่เปิดรับ"
+      heading="โอกาสทุนสำหรับโครงการที่พร้อมสร้างผลลัพธ์"
+      description="ตรวจสอบประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR และกำหนดส่งข้อเสนอของแต่ละประกาศ"
+    >
+      <a class="more-link" routerLink="/grants">ดูประกาศทั้งหมด <btfp-icon name="chevron-right" size="16" /></a>
+    </btfp-section-header>
+
+    <!-- 4 ใบแถวเดียวตั้งแต่จอ xl (1280px) จอเล็กกว่าเรียง 2 / 1 คอลัมน์ -->
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+      <btfp-grant-call-card
+        image="images/landing/cover-1.jpg"
+        sector="กิจการโทรคมนาคม"
+        grantType="ทุนประเภท 1"
+        state="open"
+        heading="ทุนประเภท 1 ประจำปี 2569 มาตรา 52(1)&#10;การเข้าถึงบริการสื่อสาร"
+        deadline="ปิดรับ 30 พ.ย. 2569 เวลา 16:30 น."
+        scope="มาตรา 52(1)–(6) เลือกวัตถุประสงค์ได้ 1 ข้อ"
+        budget="วงเงินรวม 150,000,000 บาท"
+      />
+      <btfp-grant-call-card
+        image="images/landing/cover-2.jpg"
+        sector="ทุกด้านกิจการ"
+        grantType="ทุนประเภท 2"
+        state="closing-soon"
+        heading="ทุนประเภท 2 ตามนโยบาย กทปส. TOR&#10;ทักษะดิจิทัลชุมชน"
+        deadline="ปิดรับ 3 ต.ค. 2569 เหลืออีก 3 วัน"
+        scope="ตามนโยบายคณะกรรมการบริหารกองทุน มี TOR ย่อย"
+        budget="วงเงินรวม 150,000,000 บาท"
+      />
+      <btfp-grant-call-card
+        image="images/landing/cover-3.jpg"
+        sector="ทุกด้านกิจการ"
+        grantType="ทุนประเภท 2"
+        state="closed"
+        heading="ทุนประเภท 2 โครงการต่อเนื่อง ประจำปี 2569"
+        deadline="ปิดรับเมื่อ 15 ก.ย. 2569"
+        scope="ต่อยอดโครงการทุนประเภท 2 ที่ปิดแล้ว เลือก TOR ย่อยของปีนี้"
+        budget="ยังไม่มีโครงการทุนประเภท 2 ที่ปิดแล้ว จึงยื่นต่อเนื่องไม่ได้"
+      />
+      <btfp-grant-call-card
+        image="images/landing/cover-4.jpg"
+        sector="กิจการโทรคมนาคม"
+        grantType="ทุนประเภท 3"
+        state="open"
+        heading="ทุนประเภท 3 ประจำปี 2569&#10;วิจัยและพัฒนานวัตกรรมโทรคมนาคม"
+        deadline="ปิดรับ 31 ต.ค. 2569 เวลา 16:30 น."
+        scope="ตามนโยบายและอำนาจหน้าที่ของ กสทช."
+        budget="วงเงินรวม 150,000,000 บาท"
+      />
+    </div>
+
+    <div class="notice flex flex-col gap-3 p-4 md:flex-row md:items-center md:justify-between">
+      <p class="flex items-start gap-4">
+        <btfp-icon class="mt-1" name="info" size="20" />
+        <span>
+          กำหนดการอาจปรับตามประกาศฉบับทางการ<br />
+          กรุณาเข้าสู่ระบบเพื่อติดตามข่าวและดาวน์โหลดเอกสาร TOR ล่าสุด
+        </span>
+      </p>
+      <a class="notice__link" routerLink="/grants">ดาวน์โหลดปฏิทินทุน (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ขอบเขตการสนับสนุน ===================== -->
+<section class="bg-subtle pt-16 pb-16 2xl:pt-[88px] 2xl:pb-[104px]">
+  <div class="mx-auto flex max-w-[1600px] flex-col gap-11 px-4 md:px-8 2xl:px-0">
+    <btfp-section-header
+      eyebrow="วัตถุประสงค์ตามมาตรา 52"
+      heading="ทุนครอบคลุม 6&#10;พื้นที่สำคัญของระบบนิเวศการสื่อสารไทย"
+      description="เลือกขอบเขตที่สอดคล้องกับผลลัพธ์หลักของโครงการ ก่อนพิจารณาประเภททุนและเงื่อนไขเฉพาะ"
+    />
+
+    <!-- 3 คอลัมน์ 2 แถวตาม Figma ตั้งแต่จอ lg -->
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="scope-card">
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="radio" size="20" /></span><span class="scope-card__section">มาตรา 52(1)</span></div>
+        <h3>กิจการกระจายเสียง</h3>
+        <p>ยกระดับคุณภาพ เนื้อหา และการเข้าถึงบริการเสียงเพื่อสาธารณะ</p>
+      </article>
+      <article class="scope-card">
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="tv" size="20" /></span><span class="scope-card__section">มาตรา 52(2)</span></div>
+        <h3>กิจการโทรทัศน์</h3>
+        <p>สื่อสร้างสรรค์ การรู้เท่าทันสื่อ และนวัตกรรมโทรทัศน์</p>
+      </article>
+      <article class="scope-card">
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="antenna" size="20" /></span><span class="scope-card__section">มาตรา 52(3)</span></div>
+        <h3>กิจการโทรคมนาคม</h3>
+        <p>โครงข่าย บริการดิจิทัล และการเชื่อมต่อที่ทั่วถึง</p>
+      </article>
+      <article class="scope-card">
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="accessibility" size="20" /></span><span class="scope-card__section">มาตรา 52(4)</span></div>
+        <h3>การเข้าถึงอย่างเท่าเทียม</h3>
+        <p>เทคโนโลยีช่วยเหลือ ผู้พิการ ผู้สูงอายุ และพื้นที่ห่างไกล</p>
+      </article>
+      <article class="scope-card">
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="flask-conical" size="20" /></span><span class="scope-card__section">มาตรา 52(5)</span></div>
+        <h3>วิจัยและพัฒนา</h3>
+        <p>งานวิจัยประยุกต์ มาตรฐาน และนวัตกรรมที่นำไปใช้ได้จริง</p>
+      </article>
+      <article class="scope-card">
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="heart-handshake" size="20" /></span><span class="scope-card__section">มาตรา 52(6)</span></div>
+        <h3>ประโยชน์สาธารณะ</h3>
+        <p>การศึกษา ความปลอดภัย ชุมชน และบริการสังคมที่วัดผลได้</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ขั้นตอนสมัครทุน ===================== -->
+<section class="bg-navy py-16 2xl:py-[100px]">
+  <div class="mx-auto flex max-w-[1600px] flex-col gap-11 px-4 md:px-8 2xl:px-0">
+    <btfp-section-header
+      theme="dark"
+      eyebrow="เริ่มต้นได้ใน 4 ขั้นตอน"
+      heading="ยื่นข้อเสนออย่างเป็นระบบ และรู้สถานะทุกขั้นตอน"
+      description="ระบบช่วยตรวจสอบข้อมูล บันทึกร่าง และรวบรวมเอกสารไว้ในบัญชีเดียวตลอดวงจรทุน"
+    >
+      <p-button outlined severity="secondary" routerLink="/guide" styleClass="on-dark-button">
+        <span>อ่านคู่มือการสมัคร</span>
+        <btfp-icon name="chevron-right" size="16" />
+      </p-button>
+    </btfp-section-header>
+
+    <!-- 4 ขั้นตอนแถวเดียวตั้งแต่จอ xl -->
+    <ol class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      <li><btfp-process-step step="01" icon="user-check" heading="ลงทะเบียนและยืนยันตัวตน" description="สร้างบัญชีหน่วยงาน ยืนยันรหัส OTP และตั้งค่า Google Authenticator เพื่อความปลอดภัย" /></li>
+      <li><btfp-process-step step="02" icon="list-filter" heading="เลือกประกาศและขอบเขต" description="เลือกประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR ที่ตรงกับโครงการ" /></li>
+      <li><btfp-process-step step="03" icon="files" heading="จัดทำข้อเสนอและแนบเอกสาร" description="กรอกแบบ ทบ.001–003 บันทึกร่าง และแนบเอกสารตามรูปแบบที่ประกาศกำหนด" /></li>
+      <li><btfp-process-step step="04" icon="send" heading="ส่งและติดตามสถานะ" description="ตรวจสอบความครบถ้วน ส่งคำขอ รับแจ้งเตือน และแก้ไขเมื่อเจ้าหน้าที่ส่งกลับ" /></li>
+    </ol>
+
+    <div class="system-bar flex flex-col gap-3 px-5 py-4 lg:flex-row lg:items-center lg:gap-[18px]">
+      <span class="flex items-center gap-3 font-medium">
+        <btfp-icon class="text-[var(--btfp-icon-action)]" name="shield-check" size="24" />
+        ยืนยันตัวตน 2 ขั้นตอน (อีเมล / Google Authenticator)
+      </span>
+      <span class="system-bar__divider hidden lg:block"></span>
+      <span class="system-bar__status flex-1">ติดตามสถานะ: ยื่นแล้ว → อยู่ระหว่างพิจารณา → ส่งกลับแก้ไข / ไม่ผ่าน / ผ่านเกณฑ์</span>
+      <span class="flex flex-wrap gap-4">
+        <a routerLink="/guide">พิมพ์คำขอเป็น PDF</a>
+        <a routerLink="/guide">ส่งออก ทบ.003 เป็น Excel</a>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ผลงานเด่น ===================== -->
+<section class="py-16 2xl:py-[104px]">
+  <div class="mx-auto flex max-w-[1600px] flex-col gap-11 px-4 md:px-8 2xl:px-0">
+    <btfp-section-header
+      eyebrow="ผลงานทุนที่สร้างการเปลี่ยนแปลง"
+      heading="จากข้อเสนอ สู่ผลลัพธ์ที่ชุมชนใช้ได้จริง"
+      description="เรื่องราวจากหน่วยงานผู้รับทุนที่นำเทคโนโลยี การศึกษา และโครงสร้างพื้นฐานการสื่อสารไปแก้ปัญหาสาธารณะ"
+    >
+      <a class="more-link" routerLink="/results">ดูผลงานทั้งหมด <btfp-icon name="chevron-right" size="16" /></a>
+    </btfp-section-header>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <btfp-showcase-card
+        image="images/landing/showcase-1.jpg"
+        meta="ทุนประเภท 1 2568"
+        heading="เครือข่ายสื่อสารฉุกเฉินสำหรับชุมชนพื้นที่สูง"
+        org="มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา"
+        description="เชื่อมศูนย์ประสานงานชุมชนกับหน่วยแพทย์และระบบเตือนภัยในพื้นที่สัญญาณจำกัด"
+        outcome="เข้าถึง 18 ชุมชน อาสาสมัคร 240 คน"
+      />
+      <btfp-showcase-card
+        image="images/landing/showcase-2.jpg"
+        meta="ทุนประเภท 2 2568"
+        heading="ห้องเรียนดิจิทัลที่ทุกคนเข้าถึงได้"
+        org="มูลนิธิเพื่อการศึกษาของคนพิการ"
+        description="พัฒนาสื่อการเรียนรู้พร้อมคำบรรยายเสียง ภาษามือ และเครื่องมือสำหรับผู้เรียนที่มีข้อจำกัด"
+        outcome="สื่อ 96 ชุด ครูและผู้เรียนกว่า 3,000 คน"
+      />
+      <btfp-showcase-card
+        image="images/landing/showcase-3.jpg"
+        meta="ทุนประเภท 3 2567"
+        heading="ข้อมูลอากาศและคลื่นเพื่อความปลอดภัยชาวประมง"
+        org="สมาคมประมงพื้นบ้านอ่าวไทย"
+        description="ส่งข้อมูลพยากรณ์และคำเตือนผ่านเครือข่ายสื่อสารต้นทุนต่ำที่ใช้งานได้ในชุมชนชายฝั่ง"
+        outcome="ใช้งานใน 7 จังหวัดชายฝั่ง 42 จุดรับสัญญาณ"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ภาพรวมการสนับสนุน ===================== -->
+<section class="bg-info pt-16 pb-16 2xl:pt-[88px] 2xl:pb-24">
+  <div class="mx-auto flex max-w-[1600px] flex-col gap-8 px-4 md:px-8 2xl:px-0">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <h2 class="stats-title">ภาพรวมการสนับสนุน</h2>
+        <p class="muted mt-2">ข้อมูลสะสมปีงบประมาณ 2555–2569 ข้อมูล ณ 30 ก.ย. 2569 ที่มา: รายงานผลการดำเนินงานประจำปี กทปส.</p>
+      </div>
+      <span class="flex flex-wrap gap-4 text-sm">
+        <a class="link" routerLink="/results">รายงานผลการดำเนินงาน (PDF)</a>
+        <a class="link" routerLink="/results">ชุดข้อมูลโครงการ (Excel)</a>
+      </span>
+    </div>
+
+    <!-- 4 ใบแถวเดียวตั้งแต่จอ xl -->
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      <div class="stat-card"><div class="flex justify-between gap-2"><span>โครงการที่ได้รับการสนับสนุน</span><btfp-icon name="files" size="22" /></div><strong>326 โครงการ</strong></div>
+      <div class="stat-card"><div class="flex justify-between gap-2"><span>งบประมาณที่อนุมัติสะสม</span><btfp-icon name="banknote" size="22" /></div><strong>2,180 ล้านบาท</strong></div>
+      <div class="stat-card"><div class="flex justify-between gap-2"><span>จังหวัดที่มีโครงการ</span><btfp-icon name="map-pin" size="22" /></div><strong>68 จังหวัด</strong></div>
+      <div class="stat-card"><div class="flex justify-between gap-2"><span>ผู้ได้รับประโยชน์โดยประมาณ</span><btfp-icon name="users" size="22" /></div><strong>1.2 ล้านคน</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ฐานข้อมูลผลงานทุน ===================== -->
+<section class="py-16 2xl:py-[100px]">
+  <div class="mx-auto flex max-w-[1600px] flex-col gap-9 px-4 md:px-8 2xl:px-0">
+    <btfp-section-header
+      eyebrow="ฐานข้อมูลผลงานทุน"
+      heading="ค้นหาองค์ความรู้ ผลงาน และผลลัพธ์สาธารณะ"
+      description="เลือกดูตามหมวดผลลัพธ์ ปีงบประมาณ ประเภททุน หรือค้นหาจากชื่อโครงการและหน่วยงาน"
+    >
+      <a class="more-link" routerLink="/results">ดูฐานข้อมูลทั้งหมด <btfp-icon name="chevron-right" size="16" /></a>
+    </btfp-section-header>
+
+    <p-tabs value="all" scrollable="true">
+      <p-tablist>
+        <p-tab value="all">ทั้งหมด</p-tab>
+        <p-tab value="edu">การศึกษา</p-tab>
+        <p-tab value="access">การเข้าถึง</p-tab>
+        <p-tab value="telecom">โทรคมนาคม</p-tab>
+        <p-tab value="research">งานวิจัย</p-tab>
+        <p-tab value="public">ประโยชน์สาธารณะ</p-tab>
+        <p-tab value="2569">ปี 2569</p-tab>
+        <p-tab value="2568">ปี 2568</p-tab>
+      </p-tablist>
+    </p-tabs>
+
+    <div class="grid grid-cols-1 items-end gap-4 md:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_240px_240px]">
+      <div class="btfp-field md:col-span-2 xl:col-span-1">
+        <label for="r-search">ค้นหาผลงานทุน</label>
+        <p-iconfield>
+          <p-inputicon><btfp-icon name="search" size="16" /></p-inputicon>
+          <input id="r-search" type="search" pInputText placeholder="ค้นหาชื่อโครงการหรือหน่วยงาน" />
+        </p-iconfield>
+      </div>
+      <div class="btfp-field">
+        <label for="r-year">ปีงบประมาณ</label>
+        <p-select inputId="r-year" placeholder="ทุกปีงบประมาณ" styleClass="btfp-mock-value" />
+      </div>
+      <div class="btfp-field">
+        <label for="r-type">ประเภททุน</label>
+        <p-select inputId="r-type" placeholder="ทุกประเภททุน" styleClass="btfp-mock-value" />
+      </div>
+    </div>
+
+    <!-- การ์ดรูปซ้าย ต้องกว้างพอ จึงเป็น 3 ใบตั้งแต่จอ xl จอเล็กกว่าเรียง 2 / 1 -->
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
+      <btfp-result-card
+        image="images/landing/result-1.jpg"
+        category="การศึกษาและรู้เท่าทันสื่อ"
+        heading="หลักสูตรนักสืบข่าวดิจิทัลสำหรับโรงเรียน"
+        meta="มูลนิธิสื่อเพื่อเยาวชน 2568"
+        outcome="นำร่อง 35 โรงเรียน"
+      />
+      <btfp-result-card
+        image="images/landing/result-2.jpg"
+        category="การเข้าถึง"
+        heading="ระบบคำบรรยายสดภาษาไทยเพื่อบริการสาธารณะ"
+        meta="มหาวิทยาลัยขอนแก่น 2568"
+        outcome="ความแม่นยำเฉลี่ย 91%"
+      />
+      <btfp-result-card
+        image="images/landing/result-3.jpg"
+        category="โทรคมนาคมเพื่อสาธารณะ"
+        heading="เครือข่ายเตือนไฟป่าระดับชุมชน"
+        meta="สมาคมเครือข่ายป่าชุมชน 2567"
+        outcome="ครอบคลุม 12 พื้นที่เสี่ยง"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ข่าวสาร ===================== -->
+<section class="bg-subtle pt-16 pb-16 2xl:pt-[88px] 2xl:pb-[100px]">
+  <div class="mx-auto flex max-w-[1600px] flex-col gap-9 px-4 md:px-8 2xl:px-0">
+    <btfp-section-header
+      eyebrow="ข่าวสาร"
+      heading="ข่าวสารและวันสำคัญ"
+      description="ติดตามกำหนดรับข้อเสนอ ประกาศแก้ไข และความเคลื่อนไหวจากโครงการที่ได้รับทุน"
+    >
+      <a class="more-link" routerLink="/news">ดูข่าวทั้งหมด <btfp-icon name="chevron-right" size="16" /></a>
+    </btfp-section-header>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <btfp-news-card
+        image="images/landing/news-1.jpg"
+        day="30"
+        month="พ.ย. 69"
+        category="กำหนดการ"
+        heading="วันสุดท้ายรับข้อเสนอโครงการทุนประเภท 1 ประจำปี 2569"
+        description="ระบบปิดรับข้อเสนอเวลา 16.30 น. ควรส่งล่วงหน้าเพื่อเผื่อเวลาตรวจสอบเอกสาร"
+      />
+      <btfp-news-card
+        image="images/landing/news-2.jpg"
+        day="12"
+        month="ต.ค. 69"
+        category="ประกาศใหม่"
+        heading="เผยแพร่ร่าง TOR ทุนประเภท 2&#10;ด้านการสื่อสารเพื่อความปลอดภัย"
+        description="เปิดรับฟังความคิดเห็นจากหน่วยงานและผู้มีส่วนได้ส่วนเสียผ่านระบบออนไลน์"
+      />
+      <btfp-news-card
+        image="images/landing/news-3.jpg"
+        day="28"
+        month="ก.ย. 69"
+        category="ข่าวผลงานทุน"
+        heading="เครือข่ายอินเทอร์เน็ตชุมชนเปิดศูนย์เรียนรู้ดิจิทัลแห่งที่ 20"
+        description="ต่อยอดการเข้าถึงบริการออนไลน์และทักษะอาชีพสำหรับประชาชนในพื้นที่ห่างไกล"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== คำถามที่พบบ่อย ===================== -->
+<section class="py-16 2xl:py-[104px]">
+  <div class="mx-auto grid max-w-[1600px] gap-10 px-4 md:px-8 lg:grid-cols-[minmax(0,470px)_minmax(0,1fr)] lg:gap-20 2xl:px-0">
+    <div class="flex flex-col gap-4">
+      <p class="eyebrow">คำถามที่พบบ่อย</p>
+      <h2 class="faq-title">เตรียมพร้อมก่อนยื่นข้อเสนอ</h2>
+      <p class="muted">คำตอบย่อสำหรับเรื่องสิทธิ์สมัคร เอกสาร ความปลอดภัย การบันทึกร่าง และการติดตามคำขอ</p>
+      <div class="help-box">
+        <h3>ยังไม่พบคำตอบ?</h3>
+        <p>โทร 0 2670 8888 หรือส่งคำถามผ่านศูนย์ช่วยเหลือในวันและเวลาราชการ</p>
+        <a routerLink="/contact">ติดต่อเจ้าหน้าที่ →</a>
+      </div>
+    </div>
+
+    <!-- เปิดปิดด้วย <details> ของ HTML ไม่ต้องมี logic สองข้อแรกเปิดไว้ตาม Figma -->
+    <div class="flex flex-col gap-3">
+      <details class="faq" open>
+        <summary>หน่วยงานใดสามารถยื่นขอรับทุนได้?<btfp-icon class="faq__plus" name="plus" size="20" /><btfp-icon class="faq__minus" name="minus" size="20" /></summary>
+        <p>หน่วยงานรัฐ หน่วยงานเอกชน สถานศึกษา บริษัท สมาคม และมูลนิธิที่มีสถานะนิติบุคคลและมีคุณสมบัติตามประกาศแต่ละประเภททุน สามารถลงทะเบียนเพื่อยื่นข้อเสนอได้</p>
+      </details>
+      <details class="faq" open>
+        <summary>ระบบรองรับไฟล์เอกสารประเภทใดบ้าง?<btfp-icon class="faq__plus" name="plus" size="20" /><btfp-icon class="faq__minus" name="minus" size="20" /></summary>
+        <p>รองรับ .doc .docx .pdf .xls .xlsx .jpg และ .png โปรดตรวจสอบขนาดไฟล์และรายการเอกสารบังคับในประกาศทุน</p>
+      </details>
+      <details class="faq">
+        <summary>เหตุใดจึงต้องยืนยันตัวตนแบบ 2FA?<btfp-icon class="faq__plus" name="plus" size="20" /><btfp-icon class="faq__minus" name="minus" size="20" /></summary>
+        <p class="faq__todo">รอเนื้อหาคำตอบจากทีมงาน</p>
+      </details>
+      <details class="faq">
+        <summary>สามารถบันทึกร่างและกลับมาแก้ไขภายหลังได้หรือไม่?<btfp-icon class="faq__plus" name="plus" size="20" /><btfp-icon class="faq__minus" name="minus" size="20" /></summary>
+        <p class="faq__todo">รอเนื้อหาคำตอบจากทีมงาน</p>
+      </details>
+      <details class="faq">
+        <summary>หากคำขอถูกส่งกลับให้แก้ไข ต้องดำเนินการอย่างไร?<btfp-icon class="faq__plus" name="plus" size="20" /><btfp-icon class="faq__minus" name="minus" size="20" /></summary>
+        <p class="faq__todo">รอเนื้อหาคำตอบจากทีมงาน</p>
+      </details>
+      <details class="faq">
+        <summary>ติดตามสถานะและดาวน์โหลดข้อมูลได้จากที่ใด?<btfp-icon class="faq__plus" name="plus" size="20" /><btfp-icon class="faq__minus" name="minus" size="20" /></summary>
+        <p class="faq__todo">รอเนื้อหาคำตอบจากทีมงาน</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ชวนดูประกาศ ===================== -->
+<section class="cta">
+  <div class="mx-auto flex max-w-[1600px] flex-col gap-6 px-4 py-14 md:flex-row md:items-center md:justify-between md:px-8 2xl:px-0 2xl:py-[72px]">
+    <div>
+      <h2 class="cta__title">ค้นหาทุนที่เหมาะกับโครงการของคุณ</h2>
+      <p class="cta__desc">สำรวจประกาศที่เปิดรับ เปรียบเทียบประเภททุน และเตรียมข้อเสนอให้พร้อมก่อนกำหนด</p>
+    </div>
+    <p-button outlined severity="secondary" routerLink="/grants" styleClass="on-dark-button shrink-0">
+      <span>ดูประกาศทุนที่เปิดรับ</span>
+      <btfp-icon name="chevron-right" size="16" />
+    </p-button>
+  </div>
+</section>

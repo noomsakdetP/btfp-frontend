@@ -18,10 +18,10 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
         </label>
       <a class="topbar__brand min-w-0" routerLink="/" aria-label="ไปหน้าแรก">
         <span class="topbar__logos">
-          <!-- โลโก้ตัวแทน ให้แทนที่ไฟล์ใน public/brand ด้วยโลโก้จริง -->
-          <img src="brand/logo-nbtc.svg" alt="กสทช." width="27" height="40" />
+          <!-- โลโก้จาก Figma (Brand/Logo) -->
+          <img src="brand/logo-nbtc.png" alt="กสทช." width="27" height="40" />
           <span class="topbar__logo-divider hidden sm:block"></span>
-          <img class="hidden sm:block" src="brand/logo-btfp.svg" alt="กทปส." width="29" height="40" />
+          <img class="hidden sm:block" src="brand/logo-btfp.png" alt="กทปส." width="29" height="40" />
         </span>
         <span class="topbar__divider hidden sm:block"></span>
         <span class="topbar__title min-w-0">

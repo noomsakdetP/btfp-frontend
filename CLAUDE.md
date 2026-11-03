@@ -27,7 +27,10 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
 
 - ไฟล์หลัก `pGyEKPXYJ054QjRLVHu2FD`
 - หน้า: Design System `0:1`, Front-end `32:1388` (ผู้ขอรับทุน), Back-end `60:7994` (เจ้าหน้าที่/ผู้บริหาร/admin), Mobile App `476:25411`
-- หน้าที่ทำแล้ว: B-01 `60:7997` (/proposals), B-01F Drawer `479:132339` (/proposals/filters), B-01E `480:66623` (/proposals/empty)
+- หน้าที่ทำแล้ว
+  - หน้าแรกสาธารณะ `50:6410` (/) ใช้ `btfp-public-layout`
+  - B-01 `60:7997` (/proposals), B-01F Drawer `479:132339` (/proposals/filters), B-01E `480:66623` (/proposals/empty) ใช้ `btfp-staff-layout`
+- รูปภาพจาก Figma ดาวน์โหลดตรงไม่ได้ วิธีที่ใช้: สร้างหน้าชั่วคราวใน Figma ก๊อปเฉพาะรูปไปวาง แคปภาพ ตัดเป็นไฟล์ แล้วลบหน้าชั่วคราวทิ้ง เก็บใน `public/images/<หน้า>/`
 - เวลาขึ้นหน้าใหม่ ใช้ Figma MCP อ่าน frame (get_metadata / get_design_context / get_screenshot) แล้วแปลงเป็นโค้ดตามกฎด้านล่าง โค้ดที่ Figma ให้มาเป็นแค่ตัวอ้างอิง ห้ามวางตรง ๆ
 
 ## กฎการเขียนหน้า (ตกลงกับทีมแล้ว)

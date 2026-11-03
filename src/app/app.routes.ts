@@ -1,37 +1,62 @@
 import { Routes } from '@angular/router';
+import { BtfpPublicLayout } from './layout/public-layout/public-layout';
 import { BtfpStaffLayout } from './layout/staff-layout/staff-layout';
+
+const SITE = 'ระบบบริหารจัดการทุน กทปส.';
+
+/** เมนูของเว็บไซต์สาธารณะที่ยังไม่ได้ขึ้นโครง (ไปหน้า placeholder ฝั่งหน้าบ้าน) */
+const PUBLIC_PENDING = ['grants', 'results', 'news', 'faq', 'guide', 'contact', 'register', 'login', 'policy', 'sitemap'];
 
 export const routes: Routes = [
   {
+    // ===== เว็บไซต์สาธารณะ (ผู้เยี่ยมชม / ผู้ขอรับทุนที่ยังไม่เข้าสู่ระบบ) =====
+    path: '',
+    component: BtfpPublicLayout,
+    children: [
+      {
+        // หน้าแรก "ระบบประกาศทุนและผลงานทุน กทปส."  Figma 50:6410
+        path: '',
+        pathMatch: 'full',
+        title: `ระบบประกาศทุนและผลงานทุน กทปส. | ${SITE}`,
+        loadComponent: () => import('./pages/public/landing/landing').then((m) => m.LandingPage),
+      },
+      ...PUBLIC_PENDING.map((path) => ({
+        path,
+        title: `ยังไม่ได้ขึ้นโครง | ${SITE}`,
+        loadComponent: () => import('./pages/public/placeholder/public-placeholder').then((m) => m.PublicPlaceholderPage),
+      })),
+    ],
+  },
+  {
+    // ===== ระบบหลังบ้าน (เจ้าหน้าที่) =====
     path: '',
     component: BtfpStaffLayout,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'proposals' },
       {
         // B-01E ตัวอย่างสถานะยังไม่มีข้อมูล
         path: 'proposals/empty',
-        title: 'ข้อเสนอโครงการ | ระบบบริหารจัดการทุน กทปส.',
+        title: `ข้อเสนอโครงการ | ${SITE}`,
         loadComponent: () => import('./pages/proposals/proposal-list-empty/proposal-list-empty').then((m) => m.ProposalListEmptyPage),
       },
       {
         // B-01 ข้อเสนอโครงการ (เจ้าหน้าที่)
         path: 'proposals',
-        title: 'ข้อเสนอโครงการ | ระบบบริหารจัดการทุน กทปส.',
+        title: `ข้อเสนอโครงการ | ${SITE}`,
         loadComponent: () => import('./pages/proposals/proposal-list/proposal-list').then((m) => m.ProposalListPage),
         children: [
           {
             // B-01F ตัวกรองเพิ่มเติม (Drawer) เปิดทับหน้า B-01
             path: 'filters',
-            title: 'ตัวกรองเพิ่มเติม | ระบบบริหารจัดการทุน กทปส.',
+            title: `ตัวกรองเพิ่มเติม | ${SITE}`,
             loadComponent: () =>
               import('./pages/proposals/proposal-filter-drawer/proposal-filter-drawer').then((m) => m.ProposalFilterDrawer),
           },
         ],
       },
       {
-        // เมนูอื่นที่ยังไม่ได้ขึ้นโครง
+        // เมนูเจ้าหน้าที่ที่ยังไม่ได้ขึ้นโครง
         path: '**',
-        title: 'ยังไม่ได้ขึ้นโครง | ระบบบริหารจัดการทุน กทปส.',
+        title: `ยังไม่ได้ขึ้นโครง | ${SITE}`,
         loadComponent: () => import('./pages/placeholder/placeholder').then((m) => m.PlaceholderPage),
       },
     ],
