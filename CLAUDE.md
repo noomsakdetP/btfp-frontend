@@ -57,4 +57,8 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
 
 - `btfp-datepicker` แทนที่ method ภายในของ PrimeNG DatePicker ถ้าอัปเกรด PrimeNG ต้องทดสอบหน้า Storybook "Datepicker (พ.ศ.)" ซ้ำ
 - อย่าใช้ `@lucide/angular` (ไฟล์ใหญ่ 11MB ทำ Storybook build แรมเกิน) ใช้ `lucide` ผ่าน `btfp-icon`
+- ไอคอนใน Figma (หน้า Design System, ชื่อ `icon/<หมวด>/<ชื่อ>`) มาจาก Lucide ทั้ง 118 ตัว ใช้ชื่อหลัง `/` สุดท้ายได้เลย
+  ยกเว้น 6 ตัวที่ Lucide v1 เปลี่ยนชื่อ: `trash-2` → `trash`, `filter` → `funnel`, `circle-help` → `circle-question-mark`,
+  `building-2` → `building-complex`, `history` → `rotate-ccw-clock`, `bold` → `letter-b`
+- ความหนาเส้นไอคอนตาม Figma คือ 1.5 (16px ลงมา 1.25) `btfp-icon` ตั้งให้อัตโนมัติ ไม่ต้องใส่ `strokeWidth`
 - `p-drawer`, `p-select` ใน Drawer ให้ใส่ `appendTo="body"` ไม่งั้น overlay จะโดนตัด

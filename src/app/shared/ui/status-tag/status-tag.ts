@@ -20,7 +20,7 @@ export type BtfpStatusSeverity = 'info' | 'success' | 'warn' | 'danger' | 'secon
   template: `
     <p-tag [severity]="severity()" [rounded]="true" [styleClass]="tagClass()">
       @if (icon()) {
-        <btfp-icon [name]="icon()!" size="14" strokeWidth="2" />
+        <btfp-icon [name]="icon()!" size="14" />
       }
       <span class="btfp-status-tag__label"><ng-content /></span>
     </p-tag>

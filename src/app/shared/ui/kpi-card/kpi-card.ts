@@ -23,7 +23,7 @@ import { BtfpIcon } from '../icon/icon';
     <div class="kpi__top">
       <span class="kpi__label">{{ label() }}</span>
       @if (icon()) {
-        <btfp-icon class="kpi__icon" [name]="icon()!" size="24" strokeWidth="1.75" />
+        <btfp-icon class="kpi__icon" [name]="icon()!" size="24" />
       }
     </div>
     <span class="kpi__value">{{ value() }}</span>

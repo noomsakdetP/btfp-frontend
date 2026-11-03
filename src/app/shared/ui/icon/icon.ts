@@ -6,7 +6,7 @@ import { BTFP_ICONS } from '../../../theme/icons';
  *
  * @example
  * <btfp-icon name="eye" size="16" />
- * <btfp-icon name="search" size="20" strokeWidth="1.75" />
+ * <btfp-icon name="search" size="20" />   เส้นหนา 1.5 ตาม Figma (16px ลงมาใช้ 1.25)
  *
  * สีของไอคอนใช้ currentColor ตามสีตัวอักษรของตัวที่ครอบอยู่
  */
@@ -24,7 +24,7 @@ import { BTFP_ICONS } from '../../../theme/icons';
       stroke-linejoin="round"
       [attr.width]="size()"
       [attr.height]="size()"
-      [attr.stroke-width]="strokeWidth()"
+      [attr.stroke-width]="stroke()"
     >
       @for (node of nodes(); track $index) {
         @let a = node[1];
@@ -66,7 +66,12 @@ export class BtfpIcon {
   /** ชื่อไอคอนแบบ kebab-case ต้องลงทะเบียนใน src/app/theme/icons.ts ก่อน */
   readonly name = input.required<string>();
   readonly size = input(20, { transform: numberAttribute });
-  readonly strokeWidth = input(2, { transform: numberAttribute });
+  /** ความหนาเส้น ไม่ใส่ = ตาม Figma: 1.5 และ 1.25 เมื่อไอคอนเล็กกว่าหรือเท่ากับ 16px */
+  readonly strokeWidth = input<number | undefined, unknown>(undefined, {
+    transform: (v: unknown) => (v === undefined || v === null || v === '' ? undefined : numberAttribute(v)),
+  });
+
+  protected readonly stroke = computed(() => this.strokeWidth() ?? (this.size() <= 16 ? 1.25 : 1.5));
 
   protected readonly nodes = computed(() => {
     const icon = BTFP_ICONS[this.name()];

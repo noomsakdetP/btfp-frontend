@@ -25,7 +25,7 @@ export type BtfpEmptyStateType = 'general' | 'no-results' | 'no-files' | 'error'
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="empty__icon" [class]="'empty__icon--' + type()">
-      <btfp-icon [name]="iconName()" size="32" strokeWidth="1.75" />
+      <btfp-icon [name]="iconName()" size="32" />
     </div>
     <h3 class="empty__title">{{ title() }}</h3>
     @if (description()) {
