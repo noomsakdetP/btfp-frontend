@@ -7,3 +7,4 @@ export * from './export-button/export-button';
 export * from './datepicker/datepicker';
 export * from './datepicker/buddhist-era.directive';
 export * from './icon/icon';
+export * from './drawer/drawer';

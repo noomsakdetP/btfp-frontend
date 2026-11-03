@@ -14,7 +14,7 @@ export const btfpUiProviders = [
       preset: BtfpPreset,
       options: {
         darkModeSelector: false, // ระบบราชการ ใช้โหมดสว่างอย่างเดียว
-        cssLayer: { name: 'primeng', order: 'tailwind-base, primeng, btfp' },
+        cssLayer: { name: 'primeng', order: 'theme, base, primeng, btfp, components, utilities' },
       },
     },
     translation: TH_LOCALE,

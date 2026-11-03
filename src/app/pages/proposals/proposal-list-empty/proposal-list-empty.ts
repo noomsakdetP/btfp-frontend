@@ -9,20 +9,20 @@ import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/u
  * B-01E ข้อเสนอโครงการ: ยังไม่มีข้อมูล (Figma: 480:66623)
  *
  * ตัวอย่างการวาง btfp-empty-state ในตาราง ตอนต่อ API ไม่ต้องแยกหน้า
- * ให้ใช้ @if (proposals().length === 0) ในหน้า B-01 แทน
+ * ให้แสดง btfp-empty-state แทนตารางในหน้า B-01 เมื่อไม่มีข้อมูล
  */
 @Component({
   selector: 'btfp-proposal-list-empty-page',
   imports: [RouterLink, Button, Tabs, TabList, Tab, BtfpIcon, BtfpEmptyState, BtfpExportButton, BtfpKpiCard],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <header class="page-header">
+    <header class="page-header flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
       <div>
         <h1>ข้อเสนอโครงการ</h1>
         <p>ประกาศทุนประจำปีงบประมาณ 2569 ครั้งที่ 1 แสดงเฉพาะข้อเสนอใน TOR ของสำนักท่าน</p>
       </div>
-      <div class="page-header__actions">
-        <p-button [outlined]="true" routerLink="/reports">
+      <div class="flex shrink-0 flex-wrap gap-3">
+        <p-button outlined routerLink="/reports">
           <btfp-icon name="chart-column" size="18" />
           <span>รายงาน</span>
         </p-button>
@@ -30,7 +30,7 @@ import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/u
       </div>
     </header>
 
-    <p-tabs value="type-1">
+    <p-tabs value="type-1" scrollable="true">
       <p-tablist>
         <p-tab value="all">ทุกประเภท (0)</p-tab>
         <p-tab value="type-1">ทุนประเภท 1 (0)</p-tab>
@@ -40,7 +40,7 @@ import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/u
       </p-tablist>
     </p-tabs>
 
-    <section class="kpis">
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="0" caption="รอเจ้าหน้าที่รับเรื่อง" icon="send" />
       <btfp-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="0" caption="ส่งกลับแก้ไข 0 รายการ" icon="clipboard-check" active />
       <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="0" caption="รอความเห็นอนุกรรมการ" icon="list-checks" />
@@ -58,11 +58,8 @@ import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/u
   `,
   styles: `
     :host { display: flex; flex-direction: column; gap: 24px; }
-    .page-header { display: flex; justify-content: space-between; gap: 16px; }
     .page-header h1 { font-size: 24px; line-height: 32px; }
     .page-header p { margin: 4px 0 0; color: var(--btfp-text-secondary); }
-    .page-header__actions { display: flex; gap: 12px; }
-    .kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
     .card { background: var(--btfp-surface-raised); border: 1px solid var(--btfp-border-default); border-radius: var(--btfp-radius-card); }
   `,
 })

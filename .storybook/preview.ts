@@ -4,6 +4,7 @@ import '@fontsource/sarabun/500.css';
 import '@fontsource/sarabun/600.css';
 import '@fontsource/ibm-plex-sans-thai/500.css';
 import '@fontsource/ibm-plex-sans-thai/600.css';
+import '../src/tailwind.css';
 import '../src/styles.scss';
 
 import type { Preview } from '@storybook/angular-vite';

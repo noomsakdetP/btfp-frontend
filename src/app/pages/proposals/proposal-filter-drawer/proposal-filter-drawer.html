@@ -1,0 +1,107 @@
+<!--
+  B-01F ตัวกรองเพิ่มเติม (Drawer)  Figma: 479:132339
+  หุ่นจำลอง: แสดงเมื่อเข้า /proposals/filters ปิดด้วยลิงก์กลับ /proposals (ไม่มี logic)
+  - ใช้ btfp-drawer (ห่อ p-drawer) ใส่ attribute open เพื่อเปิดค้างไว้ ปิดด้วยลิงก์ของเราเอง
+  - จอเล็กกว่า sm (640px) Drawer กว้างเต็มจอ
+  ตอนต่อ API: ใช้ p-drawer [(visible)] ในหน้า B-01 ได้เลย
+-->
+<btfp-drawer open>
+    <div btfpDrawerHeader class="flex w-full items-start gap-3">
+      <div class="filter-title min-w-0 flex-1">
+        <h2>ตัวกรองเพิ่มเติม</h2>
+        <p>เลือกได้หลายเงื่อนไข ระบบจะแสดงข้อเสนอที่ตรงทุกเงื่อนไข</p>
+      </div>
+      <a class="close-link" routerLink="/proposals" aria-label="ปิด">
+        <btfp-icon name="x" size="20" />
+      </a>
+    </div>
+
+  <div class="flex flex-col gap-5">
+    <fieldset class="filter-group flex flex-col gap-2.5">
+      <legend>ข้อมูลทุน</legend>
+      <div class="btfp-field">
+        <label for="d-section">มาตรา</label>
+        <p-multiselect inputId="d-section" placeholder="52(1), 52(2)" styleClass="btfp-mock-value" appendTo="body" />
+      </div>
+      <div class="btfp-field">
+        <label for="d-tor">วัตถุประสงค์ / TOR ย่อย</label>
+        <p-select inputId="d-tor" placeholder="ทั้งหมด" styleClass="btfp-mock-value" appendTo="body" />
+      </div>
+      <div class="btfp-field">
+        <label for="d-business">ประเภทกิจการ</label>
+        <p-multiselect inputId="d-business" placeholder="ทั้งหมด" styleClass="btfp-mock-value" appendTo="body" />
+      </div>
+    </fieldset>
+
+    <fieldset class="filter-group flex flex-col gap-2.5">
+      <legend>ผู้ขอรับทุน</legend>
+      <div class="btfp-field">
+        <label for="d-applicant-type">ประเภทผู้ขอรับทุน</label>
+        <p-select inputId="d-applicant-type" placeholder="ทั้งหมด" styleClass="btfp-mock-value" appendTo="body" />
+      </div>
+      <div class="btfp-field">
+        <!-- Figma ใช้ Forms/Autocomplete ตอนต่อ API ให้ใช้ p-autocomplete ที่ค้นจาก API -->
+        <label for="d-agency">หน่วยงาน</label>
+        <p-iconfield>
+          <p-inputicon><btfp-icon name="search" size="16" /></p-inputicon>
+          <input id="d-agency" type="search" pInputText placeholder="ค้นหาชื่อหน่วยงาน" />
+        </p-iconfield>
+      </div>
+      <div class="btfp-field">
+        <label for="d-province">จังหวัด</label>
+        <p-select inputId="d-province" placeholder="ทั้งหมด" styleClass="btfp-mock-value" appendTo="body" />
+      </div>
+    </fieldset>
+
+    <fieldset class="filter-group flex flex-col gap-2.5">
+      <legend>วงเงินและวันที่</legend>
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div class="btfp-field">
+          <label for="d-budget-from">วงเงินขอรับ ตั้งแต่</label>
+          <p-inputgroup>
+            <input id="d-budget-from" pInputText inputmode="decimal" placeholder="1,000,000.00" />
+            <p-inputgroup-addon>THB</p-inputgroup-addon>
+          </p-inputgroup>
+        </div>
+        <div class="btfp-field">
+          <label for="d-budget-to">ถึง</label>
+          <p-inputgroup>
+            <input id="d-budget-to" pInputText inputmode="decimal" placeholder="5,000,000.00" />
+            <p-inputgroup-addon>THB</p-inputgroup-addon>
+          </p-inputgroup>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div class="btfp-field">
+          <label for="d-date-from">วันที่ยื่น ตั้งแต่</label>
+          <btfp-datepicker inputId="d-date-from" />
+        </div>
+        <div class="btfp-field">
+          <label for="d-date-to">ถึง</label>
+          <btfp-datepicker inputId="d-date-to" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="filter-group flex flex-col gap-2.5">
+      <legend>ผลการตรวจสอบ</legend>
+      <span class="sub-label">ผลตรวจความซ้ำซ้อน</span>
+      <label class="flex items-center gap-2 py-1"><input type="checkbox" class="btfp-checkbox" /> ไม่พบความซ้ำซ้อน</label>
+      <label class="flex items-center gap-2 py-1"><input type="checkbox" class="btfp-checkbox" /> พบซ้ำบางส่วน</label>
+      <label class="flex items-center gap-2 py-1"><input type="checkbox" class="btfp-checkbox" /> พบซ้ำสูง</label>
+      <span class="sub-label mt-1">กำหนดเวลา</span>
+      <label class="flex items-center gap-2 py-1"><input type="checkbox" class="btfp-checkbox" /> เกินกำหนด</label>
+      <label class="flex items-center gap-2 py-1"><input type="checkbox" class="btfp-checkbox" /> ใกล้ครบกำหนด (ภายใน 7 วัน)</label>
+    </fieldset>
+  </div>
+
+    <!-- จอเล็ก: ล้างทั้งหมดอยู่บน ปุ่มยกเลิกกับใช้ตัวกรองแบ่งครึ่งด้านล่าง  จอ sm ขึ้นไป: เรียงแถวเดียว -->
+    <div btfpDrawerFooter class="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+      <p-button label="ล้างทั้งหมด" text styleClass="w-full sm:w-auto" />
+      <span class="hidden flex-1 sm:block"></span>
+      <div class="grid grid-cols-2 gap-3 sm:flex">
+        <p-button label="ยกเลิก" outlined severity="secondary" routerLink="/proposals" styleClass="w-full" />
+        <p-button label="ใช้ตัวกรอง (3)" routerLink="/proposals" styleClass="w-full whitespace-nowrap" />
+      </div>
+    </div>
+</btfp-drawer>

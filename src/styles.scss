@@ -1,7 +1,6 @@
 @use 'styles/tokens';
 
-// ลำดับ layer: theme ของ PrimeNG อยู่ล่างสุด, สไตล์ของเราทับได้เสมอโดยไม่ต้องใช้ !important
-@layer tailwind-base, primeng, btfp;
+// ลำดับ layer ประกาศไว้ใน src/tailwind.css (theme, base, primeng, btfp, components, utilities)
 
 @layer btfp {
   *,
@@ -75,6 +74,53 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  // ---------- สำหรับหน้าแบบหุ่นจำลอง (ไม่มี binding) ----------
+
+  // p-select / p-multiselect ที่ใส่ค่าที่ "เลือกไว้แล้ว" ผ่าน placeholder ให้ตัวอักษรเป็นสีปกติ ไม่ใช่สีจาง
+  // ใช้: <p-select placeholder="2569" styleClass="btfp-mock-value" />
+  .btfp-mock-value .p-placeholder {
+    color: var(--btfp-text-primary);
+  }
+
+  // checkbox ของ HTML ที่ตกแต่งให้เหมือน p-checkbox ใช้แสดงสถานะติ๊กแล้วได้ด้วย attribute checked
+  // ใช้: <input type="checkbox" class="btfp-checkbox" checked aria-label="..." />
+  // ตอนต่อ API ให้เปลี่ยนเป็น <p-checkbox [binary]="true" [(ngModel)]="..." />
+  .btfp-checkbox {
+    appearance: none;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border: 1px solid var(--btfp-border-strong);
+    border-radius: var(--btfp-radius-input);
+    background: var(--btfp-surface-raised) center / 14px no-repeat;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+
+    &:hover {
+      border-color: var(--btfp-action-primary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--btfp-focus-ring);
+      outline-offset: 2px;
+    }
+
+    &:checked {
+      border-color: var(--btfp-action-primary);
+      background-color: var(--btfp-action-primary);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    }
+
+    // ใช้กับหัวตาราง (เลือกบางแถว) ใส่ class is-indeterminate แทน checked
+    &.is-indeterminate {
+      border-color: var(--btfp-action-primary);
+      background-color: var(--btfp-action-primary);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E");
     }
   }
 }

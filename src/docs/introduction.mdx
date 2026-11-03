@@ -4,7 +4,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # ระบบบริหารจัดการทุน กทปส. : ตัวอย่าง Front-end นำร่อง
 
-Storybook นี้เป็นตัวอย่างให้ทีม dev ดูว่างานออกแบบใน Figma แปลงเป็น **Angular 21 + PrimeNG 21** อย่างไร
+Storybook นี้เป็นตัวอย่างให้ทีม dev ดูว่างานออกแบบใน Figma แปลงเป็น **Angular 21 + PrimeNG 21 + Tailwind CSS 4** อย่างไร
 
 ## มีอะไรบ้าง
 
@@ -12,14 +12,14 @@ Storybook นี้เป็นตัวอย่างให้ทีม dev �
 | --- | --- |
 | Components | `btfp-*` component กลางของระบบ สร้างบน PrimeNG |
 | Layout | Sidebar และ TopBar ของเจ้าหน้าที่ |
-| Pages | หน้า B-01 ข้อเสนอโครงการ (มีข้อมูล และยังไม่มีข้อมูล) |
+| Pages | หน้า B-01 ข้อเสนอโครงการ, B-01F ตัวกรองเพิ่มเติม, B-01E ยังไม่มีข้อมูล |
 
 ## หลักการที่ใช้
 
 1. **ใช้ PrimeNG ก่อนเสมอ** ปรับหน้าตาผ่าน preset (`src/app/theme/btfp-preset.ts`) ไม่เขียน CSS ทับเอง
 2. **ถ้า PrimeNG ไม่มี หรือมีแต่ต้องมีกฎเฉพาะของระบบ** ให้ห่อเป็น component `btfp-*` ใช้ชื่อ input แบบเดียวกับ PrimeNG (`severity`, `size`, `label`)
 3. **สีและระยะห่าง** ใช้ token จาก Figma (`src/styles/_tokens.scss`) ห้ามใส่รหัสสีตรง ๆ
-4. **ไอคอน** ใช้ Lucide ชุดเดียวกับ Figma: `<svg lucideIcon="eye" size="16"></svg>`
+4. **ไอคอน** ใช้ Lucide ชุดเดียวกับ Figma: `<btfp-icon name="eye" size="16" />`
 5. **วันที่** ใช้ `btfp-datepicker` เสมอ แสดง พ.ศ. แต่เก็บค่าเป็น ค.ศ.
 
 ## กฎของงานออกแบบที่โค้ดต้องตามด้วย
@@ -28,6 +28,8 @@ Storybook นี้เป็นตัวอย่างให้ทีม dev �
 - ปุ่มท้ายแถวเรียง ดู แก้ไข ลบ และการลบต้องมีป๊อปอัปยืนยันทุกครั้ง
 - ข้อความบนหน้าจอไม่ใช้ "—" และ "•" และไม่แสดงรหัสหน้าจอ (เช่น B-01)
 
-## หน้าตัวอย่างนี้ยังไม่ได้ทำอะไร
+## หน้าเป็นหุ่นจำลอง (Mockup)
 
-ยังไม่ต่อ API ข้อความทั้งหมดพิมพ์ตรงใน HTML ดูขั้นต่อไปใน `README.md` ของ repo
+- ไม่มี API ไม่มีตัวแปร ไม่มี binding มีแต่ markup + CSS
+- Responsive ด้วย class ของ Tailwind ลองกดปุ่ม Viewport ด้านบนเพื่อดูขนาดจอมือถือและแท็บเล็ต
+- ขั้นต่อไปตอนต่อ API ดูใน `README.md` ของ repo

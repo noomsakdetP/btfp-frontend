@@ -1,14 +1,13 @@
 :host {
   display: block;
   width: var(--btfp-sidebar-width);
+  max-width: 85vw;
   flex-shrink: 0;
   background: var(--btfp-sidebar-bg);
   border-right: 1px solid var(--btfp-sidebar-border);
 }
 
 .sidebar {
-  position: sticky;
-  top: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;

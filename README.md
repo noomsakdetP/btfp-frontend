@@ -4,13 +4,29 @@
 
 - **Angular 21** (standalone, zoneless, signals)
 - **PrimeNG 21** ธีม Aura ปรับด้วย preset จาก Figma token
+- **Tailwind CSS 4** + `tailwindcss-primeui` (ปลั๊กอินทางการของ PrimeNG) สำหรับ Responsive Layout
 - **Storybook 10** สำหรับดู component และหน้าตัวอย่าง
 - ไอคอน **Lucide** ชุดเดียวกับ Figma
 - ฟอนต์ **Sarabun** (เนื้อหา) และ **IBM Plex Sans Thai** (หัวข้อ)
 
-หน้าที่ทำแล้ว: **B-01 ข้อเสนอโครงการ (เจ้าหน้าที่)** พร้อม Drawer ตัวกรองเพิ่มเติม (B-01F) และสถานะยังไม่มีข้อมูล (B-01E)
+หน้าที่ทำแล้ว
 
-> ข้อความทั้งหมดในหน้าพิมพ์ตรงใน HTML ยังไม่ต่อ API ตามที่ตกลงกับทีม
+| หน้า | URL |
+| --- | --- |
+| B-01 ข้อเสนอโครงการ (เจ้าหน้าที่) | `/proposals` |
+| B-01F ตัวกรองเพิ่มเติม (Drawer) | `/proposals/filters` |
+| B-01E ยังไม่มีข้อมูล | `/proposals/empty` |
+
+## หน้าเป็นหุ่นจำลอง (Mockup)
+
+- **ไม่มี API:** ไม่เชื่อมต่อหลังบ้าน ไม่ดึงข้อมูลจริง ไม่เรียก service
+- **ไม่มีตัวแปรและ logic:** ไฟล์ของหน้าไม่มี binding (`[ ]` `( )` `[( )]` `@if` `@for` signal) ค่าทั้งหมดพิมพ์ตรงใน HTML
+- **มีแต่หน้าตา:** markup + CSS จัดเลย์เอาต์ ปุ่ม ช่องกรอก ตาราง เมนู ครบตาม Figma
+- **Responsive:** ใช้ class ของ Tailwind ทดสอบแล้วที่จอ 1920, 1024 และ 390px
+  - จอเล็กกว่า 1024px เมนูซ้ายซ่อน กดปุ่มเมนูบนแถบบนเพื่อเปิด (ทำด้วย CSS ล้วน)
+  - การ์ดสรุป 5 / 3 / 2 / 1 คอลัมน์ตามขนาดจอ ตัวกรองจัดเป็น grid ตารางเลื่อนซ้ายขวาได้ Drawer เต็มจอบนมือถือ
+
+เทคนิคที่ใช้แทน logic: ค่าที่เลือกไว้ใน select แสดงผ่าน `placeholder`, checkbox ใช้ `<input type="checkbox" checked>` ที่ตกแต่งให้เหมือน PrimeNG, Drawer เปิดด้วยลิงก์ไป route ลูก
 
 ---
 
@@ -36,6 +52,7 @@ npm run build-storybook   # build Storybook ไว้ที่ storybook-static/
 
 ```
 src/
+  tailwind.css                 Tailwind + ลำดับ CSS layer
   styles/_tokens.scss          token จาก Figma (สี ระยะ มุมโค้ง ขนาด) เป็น CSS variable --btfp-*
   styles.scss                  สไตล์พื้นฐาน และ class กลาง (.btfp-field, .btfp-link-button)
   app/
@@ -49,6 +66,7 @@ src/
     shared/ui/                 component กลาง btfp-* (มี .stories.ts คู่กันทุกตัว)
     pages/
       proposals/proposal-list/        B-01
+      proposals/proposal-filter-drawer/  B-01F
       proposals/proposal-list-empty/  B-01E
       placeholder/                    หน้าชั่วคราวของเมนูที่ยังไม่ทำ
   docs/introduction.mdx        หน้าแรกของ Storybook
@@ -67,6 +85,7 @@ src/
 | `btfp-empty-state` | เขียนเอง (PrimeNG ไม่มี) | Empty State |
 | `btfp-export-button` | `p-button` + `p-menu` | Actions/Export Menu Button |
 | `btfp-datepicker` | `p-datepicker` + แสดงปี พ.ศ. | Forms/DatePicker |
+| `btfp-drawer` | `p-drawer` ที่เปิดด้วย attribute `open` | Drawer |
 
 **หลักการเลือก**
 
@@ -87,14 +106,15 @@ src/
 
 ## ขั้นต่อไปของ dev (ตอนต่อ API)
 
-หน้า B-01 ตอนนี้เป็น HTML ล้วน ตอนต่อ API แนะนำลำดับนี้
+หน้า B-01 ตอนนี้เป็นหุ่นจำลอง ตอนต่อ API แนะนำลำดับนี้
 
 1. สร้าง service และ type ของข้อเสนอ เช่น `ProposalService.list(filter)`
-2. เปลี่ยน `<table class="btfp-table">` เป็น `<p-table [value]="proposals()" [lazy]="true">` ใช้ความกว้างคอลัมน์และ class เดิม
-3. แถวที่พิมพ์ไว้ 6 แถว เปลี่ยนเป็น `@for` แถวเดียว
-4. ตัวเลือกใน `p-select` ที่เขียนเป็นค่าคงที่ใน template ย้ายไปเป็นข้อมูลจาก API
-5. ช่องหน่วยงานใน Drawer ตอนนี้เป็น `p-select` แบบค้นหาได้ ให้เปลี่ยนเป็น `p-autocomplete` ที่ค้นจาก API ตาม Figma
-6. ใช้ `@if` แสดง `btfp-empty-state` แทนตารางเมื่อไม่มีข้อมูล (ดูตัวอย่างที่หน้า B-01E) แยก type ตามกรณี: ยังไม่มีข้อมูล (`general`), ค้นหาไม่พบ (`no-results`), โหลดไม่สำเร็จ (`error`)
+2. เปลี่ยน `<table class="btfp-table">` เป็น `<p-table [value]="proposals()" [lazy]="true">` ใช้ความกว้างคอลัมน์และ class เดิม แถวที่พิมพ์ไว้ 6 แถวเปลี่ยนเป็นแถวเดียว
+3. `<input type="checkbox" class="btfp-checkbox">` เปลี่ยนเป็น `<p-checkbox [binary]="true" [(ngModel)]>` หรือ selection ของ p-table
+4. `p-select` ที่ใช้ `placeholder` แทนค่า ให้ใส่ `[options]` และ `[(ngModel)]` / `formControlName`
+5. Drawer ตัวกรอง (`/proposals/filters`) ย้ายมาไว้ในหน้า B-01 ใช้ `<p-drawer [(visible)]="filterOpen">` แล้วลบ route ลูก
+6. ช่องหน่วยงานใน Drawer เปลี่ยนเป็น `p-autocomplete` ที่ค้นจาก API ตาม Figma
+7. ใช้ `@if` แสดง `btfp-empty-state` แทนตารางเมื่อไม่มีข้อมูล (ดูตัวอย่างที่ `/proposals/empty`) แยก type: ยังไม่มีข้อมูล (`general`), ค้นหาไม่พบ (`no-results`), โหลดไม่สำเร็จ (`error`)
 
 ---
 

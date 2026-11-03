@@ -5,7 +5,7 @@
 ## โปรเจกต์
 
 Front-end ของระบบบริหารจัดการทุน กทปส. (สำนักงาน กสทช.) สร้างจากงานออกแบบใน Figma
-Angular 21 (standalone, zoneless, signals) + PrimeNG 21 (styled mode, preset) + Storybook 10 (`@storybook/angular-vite`)
+Angular 21 (standalone, zoneless) + PrimeNG 21 (styled mode, preset) + Tailwind CSS 4 (`tailwindcss-primeui`) + Storybook 10 (`@storybook/angular-vite`)
 
 ## คำสั่ง
 
@@ -22,14 +22,24 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
 
 - ไฟล์หลัก `pGyEKPXYJ054QjRLVHu2FD`
 - หน้า: Design System `0:1`, Front-end `32:1388` (ผู้ขอรับทุน), Back-end `60:7994` (เจ้าหน้าที่/ผู้บริหาร/admin), Mobile App `476:25411`
-- หน้าที่ทำแล้ว: B-01 `60:7997`, B-01F Drawer `479:132339`, B-01E `480:66623`
+- หน้าที่ทำแล้ว: B-01 `60:7997` (/proposals), B-01F Drawer `479:132339` (/proposals/filters), B-01E `480:66623` (/proposals/empty)
 - เวลาขึ้นหน้าใหม่ ใช้ Figma MCP อ่าน frame (get_metadata / get_design_context / get_screenshot) แล้วแปลงเป็นโค้ดตามกฎด้านล่าง โค้ดที่ Figma ให้มาเป็นแค่ตัวอ้างอิง ห้ามวางตรง ๆ
 
 ## กฎการเขียนหน้า (ตกลงกับทีมแล้ว)
 
-1. **ข้อความพิมพ์ตรงใน HTML** ไม่ใช้ตัวแปรหรือ `@for` สำหรับข้อมูลในหน้า (ยังไม่ต่อ API)
-   ตัวเลือกของ select เขียนเป็นค่าคงที่ใน template ได้ `[options]="[{ label: 'ก', value: 'a' }]"`
-   ตัวแปรใน .ts ใช้ได้เฉพาะสถานะ UI เช่น เปิดปิด Drawer หรือ Dialog
+1. **หน้าเป็นหุ่นจำลอง (Mockup) markup + CSS เท่านั้น** (ข้อกำหนดจากพี่ BA)
+   - ไม่มี API ไม่เรียก service ไม่ดึงข้อมูลจริง
+   - ไม่มีตัวแปรและ logic: ห้าม `[prop]` `(event)` `[(ngModel)]` `@if` `@for` `{{ }}` signal ในไฟล์ของหน้า (`src/app/pages/`)
+     คลาส .ts ของหน้ามีแค่ `imports` ไม่มี property
+   - ค่าใน component ใส่เป็น attribute ธรรมดา เช่น `outlined` `severity="secondary"` `rows="10"`
+     (ใช้ได้เฉพาะ input ที่ PrimeNG ใส่ booleanAttribute/numberAttribute หรือเป็น string ถ้า build error ว่า string ไม่ตรง type ให้หาทางอื่น)
+   - ค่าที่ "เลือกไว้แล้ว" ใน select ใช้ `placeholder="2569" styleClass="btfp-mock-value"`
+   - checkbox ที่ติ๊กไว้ใช้ `<input type="checkbox" class="btfp-checkbox" checked>` (หัวตารางใช้ class `is-indeterminate`)
+   - สถานะเปิด เช่น Drawer ทำเป็น route ลูกแล้วเปิดด้วย `routerLink` (ดู `/proposals/filters`) ใช้ `<btfp-drawer open>`
+   - logic ภายใน component กลาง `btfp-*` มีได้ เพราะไม่ใช่ไฟล์ของหน้า
+   - **Responsive ใช้ class ของ Tailwind** ในไฟล์ HTML (sm 640, md 768, lg 1024, xl 1280, 2xl 1536)
+     ไฟล์ .scss ของหน้าใส่แค่สี ตัวอักษร เส้น ห้ามใส่ display/grid/flex/padding ของ layout เพราะ CSS ของ component ชนะ class ของ Tailwind
+   - ทดสอบทุกหน้าที่ความกว้าง 1920, 1024 และ 390px
 2. **ใช้ PrimeNG ก่อน** ปรับหน้าตาที่ `src/app/theme/btfp-preset.ts` ไม่เขียน CSS ทับ PrimeNG ถ้าไม่จำเป็น
 3. ถ้า PrimeNG ไม่มี หรือมีกฎเฉพาะ ให้สร้าง `btfp-*` ใน `src/app/shared/ui/` พร้อม `.stories.ts` และ export ใน `index.ts`
 4. **สี ระยะ มุมโค้ง** ใช้ CSS variable `--btfp-*` จาก `src/styles/_tokens.scss` ห้ามใส่รหัสสีตรง
@@ -61,4 +71,5 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
   ยกเว้น 6 ตัวที่ Lucide v1 เปลี่ยนชื่อ: `trash-2` → `trash`, `filter` → `funnel`, `circle-help` → `circle-question-mark`,
   `building-2` → `building-complex`, `history` → `rotate-ccw-clock`, `bold` → `letter-b`
 - ความหนาเส้นไอคอนตาม Figma คือ 1.5 (16px ลงมา 1.25) `btfp-icon` ตั้งให้อัตโนมัติ ไม่ต้องใส่ `strokeWidth`
-- `p-drawer`, `p-select` ใน Drawer ให้ใส่ `appendTo="body"` ไม่งั้น overlay จะโดนตัด
+- `p-select`, `p-multiselect` ใน Drawer ให้ใส่ `appendTo="body"` ไม่งั้น overlay จะโดนตัด
+- ลำดับ CSS layer: theme, base, primeng, btfp, components, utilities (ประกาศใน `src/tailwind.css` และ `app.config.ts` ต้องตรงกัน)
