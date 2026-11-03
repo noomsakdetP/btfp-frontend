@@ -5,6 +5,7 @@ import { BtfpTopbar } from './topbar/topbar';
 
 const meta: Meta = {
   title: 'Layout/Sidebar และ TopBar',
+  id: 'layout-shell',
   decorators: [moduleMetadata({ imports: [BtfpSidebar, BtfpTopbar] })],
   parameters: { layout: 'fullscreen' },
 };

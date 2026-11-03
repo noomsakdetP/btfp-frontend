@@ -22,6 +22,7 @@ const shell = (page: string) => `
 
 const meta: Meta = {
   title: 'Pages/B-01 ข้อเสนอโครงการ',
+  id: 'pages-b01-proposals',
   decorators: [
     moduleMetadata({ imports: [BtfpSidebar, BtfpTopbar, ConfirmDialog, ProposalListPage, ProposalListEmptyPage, ProposalFilterDrawer] }),
   ],
