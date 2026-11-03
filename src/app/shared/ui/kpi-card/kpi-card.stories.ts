@@ -24,7 +24,7 @@ export const WorkflowRow: Story = {
   parameters: { layout: 'fullscreen' },
   render: () => ({
     template: `
-      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; padding:24px">
+      <div class="grid snap-x auto-cols-[minmax(172px,1fr)] grid-flow-col gap-4 overflow-x-auto p-6">
         <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="12" caption="รอเจ้าหน้าที่รับเรื่อง" icon="send" />
         <btfp-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="24" caption="ส่งกลับแก้ไข 5 รายการ" icon="clipboard-check" active />
         <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="18" caption="รอความเห็นอนุกรรมการ" icon="list-checks" />

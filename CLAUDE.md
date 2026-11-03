@@ -37,9 +37,12 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
    - checkbox ที่ติ๊กไว้ใช้ `<input type="checkbox" class="btfp-checkbox" checked>` (หัวตารางใช้ class `is-indeterminate`)
    - สถานะเปิด เช่น Drawer ทำเป็น route ลูกแล้วเปิดด้วย `routerLink` (ดู `/proposals/filters`) ใช้ `<btfp-drawer open>`
    - logic ภายใน component กลาง `btfp-*` มีได้ เพราะไม่ใช่ไฟล์ของหน้า
-   - **Responsive ใช้ class ของ Tailwind** ในไฟล์ HTML (sm 640, md 768, lg 1024, xl 1280, 2xl 1536)
+   - **Responsive ใช้ class ของ Tailwind** ในไฟล์ HTML (sm 640, md 768, lg 1024, xl 1280, wide 1440, 2xl 1536)
+     ห้ามใช้ breakpoint แบบ `min-[1440px]:` เพราะ Tailwind เรียงลำดับผิด ถ้าต้องการขนาดใหม่ให้เพิ่มใน `@theme` ของ `src/tailwind.css`
      ไฟล์ .scss ของหน้าใส่แค่สี ตัวอักษร เส้น ห้ามใส่ display/grid/flex/padding ของ layout เพราะ CSS ของ component ชนะ class ของ Tailwind
-   - ทดสอบทุกหน้าที่ความกว้าง 1920, 1024 และ 390px
+   - ทดสอบทุกหน้าที่ความกว้าง 1920, 1440, 1024 และ 390px
+   - **Responsive ต้องไม่ทำให้หน้าตาต่างจาก Figma บนจอเดสก์ท็อป** กลุ่มที่ Figma วางเป็นแถวเดียว (เช่น การ์ด KPI)
+     ให้คงแถวเดียวแล้วเลื่อนซ้ายขวาเมื่อจอแคบ ห้ามตัดลงบรรทัดใหม่ ถ้าจำเป็นต้องจัดใหม่ให้ถามผู้ใช้ก่อน
 2. **ใช้ PrimeNG ก่อน** ปรับหน้าตาที่ `src/app/theme/btfp-preset.ts` ไม่เขียน CSS ทับ PrimeNG ถ้าไม่จำเป็น
 3. ถ้า PrimeNG ไม่มี หรือมีกฎเฉพาะ ให้สร้าง `btfp-*` ใน `src/app/shared/ui/` พร้อม `.stories.ts` และ export ใน `index.ts`
 4. **สี ระยะ มุมโค้ง** ใช้ CSS variable `--btfp-*` จาก `src/styles/_tokens.scss` ห้ามใส่รหัสสีตรง

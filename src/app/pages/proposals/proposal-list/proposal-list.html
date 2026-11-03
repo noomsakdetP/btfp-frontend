@@ -48,8 +48,8 @@
     </p-tablist>
   </p-tabs>
 
-  <!-- สรุปตามขั้นตอน: 1 คอลัมน์ > 2 (sm) > 3 (lg) > 5 (xl) -->
-  <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5" aria-label="สรุปข้อเสนอตามขั้นตอน">
+  <!-- สรุปตามขั้นตอน: แถวเดียว 5 ใบเสมอตาม Figma การ์ดกว้างอย่างน้อย 172px (5 ใบพอดีจอตั้งแต่ 1280px) ถ้าจอแคบไม่พอให้เลื่อนซ้ายขวา -->
+  <section class="grid snap-x auto-cols-[minmax(172px,1fr)] grid-flow-col gap-4 overflow-x-auto pb-1" aria-label="สรุปข้อเสนอตามขั้นตอน">
     <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="12" caption="รอเจ้าหน้าที่รับเรื่อง" icon="send" />
     <btfp-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="24" caption="ส่งกลับแก้ไข 5 รายการ" icon="clipboard-check" active />
     <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="18" caption="รอความเห็นอนุกรรมการ" icon="list-checks" />
@@ -59,9 +59,9 @@
 
   <!-- การ์ดตาราง -->
   <section class="proposal-card" aria-label="รายการข้อเสนอโครงการ">
-    <!-- ตัวกรอง: 1 คอลัมน์ > 2 (sm) > 3 (lg) > แถวเดียว (2xl) -->
-    <div class="grid grid-cols-1 items-end gap-3 p-4 sm:grid-cols-2 md:p-5 lg:grid-cols-3 2xl:grid-cols-[2.4fr_repeat(4,minmax(0,1fr))_auto]">
-      <div class="btfp-field sm:col-span-2 lg:col-span-3 2xl:col-span-1">
+    <!-- ตัวกรอง: แถวเดียวตาม Figma ตั้งแต่จอ 1440px (แคบกว่านี้ช่องอ่านไม่ออก) จอเล็กกว่าเรียงเป็น 3 / 2 / 1 คอลัมน์ -->
+    <div class="grid grid-cols-1 items-end gap-3 p-4 sm:grid-cols-2 md:p-5 lg:grid-cols-3 wide:grid-cols-[2.4fr_repeat(4,minmax(0,1fr))_auto]">
+      <div class="btfp-field sm:col-span-2 lg:col-span-3 wide:col-span-1">
         <label for="f-search">ค้นหา</label>
         <p-iconfield>
           <p-inputicon><btfp-icon name="search" size="16" /></p-inputicon>
@@ -89,7 +89,7 @@
         <p-select inputId="f-officer" placeholder="ทั้งหมด" styleClass="btfp-mock-value" />
       </div>
 
-      <p-button outlined routerLink="/proposals/filters" styleClass="w-full whitespace-nowrap 2xl:w-auto">
+      <p-button outlined routerLink="/proposals/filters" styleClass="w-full whitespace-nowrap wide:w-auto">
         <btfp-icon name="funnel" size="18" />
         <span>ตัวกรองเพิ่มเติม (10)</span>
       </p-button>

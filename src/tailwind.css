@@ -8,4 +8,10 @@
 @import 'tailwindcss';
 @plugin 'tailwindcss-primeui';
 
-/* breakpoint เดียวกับ Tailwind ค่าเริ่มต้น: sm 640, md 768, lg 1024, xl 1280, 2xl 1536 (px) */
+/*
+  breakpoint: sm 640, md 768, lg 1024, xl 1280, wide 1440, 2xl 1536 (px)
+  wide = จอโน้ตบุ๊ก 1440px ที่ใช้กันมากในหน่วยงาน (ต้องประกาศเป็น rem ให้ Tailwind เรียงลำดับถูก)
+*/
+@theme {
+  --breakpoint-wide: 90rem;
+}

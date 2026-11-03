@@ -32,6 +32,7 @@ import { BtfpIcon } from '../icon/icon';
   styles: `
     :host {
       display: flex;
+      scroll-snap-align: start;
       flex-direction: column;
       gap: 8px;
       min-width: 0;
