@@ -14,6 +14,7 @@ import { applicationConfig } from '@storybook/angular-vite';
 import { provideRouter, withHashLocation } from '@angular/router';
 import { btfpUiProviders } from '../src/app/app.config';
 import { btfpTheme } from './theme';
+import { htmlSnippetTransform } from './source-snippet';
 
 const preview: Preview = {
   decorators: [
@@ -26,7 +27,8 @@ const preview: Preview = {
     layout: 'padded',
     backgrounds: { default: 'subtle', options: { subtle: { name: 'subtle', value: '#f8fafc' }, white: { name: 'white', value: '#ffffff' } } },
     controls: { expanded: true },
-    docs: { theme: btfpTheme },
+    // Show code แสดง HTML ที่ copy ไปใช้ได้ (ดู source-snippet.ts)
+    docs: { theme: btfpTheme, source: { language: 'html', transform: htmlSnippetTransform } },
     a11y: { test: 'todo' },
     options: {
       storySort: {

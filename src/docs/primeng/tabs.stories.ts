@@ -9,9 +9,21 @@ const meta: Meta = {
   parameters: primengParameters(`**Figma:** \`Navigation/Tabs\`  
 **PrimeNG:** [\`p-tabs\`](https://primeng.org/tabs)
 
+**วิธีใช้** ทำข้อ 1 และ 2 ครั้งเดียวต่อหน้า แล้วใส่แท็กใน \`.html\` ได้กี่ที่ก็ได้
+
 \`\`\`ts
+// 1. import ด้านบนของไฟล์ .ts ของหน้า
 import { Tabs, TabList, Tab } from 'primeng/tabs';
+
+@Component({
+  // 2. ใส่ในรายการ imports ของหน้า (ถ้ามีตัวอื่นอยู่แล้วให้ต่อท้าย)
+  imports: [Tabs, TabList, Tab],
+  templateUrl: './my-page.html',
+})
+export class MyPage {}
 \`\`\`
+
+3. ใส่แท็กในไฟล์ \`.html\` ตามตารางด้านล่าง หรือกด **Show code** ใต้ตัวอย่างแล้วกด **Copy code**
 
 | Figma | ในโค้ด |
 | --- | --- |
