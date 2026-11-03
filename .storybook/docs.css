@@ -71,3 +71,233 @@
   font-size: 13px;
   color: var(--btfp-navy-700);
 }
+
+/* =====================================================================
+ * องค์ประกอบสำหรับหน้าภาพรวม (.mdx) ใช้ token ทั้งหมด
+ * ===================================================================== */
+
+/* ย่อหน้าเปิด */
+#storybook-docs .doc-lead {
+  margin: 8px 0 32px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--btfp-text-secondary);
+}
+
+/* หัวข้อส่วน */
+#storybook-docs .doc-section {
+  margin: 40px 0 16px;
+}
+#storybook-docs .doc-section-title {
+  margin: 0 0 4px;
+  font-family: var(--btfp-font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--btfp-text-heading);
+}
+#storybook-docs .doc-section-desc {
+  margin: 0;
+  font-size: 14px;
+  color: var(--btfp-text-secondary);
+}
+
+/* การ์ดเรียงเป็นตาราง */
+#storybook-docs .doc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+#storybook-docs .doc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--btfp-border-default);
+  border-radius: var(--btfp-radius-card);
+  background: var(--btfp-surface-raised);
+  color: var(--btfp-text-primary);
+  text-decoration: none;
+}
+#storybook-docs a.doc-card:hover {
+  border-color: var(--btfp-action-primary);
+  box-shadow: var(--btfp-shadow-2);
+}
+#storybook-docs .doc-card-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--btfp-action-link);
+}
+#storybook-docs .doc-card-title {
+  font-family: var(--btfp-font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--btfp-text-heading);
+}
+#storybook-docs .doc-card-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--btfp-text-secondary);
+}
+#storybook-docs .doc-card code,
+#storybook-docs .doc-rule code,
+#storybook-docs .doc-row code {
+  padding: 1px 6px;
+  border: 1px solid var(--btfp-border-default);
+  border-radius: var(--btfp-radius-input);
+  background: var(--btfp-bg-subtle);
+  font-size: 13px;
+  color: var(--btfp-navy-700);
+  word-break: break-word;
+}
+
+/* Accordion (<details>) */
+#storybook-docs .doc-accordion {
+  margin: 16px 0;
+  border: 1px solid var(--btfp-border-default);
+  border-radius: var(--btfp-radius-card);
+  background: var(--btfp-surface-raised);
+  overflow: hidden;
+}
+#storybook-docs .doc-accordion details + details {
+  border-top: 1px solid var(--btfp-border-default);
+}
+#storybook-docs .doc-accordion summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--btfp-font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--btfp-text-heading);
+}
+#storybook-docs .doc-accordion summary::-webkit-details-marker {
+  display: none;
+}
+#storybook-docs .doc-accordion summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  border-right: 1.5px solid var(--btfp-icon-default);
+  border-bottom: 1.5px solid var(--btfp-icon-default);
+  transform: rotate(45deg);
+  transition: transform 0.15s;
+}
+#storybook-docs .doc-accordion details[open] > summary::after {
+  transform: rotate(-135deg);
+}
+#storybook-docs .doc-accordion summary:hover {
+  background: var(--btfp-bg-subtle);
+}
+#storybook-docs .doc-count {
+  padding: 0 8px;
+  border-radius: var(--btfp-radius-full);
+  background: var(--btfp-info-bg);
+  font-family: var(--btfp-font-body);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--btfp-info-text);
+}
+#storybook-docs .doc-accordion-body {
+  padding: 0 20px 16px;
+}
+
+/* แถวข้อมูลใน Accordion: ซ้ายชื่อ ขวารายละเอียด */
+#storybook-docs .doc-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--btfp-border-default);
+  font-size: 14px;
+  line-height: 1.6;
+}
+#storybook-docs .doc-row:first-child {
+  border-top: 0;
+}
+#storybook-docs .doc-row-name {
+  font-weight: 500;
+  color: var(--btfp-text-heading);
+}
+#storybook-docs .doc-row-name a {
+  color: var(--btfp-action-link);
+}
+#storybook-docs .doc-row-value {
+  color: var(--btfp-text-primary);
+}
+#storybook-docs .doc-row-value small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--btfp-text-secondary);
+}
+
+/* กฎแบบมีเลข */
+#storybook-docs ol.doc-rules:not(.docs-story *) {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+#storybook-docs .doc-rule {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid var(--btfp-border-default);
+  border-radius: var(--btfp-radius-card);
+  background: var(--btfp-surface-raised);
+  font-size: 15px;
+  line-height: 1.6;
+}
+#storybook-docs .doc-rule-no {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--btfp-radius-full);
+  background: var(--btfp-info-bg);
+  font-weight: 600;
+  color: var(--btfp-info-text);
+}
+#storybook-docs .doc-rule-title {
+  display: block;
+  font-weight: 600;
+  color: var(--btfp-text-heading);
+}
+#storybook-docs .doc-rule-text {
+  display: block;
+  font-size: 14px;
+  color: var(--btfp-text-secondary);
+}
+
+/* กล่องหมายเหตุ */
+#storybook-docs .doc-note {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+  padding: 16px 20px;
+  border: 1px solid var(--btfp-info-border);
+  border-radius: var(--btfp-radius-card);
+  background: var(--btfp-info-bg);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--btfp-info-text);
+}
+
+@media (max-width: 640px) {
+  #storybook-docs .doc-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

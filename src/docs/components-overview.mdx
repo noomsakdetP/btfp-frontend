@@ -4,21 +4,86 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Components (btfp-*)
 
-component กลางที่ทีมสร้างเอง อยู่ใน `src/app/shared/ui/` import จาก `src/app/shared/ui/index.ts` ที่เดียว
+<p className="doc-lead">component กลางที่ทีมสร้างเอง อยู่ใน <code>src/app/shared/ui/</code> และ import จาก <code>index.ts</code> ที่เดียว</p>
 
-สร้างเมื่อ PrimeNG **ไม่มี** component นั้น หรือ**มีแต่ระบบมีกฎเฉพาะ** ตั้งชื่อ input แบบ PrimeNG (`severity`, `size`, `label`) และรับค่าเป็น attribute ธรรมดาได้ เพื่อใช้ในหน้าหุ่นจำลองที่ไม่มี binding
+<div className="doc-section">
+  <h2 className="doc-section-title">สร้างเองเมื่อไร</h2>
+</div>
 
-| หมวด | Component | Figma | ทำไมไม่ใช้ PrimeNG ตรง ๆ |
-| --- | --- | --- | --- |
-| Actions | `btfp-row-actions` | Domain/Table Row Actions | ต้องเรียง ดู แก้ไข ลบ และลบต้องยืนยันเสมอ |
-| | `btfp-export-button` | Actions/Export Menu Button | ใช้ตัวเดียวทั้งระบบ ตัวเลือก Excel, PDF, CSV |
-| Forms | `btfp-datepicker` | Forms/DatePicker | แสดงปี พ.ศ. แต่เก็บค่า ค.ศ. |
-| Data Display | `btfp-status-tag` | Domain/Status Badge | 14 สถานะ สีเกินที่ `p-tag` มี |
-| | `btfp-kpi-card` | Domain/KPI Stat Card | PrimeNG ไม่มี |
-| Feedback | `btfp-empty-state` | Empty State | PrimeNG ไม่มี |
-| Overlay | `btfp-drawer` | Drawer | `p-drawer` เปิดด้วย attribute ไม่ได้ |
-| Public website | `btfp-section-header`, `btfp-grant-call-card`, การ์ดต่าง ๆ, `btfp-hero-banner` | Public/*, Domain/Grant Call Card, Domain/Hero Banner | PrimeNG ไม่มี, `p-carousel` ต้องใช้ binding |
+<div className="doc-cards">
+  <div className="doc-card">
+    <span className="doc-card-label">กรณีที่ 1</span>
+    <span className="doc-card-title">PrimeNG ไม่มี</span>
+    <span className="doc-card-text">เช่น การ์ด KPI, หน้าว่าง (Empty State), การ์ดในเว็บไซต์สาธารณะ</span>
+  </div>
+  <div className="doc-card">
+    <span className="doc-card-label">กรณีที่ 2</span>
+    <span className="doc-card-title">PrimeNG มี แต่ระบบมีกฎเฉพาะ</span>
+    <span className="doc-card-text">เช่น ปุ่มท้ายแถวต้องเรียง ดู แก้ไข ลบ และลบต้องยืนยัน, วันที่ต้องแสดง พ.ศ.</span>
+  </div>
+  <div className="doc-card">
+    <span className="doc-card-label">กรณีที่ 3</span>
+    <span className="doc-card-title">ต้องใช้ในหน้าหุ่นจำลอง</span>
+    <span className="doc-card-text">component ของ PrimeNG ที่ต้องใช้ binding ห่อให้รับ attribute ธรรมดาได้ เช่น Drawer, Hero Banner</span>
+  </div>
+</div>
 
-ไอคอน `btfp-icon` ดูใน Foundations > ไอคอน
+<div className="doc-section">
+  <h2 className="doc-section-title">รายการ component</h2>
+  <p className="doc-section-desc">กดชื่อเพื่อเปิดหน้านั้น</p>
+</div>
 
-**ทำ component ใหม่** สร้างใน `src/app/shared/ui/<ชื่อ>/` พร้อม `.stories.ts` (ใส่ `tags: ['autodocs']`) export ใน `index.ts` แล้วอัปเดตตารางใน `DESIGN.md`
+<div className="doc-accordion">
+  <details open>
+    <summary>Actions <span className="doc-count">2</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-actions-row-actions--docs" target="_top">Row Actions</a></span><span className="doc-row-value"><code>btfp-row-actions</code><small>Figma: Domain/Table Row Actions เรียง ดู แก้ไข ลบ และลบต้องยืนยันเสมอ</small></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-actions-export-button--docs" target="_top">Export Button</a></span><span className="doc-row-value"><code>btfp-export-button</code><small>Figma: Actions/Export Menu Button ใช้ตัวเดียวทั้งระบบ ตัวเลือก Excel, PDF, CSV</small></span></div>
+    </div>
+  </details>
+  <details>
+    <summary>Forms <span className="doc-count">1</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-datepicker--docs" target="_top">Datepicker (พ.ศ.)</a></span><span className="doc-row-value"><code>btfp-datepicker</code><small>Figma: Forms/DatePicker แสดงปี พ.ศ. แต่เก็บค่าเป็น ค.ศ.</small></span></div>
+    </div>
+  </details>
+  <details>
+    <summary>Data Display <span className="doc-count">2</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-data-display-status-tag--docs" target="_top">Status Tag</a></span><span className="doc-row-value"><code>btfp-status-tag</code><small>Figma: Domain/Status Badge ครบ 14 สถานะ ใส่ status อย่างเดียว</small></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-data-display-kpi-card--docs" target="_top">KPI Card</a></span><span className="doc-row-value"><code>btfp-kpi-card</code><small>Figma: Domain/KPI Stat Card</small></span></div>
+    </div>
+  </details>
+  <details>
+    <summary>Feedback <span className="doc-count">1</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-feedback-empty-state--docs" target="_top">Empty State</a></span><span className="doc-row-value"><code>btfp-empty-state</code><small>4 แบบ: ยังไม่มีข้อมูล, ค้นหาไม่พบ, ไม่มีไฟล์, โหลดไม่สำเร็จ</small></span></div>
+    </div>
+  </details>
+  <details>
+    <summary>Overlay <span className="doc-count">1</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-overlay-drawer--docs" target="_top">Drawer</a></span><span className="doc-row-value"><code>btfp-drawer</code><small>ห่อ p-drawer ให้เปิดด้วย attribute open ได้</small></span></div>
+    </div>
+  </details>
+  <details>
+    <summary>Public website <span className="doc-count">7</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-public--docs" target="_top">ส่วนหัวและการ์ด</a></span><span className="doc-row-value"><code>btfp-section-header</code> <code>btfp-grant-call-card</code> <code>btfp-process-step</code> <code>btfp-showcase-card</code> <code>btfp-result-card</code> <code>btfp-news-card</code><small>Figma: Public/* และ Domain/Grant Call Card</small></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-public--docs" target="_top">Hero Banner</a></span><span className="doc-row-value"><code>btfp-hero-banner</code> + <code>btfp-hero-slide</code><small>Figma: Domain/Hero Banner p-carousel ใช้ไม่ได้เพราะต้องส่งข้อมูลผ่าน binding</small></span></div>
+    </div>
+  </details>
+</div>
+
+<div className="doc-note">ไอคอน btfp-icon ดูได้ที่ Foundations &gt; ไอคอน</div>
+
+<div className="doc-section">
+  <h2 className="doc-section-title">ทำ component ใหม่</h2>
+</div>
+
+<ol className="doc-rules">
+  <li className="doc-rule"><span className="doc-rule-no">1</span><span><span className="doc-rule-title">สร้างโฟลเดอร์ <code>src/app/shared/ui/&lt;ชื่อ&gt;/</code></span><span className="doc-rule-text">ตั้งชื่อ selector ขึ้นต้นด้วย btfp- และชื่อ input แบบ PrimeNG เช่น severity, size, label</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">2</span><span><span className="doc-rule-title">เขียน <code>.stories.ts</code> คู่กัน</span><span className="doc-rule-text">ใส่ tags: ['autodocs'] และ title เป็น Components/&lt;หมวดตาม Figma&gt;/&lt;ชื่อ&gt;</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">3</span><span><span className="doc-rule-title">export ใน <code>index.ts</code></span><span className="doc-rule-text">หน้าอื่นจะ import จากที่เดียว</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">4</span><span><span className="doc-rule-title">อัปเดตตารางใน <code>DESIGN.md</code></span><span className="doc-rule-text">เปลี่ยนสถานะจาก ต้องทำ เป็น ทำแล้ว</span></span></li>
+</ol>

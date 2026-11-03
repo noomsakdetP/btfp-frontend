@@ -4,52 +4,112 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # PrimeNG (ธีม กทปส.)
 
-หมวดนี้คือ component ของ **PrimeNG 21** ที่ปรับหน้าตาให้ตรงกับหน้า Design System ใน Figma แล้ว **ใช้ PrimeNG ตรง ๆ ได้เลย ไม่ต้องเขียน CSS ทับ**
+<p className="doc-lead">component ของ PrimeNG 21 ที่ปรับหน้าตาให้ตรงกับหน้า Design System ใน Figma แล้ว ใช้ PrimeNG ตรง ๆ ได้เลย ไม่ต้องเขียน CSS ทับ</p>
 
-## ธีมตั้งไว้ที่ไหน
+<div className="doc-section">
+  <h2 className="doc-section-title">ธีมตั้งไว้ที่ไหน</h2>
+  <p className="doc-section-desc">ถ้า Figma เปลี่ยนค่า ให้แก้ที่ preset ก่อน แก้ styles.scss เฉพาะเมื่อ PrimeNG ไม่มี token ให้ปรับ</p>
+</div>
 
-| ไฟล์ | หน้าที่ |
-| --- | --- |
-| `src/app/theme/btfp-preset.ts` | ธีมหลัก สร้างจาก Aura แล้วทับค่าด้วย token ของ Figma (สี ขนาด มุมโค้ง เส้นโฟกัส) |
-| `src/app/app.config.ts` | `providePrimeNG` ใช้ preset ภาษาไทย และลำดับ CSS layer |
-| `src/styles.scss` | ส่วนที่ preset ทำไม่ได้ เช่น เส้นขอบของ Tag, Segmented Control, ป้ายชื่อช่องกรอก `.btfp-field` |
-| `src/app/theme/th-locale.ts` | ข้อความภาษาไทยของ PrimeNG (ปฏิทิน ตัวกรอง ฯลฯ) |
+<div className="doc-cards">
+  <div className="doc-card">
+    <span className="doc-card-label">ธีมหลัก</span>
+    <code>src/app/theme/btfp-preset.ts</code>
+    <span className="doc-card-text">สร้างจาก Aura แล้วทับค่าด้วย token ของ Figma เช่น สี ขนาด มุมโค้ง เส้นโฟกัส</span>
+  </div>
+  <div className="doc-card">
+    <span className="doc-card-label">ตั้งค่า</span>
+    <code>src/app/app.config.ts</code>
+    <span className="doc-card-text">providePrimeNG ใช้ preset ภาษาไทย และลำดับ CSS layer</span>
+  </div>
+  <div className="doc-card">
+    <span className="doc-card-label">ส่วนเสริม</span>
+    <code>src/styles.scss</code>
+    <span className="doc-card-text">สิ่งที่ preset ทำไม่ได้ เช่น เส้นขอบของ Tag, Segmented Control, ป้ายชื่อช่องกรอก .btfp-field</span>
+  </div>
+  <div className="doc-card">
+    <span className="doc-card-label">ภาษาไทย</span>
+    <code>src/app/theme/th-locale.ts</code>
+    <span className="doc-card-text">ข้อความของ PrimeNG เช่น ชื่อเดือนในปฏิทิน ปุ่มในตัวกรอง</span>
+  </div>
+</div>
 
-ถ้า Figma เปลี่ยนค่า ให้แก้ที่ `btfp-preset.ts` ก่อน แก้ `styles.scss` เฉพาะเมื่อ PrimeNG ไม่มี token ให้ปรับ
+<div className="doc-section">
+  <h2 className="doc-section-title">Figma กับ PrimeNG</h2>
+  <p className="doc-section-desc">กดชื่อเพื่อเปิดหน้านั้น แต่ละหน้ามีตารางว่า variant ใน Figma ตรงกับ attribute ไหน</p>
+</div>
 
-## Figma กับ PrimeNG
+<div className="doc-accordion">
+  <details open>
+    <summary>Actions <span className="doc-count">2</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-button--docs" target="_top">Button</a></span><span className="doc-row-value"><code>p-button</code><small>primary, secondary, tertiary, danger ขนาด S M L</small></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-icon-button--docs" target="_top">Icon Button</a></span><span className="doc-row-value"><code>p-button</code> + <code>&lt;ng-template #icon&gt;</code><small>ปุ่มไอคอนอย่างเดียว 32 40 48 px</small></span></div>
+    </div>
+  </details>
+  <details>
+    <summary>Forms <span className="doc-count">13</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-text-input--docs" target="_top">TextInput, Textarea</a></span><span className="doc-row-value"><code>pInputText</code> <code>pTextarea</code></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-select--docs" target="_top">Select, MultiSelect</a></span><span className="doc-row-value"><code>p-select</code> <code>p-multiselect</code></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-input-other--docs" target="_top">Autocomplete, Currency, Search, OTP</a></span><span className="doc-row-value"><code>p-autocomplete</code> <code>p-inputnumber</code> <code>p-iconfield</code> <code>p-inputotp</code></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-choices--docs" target="_top">Checkbox, Radio, Toggle</a></span><span className="doc-row-value"><code>p-checkbox</code> <code>p-radiobutton</code> <code>p-toggleswitch</code></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-segmented--docs" target="_top">Segmented Control</a></span><span className="doc-row-value"><code>p-selectbutton</code></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-datepicker--docs" target="_top">DatePicker</a></span><span className="doc-row-value"><code>btfp-datepicker</code><small>อยู่ใน Components เพราะต้องแสดงปี พ.ศ.</small></span></div>
+    </div>
+  </details>
+  <details>
+    <summary>Data Display <span className="doc-count">2</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-tag--docs" target="_top">Tag</a></span><span className="doc-row-value"><code>p-tag</code> <code>p-chip</code><small>ป้ายสถานะ 14 แบบใช้ btfp-status-tag แทน</small></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-avatar--docs" target="_top">Avatar</a></span><span className="doc-row-value"><code>p-avatar</code></span></div>
+    </div>
+  </details>
+  <details>
+    <summary>Feedback <span className="doc-count">1</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-tooltip--docs" target="_top">Tooltip</a></span><span className="doc-row-value"><code>pTooltip</code></span></div>
+    </div>
+  </details>
+  <details>
+    <summary>Navigation <span className="doc-count">3</span></summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-tabs--docs" target="_top">Tabs</a></span><span className="doc-row-value"><code>p-tabs</code></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-pagination--docs" target="_top">Pagination</a></span><span className="doc-row-value"><code>p-paginator</code></span></div>
+      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/primeng-breadcrumb--docs" target="_top">Breadcrumb</a></span><span className="doc-row-value">HTML ในหน้าหุ่นจำลอง<small>ตอนต่อ API ใช้ p-breadcrumb</small></span></div>
+    </div>
+  </details>
+</div>
 
-| หมวด | Figma | PrimeNG |
-| --- | --- | --- |
-| Actions | Button, IconButton | `p-button` |
-| Forms | TextInput, Textarea | `pInputText`, `pTextarea` |
-| | Select, MultiSelect | `p-select`, `p-multiselect` |
-| | Autocomplete, CurrencyInput, SearchField, OtpInput | `p-autocomplete`, `p-inputnumber`, `p-iconfield`, `p-inputotp` |
-| | Checkbox, Radio, Toggle | `p-checkbox`, `p-radiobutton`, `p-toggleswitch` |
-| | Segmented Control | `p-selectbutton` |
-| | DatePicker | ใช้ `btfp-datepicker` (แสดง พ.ศ.) ดูใน Components |
-| Data Display | Tag | `p-tag`, `p-chip` |
-| | Avatar | `p-avatar` |
-| Feedback | Tooltip | `pTooltip` |
-| Navigation | Tabs, Pagination | `p-tabs`, `p-paginator` |
-| | Breadcrumb | HTML ในหน้าหุ่นจำลอง (`p-breadcrumb` ตอนต่อ API) |
+<div className="doc-section">
+  <h2 className="doc-section-title">กฎที่ต้องจำ</h2>
+</div>
 
-## กฎที่ต้องจำ
+<ol className="doc-rules">
+  <li className="doc-rule"><span className="doc-rule-no">1</span><span><span className="doc-rule-title">ปุ่มรองใช้ <code>outlined severity="secondary"</code></span><span className="doc-rule-text">ใส่ outlined อย่างเดียวจะได้ขอบสีน้ำเงิน ซึ่งไม่มีใน Figma</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">2</span><span><span className="doc-rule-title">ปุ่มไอคอนอย่างเดียว ใส่ไอคอนใน <code>&lt;ng-template #icon&gt;</code></span><span className="doc-rule-text">และใส่ ariaLabel กับ pTooltip ทุกครั้ง</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">3</span><span><span className="doc-rule-title">ช่องกรอกครอบด้วย <code>.btfp-field</code></span><span className="doc-rule-text">ป้ายชื่อ ข้อความช่วย และข้อความผิดพลาดจะตรง Figma</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">4</span><span><span className="doc-rule-title">ไอคอนใช้ <code>btfp-icon</code></span><span className="doc-rule-text">ไม่ใช้ PrimeIcons</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">5</span><span><span className="doc-rule-title">ป้ายสถานะ 14 แบบใช้ <code>btfp-status-tag</code></span><span className="doc-rule-text">ไม่ใช้ p-tag เลือกสีเอง</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">6</span><span><span className="doc-rule-title">Select ใน Drawer ใส่ <code>appendTo="body"</code></span><span className="doc-rule-text">ไม่งั้นรายการตัวเลือกจะโดนตัด</span></span></li>
+</ol>
 
-1. ปุ่มรองใน Figma = `outlined severity="secondary"` ใส่ `outlined` อย่างเดียวจะเป็นขอบสีน้ำเงิน
-2. ปุ่มที่มีแต่ไอคอน ใส่ไอคอนใน `<ng-template #icon>` และใส่ `ariaLabel` กับ `pTooltip` ทุกครั้ง
-3. ช่องกรอกครอบด้วย `.btfp-field` เพื่อให้ป้ายชื่อ ข้อความช่วย และข้อความผิดพลาดตรง Figma
-4. ไอคอนใช้ `btfp-icon` ไม่ใช้ PrimeIcons
-5. ป้ายสถานะ 14 แบบใช้ `btfp-status-tag` ไม่ใช้ `p-tag`
-6. `p-select` และ `p-multiselect` ใน Drawer ใส่ `appendTo="body"`
+<div className="doc-section">
+  <h2 className="doc-section-title">หน้าหุ่นจำลอง (ไม่มี binding)</h2>
+  <p className="doc-section-desc">หน้าใน src/app/pages เขียนได้แค่ markup ใช้วิธีเหล่านี้แสดงสถานะแทน</p>
+</div>
 
-## หน้าหุ่นจำลอง (ไม่มี binding)
+<div className="doc-accordion">
+  <details open>
+    <summary>วิธีแสดงสถานะโดยไม่ใช้ binding</summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name">ค่าที่เลือกไว้ใน select</span><span className="doc-row-value"><code>&lt;p-select placeholder="2569" styleClass="btfp-mock-value" /&gt;</code></span></div>
+      <div className="doc-row"><span className="doc-row-name">checkbox ที่ติ๊กไว้</span><span className="doc-row-value"><code>&lt;input type="checkbox" class="btfp-checkbox" checked&gt;</code></span></div>
+      <div className="doc-row"><span className="doc-row-name">แท็บที่เลือก</span><span className="doc-row-value"><code>&lt;p-tabs value="1"&gt;</code></span></div>
+      <div className="doc-row"><span className="doc-row-name">ปุ่มปิดใช้งาน</span><span className="doc-row-value"><code>&lt;p-button label="..." disabled /&gt;</code></span></div>
+      <div className="doc-row"><span className="doc-row-name">Drawer ที่เปิดอยู่</span><span className="doc-row-value"><code>&lt;btfp-drawer open&gt;</code><small>ทำเป็น route ลูก เปิดด้วย routerLink</small></span></div>
+    </div>
+  </details>
+</div>
 
-| ต้องการ | เขียนแบบนี้ |
-| --- | --- |
-| ค่าที่เลือกไว้แล้วใน select | `<p-select placeholder="2569" styleClass="btfp-mock-value" />` |
-| checkbox ที่ติ๊กไว้ | `<input type="checkbox" class="btfp-checkbox" checked>` |
-| แท็บที่เลือก | `<p-tabs value="1">` |
-| ปุ่มปิดใช้งาน | `<p-button label="..." disabled />` |
-
-แต่ละหน้าในหมวดนี้มีแท็บ **Docs** บอกว่า variant ใน Figma ตรงกับ attribute ไหน และกด **Show code** ดูโค้ดของแต่ละตัวอย่างได้
+<div className="doc-note">แต่ละหน้าในหมวดนี้มีแท็บ Docs และกด Show code ใต้ตัวอย่างเพื่อดูโค้ดได้</div>

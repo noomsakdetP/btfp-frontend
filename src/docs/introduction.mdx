@@ -2,38 +2,84 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="เริ่มต้น/อ่านก่อน" id="intro" />
 
-# ระบบบริหารจัดการทุน กทปส. : ตัวอย่าง Front-end นำร่อง
+# ระบบบริหารจัดการทุน กทปส.
 
-Storybook นี้เป็นตัวอย่างให้ทีม dev ดูว่างานออกแบบใน Figma แปลงเป็น **Angular 21 + PrimeNG 21 + Tailwind CSS 4** อย่างไร
+<p className="doc-lead">ตัวอย่าง Front-end นำร่อง ให้ทีม dev ดูว่างานออกแบบใน Figma แปลงเป็น <strong>Angular 21 + PrimeNG 21 + Tailwind CSS 4</strong> อย่างไร</p>
 
-## มีอะไรบ้าง
+<div className="doc-section">
+  <h2 className="doc-section-title">มีอะไรบ้าง</h2>
+  <p className="doc-section-desc">ทุกหน้ามีแท็บ Docs อธิบายวิธีใช้ และกด Show code ใต้ตัวอย่างเพื่อดูโค้ด</p>
+</div>
 
-| หมวด | เนื้อหา |
-| --- | --- |
-| Foundations | สี ตัวอักษร ระยะ มุมโค้ง เงา ไอคอน (ค่าจาก Figma Variables และ Styles) |
-| PrimeNG (ธีม กทปส.) | component ของ PrimeNG ที่ปรับธีมตาม Figma แล้ว พร้อมตารางว่า variant ใน Figma ตรงกับ attribute ไหน |
-| Components | `btfp-*` component กลางที่ทีมสร้างเอง (Actions, Forms, Data Display, Feedback, Overlay, Public website) |
-| Layout | Sidebar และ TopBar ของเจ้าหน้าที่ |
-| Pages | หน้าแรกสาธารณะ, B-01 ข้อเสนอโครงการ, B-01F ตัวกรองเพิ่มเติม, B-01E ยังไม่มีข้อมูล |
+<div className="doc-cards">
+  <a className="doc-card" href="./?path=/docs/foundations-colors--docs" target="_top">
+    <span className="doc-card-label">Foundations</span>
+    <span className="doc-card-title">Design Token</span>
+    <span className="doc-card-text">สี ตัวอักษร ระยะ มุมโค้ง เงา และไอคอน ค่าเดียวกับ Figma Variables</span>
+  </a>
+  <a className="doc-card" href="./?path=/docs/primeng-overview--docs" target="_top">
+    <span className="doc-card-label">PrimeNG (ธีม กทปส.)</span>
+    <span className="doc-card-title">component พื้นฐาน</span>
+    <span className="doc-card-text">PrimeNG ที่ปรับธีมตาม Figma แล้ว พร้อมตารางว่า variant ใน Figma ตรงกับ attribute ไหน</span>
+  </a>
+  <a className="doc-card" href="./?path=/docs/components-overview--docs" target="_top">
+    <span className="doc-card-label">Components</span>
+    <span className="doc-card-title">{'btfp-*'}</span>
+    <span className="doc-card-text">component กลางที่ทีมสร้างเอง เมื่อ PrimeNG ไม่มีหรือระบบมีกฎเฉพาะ</span>
+  </a>
+  <a className="doc-card" href="./?path=/story/layout-shell--sidebar" target="_top">
+    <span className="doc-card-label">Layout</span>
+    <span className="doc-card-title">Sidebar และ TopBar</span>
+    <span className="doc-card-text">โครงหน้าของเจ้าหน้าที่</span>
+  </a>
+  <a className="doc-card" href="./?path=/story/pages-public-landing--landing" target="_top">
+    <span className="doc-card-label">Pages</span>
+    <span className="doc-card-title">หน้าตัวอย่าง</span>
+    <span className="doc-card-text">หน้าแรกสาธารณะ, ข้อเสนอโครงการ, ตัวกรองเพิ่มเติม, หน้ายังไม่มีข้อมูล</span>
+  </a>
+</div>
 
-ทุกหน้ามีแท็บ **Docs** อธิบายวิธีใช้ และกด **Show code** ใต้ตัวอย่างเพื่อดูโค้ด
+<div className="doc-section">
+  <h2 className="doc-section-title">หลักการที่ใช้</h2>
+</div>
 
-## หลักการที่ใช้
+<ol className="doc-rules">
+  <li className="doc-rule"><span className="doc-rule-no">1</span><span><span className="doc-rule-title">ใช้ PrimeNG ก่อนเสมอ</span><span className="doc-rule-text">ปรับหน้าตาผ่าน preset ที่ <code>src/app/theme/btfp-preset.ts</code> ไม่เขียน CSS ทับเอง</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">2</span><span><span className="doc-rule-title">PrimeNG ไม่มี หรือมีแต่ระบบมีกฎเฉพาะ ห่อเป็น <code>{'btfp-*'}</code></span><span className="doc-rule-text">ใช้ชื่อ input แบบเดียวกับ PrimeNG เช่น severity, size, label</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">3</span><span><span className="doc-rule-title">สีและระยะใช้ token จาก Figma</span><span className="doc-rule-text">CSS variable <code>{'--btfp-*'}</code> ใน <code>{'src/styles/_tokens.scss'}</code> ห้ามใส่รหัสสีตรง</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">4</span><span><span className="doc-rule-title">ไอคอนใช้ Lucide ชุดเดียวกับ Figma</span><span className="doc-rule-text"><code>&lt;btfp-icon name="eye" size="16" /&gt;</code></span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">5</span><span><span className="doc-rule-title">วันที่ใช้ <code>btfp-datepicker</code> เสมอ</span><span className="doc-rule-text">แสดง พ.ศ. แต่เก็บค่าเป็น ค.ศ.</span></span></li>
+</ol>
 
-1. **ใช้ PrimeNG ก่อนเสมอ** ปรับหน้าตาผ่าน preset (`src/app/theme/btfp-preset.ts`) ไม่เขียน CSS ทับเอง
-2. **ถ้า PrimeNG ไม่มี หรือมีแต่ต้องมีกฎเฉพาะของระบบ** ให้ห่อเป็น component `btfp-*` ใช้ชื่อ input แบบเดียวกับ PrimeNG (`severity`, `size`, `label`)
-3. **สีและระยะห่าง** ใช้ token จาก Figma (`src/styles/_tokens.scss`) ห้ามใส่รหัสสีตรง ๆ
-4. **ไอคอน** ใช้ Lucide ชุดเดียวกับ Figma: `<btfp-icon name="eye" size="16" />`
-5. **วันที่** ใช้ `btfp-datepicker` เสมอ แสดง พ.ศ. แต่เก็บค่าเป็น ค.ศ.
+<div className="doc-section">
+  <h2 className="doc-section-title">รายละเอียดเพิ่มเติม</h2>
+</div>
 
-## กฎของงานออกแบบที่โค้ดต้องตามด้วย
-
-- แถวตารางสูง 56px ข้อความบรรทัดเดียว ยาวเกินให้ตัด
-- ปุ่มท้ายแถวเรียง ดู แก้ไข ลบ และการลบต้องมีป๊อปอัปยืนยันทุกครั้ง
-- ข้อความบนหน้าจอไม่ใช้ "—" และ "•" และไม่แสดงรหัสหน้าจอ (เช่น B-01)
-
-## หน้าเป็นหุ่นจำลอง (Mockup)
-
-- ไม่มี API ไม่มีตัวแปร ไม่มี binding มีแต่ markup + CSS
-- Responsive ด้วย class ของ Tailwind ลองกดปุ่ม Viewport ด้านบนเพื่อดูขนาดจอมือถือและแท็บเล็ต
-- ขั้นต่อไปตอนต่อ API ดูใน `README.md` ของ repo
+<div className="doc-accordion">
+  <details open>
+    <summary>กฎของงานออกแบบที่โค้ดต้องตามด้วย</summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name">ตาราง</span><span className="doc-row-value">แถวสูง 56px ข้อความบรรทัดเดียว ยาวเกินให้ตัดและใส่ title</span></div>
+      <div className="doc-row"><span className="doc-row-name">ปุ่มท้ายแถว</span><span className="doc-row-value">เรียง ดู แก้ไข ลบ และการลบต้องมีป๊อปอัปยืนยันทุกครั้ง</span></div>
+      <div className="doc-row"><span className="doc-row-name">ข้อความบนหน้าจอ</span><span className="doc-row-value">ไม่ใช้ขีดยาวและจุดกลมเป็นตัวคั่น และไม่แสดงรหัสหน้าจอ เช่น B-01</span></div>
+      <div className="doc-row"><span className="doc-row-name">ฟอร์มเนื้อหา</span><span className="doc-row-value">ใช้หน้าเต็มพร้อมแถบปุ่มบันทึกฉบับร่างด้านล่าง ไม่ใช้ Dialog</span></div>
+    </div>
+  </details>
+  <details>
+    <summary>หน้าเป็นหุ่นจำลอง (Mockup)</summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name">ไม่มี API</span><span className="doc-row-value">ไม่เชื่อมต่อหลังบ้าน ไม่ดึงข้อมูลจริง</span></div>
+      <div className="doc-row"><span className="doc-row-name">ไม่มีตัวแปรและ logic</span><span className="doc-row-value">ไฟล์ของหน้าไม่มี binding มีแต่ markup + CSS<small>วิธีแสดงสถานะแทน binding ดูที่ PrimeNG (ธีม กทปส.) &gt; ภาพรวม</small></span></div>
+      <div className="doc-row"><span className="doc-row-name">Responsive</span><span className="doc-row-value">ใช้ class ของ Tailwind ลองกดปุ่ม Viewport ด้านบนเพื่อดูขนาดจอมือถือและแท็บเล็ต</span></div>
+      <div className="doc-row"><span className="doc-row-name">ตอนต่อ API</span><span className="doc-row-value">ขั้นตอนอยู่ใน <code>README.md</code> ของ repo</span></div>
+    </div>
+  </details>
+  <details>
+    <summary>ไฟล์ที่ควรอ่านใน repo</summary>
+    <div className="doc-accordion-body">
+      <div className="doc-row"><span className="doc-row-name"><code>README.md</code></span><span className="doc-row-value">วิธีรัน โครงสร้างโฟลเดอร์ ขั้นต่อไปตอนต่อ API</span></div>
+      <div className="doc-row"><span className="doc-row-name"><code>DESIGN.md</code></span><span className="doc-row-value">token ตัวอักษร ตาราง Figma กับโค้ด สถานะ 14 แบบ รูปแบบหน้า</span></div>
+      <div className="doc-row"><span className="doc-row-name"><code>CLAUDE.md</code></span><span className="doc-row-value">กฎการเขียนหน้าที่ตกลงกับทีม</span></div>
+    </div>
+  </details>
+</div>
