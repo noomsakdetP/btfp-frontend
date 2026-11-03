@@ -157,4 +157,5 @@ git clone <URL ของโปรเจกต์บน GitLab>
 - Figma: ไฟล์ `pGyEKPXYJ054QjRLVHu2FD` หน้า Back-end, B-01 = node `60:7997`
 - PrimeNG 21: https://primeng.org
 - Lucide icons: https://lucide.dev/icons
+- แนวทางการออกแบบ (สี ตัวอักษร component สถานะ รูปแบบหน้า) อยู่ใน `DESIGN.md`
 - คำแนะนำสำหรับ Claude Code อยู่ใน `CLAUDE.md`

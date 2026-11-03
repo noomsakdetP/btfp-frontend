@@ -18,6 +18,11 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
 
 เครื่อง Windows ของบริษัทบล็อก PowerShell script ให้รัน npm ผ่าน cmd
 
+## เอกสารที่ต้องอ่านก่อนทำงาน
+
+- `DESIGN.md` แนวทางการออกแบบ: token, ตัวอักษร, ตาราง Figma กับ component ในโค้ด (สถานะทำแล้ว/ต้องทำ), ข้อความสถานะ 14 แบบ, รูปแบบหน้า
+  ทำ component ใหม่หรือแก้ token เสร็จแล้วให้อัปเดตตารางใน DESIGN.md ด้วย
+
 ## Figma
 
 - ไฟล์หลัก `pGyEKPXYJ054QjRLVHu2FD`

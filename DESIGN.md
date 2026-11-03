@@ -1,0 +1,244 @@
+# DESIGN.md
+
+แนวทางการออกแบบของระบบบริหารจัดการทุน กทปส. สำหรับทีม dev และ Claude Code
+แหล่งความจริงคือ Figma ไฟล์ `pGyEKPXYJ054QjRLVHu2FD` หน้า Design System (`0:1`) ไฟล์นี้สรุปจาก Figma ณ 3 พ.ย. 2569
+
+- กฎการเขียนโค้ดและขั้นตอนขึ้นหน้า อยู่ใน `CLAUDE.md`
+- วิธีรันและส่งต่องาน อยู่ใน `README.md`
+- ไฟล์นี้ตอบว่า "หน้าตาและพฤติกรรมต้องเป็นอย่างไร"
+
+---
+
+## 1. หลักการ
+
+1. **ราชการ อ่านง่าย น่าเชื่อถือ** สีน้ำเงินกรมท่าเป็นหลัก พื้นสว่าง ไม่มีโหมดมืด
+2. **ข้อมูลมาก่อนการตกแต่ง** ตารางแน่น อ่านเร็ว ใช้สีเฉพาะที่สื่อความหมาย (สถานะ การกระทำ)
+3. **ใช้ PrimeNG ก่อน** ปรับหน้าตาผ่าน token ไม่สร้าง component ใหม่ถ้า PrimeNG มีอยู่แล้ว
+4. **ทุกอย่างกดได้ต้องไปที่ใดที่หนึ่ง** ไม่มีปุ่มหรือลิงก์ตาย
+
+---
+
+## 2. Foundations
+
+### 2.1 สี
+
+ทุกสีในโค้ดต้องมาจาก token (`src/styles/_tokens.scss` เป็น CSS variable `--btfp-*` และ `src/app/theme/btfp-preset.ts` สำหรับ PrimeNG) ห้ามใส่รหัสสีตรง
+
+**Primitive** (Figma collection `primitives`): blue, navy, teal, cool-gray, red, orange, green, yellow ระดับ 50 ถึง 900
+
+**Semantic** ที่ใช้บ่อย
+
+| การใช้งาน | Token ใน Figma | ค่า | CSS variable |
+| --- | --- | --- | --- |
+| พื้นหลังหน้า | color/bg/subtle | cool-gray/50 #f8fafc | `--btfp-bg-subtle` |
+| พื้นการ์ด | color/surface/raised | white | `--btfp-surface-raised` |
+| ข้อความหลัก | color/text/primary | cool-gray/800 #1e293b | `--btfp-text-primary` |
+| ข้อความรอง | color/text/secondary | cool-gray/600 #475569 | `--btfp-text-secondary` |
+| หัวข้อ | color/text/heading | navy/900 #092a48 | `--btfp-text-heading` |
+| ปุ่มหลัก | color/action/primary | blue/600 #0077b6 | `--btfp-action-primary` |
+| ลิงก์ | color/action/link | blue/700 #005e91 | `--btfp-action-link` |
+| เส้นขอบ | color/border/default | cool-gray/200 #e2e8f0 | `--btfp-border-default` |
+| เมนูซ้าย | nav/sidebar/bg | navy/900 #092a48 | `--btfp-sidebar-bg` |
+| หัวตาราง | table/header/bg | cool-gray/100 #f1f5f9 | `--btfp-table-header-bg` |
+
+**Feedback** (พื้น / ตัวอักษร / เส้นขอบ): success = green 50/700/200, warning = yellow 50/800/200, danger = red 50/700/200, info = blue 50/700/200
+
+### 2.2 ตัวอักษร
+
+| Style ใน Figma | ฟอนต์ | ขนาด / ระยะบรรทัด | ใช้กับ |
+| --- | --- | --- | --- |
+| Display/XL | IBM Plex Sans Thai Bold | 60 / 120% | Hero หน้าแรก |
+| Display | IBM Plex Sans Thai Bold | 40 / 135% | หัวข้อใหญ่หน้า public |
+| H1 | IBM Plex Sans Thai Bold | 32 / 135% | หัวหน้า public |
+| H2 | IBM Plex Sans Thai SemiBold | 24 / 135% | หัวหน้าระบบหลังบ้าน |
+| H3 | IBM Plex Sans Thai SemiBold | 20 / 135% | หัว Drawer, Modal, การ์ด |
+| H4 | IBM Plex Sans Thai SemiBold | 18 / 135% | หัวข้อย่อย |
+| Body/L | Sarabun Regular | 18 / 160% | เนื้อหายาว หน้า public |
+| Body | Sarabun Regular | 16 / 160% | เนื้อหาทั่วไป เมนู |
+| Body/Medium | Sarabun Medium | 16 / 160% | ป้ายกำกับที่ต้องเน้น |
+| Body/S | Sarabun Regular | 14 / 160% | ฟอร์ม คำอธิบาย |
+| Body/S Medium | Sarabun Medium | 14 / 160% | ป้ายชื่อช่องกรอก |
+| Table | Sarabun Regular | 14 / 150% | ข้อมูลในตาราง |
+| Caption | Sarabun Regular | 12 / 150% | ข้อความช่วย หมายเหตุ |
+
+ฟอนต์โหลดจาก `@fontsource` ในโปรเจกต์ ไม่เรียกจาก Google Fonts (ใช้ได้ในเครือข่ายปิด)
+
+### 2.3 ระยะห่าง มุมโค้ง ขนาด เงา
+
+| กลุ่ม | ค่า |
+| --- | --- |
+| Spacing | 4, 8, 12, 16, 24, 32, 48, 64 px (xs 4, sm 8, md 16, lg 24, xl 32, 2xl 48) |
+| Radius | input/tag 4, button 8, card/modal 12, card ใหญ่ 16, pill 9999 px |
+| ความสูงช่องกรอกและปุ่ม | S 32, M 40, L 48 px (ค่าเริ่มต้น M) |
+| แถวตาราง | 56 px (หัวตาราง 44 px) |
+| Sidebar / TopBar | กว้าง 264 px / สูง 64 px |
+| Elevation/01 | 0 1px 3px rgba(9,42,72,0.08) การ์ด |
+| Elevation/02 | 0 4px 12px -2px rgba(9,42,72,0.10) dropdown, popover |
+| Elevation/03 | 0 12px 28px -6px rgba(9,42,72,0.14) modal, drawer |
+
+### 2.4 Grid และ Responsive
+
+| จอ | Breakpoint (Tailwind) | Grid ใน Figma |
+| --- | --- | --- |
+| มือถือ | ต่ำกว่า sm 640 | 4 คอลัมน์ gutter 16 ขอบ 16 |
+| แท็บเล็ต | md 768, lg 1024 | 8 คอลัมน์ gutter 24 |
+| โน้ตบุ๊ก | xl 1280, wide 1440 | 12 คอลัมน์ gutter 24 |
+| เดสก์ท็อป | 2xl 1536 ขึ้นไป (Figma ออกแบบที่ 1920) | 12 คอลัมน์ gutter 24 |
+
+กฎ Responsive
+- จอเดสก์ท็อปต้องหน้าตาตรงกับ Figma กลุ่มที่ Figma วางแถวเดียว (เช่น การ์ด KPI) ให้คงแถวเดียวแล้วเลื่อนซ้ายขวาเมื่อจอแคบ ห้ามตัดแถว
+- ต่ำกว่า 1024 px เมนูซ้ายซ่อน เปิดด้วยปุ่มเมนูบน TopBar
+- ตารางกว้างคงที่ตาม Figma เลื่อนซ้ายขวาบนจอแคบ ไม่ยุบเป็นการ์ด
+- Drawer กว้าง 480 px บนจอ 640 ขึ้นไป เต็มจอบนมือถือ
+
+### 2.5 ไอคอน
+
+Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื่อ>`) เส้นหนา 1.5 ขนาด 16px ลงมาใช้ 1.25 สีตามข้อความรอบข้าง
+ใช้ใน code: `<btfp-icon name="eye" size="16" />` ชื่อที่ Lucide เปลี่ยนแล้วดูใน `CLAUDE.md`
+
+---
+
+## 3. Components: Figma กับโค้ด
+
+สถานะ: **ทำแล้ว** = มีในโปรเจกต์ ใช้ได้เลย / **PrimeNG** = ใช้ของ PrimeNG ตรง ๆ ปรับผ่าน preset / **ต้องทำ** = ยังไม่มีในโค้ด
+
+### 3.1 พื้นฐาน
+
+| Figma | ในโค้ด | สถานะ | หมายเหตุ |
+| --- | --- | --- | --- |
+| Actions/Button | `p-button` | PrimeNG | primary = ค่าเริ่มต้น, secondary = `outlined`, tertiary = `text`, danger = `severity="danger"` |
+| Actions/IconButton | `p-button` + `btfp-icon` | PrimeNG | ต้องใส่ `ariaLabel` เสมอ |
+| Actions/Export Menu Button | `btfp-export-button` | ทำแล้ว | ใช้ตัวเดียวทั้งระบบ ตัวเลือก Excel, PDF, CSV |
+| Forms/TextInput | `input pInputText` | PrimeNG | |
+| Forms/Textarea | `textarea pTextarea` | PrimeNG | |
+| Forms/Select | `p-select` | PrimeNG | |
+| Forms/MultiSelect | `p-multiselect` | PrimeNG | `display="chip"` |
+| Forms/Autocomplete | `p-autocomplete` | PrimeNG | |
+| Forms/DatePicker | `btfp-datepicker` | ทำแล้ว | แสดง พ.ศ. เก็บ ค.ศ. Mode month / month-range ยังไม่ทำ |
+| Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง |
+| Forms/OtpInput | `p-inputotp` | PrimeNG | |
+| Forms/SearchField | `p-iconfield` + `p-inputicon` + `pInputText` | PrimeNG | |
+| Forms/Checkbox | `p-checkbox` (หน้าหุ่นจำลองใช้ `.btfp-checkbox`) | PrimeNG | |
+| Forms/Radio | `p-radiobutton` | PrimeNG | |
+| Forms/Toggle | `p-toggleswitch` | PrimeNG | |
+| Forms/Segmented Control | `p-selectbutton` | ต้องทำ | ต้องปรับ preset ให้ตรง Figma |
+| DataDisplay/Tag | `p-tag` / `p-chip` | PrimeNG | ตัวกรองที่ใช้อยู่ใช้ `p-chip removable` |
+| DataDisplay/Avatar | `p-avatar` | PrimeNG | |
+| Feedback/Tooltip | `pTooltip` | PrimeNG | |
+| Navigation/Breadcrumb | HTML ในหน้า | ทำแล้ว | `p-breadcrumb` ต้องใช้ข้อมูลแบบ binding จึงไม่ใช้ในหน้าหุ่นจำลอง |
+| Navigation/Tabs | `p-tabs` | PrimeNG | |
+| Navigation/Pagination | `p-paginator` | PrimeNG | |
+| Navigation/Sidebar, NavItem, NavSubItem | `btfp-sidebar` | ทำแล้ว (เจ้าหน้าที่) | ผู้บริหารและผู้ดูแลระบบยังไม่ทำ, NavSubItem ยังไม่ทำ |
+| Navigation/TopBar | `btfp-topbar` | ทำแล้ว (back-office) | front-office 4 แบบยังไม่ทำ |
+| Brand/Logo | `public/brand/*.svg` | ตัวแทน | รอไฟล์โลโก้จริง |
+
+### 3.2 Domain (เฉพาะระบบนี้)
+
+| Figma | ในโค้ด | สถานะ | หมายเหตุ |
+| --- | --- | --- | --- |
+| Domain/Status Badge | `btfp-status-tag` | ทำแล้ว ไม่ครบ | ดูข้อ 4 สีไม่ครบตาม Figma |
+| Domain/KPI Stat Card | `btfp-kpi-card` | ทำแล้ว | Tone และ Trend ยังไม่ทำ |
+| Domain/Table Header Cell, Table Cell, Data Table | `.btfp-table` (ต่อ API ใช้ `p-table`) | ทำแล้ว | แถว 56 px บรรทัดเดียว |
+| Domain/Table Row Actions | `btfp-row-actions` | ทำแล้ว | ดู แก้ไข ลบ ลบต้องยืนยัน |
+| Domain/Empty State | `btfp-empty-state` | ทำแล้ว | 4 แบบ: general, no-results, no-files, error |
+| Domain/Modal | `p-dialog` | ต้องทำ | Size S/M/L ห้ามใช้กับฟอร์มเนื้อหา |
+| Domain/Toast | `p-toast` | ต้องทำ | |
+| Domain/Alert Banner | `p-message` | ต้องทำ | |
+| Domain/Save Draft Action Bar | `btfp-save-draft-bar` | ต้องทำ | แถบล่างของหน้าฟอร์มทุกหน้า |
+| Domain/Workflow Stepper, Stepper Step | `p-stepper` หรือ `btfp-workflow-stepper` | ต้องทำ | มีสถานะ returned / blocked ที่ PrimeNG ไม่มี |
+| Domain/Form Section Tab | `btfp-form-section-tab` | ต้องทำ | สถานะ done / partial / todo / error |
+| Domain/File Uploader, File Item | `p-fileupload` + `btfp-file-item` | ต้องทำ | |
+| Domain/Budget Line-item Editor, Table Input Cell | `btfp-budget-editor` | ต้องทำ | ตารางกรอกงบประมาณ |
+| Domain/Rich Text Field | `p-editor` | ต้องทำ | |
+| Domain/Status History Timeline | `p-timeline` | ต้องทำ | |
+| Domain/Notification Item | `btfp-notification-item` | ต้องทำ | |
+| Domain/Address Fields | `btfp-address-fields` | ต้องทำ | จังหวัด อำเภอ ตำบล รหัสไปรษณีย์ |
+| Domain/Grant Call Card, Proposal Card, Grant Cover, Hero Banner | `btfp-*` | ต้องทำ | ฝั่งผู้ขอรับทุน |
+| Public/* (11 ตัว) | `btfp-public-*` | ต้องทำ | หน้า public |
+| Drawer (ใน Figma วาดในหน้า B-01F) | `btfp-drawer` | ทำแล้ว | ห่อ `p-drawer` ให้เปิดด้วย attribute ได้ |
+
+---
+
+## 4. สถานะ (Status Badge)
+
+ป้ายสถานะมี 14 สถานะ ข้อความต้องตรงตามนี้ทุกหน้า
+
+| สถานะ (Figma variant) | ข้อความ | พื้นใน Figma | btfp-status-tag ตอนนี้ |
+| --- | --- | --- | --- |
+| Draft | ฉบับร่าง | cool-gray/50 | `secondary` ตรง |
+| Send | ส่งแล้ว รอการตรวจสอบ | blue/50 | `info` ตรง |
+| Review | รอการพิจารณา | navy/50 | ใช้ `info` (blue) **ไม่ตรง** |
+| Suspend | ไม่ผ่าน รอแก้ไข | yellow/50 | `warn` ตรง |
+| Docs Incomplete | เอกสารไม่ครบ รอแก้ไข | yellow/50 | `warn` ตรง |
+| Not Qualified | ไม่ผ่านคุณสมบัติ | red/50 | `danger` ตรง |
+| Reject | ไม่อนุมัติ | red/50 | `danger` ตรง |
+| Passed Check | ผ่านการตรวจสอบ | teal/50 | **ยังไม่มีสี teal** |
+| Board | ผ่านความเห็นชอบ เสนอบอร์ด กสทช. | teal/50 | **ยังไม่มีสี teal** |
+| Submitted | อนุมัติ | green/50 | `success` ตรง |
+| In Progress | ดำเนินโครงการ | teal/50 | **ยังไม่มีสี teal** |
+| Awaiting Disbursement | รอเบิกจ่าย | navy/50 | **ยังไม่มีสี navy** |
+| Delayed | ล่าช้า | orange/50 | **ยังไม่มีสี orange** |
+| Closed | ปิดโครงการ | cool-gray/50 | `secondary` ตรง |
+
+**ต้องแก้:** เพิ่ม severity `navy`, `teal`, `orange` ใน `btfp-status-tag` หรือเปลี่ยนให้รับ `status="review"` ตาม variant ใน Figma แทนการเลือกสีเอง (แนะนำแบบหลัง จะได้ไม่เลือกสีผิด) แล้วแก้หน้า B-01 ที่ใช้ "รอการพิจารณา" เป็นสี blue
+
+---
+
+## 5. รูปแบบที่ใช้ซ้ำ (Patterns)
+
+### หน้ารายการ (เช่น B-01)
+ลำดับจากบนลงล่าง: Breadcrumb, หัวหน้า + ปุ่ม (รายงาน, ส่งออก), แท็บกลุ่มข้อมูล, การ์ด KPI (กดเพื่อกรอง), การ์ดตาราง (ตัวกรอง, ตัวกรองที่ใช้อยู่, แถบจัดการรายการที่เลือก, ตาราง, แบ่งหน้า)
+
+### ตาราง
+- แถวสูง 56 px ข้อความบรรทัดเดียว ยาวเกินตัดด้วย "..." และใส่ `title` ให้อ่านเต็ม
+- ตัวเลขชิดขวา ทศนิยม 2 ตำแหน่ง มีจุลภาคหลักพัน
+- คอลัมน์สุดท้ายเป็นปุ่มจัดการ เรียง ดู แก้ไข ลบ
+- เลือกหลายแถวแล้วแถบจัดการรายการที่เลือกจะแสดงจำนวนและปุ่มทำทีละหลายรายการ
+- ไม่มีข้อมูลแสดง Empty State ตามกรณี (ยังไม่มีข้อมูล / ค้นหาไม่พบ / โหลดไม่สำเร็จ) แทนตาราง
+
+### ตัวกรอง
+- ตัวกรองหลัก 4 ถึง 5 ช่องอยู่บนตาราง ตัวกรองที่ใช้น้อยอยู่ใน Drawer "ตัวกรองเพิ่มเติม (จำนวน)"
+- ตัวกรองที่ใช้อยู่แสดงเป็น chip ลบทีละอันได้ และมี "ล้างทั้งหมด"
+
+### ฟอร์มเนื้อหา
+- ใช้หน้าเต็ม ไม่ใช้ Modal
+- มีแถบบันทึกฉบับร่างด้านล่าง (Save Draft Action Bar)
+- ฟอร์มยาวแบ่งเป็นแท็บส่วน (Form Section Tab) บอกสถานะกรอกครบหรือไม่
+
+### การลบ
+ต้องมีป๊อปอัปยืนยันทุกครั้ง หัวข้อ "ยืนยันการลบ" บอกชื่อรายการและว่ากู้คืนไม่ได้ ปุ่ม "ลบ" สีแดง "ยกเลิก" แบบ outlined
+
+### การส่งออก
+ใช้ `btfp-export-button` เท่านั้น ตัวเลือก Excel (.xlsx), PDF (.pdf), CSV (.csv) ส่งออกจากแถวที่เลือกใช้ปุ่ม "ส่งออกที่เลือก" ในแถบจัดการ
+
+### วันที่และตัวเลข
+- วันที่แสดง วว/ดด/ปปปป แบบ พ.ศ. เช่น 15/03/2569 เก็บและส่ง API เป็น ค.ศ.
+- ปีงบประมาณใช้ พ.ศ. 4 หลัก
+- เงินแสดงทศนิยม 2 ตำแหน่ง หน่วย บาท หรือ THB
+
+---
+
+## 6. ข้อความบนหน้าจอ
+
+- ภาษาไทยทางการแต่เข้าใจง่าย
+- ห้ามใช้ "—" และ "•" แยกด้วยเว้นวรรค ทวิภาค หรือขึ้นบรรทัดใหม่
+- ห้ามแสดงรหัสหน้าจอ (B-01, AP-02 ฯลฯ) ให้ผู้ใช้เห็น
+- ปุ่มใช้คำกริยา เช่น "บันทึกฉบับร่าง" "ใช้ตัวกรอง" "มอบหมายเจ้าหน้าที่"
+
+---
+
+## 7. การเข้าถึง (Accessibility)
+
+- ปุ่มที่มีแต่ไอคอนต้องมี `ariaLabel`
+- ช่องกรอกทุกช่องมี `<label for>` ผูกกับ `inputId`
+- กดแป้นพิมพ์ได้ทุกปุ่ม เส้นโฟกัส 2 px สี blue/600
+- สีไม่ใช่สิ่งเดียวที่บอกสถานะ ป้ายสถานะมีข้อความและไอคอนเสมอ
+
+---
+
+## 8. เมื่อ Figma เปลี่ยน
+
+1. แก้ใน Figma ก่อนเสมอ
+2. อัปเดต `src/styles/_tokens.scss` และ `src/app/theme/btfp-preset.ts` ให้ค่าตรงกัน
+3. ถ้าเป็น component ใหม่ เพิ่มแถวในข้อ 3 ของไฟล์นี้
+4. เปิด Storybook เช็กว่า component ที่ใช้ token นั้นยังถูกต้อง
