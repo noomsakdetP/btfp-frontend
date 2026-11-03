@@ -7,11 +7,13 @@ import '@fontsource/ibm-plex-sans-thai/600.css';
 import '@fontsource/ibm-plex-sans-thai/700.css';
 import '../src/tailwind.css';
 import '../src/styles.scss';
+import './docs.css';
 
 import type { Preview } from '@storybook/angular-vite';
 import { applicationConfig } from '@storybook/angular-vite';
 import { provideRouter, withHashLocation } from '@angular/router';
 import { btfpUiProviders } from '../src/app/app.config';
+import { btfpTheme } from './theme';
 
 const preview: Preview = {
   decorators: [
@@ -24,6 +26,7 @@ const preview: Preview = {
     layout: 'padded',
     backgrounds: { default: 'subtle', options: { subtle: { name: 'subtle', value: '#f8fafc' }, white: { name: 'white', value: '#ffffff' } } },
     controls: { expanded: true },
+    docs: { theme: btfpTheme },
     a11y: { test: 'todo' },
     options: {
       storySort: {
