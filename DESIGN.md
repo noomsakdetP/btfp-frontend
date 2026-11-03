@@ -106,7 +106,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 
 | Figma | ในโค้ด | สถานะ | หมายเหตุ |
 | --- | --- | --- | --- |
-| Actions/Button | `p-button` | PrimeNG | primary = ค่าเริ่มต้น, secondary = `outlined`, tertiary = `text`, danger = `severity="danger"` |
+| Actions/Button | `p-button` | PrimeNG | primary = ค่าเริ่มต้น, secondary = `outlined severity="secondary"` (พื้นขาว เส้น border/strong ข้อความ action/secondary), tertiary = `text`, danger = `severity="danger"` สูง 40px, `size="large"` สูง 48px |
 | Actions/IconButton | `p-button` + `btfp-icon` | PrimeNG | ต้องใส่ `ariaLabel` เสมอ |
 | Actions/Export Menu Button | `btfp-export-button` | ทำแล้ว | ใช้ตัวเดียวทั้งระบบ ตัวเลือก Excel, PDF, CSV |
 | Forms/TextInput | `input pInputText` | PrimeNG | |
@@ -154,7 +154,8 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Domain/Notification Item | `btfp-notification-item` | ต้องทำ | |
 | Domain/Address Fields | `btfp-address-fields` | ต้องทำ | จังหวัด อำเภอ ตำบล รหัสไปรษณีย์ |
 | Domain/Grant Call Card | `btfp-grant-call-card` | ทำแล้ว | state: open / closing-soon / closed |
-| Domain/Proposal Card, Grant Cover, Hero Banner | `btfp-*` | ต้องทำ | ฝั่งผู้ขอรับทุน |
+| Domain/Hero Banner | `btfp-hero-banner` + `btfp-hero-slide` | ทำแล้ว | เลื่อนเองทุก 4 วินาที ลูกศร จุด ปัด สไลด์ภาพมีข้อความในตัวใช้ `artX`/`artY` สไลด์ข้อความใช้ `overlay` + `tag` |
+| Domain/Proposal Card, Grant Cover | `btfp-*` | ต้องทำ | ฝั่งผู้ขอรับทุน |
 | Public/Section Header | `btfp-section-header` | ทำแล้ว | theme light / dark |
 | Public/Process Step | `btfp-process-step` | ทำแล้ว | |
 | Public/Project Showcase Card | `btfp-showcase-card` | ทำแล้ว | |

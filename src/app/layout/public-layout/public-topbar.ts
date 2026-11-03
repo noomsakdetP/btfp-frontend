@@ -18,19 +18,22 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
   template: `
     <header class="topbar">
       <div class="mx-auto flex h-16 max-w-[1920px] items-center gap-4 px-4 md:px-6 2xl:px-6">
-        <a class="flex min-w-0 items-center gap-3" routerLink="/" aria-label="ระบบบริหารจัดการทุน กทปส. หน้าแรก">
-          <img src="brand/logo-nbtc.png" alt="กสทช." width="27" height="40" />
-          <span class="logo-divider hidden sm:block"></span>
-          <img class="hidden sm:block" src="brand/logo-btfp.png" alt="กทปส." width="29" height="40" />
-          <span class="logo-divider hidden sm:block"></span>
+        <!-- Figma: โลโก้ 2 ตัวห่าง 12px มีเส้นคั่นสูง 28px แล้วเส้นคั่นสูง 32px ก่อนชื่อระบบ (ห่าง 16px) -->
+        <a class="flex min-w-0 items-center gap-4" routerLink="/" aria-label="ระบบบริหารจัดการทุน กทปส. หน้าแรก">
+          <span class="flex shrink-0 items-center gap-3">
+            <img src="brand/logo-nbtc.png" alt="กสทช." width="27" height="40" />
+            <span class="logo-divider hidden sm:block"></span>
+            <img class="hidden sm:block" src="brand/logo-btfp.png" alt="กทปส." width="29" height="40" />
+          </span>
+          <span class="logo-divider logo-divider--lg hidden sm:block"></span>
           <span class="flex min-w-0 flex-col">
             <span class="brand-title truncate">ระบบบริหารจัดการทุน กทปส.</span>
             <span class="brand-sub">สำหรับผู้ขอรับทุน</span>
           </span>
         </a>
 
-        <!-- เมนูหลัก จอ lg ขึ้นไป -->
-        <nav class="ml-6 hidden h-full items-stretch gap-1 xl:flex" aria-label="เมนูหลัก">
+        <!-- เมนูหลัก จอ xl ขึ้นไป (Figma: ห่างจากชื่อระบบ 32px) -->
+        <nav class="ml-4 hidden h-full items-stretch gap-1 xl:flex" aria-label="เมนูหลัก">
           <a class="nav-link" routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">หน้าแรก</a>
           <a class="nav-link" routerLink="/grants" routerLinkActive="is-active">ประกาศทุน</a>
           <a class="nav-link" routerLink="/results" routerLinkActive="is-active">ผลงานทุน</a>
@@ -41,7 +44,7 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
         </nav>
 
         <div class="ml-auto flex shrink-0 items-center gap-2 md:gap-3">
-          <p-button outlined label="ลงทะเบียน" routerLink="/register" styleClass="hidden sm:inline-flex" />
+          <p-button outlined severity="secondary" label="ลงทะเบียน" routerLink="/register" styleClass="hidden sm:inline-flex" />
           <p-button label="เข้าสู่ระบบ" routerLink="/login" />
           <label for="btfp-public-nav" class="menu-button grid place-items-center xl:hidden" aria-label="เปิดเมนู">
             <btfp-icon name="menu" size="22" />
@@ -73,11 +76,14 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
       height: 28px;
       background: var(--btfp-border-default);
     }
+    .logo-divider--lg {
+      height: 32px;
+    }
     .brand-title {
       font-family: var(--btfp-font-heading);
       font-size: 18px;
       font-weight: 600;
-      line-height: 24px;
+      line-height: 1.35;
       color: var(--btfp-text-heading);
     }
     .brand-sub {

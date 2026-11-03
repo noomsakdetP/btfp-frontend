@@ -8,7 +8,7 @@ import { BtfpEmptyState } from '../../../shared/ui';
   imports: [BtfpEmptyState, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="mx-auto max-w-[1600px] px-4 py-16 md:px-8 2xl:px-0">
+    <div class="mx-auto max-w-[1664px] px-4 py-16 md:px-8">
       <div class="box">
         <btfp-empty-state
           type="general"

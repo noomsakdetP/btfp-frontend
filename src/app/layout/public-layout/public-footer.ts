@@ -10,7 +10,7 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
   host: { class: 'block' },
   template: `
     <footer class="footer">
-      <div class="mx-auto max-w-[1600px] px-4 pt-12 pb-8 md:px-8 2xl:px-0">
+      <div class="mx-auto max-w-[1664px] px-4 pt-12 pb-8 md:px-8">
         <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
           <div class="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
             <span class="flex items-center gap-3">

@@ -8,6 +8,8 @@ import { Select } from 'primeng/select';
 import { Tab, TabList, Tabs } from 'primeng/tabs';
 import {
   BtfpGrantCallCard,
+  BtfpHeroBanner,
+  BtfpHeroSlide,
   BtfpIcon,
   BtfpNewsCard,
   BtfpProcessStep,
@@ -34,6 +36,8 @@ import {
     Tab,
     BtfpIcon,
     BtfpGrantCallCard,
+    BtfpHeroBanner,
+    BtfpHeroSlide,
     BtfpNewsCard,
     BtfpProcessStep,
     BtfpResultCard,

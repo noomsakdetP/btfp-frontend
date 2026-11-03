@@ -7,50 +7,47 @@
   - ค่าใน select แสดงผ่าน placeholder
   - รูปภาพดึงจาก Figma อยู่ใน public/images/landing (ภาพประกอบ ไม่ใช่ภาพโครงการจริง)
 
-  เนื้อหากว้างสุด 1600px (Figma: ขอบซ้ายขวา 160px ที่จอ 1920)
+  เนื้อหากว้างสุด 1600px (Figma: ขอบซ้ายขวา 160px ที่จอ 1920) ใช้ max-w-[1664px] + px-8 ให้มีขอบ 32px ทุกขนาดจอ
   Responsive ใช้ class ของ Tailwind
 -->
 
-<!-- ===================== บทนำ ===================== -->
-<section class="hero">
-  <div class="mx-auto grid max-w-[1600px] items-center gap-10 px-4 py-12 md:px-8 md:py-16 lg:grid-cols-2 lg:gap-[72px] 2xl:px-0 2xl:pt-20 2xl:pb-[72px]">
-    <div class="flex flex-col items-start gap-7">
-      <span class="hero__badge">
-        <btfp-icon name="circle-check" size="16" />
-        เปิดรับข้อเสนอ ทุนประเภท 1 ประจำปีงบประมาณ 2569
-      </span>
-      <h1 class="hero__title">ยื่นขอรับทุน กทปส.<br />ประจำปีงบประมาณ 2569</h1>
-      <p class="hero__desc">
-        สำหรับโครงการด้านกิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม เพื่อประโยชน์สาธารณะ
-        ปิดรับข้อเสนอ 30 พ.ย. 2569 เวลา 16:30 น.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <p-button routerLink="/login">
-          <span>ยื่นข้อเสนอ</span>
-          <btfp-icon name="chevron-right" size="16" />
-        </p-button>
-        <p-button outlined severity="secondary" routerLink="/guide" styleClass="hero__secondary" label="ดาวน์โหลดคู่มือผู้ขอรับทุน" />
-      </div>
-      <p class="hero__note">
-        <btfp-icon name="building-complex" size="16" />
-        สำหรับหน่วยงานรัฐและเอกชน สถานศึกษา บริษัท สมาคม และมูลนิธิ
-      </p>
-    </div>
+<!-- ===================== ป้ายสไลด์ (Figma: Domain/Hero Banner 531:90464) ===================== -->
+<btfp-hero-banner label="ประกาศและผลงานเด่น">
+  <btfp-hero-slide
+    image="images/landing/hero-slide-1.jpg"
+    alt="เปิดรับข้อเสนอโครงการเพื่อขอรับทุนจาก กสทช. สนับสนุนการพัฒนาเทคโนโลยี นวัตกรรม และการสื่อสาร เพื่อประโยชน์สูงสุดของประชาชน"
+    artX="388"
+    artY="430"
+  >
+    <h1 class="sr-only">ระบบประกาศทุนและผลงานทุน กทปส.</h1>
+    <p-button size="large" routerLink="/grants">
+      <span>ดูประกาศทุนทั้งหมด</span>
+      <btfp-icon name="chevron-right" size="20" />
+    </p-button>
+  </btfp-hero-slide>
 
-    <figure class="hero__figure">
-      <img src="images/landing/hero.jpg" alt="ภาพประกอบ ชุมชน งานวิจัย และเทคโนโลยีการสื่อสาร" />
-      <span class="badge-on-image">ภาพประกอบ</span>
-      <figcaption>
-        <btfp-icon name="radio-tower" size="20" />
-        โครงสร้างพื้นฐานการสื่อสาร งานวิจัย และทักษะดิจิทัลที่เข้าถึงชุมชนทั่วประเทศ
-      </figcaption>
-    </figure>
-  </div>
-</section>
+  <btfp-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
+    <h2>ทุนวิจัยและพัฒนาด้านโทรคมนาคม<br class="hidden md:inline" /> เพื่อประโยชน์สาธารณะ ปี 2570</h2>
+    <p>ยื่นข้อเสนอโครงการได้ถึงวันที่ 31 ต.ค. 2569 ผ่านระบบออนไลน์</p>
+    <p-button size="large" routerLink="/login">
+      <span>ยื่นข้อเสนอ</span>
+      <btfp-icon name="chevron-right" size="20" />
+    </p-button>
+  </btfp-hero-slide>
+
+  <btfp-hero-slide image="images/landing/hero-slide-3.jpg" overlay tag="ผลงานเด่น" tagSeverity="info">
+    <h2>ผลงานทุน กทปส. ที่ต่อยอด<br class="hidden md:inline" /> สู่การใช้งานจริงในชุมชน</h2>
+    <p>รวมผลงานวิจัยและนวัตกรรมจากหน่วยงานผู้รับทุนทั่วประเทศ</p>
+    <p-button size="large" routerLink="/results">
+      <span>ดูผลงานทั้งหมด</span>
+      <btfp-icon name="chevron-right" size="20" />
+    </p-button>
+  </btfp-hero-slide>
+</btfp-hero-banner>
 
 <!-- ===================== ประกาศทุนที่เปิดรับ ===================== -->
 <section class="py-16 2xl:py-[104px]">
-  <div class="mx-auto flex max-w-[1600px] flex-col gap-10 px-4 md:px-8 2xl:px-0">
+  <div class="mx-auto flex max-w-[1664px] flex-col gap-10 px-4 md:px-8">
     <btfp-section-header
       eyebrow="ประกาศทุนที่เปิดรับ"
       heading="โอกาสทุนสำหรับโครงการที่พร้อมสร้างผลลัพธ์"
@@ -118,7 +115,7 @@
 
 <!-- ===================== ขอบเขตการสนับสนุน ===================== -->
 <section class="bg-subtle pt-16 pb-16 2xl:pt-[88px] 2xl:pb-[104px]">
-  <div class="mx-auto flex max-w-[1600px] flex-col gap-11 px-4 md:px-8 2xl:px-0">
+  <div class="mx-auto flex max-w-[1664px] flex-col gap-11 px-4 md:px-8">
     <btfp-section-header
       eyebrow="วัตถุประสงค์ตามมาตรา 52"
       heading="ทุนครอบคลุม 6&#10;พื้นที่สำคัญของระบบนิเวศการสื่อสารไทย"
@@ -163,7 +160,7 @@
 
 <!-- ===================== ขั้นตอนสมัครทุน ===================== -->
 <section class="bg-navy py-16 2xl:py-[100px]">
-  <div class="mx-auto flex max-w-[1600px] flex-col gap-11 px-4 md:px-8 2xl:px-0">
+  <div class="mx-auto flex max-w-[1664px] flex-col gap-11 px-4 md:px-8">
     <btfp-section-header
       theme="dark"
       eyebrow="เริ่มต้นได้ใน 4 ขั้นตอน"
@@ -201,7 +198,7 @@
 
 <!-- ===================== ผลงานเด่น ===================== -->
 <section class="py-16 2xl:py-[104px]">
-  <div class="mx-auto flex max-w-[1600px] flex-col gap-11 px-4 md:px-8 2xl:px-0">
+  <div class="mx-auto flex max-w-[1664px] flex-col gap-11 px-4 md:px-8">
     <btfp-section-header
       eyebrow="ผลงานทุนที่สร้างการเปลี่ยนแปลง"
       heading="จากข้อเสนอ สู่ผลลัพธ์ที่ชุมชนใช้ได้จริง"
@@ -241,7 +238,7 @@
 
 <!-- ===================== ภาพรวมการสนับสนุน ===================== -->
 <section class="bg-info pt-16 pb-16 2xl:pt-[88px] 2xl:pb-24">
-  <div class="mx-auto flex max-w-[1600px] flex-col gap-8 px-4 md:px-8 2xl:px-0">
+  <div class="mx-auto flex max-w-[1664px] flex-col gap-8 px-4 md:px-8">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <h2 class="stats-title">ภาพรวมการสนับสนุน</h2>
@@ -265,7 +262,7 @@
 
 <!-- ===================== ฐานข้อมูลผลงานทุน ===================== -->
 <section class="py-16 2xl:py-[100px]">
-  <div class="mx-auto flex max-w-[1600px] flex-col gap-9 px-4 md:px-8 2xl:px-0">
+  <div class="mx-auto flex max-w-[1664px] flex-col gap-9 px-4 md:px-8">
     <btfp-section-header
       eyebrow="ฐานข้อมูลผลงานทุน"
       heading="ค้นหาองค์ความรู้ ผลงาน และผลลัพธ์สาธารณะ"
@@ -334,7 +331,7 @@
 
 <!-- ===================== ข่าวสาร ===================== -->
 <section class="bg-subtle pt-16 pb-16 2xl:pt-[88px] 2xl:pb-[100px]">
-  <div class="mx-auto flex max-w-[1600px] flex-col gap-9 px-4 md:px-8 2xl:px-0">
+  <div class="mx-auto flex max-w-[1664px] flex-col gap-9 px-4 md:px-8">
     <btfp-section-header
       eyebrow="ข่าวสาร"
       heading="ข่าวสารและวันสำคัญ"
@@ -374,7 +371,7 @@
 
 <!-- ===================== คำถามที่พบบ่อย ===================== -->
 <section class="py-16 2xl:py-[104px]">
-  <div class="mx-auto grid max-w-[1600px] gap-10 px-4 md:px-8 lg:grid-cols-[minmax(0,470px)_minmax(0,1fr)] lg:gap-20 2xl:px-0">
+  <div class="mx-auto grid max-w-[1664px] gap-10 px-4 md:px-8 lg:grid-cols-[minmax(0,470px)_minmax(0,1fr)] lg:gap-20">
     <div class="flex flex-col gap-4">
       <p class="eyebrow">คำถามที่พบบ่อย</p>
       <h2 class="faq-title">เตรียมพร้อมก่อนยื่นข้อเสนอ</h2>
@@ -418,7 +415,7 @@
 
 <!-- ===================== ชวนดูประกาศ ===================== -->
 <section class="cta">
-  <div class="mx-auto flex max-w-[1600px] flex-col gap-6 px-4 py-14 md:flex-row md:items-center md:justify-between md:px-8 2xl:px-0 2xl:py-[72px]">
+  <div class="mx-auto flex max-w-[1664px] flex-col gap-6 px-4 py-14 md:flex-row md:items-center md:justify-between md:px-8 2xl:py-[72px]">
     <div>
       <h2 class="cta__title">ค้นหาทุนที่เหมาะกับโครงการของคุณ</h2>
       <p class="cta__desc">สำรวจประกาศที่เปิดรับ เปรียบเทียบประเภททุน และเตรียมข้อเสนอให้พร้อมก่อนกำหนด</p>

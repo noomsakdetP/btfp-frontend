@@ -89,6 +89,7 @@ src/
 | `btfp-export-button` | `p-button` + `p-menu` | Actions/Export Menu Button |
 | `btfp-datepicker` | `p-datepicker` + แสดงปี พ.ศ. | Forms/DatePicker |
 | `btfp-drawer` | `p-drawer` ที่เปิดด้วย attribute `open` | Drawer |
+| `btfp-hero-banner` | เขียนเอง (`p-carousel` ต้องใช้ binding) | Domain/Hero Banner |
 
 **หลักการเลือก**
 

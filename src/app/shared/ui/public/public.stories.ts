@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { moduleMetadata } from '@storybook/angular-vite';
+import { Button } from 'primeng/button';
+import { BtfpIcon } from '../icon/icon';
 import { BtfpGrantCallCard } from './grant-call-card';
+import { BtfpHeroBanner, BtfpHeroSlide } from './hero-banner';
 import { BtfpNewsCard, BtfpProcessStep, BtfpResultCard, BtfpShowcaseCard } from './public-cards';
 import { BtfpSectionHeader } from './section-header';
 
@@ -9,7 +12,7 @@ const meta: Meta = {
   id: 'components-public',
   decorators: [
     moduleMetadata({
-      imports: [BtfpSectionHeader, BtfpGrantCallCard, BtfpProcessStep, BtfpShowcaseCard, BtfpResultCard, BtfpNewsCard],
+      imports: [Button, BtfpIcon, BtfpHeroBanner, BtfpHeroSlide, BtfpSectionHeader, BtfpGrantCallCard, BtfpProcessStep, BtfpShowcaseCard, BtfpResultCard, BtfpNewsCard],
     }),
   ],
   parameters: {
@@ -23,6 +26,37 @@ const meta: Meta = {
   },
 };
 export default meta;
+
+export const HeroBanner: StoryObj = {
+  name: 'Hero Banner (สไลด์)',
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        story:
+          'Figma: Domain/Hero Banner เลื่อนเองทุก 4 วินาที (interval="0" เพื่อปิด) หยุดเมื่อชี้เมาส์หรือโฟกัส ลูกศรซ้ายขวา ปุ่มลูกศรบนคีย์บอร์ด ปัดบนจอสัมผัส และจุดเลือกสไลด์ สไลด์แรกเป็นภาพที่มีข้อความในตัว วางปุ่มด้วย artX / artY (พิกัดในภาพ 1920x720) สไลด์อื่นใส่ overlay + ข้อความ HTML',
+      },
+    },
+  },
+  render: () => ({
+    template: `
+      <btfp-hero-banner label="ประกาศและผลงานเด่น">
+        <btfp-hero-slide image="images/landing/hero-slide-1.jpg" alt="เปิดรับข้อเสนอโครงการเพื่อขอรับทุนจาก กสทช." artX="388" artY="430">
+          <p-button size="large"><span>ดูประกาศทุนทั้งหมด</span><btfp-icon name="chevron-right" size="20" /></p-button>
+        </btfp-hero-slide>
+        <btfp-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
+          <h2>ทุนวิจัยและพัฒนาด้านโทรคมนาคม<br class="hidden md:inline" /> เพื่อประโยชน์สาธารณะ ปี 2570</h2>
+          <p>ยื่นข้อเสนอโครงการได้ถึงวันที่ 31 ต.ค. 2569 ผ่านระบบออนไลน์</p>
+          <p-button size="large"><span>ยื่นข้อเสนอ</span><btfp-icon name="chevron-right" size="20" /></p-button>
+        </btfp-hero-slide>
+        <btfp-hero-slide image="images/landing/hero-slide-3.jpg" overlay tag="ผลงานเด่น">
+          <h2>ผลงานทุน กทปส. ที่ต่อยอด<br class="hidden md:inline" /> สู่การใช้งานจริงในชุมชน</h2>
+          <p>รวมผลงานวิจัยและนวัตกรรมจากหน่วยงานผู้รับทุนทั่วประเทศ</p>
+          <p-button size="large"><span>ดูผลงานทั้งหมด</span><btfp-icon name="chevron-right" size="20" /></p-button>
+        </btfp-hero-slide>
+      </btfp-hero-banner>`,
+  }),
+};
 
 export const SectionHeader: StoryObj = {
   name: 'Section Header',

@@ -9,6 +9,11 @@
     box-sizing: border-box;
   }
 
+  // ปุ่ม PrimeNG สืบ line-height 1.6 จาก body ทำให้สูง 44px ตั้งเป็น 1.5 ให้ได้ 40px (ขนาดปกติ) และ 48px (size="large") ตาม Figma
+  .p-button {
+    line-height: 1.5;
+  }
+
   html,
   body {
     margin: 0;

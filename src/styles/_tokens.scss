@@ -72,6 +72,7 @@
 
   --btfp-action-primary: var(--btfp-blue-600);
   --btfp-action-primary-hover: var(--btfp-blue-700);
+  --btfp-action-secondary: var(--btfp-navy-700); // ข้อความปุ่มรอง (Figma: action/secondary)
   --btfp-action-link: var(--btfp-blue-700);
   --btfp-focus-ring: var(--btfp-blue-600);
 
@@ -128,6 +129,13 @@
   --btfp-nav-item-hover-bg: var(--btfp-navy-800);
   --btfp-nav-item-active-bg: var(--btfp-blue-600);
   --btfp-nav-group-label: var(--btfp-gray-400);
+
+  // Domain/Hero Banner (Figma ใช้ค่าตรง ไม่ได้ผูก variable)
+  --btfp-hero-overlay: linear-gradient(90deg, rgba(10, 33, 82, 0.94) 0%, rgba(10, 33, 82, 0.75) 45%, rgba(10, 33, 82, 0.1) 80%, rgba(10, 33, 82, 0) 100%);
+  --btfp-hero-overlay-mobile: linear-gradient(0deg, rgba(10, 33, 82, 0.94) 0%, rgba(10, 33, 82, 0.8) 60%, rgba(10, 33, 82, 0.55) 100%);
+  --btfp-hero-control-bg: rgba(255, 255, 255, 0.85);
+  --btfp-hero-control-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --btfp-hero-dot: var(--btfp-gray-50);
   --btfp-table-header-bg: var(--btfp-gray-100);
 
   // ---------- typography ----------

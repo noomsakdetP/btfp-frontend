@@ -96,10 +96,25 @@ export const BtfpPreset = definePreset(Aura, {
       root: {
         borderRadius: '8px', // radius/button
         paddingX: '1rem',
-        paddingY: '0.5rem',
+        paddingY: '0.4375rem', // 7px + line-height 24px + เส้นขอบ 2px = 40px ตาม Figma
         gap: '0.5rem',
         sm: { fontSize: '0.875rem', paddingX: '0.5rem', paddingY: '0.25rem' },
+        // Figma: Actions/Button Size=lg สูง 48px ขอบซ้ายขวา 24px ตัวอักษร 16px
+        lg: { fontSize: '1rem', paddingX: '1.5rem', paddingY: '0.6875rem' }, // 48px
         label: { fontWeight: '500' },
+      },
+      colorScheme: {
+        light: {
+          // Figma: Actions/Button Variant=secondary พื้นขาว เส้น border/strong ข้อความ action/secondary
+          outlined: {
+            secondary: {
+              hoverBackground: '{surface.50}',
+              activeBackground: '{surface.100}',
+              borderColor: '{surface.400}',
+              color: '#0a4263',
+            },
+          },
+        },
       },
     },
     card: {

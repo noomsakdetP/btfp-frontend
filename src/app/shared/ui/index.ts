@@ -11,3 +11,4 @@ export * from './drawer/drawer';
 export * from './public/section-header';
 export * from './public/grant-call-card';
 export * from './public/public-cards';
+export * from './public/hero-banner';
