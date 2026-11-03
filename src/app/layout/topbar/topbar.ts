@@ -34,7 +34,7 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
       <div class="topbar__actions shrink-0 gap-2 md:gap-4">
         <span class="topbar__bell">
           <p-button text severity="secondary" ariaLabel="การแจ้งเตือน มีรายการใหม่">
-            <btfp-icon name="bell" size="20" />
+            <ng-template #icon><btfp-icon name="bell" size="20" /></ng-template>
           </p-button>
           <span class="topbar__unread" aria-hidden="true"></span>
         </span>

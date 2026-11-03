@@ -47,7 +47,8 @@ export const BtfpPreset = definePreset(Aura, {
       paddingY: '0.375rem', // 6px + line-height 25.6px + เส้นขอบ 2px = 40px
       borderRadius: '4px', // radius/input
       fontSize: '1rem',
-      focusRing: { width: '0', style: 'none', color: 'transparent', offset: '0', shadow: '0 0 0 3px {primary.200}' },
+      // เส้นขอบตอนโฟกัสหนา 1.5px ตาม Figma: เส้น 1px + เงาด้านใน 0.5px สีเดียวกัน แล้ววงนอก 3px blue/200
+      focusRing: { width: '0', style: 'none', color: 'transparent', offset: '0', shadow: 'inset 0 0 0 0.5px {primary.600}, 0 0 0 3px {primary.200}' },
       sm: { fontSize: '0.875rem', paddingX: '0.75rem', paddingY: '0.25rem' },
       lg: { fontSize: '1rem', paddingX: '1rem', paddingY: '0.6875rem' },
     },
@@ -241,8 +242,10 @@ export const BtfpPreset = definePreset(Aura, {
         },
       },
     },
+    // Figma: ตัวกรองที่ใช้อยู่ = DataDisplay/Tag Tone=info + ปุ่มกากบาท 14px (ใส่ template #removeicon เป็น btfp-icon x)
     chip: {
-      root: { borderRadius: '4px', paddingX: '0.5rem', paddingY: '0.125rem', gap: '0.25rem' },
+      root: { borderRadius: '4px', paddingX: '0.5rem', paddingY: '0.25rem', gap: '0.25rem' },
+      removeIcon: { size: '0.875rem' },
       colorScheme: {
         light: {
           root: { background: '{primary.50}', color: '{primary.700}' },

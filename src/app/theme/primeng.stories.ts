@@ -110,13 +110,13 @@ export const Buttons: StoryObj = {
 export const IconButtons: StoryObj = {
   name: 'Icon Button (Actions/IconButton)',
   parameters: {
-    docs: { description: { story: 'ปุ่มไอคอนอย่างเดียวต้องใส่ `ariaLabel` และ `pTooltip` เสมอ ghost = `text`' } },
+    docs: { description: { story: 'ปุ่มไอคอนอย่างเดียวใส่ไอคอนใน `<ng-template #icon>` (ได้ขนาดสี่เหลี่ยมจัตุรัส S 32 M 40 L 48 ตาม Figma) ต้องใส่ `ariaLabel` และ `pTooltip` เสมอ ghost = `text`' } },
   },
   render: () => ({
     template:
-      row('primary', `<p-button size="small" ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><btfp-icon name="plus" size="16" /></p-button><p-button ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><btfp-icon name="plus" size="20" /></p-button><p-button size="large" ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><btfp-icon name="plus" size="20" /></p-button>`) +
-      row('outlined severity="secondary"', `<p-button size="small" outlined severity="secondary" ariaLabel="เพิ่ม"><btfp-icon name="plus" size="16" /></p-button><p-button outlined severity="secondary" ariaLabel="เพิ่ม"><btfp-icon name="plus" size="20" /></p-button><p-button size="large" outlined severity="secondary" ariaLabel="เพิ่ม"><btfp-icon name="plus" size="20" /></p-button>`) +
-      row('text (ghost)', `<p-button size="small" text ariaLabel="เพิ่ม"><btfp-icon name="plus" size="16" /></p-button><p-button text ariaLabel="เพิ่ม"><btfp-icon name="plus" size="20" /></p-button><p-button size="large" text ariaLabel="เพิ่ม"><btfp-icon name="plus" size="20" /></p-button>`),
+      row('primary', `<p-button size="small" ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><ng-template #icon><btfp-icon name="plus" size="16" /></ng-template></p-button><p-button ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><ng-template #icon><btfp-icon name="plus" size="20" /></ng-template></p-button><p-button size="large" ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><ng-template #icon><btfp-icon name="plus" size="20" /></ng-template></p-button>`) +
+      row('outlined severity="secondary"', `<p-button size="small" outlined severity="secondary" ariaLabel="เพิ่ม"><ng-template #icon><btfp-icon name="plus" size="16" /></ng-template></p-button><p-button outlined severity="secondary" ariaLabel="เพิ่ม"><ng-template #icon><btfp-icon name="plus" size="20" /></ng-template></p-button><p-button size="large" outlined severity="secondary" ariaLabel="เพิ่ม"><ng-template #icon><btfp-icon name="plus" size="20" /></ng-template></p-button>`) +
+      row('text (ghost)', `<p-button size="small" text ariaLabel="เพิ่ม"><ng-template #icon><btfp-icon name="plus" size="16" /></ng-template></p-button><p-button text ariaLabel="เพิ่ม"><ng-template #icon><btfp-icon name="plus" size="20" /></ng-template></p-button><p-button size="large" text ariaLabel="เพิ่ม"><ng-template #icon><btfp-icon name="plus" size="20" /></ng-template></p-button>`),
   }),
 };
 
@@ -193,14 +193,14 @@ export const DataDisplay: StoryObj = {
     docs: {
       description: {
         story:
-          'DataDisplay/Tag: Tone neutral = `severity="secondary"` info success warn danger ตามชื่อ ป้ายสถานะ 14 แบบใช้ `btfp-status-tag` ตัวกรองที่ใช้อยู่ใช้ `p-chip removable` Avatar S = ค่าเริ่มต้น 32px, M = `size="large"` 40px, L = `size="xlarge"` 48px',
+          'DataDisplay/Tag: Tone neutral = `severity="secondary"` info success warn danger ตามชื่อ ป้ายสถานะ 14 แบบใช้ `btfp-status-tag` ตัวกรองที่ใช้อยู่ใช้ `p-chip removable` + `<ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template>` (กากบาทตาม Figma) Avatar S = ค่าเริ่มต้น 32px, M = `size="large"` 40px, L = `size="xlarge"` 48px',
       },
     },
   },
   render: () => ({
     template:
       row('p-tag', `<p-tag severity="secondary" value="ทุนประเภท 1" /><p-tag severity="info" value="ทุนประเภท 1" /><p-tag severity="success" value="ทุนประเภท 1" /><p-tag severity="warn" value="ทุนประเภท 1" /><p-tag severity="danger" value="ทุนประเภท 1" />`) +
-      row('p-chip removable', `<p-chip label="ปีงบประมาณ 2569" [removable]="true" /><p-chip label="ทุนประเภท 1" [removable]="true" />`) +
+      row('p-chip removable', `<p-chip label="ปีงบประมาณ 2569" [removable]="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip><p-chip label="ทุนประเภท 1" [removable]="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>`) +
       row('p-avatar shape="circle"', `<p-avatar label="กท" shape="circle" /><p-avatar label="กท" shape="circle" size="large" /><p-avatar label="กท" shape="circle" size="xlarge" />`) +
       row('pTooltip', `<p-button outlined severity="secondary" label="ชี้ที่นี่" pTooltip="ข้อมูลเพิ่มเติม" tooltipPosition="top" /><p-button outlined severity="secondary" label="ด้านขวา" pTooltip="ข้อมูลเพิ่มเติม" tooltipPosition="right" />`),
   }),

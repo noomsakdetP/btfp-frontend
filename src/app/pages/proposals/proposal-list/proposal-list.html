@@ -98,9 +98,9 @@
     <!-- ตัวกรองที่ใช้อยู่ -->
     <div class="flex flex-wrap items-center gap-2 px-4 pb-4 md:px-5">
       <span class="text-muted">ตัวกรองที่ใช้:</span>
-      <p-chip label="ทุนประเภท 1" removable="true" />
-      <p-chip label="ปีงบ 2569" removable="true" />
-      <p-chip label="ขั้นตอน 2" removable="true" />
+      <p-chip label="ทุนประเภท 1" removable="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>
+      <p-chip label="ปีงบ 2569" removable="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>
+      <p-chip label="ขั้นตอน 2" removable="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>
       <button type="button" class="btfp-link-button">ล้างทั้งหมด</button>
     </div>
 

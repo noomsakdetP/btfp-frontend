@@ -111,7 +111,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Figma | ในโค้ด | สถานะ | หมายเหตุ |
 | --- | --- | --- | --- |
 | Actions/Button | `p-button` | PrimeNG | primary = ค่าเริ่มต้น, secondary = `outlined severity="secondary"` (พื้นขาว เส้น border/strong ข้อความ action/secondary), tertiary = `text`, danger = `severity="danger"` (พื้นแดงอ่อนตาม Figma ไม่ใช่แดงทึบ) Size S = `size="small"` 32px, M 40px, L = `size="large"` 48px ดู Storybook หมวด PrimeNG (ธีม กทปส.) |
-| Actions/IconButton | `p-button` + `btfp-icon` | PrimeNG | ต้องใส่ `ariaLabel` และ `pTooltip` เสมอ ghost = `text` |
+| Actions/IconButton | `p-button` + `<ng-template #icon><btfp-icon /></ng-template>` | PrimeNG | ไอคอนต้องอยู่ใน `#icon` จึงได้ 32/40/48 ตาม Figma ต้องใส่ `ariaLabel` และ `pTooltip` เสมอ ghost = `text` |
 | Actions/Export Menu Button | `btfp-export-button` | ทำแล้ว | ใช้ตัวเดียวทั้งระบบ ตัวเลือก Excel, PDF, CSV |
 | Forms/TextInput | `input pInputText` | PrimeNG | สูง 40 ขอบซ้ายขวา 16 ตัวอักษร 16 ครอบด้วย `.btfp-field` + `.btfp-required` `.btfp-field__helper` `.btfp-field__error` |
 | Forms/Textarea | `textarea pTextarea` | PrimeNG | |
@@ -126,7 +126,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Forms/Radio | `p-radiobutton` | PrimeNG | 24px |
 | Forms/Toggle | `p-toggleswitch` | PrimeNG | 44x24 ตอนปิดพื้นขาวปุ่มเทา |
 | Forms/Segmented Control | `p-selectbutton` | PrimeNG | ปรับแล้ว (preset + `styles.scss`) |
-| DataDisplay/Tag | `p-tag` / `p-chip` | PrimeNG | Tone neutral = `severity="secondary"` มุม 4 สูง 32 มีเส้นขอบ ตัวกรองที่ใช้อยู่ใช้ `p-chip removable` |
+| DataDisplay/Tag | `p-tag` / `p-chip` | PrimeNG | Tone neutral = `severity="secondary"` มุม 4 สูง 32 มีเส้นขอบ ตัวกรองที่ใช้อยู่ใช้ `p-chip removable` + `<ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template>` |
 | DataDisplay/Avatar | `p-avatar` | PrimeNG | S 32 = ค่าเริ่มต้น, M 40 = `size="large"`, L 48 = `size="xlarge"` |
 | Feedback/Tooltip | `pTooltip` | PrimeNG | พื้น navy/900 ตัวอักษร 12 |
 | Navigation/Breadcrumb | HTML ในหน้า | ทำแล้ว | `p-breadcrumb` ต้องใช้ข้อมูลแบบ binding จึงไม่ใช้ในหน้าหุ่นจำลอง |

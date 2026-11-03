@@ -42,6 +42,48 @@
     font-weight: 400;
   }
 
+  // ปุ่มไอคอนอย่างเดียว (ใส่ไอคอนใน <ng-template #icon>) สูงเท่ากว้าง S 32 M 40 L 48 ตาม Figma Actions/IconButton
+  .p-button-icon-only {
+    height: var(--p-button-icon-only-width);
+    padding: 0;
+  }
+  .p-button-icon-only.p-button-sm {
+    height: var(--p-button-sm-icon-only-width);
+  }
+  .p-button-icon-only.p-button-lg {
+    width: var(--p-button-lg-icon-only-width);
+    height: var(--p-button-lg-icon-only-width);
+  }
+
+  // Checkbox แบบเลือกบางส่วน: พื้น primary เครื่องหมายขีดสีขาว ตาม Figma (PrimeNG ปกติเป็นพื้นขาว)
+  .p-checkbox:has(svg[data-p-icon='minus']) .p-checkbox-box {
+    border-color: var(--p-checkbox-checked-border-color);
+    background: var(--p-checkbox-checked-background);
+
+    .p-checkbox-icon {
+      color: var(--p-checkbox-icon-checked-color);
+    }
+  }
+
+  // ช่องกรอกที่ผิดพลาด เส้นขอบหนา 1.5px ตาม Figma
+  .p-inputtext.ng-invalid.ng-dirty,
+  .p-inputtext.p-invalid,
+  .p-select.ng-invalid.ng-dirty,
+  .p-select.p-invalid,
+  .p-multiselect.ng-invalid.ng-dirty,
+  .p-multiselect.p-invalid,
+  .p-textarea.ng-invalid.ng-dirty,
+  .p-textarea.p-invalid {
+    box-shadow: inset 0 0 0 0.5px var(--btfp-input-border-error);
+  }
+
+  // ตัวกรองที่ใช้อยู่ (p-chip) เหมือน DataDisplay/Tag Tone=info มีเส้นขอบ
+  .p-chip {
+    border: 1px solid var(--btfp-info-border);
+    font-size: 14px;
+    line-height: 22px; // 22 + ขอบบนล่าง 4 + 4 + เส้น 2 = 32px
+  }
+
   // แท็บที่เลือกตัวหนา Medium
   .p-tab-active {
     font-weight: 500;
