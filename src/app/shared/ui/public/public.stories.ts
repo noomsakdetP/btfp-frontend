@@ -95,7 +95,7 @@ export const ProcessStep: StoryObj = {
   render: () => ({
     template: `
       <div class="grid gap-5 p-6 md:grid-cols-2" style="background:var(--btfp-navy-900)">
-        <btfp-process-step step="01" icon="user-check" heading="ลงทะเบียนและยืนยันตัวตน" description="สร้างบัญชีหน่วยงาน ยืนยันรหัส OTP และตั้งค่า Google Authenticator" />
+        <btfp-process-step step="01" icon="user-check" heading="ลงทะเบียนและยืนยันตัวตน" description="สร้างบัญชีหน่วยงาน และยืนยันตัวตนด้วยรหัส OTP ทางอีเมลทุกครั้งที่เข้าสู่ระบบ" />
         <btfp-process-step step="02" icon="list-filter" heading="เลือกประกาศและขอบเขต" description="เลือกประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR" />
       </div>`,
   }),

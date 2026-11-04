@@ -5,7 +5,7 @@ import { BtfpStaffLayout } from './layout/staff-layout/staff-layout';
 const SITE = 'ระบบบริหารจัดการทุน กทปส.';
 
 /** เมนูของเว็บไซต์สาธารณะที่ยังไม่ได้ขึ้นโครง (ไปหน้า placeholder ฝั่งหน้าบ้าน) */
-const PUBLIC_PENDING = ['grants', 'results', 'news', 'faq', 'guide', 'contact', 'register', 'login/verify', 'login/staff', 'policy', 'sitemap'];
+const PUBLIC_PENDING = ['grants', 'results', 'news', 'faq', 'guide', 'contact', 'register', 'login/verify', 'login/staff', 'forgot-password', 'policy', 'sitemap'];
 
 export const routes: Routes = [
   {

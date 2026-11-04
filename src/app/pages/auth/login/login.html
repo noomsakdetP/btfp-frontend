@@ -48,7 +48,11 @@
           <input pInputText id="login-id" type="text" autocomplete="username" value="somchai@example.ac.th" />
         </div>
         <div class="btfp-field">
-          <label for="login-password">รหัสผ่าน</label>
+          <!-- ลืมรหัสผ่าน: อยู่แถวเดียวกับป้ายชื่อ ชิดขวา (FP-01 ยังไม่ได้ขึ้นโครง) -->
+          <div class="btfp-field__label-row flex items-center justify-between gap-4">
+            <label for="login-password">รหัสผ่าน</label>
+            <a class="link btfp-text-body-s-medium" routerLink="/forgot-password">ลืมรหัสผ่าน?</a>
+          </div>
           <input pInputText id="login-password" type="password" autocomplete="current-password" />
         </div>
         <p-button label="ดำเนินการต่อ" size="large" fluid routerLink="/login/verify" />

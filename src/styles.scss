@@ -92,7 +92,9 @@
     min-width: 0;
 
     // ป้ายชื่อ Sarabun Medium 16 สี text/heading
-    > label {
+    // มีลิงก์ขวามือ (เช่น ลืมรหัสผ่าน?) ครอบป้ายชื่อกับลิงก์ด้วย <div class="btfp-field__label-row">
+    > label,
+    > .btfp-field__label-row > label {
       font-size: var(--btfp-typography-body-medium-size);
       font-weight: var(--btfp-typography-body-medium-weight);
       line-height: var(--btfp-line-height-body);
