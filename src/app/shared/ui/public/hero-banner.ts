@@ -19,12 +19,10 @@ import { BtfpIcon } from '../icon/icon';
 /**
  * btfp-hero-slide : สไลด์หนึ่งแผ่นใน btfp-hero-banner (Figma: Domain/Hero Banner, Slide=1/2/3)
  *
- * ภาพพื้นหลังออกแบบไว้ที่ 1920x720 แบบ 2 ชนิด
- * 1. ภาพที่มีข้อความอยู่ในภาพแล้ว (Slide=1) ใส่ artX / artY เป็นพิกัดของปุ่มในภาพขนาด 1920x720
- *    จอเล็กกว่า 640px ใส่ mobileImage (ภาพ 390x440) และ mobileArtX / mobileArtY เพื่อไม่ให้ข้อความในภาพโดนตัด
- *    ปุ่มจะขยับตามภาพทุกขนาดจอ
- * 2. ภาพ + ข้อความ HTML (Slide=2, 3) ใส่ overlay เพื่อทับสีน้ำเงินไล่ระดับ ข้อความเรียงซ้ายแนวเดียวกับเนื้อหาของหน้า
- *    ใส่ h1/h2 (หัวข้อ) p (คำอธิบาย) และปุ่มไว้ข้างใน ตัวอักษรจัดให้แล้ว
+ * ตามกฎหลังบ้าน CT-01 (เนื้อหาเว็บไซต์: Banner) ที่ยืนยันแล้ว
+ * - รูปเดียวใช้ทั้งคอมพิวเตอร์และมือถือ ขนาด 1920x720 จอที่สัดส่วนต่างไปจะครอปช่วงกลางของรูป (object-fit: cover)
+ * - รูปห้ามมีตัวหนังสือ หัวข้อ คำอธิบาย ป้ายกำกับ และปุ่มเป็นข้อความ HTML ที่ระบบวางทับ
+ * ใส่ overlay เพื่อทับสีน้ำเงินไล่ระดับให้อ่านตัวหนังสือสีขาวได้ ใส่ h1/h2 (หัวข้อ) p (คำอธิบาย) และปุ่มไว้ข้างใน ตัวอักษรจัดให้แล้ว
  *
  * @example
  * <btfp-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
@@ -47,25 +45,13 @@ import { BtfpIcon } from '../icon/icon';
     '[attr.aria-hidden]': 'active() ? null : "true"',
   },
   template: `
-    <picture>
-      @if (mobileImage()) {
-        <source media="(max-width: 639px)" [attr.srcset]="mobileImage()" />
-      }
-      <img class="btfp-hero-slide__img" [class.is-art]="isArt()" [src]="image()" [alt]="alt()" draggable="false" />
-    </picture>
+    <img class="btfp-hero-slide__img" [src]="image()" [alt]="alt()" draggable="false" />
     @if (overlay()) {
       <div class="btfp-hero-slide__overlay"></div>
     }
-    <div class="btfp-hero-slide__frame" [class.is-art]="isArt()">
-      <div
-        class="btfp-hero-slide__content"
-        [class.has-mobile]="!!mobileImage()"
-        [style.--art-x]="artX()"
-        [style.--art-y]="artY()"
-        [style.--m-art-x]="mobileArtX()"
-        [style.--m-art-y]="mobileArtY()"
-      >
-        @if (tag() && !isArt()) {
+    <div class="btfp-hero-slide__frame">
+      <div class="btfp-hero-slide__content">
+        @if (tag()) {
           <span class="btfp-hero-slide__tag" [attr.data-severity]="tagSeverity()">{{ tag() }}</span>
         }
         <ng-content />
@@ -91,11 +77,8 @@ import { BtfpIcon } from '../icon/icon';
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 70% center;
+        object-position: center;
         user-select: none;
-      }
-      .btfp-hero-slide__img.is-art {
-        object-position: 30% center;
       }
       .btfp-hero-slide__overlay {
         position: absolute;
@@ -109,7 +92,7 @@ import { BtfpIcon } from '../icon/icon';
         height: 100%;
         padding: 24px 16px 56px;
       }
-      .btfp-hero-slide__frame:not(.is-art) .btfp-hero-slide__content {
+      .btfp-hero-slide__content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -117,27 +100,6 @@ import { BtfpIcon } from '../icon/icon';
         width: 100%;
         max-width: 1600px;
         margin: 0 auto;
-      }
-      /* ภาพที่มีข้อความในตัว: วางปุ่มตามพิกัดในภาพ 1920x720 (ภาพใช้ object-position 30%) */
-      .btfp-hero-slide__frame.is-art {
-        position: absolute;
-        inset: 0;
-        padding: 0;
-      }
-      .btfp-hero-slide__frame.is-art .btfp-hero-slide__content {
-        position: absolute;
-        left: max(16px, calc(30cqw + var(--btfp-hero-h) * (var(--art-x) / 720 - 0.8)));
-        top: calc(var(--btfp-hero-h) * var(--art-y) / 720);
-      }
-      /* จอเล็กกว่า 640px ที่มีภาพมือถือ: ภาพออกแบบที่ 390x440 วางปุ่มตาม mobileArtX / mobileArtY */
-      @media (max-width: 639px) {
-        .btfp-hero-slide__img.is-art {
-          object-position: center top;
-        }
-        .btfp-hero-slide__frame.is-art .btfp-hero-slide__content.has-mobile {
-          left: calc(var(--m-art-x) / 390 * 100%);
-          top: calc(var(--m-art-y) / 440 * 100%);
-        }
       }
       .btfp-hero-slide__tag {
         display: inline-flex;
@@ -207,18 +169,6 @@ export class BtfpHeroSlide {
   readonly overlay = input(false, { transform: booleanAttribute });
   readonly tag = input('');
   readonly tagSeverity = input<'info' | 'success' | 'warn'>('info');
-  /** พิกัดของเนื้อหาในภาพ 1920x720 สำหรับภาพที่มีข้อความในตัว */
-  readonly artX = input(undefined, { transform: (v: unknown) => (v == null || v === '' ? undefined : numberAttribute(v)) });
-  readonly artY = input(undefined, { transform: (v: unknown) => (v == null || v === '' ? undefined : numberAttribute(v)) });
-
-  /** ภาพสำหรับจอเล็กกว่า 640px (ออกแบบที่ 390x440 ส่งไฟล์ 2 เท่า 780x880) ไม่ใส่ก็ได้ */
-  readonly mobileImage = input('');
-  /** พิกัดของปุ่มในภาพมือถือขนาด 390x440 */
-  readonly mobileArtX = input(20, { transform: numberAttribute });
-  readonly mobileArtY = input(240, { transform: numberAttribute });
-
-  readonly isArt = computed(() => this.artX() !== undefined && this.artY() !== undefined);
-
   /** ตั้งโดย btfp-hero-banner */
   readonly active = signal(false);
   readonly label = signal('');
@@ -237,7 +187,6 @@ export class BtfpHeroSlide {
  *
  * @example
  * <btfp-hero-banner label="ประกาศและผลงานเด่น">
- *   <btfp-hero-slide image="..." alt="..." artX="388" artY="430">...</btfp-hero-slide>
  *   <btfp-hero-slide image="..." overlay tag="...">...</btfp-hero-slide>
  * </btfp-hero-banner>
  */
@@ -289,10 +238,6 @@ export class BtfpHeroSlide {
   styles: `
     :host {
       --btfp-hero-h: max(37.5cqw, 440px);
-      /* จอเล็กกว่า 640px ใช้สัดส่วนภาพมือถือ 390x440 */
-      @media (max-width: 639px) {
-        --btfp-hero-h: calc(100cqw * 440 / 390);
-      }
       position: relative;
       display: block;
       container-type: inline-size;
