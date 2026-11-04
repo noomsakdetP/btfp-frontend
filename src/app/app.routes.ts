@@ -5,9 +5,17 @@ import { BtfpStaffLayout } from './layout/staff-layout/staff-layout';
 const SITE = 'ระบบบริหารจัดการทุน กทปส.';
 
 /** เมนูของเว็บไซต์สาธารณะที่ยังไม่ได้ขึ้นโครง (ไปหน้า placeholder ฝั่งหน้าบ้าน) */
-const PUBLIC_PENDING = ['grants', 'results', 'news', 'faq', 'guide', 'contact', 'register', 'login', 'policy', 'sitemap'];
+const PUBLIC_PENDING = ['grants', 'results', 'news', 'faq', 'guide', 'contact', 'register', 'login/verify', 'login/staff', 'policy', 'sitemap'];
 
 export const routes: Routes = [
+  {
+    // ===== เข้าสู่ระบบ (เต็มจอ ไม่มีแถบบน) =====
+    // F-01 เข้าสู่ระบบ ① อีเมลหรือเบอร์มือถือ  Figma 42:9007
+    path: 'login',
+    pathMatch: 'full',
+    title: `เข้าสู่ระบบ | ${SITE}`,
+    loadComponent: () => import('./pages/auth/login/login').then((m) => m.LoginPage),
+  },
   {
     // ===== เว็บไซต์สาธารณะ (ผู้เยี่ยมชม / ผู้ขอรับทุนที่ยังไม่เข้าสู่ระบบ) =====
     path: '',
