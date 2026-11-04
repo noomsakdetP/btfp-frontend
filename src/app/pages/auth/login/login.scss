@@ -54,6 +54,11 @@
   }
 }
 
+.remember {
+  color: var(--btfp-text-primary);
+  cursor: pointer;
+}
+
 .link {
   color: var(--btfp-action-link);
   text-decoration: none;
