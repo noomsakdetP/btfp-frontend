@@ -203,7 +203,16 @@
   --btfp-hero-control-bg: rgba(255, 255, 255, 0.85);
   --btfp-hero-control-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   --btfp-hero-dot: var(--btfp-gray-50);
-  --btfp-table-header-bg: var(--btfp-gray-100);
+
+  // Domain/Table Header Cell, Domain/Table Cell, Domain/Data Table
+  --btfp-table-header-bg: var(--btfp-gray-100); // Figma: component/table/header/bg
+  --btfp-table-header-height: 44px;
+  --btfp-table-row-2line: 64px; // เซลล์ 2 บรรทัด (Type=text-2line)
+  --btfp-table-cell-padding-x: var(--btfp-space-md);
+  --btfp-table-check-width: 56px;
+  --btfp-table-actions-padding: 0 12px 0 8px; // ให้ปุ่ม 3 ปุ่มของ btfp-row-actions พอดีคอลัมน์ 112px ตามหน้ารายการข้อเสนอ
+  --btfp-table-row-hover-bg: var(--btfp-gray-50); // Figma ไม่ได้กำหนด ใช้ในโค้ดให้รู้ว่าชี้แถวไหนอยู่
+  --btfp-table-row-selected-bg: var(--btfp-info-bg); // Figma: แถวที่เลือก color/blue/50
 
   // ---------- primitives: typography (Figma: primitives/font/*) ----------
   --btfp-font-family-ibm-plex-sans-thai: 'IBM Plex Sans Thai';
