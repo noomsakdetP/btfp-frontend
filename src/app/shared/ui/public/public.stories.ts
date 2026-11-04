@@ -35,14 +35,16 @@ export const HeroBanner: StoryObj = {
     docs: {
       description: {
         story:
-          'Figma: Domain/Hero Banner เลื่อนเองทุก 4 วินาที (interval="0" เพื่อปิด) หยุดเมื่อชี้เมาส์หรือโฟกัส ลูกศรซ้ายขวา ปุ่มลูกศรบนคีย์บอร์ด ปัดบนจอสัมผัส และจุดเลือกสไลด์ สไลด์แรกเป็นภาพที่มีข้อความในตัว วางปุ่มด้วย artX / artY (พิกัดในภาพ 1920x720) จอเล็กกว่า 640px ใช้ mobileImage (ภาพ 390x440) สไลด์อื่นใส่ overlay + ข้อความ HTML',
+          'Figma: Domain/Hero Banner เลื่อนเองทุก 4 วินาที (interval="0" เพื่อปิด) หยุดเมื่อชี้เมาส์หรือโฟกัส ลูกศรซ้ายขวา ปุ่มลูกศรบนคีย์บอร์ด ปัดบนจอสัมผัส และจุดเลือกสไลด์ รูปเดียวใช้ทั้งคอมพิวเตอร์และมือถือ (1920x720 มือถือครอปช่วงกลาง) รูปห้ามมีตัวหนังสือ หัวข้อ คำอธิบาย ป้าย และปุ่มเป็นข้อความ HTML ที่วางทับ ใส่ overlay ทุกสไลด์ ตามกฎหลังบ้าน CT-01',
       },
     },
   },
   render: () => ({
     template: `
       <btfp-hero-banner label="ประกาศและผลงานเด่น">
-        <btfp-hero-slide image="images/landing/hero-slide-1.jpg" mobileImage="images/landing/hero-slide-1-mobile.jpg" alt="เปิดรับข้อเสนอโครงการเพื่อขอรับทุนจาก กสทช." artX="388" artY="430">
+        <btfp-hero-slide image="images/landing/hero-slide-1.jpg" overlay>
+          <h1>เปิดรับข้อเสนอโครงการ<br class="hidden md:inline" /> เพื่อขอรับทุนจาก กสทช.</h1>
+          <p>สนับสนุนการพัฒนาเทคโนโลยี นวัตกรรม และการสื่อสาร เพื่อประโยชน์สูงสุดของประชาชน</p>
           <p-button size="large"><span>ดูประกาศทุนทั้งหมด</span><btfp-icon name="chevron-right" size="20" /></p-button>
         </btfp-hero-slide>
         <btfp-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">

@@ -165,7 +165,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Domain/Notification Item | `btfp-notification-item` | ต้องทำ | |
 | Domain/Address Fields | `btfp-address-fields` | ต้องทำ | จังหวัด อำเภอ ตำบล รหัสไปรษณีย์ |
 | Domain/Grant Call Card | `btfp-grant-call-card` | ทำแล้ว | state: open / closing-soon / closed |
-| Domain/Hero Banner | `btfp-hero-banner` + `btfp-hero-slide` | ทำแล้ว | เลื่อนเองทุก 4 วินาที ลูกศร จุด ปัด สไลด์ภาพมีข้อความในตัวใช้ `artX`/`artY` สไลด์ข้อความใช้ `overlay` + `tag` |
+| Domain/Hero Banner | `btfp-hero-banner` + `btfp-hero-slide` | ทำแล้ว | เลื่อนเองทุก 4 วินาที ลูกศร จุด ปัด รูปเดียวทั้งคอมพิวเตอร์และมือถือ (1920x720 มือถือครอปช่วงกลาง) รูปห้ามมีตัวหนังสือ ข้อความเป็น HTML ใส่ `overlay` + `tag` (กฎ CT-01) |
 | Domain/Proposal Card, Grant Cover | `btfp-*` | ต้องทำ | ฝั่งผู้ขอรับทุน |
 | Public/Section Header | `btfp-section-header` | ทำแล้ว | theme light / dark |
 | Public/Process Step | `btfp-process-step` | ทำแล้ว | |
