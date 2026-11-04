@@ -61,7 +61,7 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
    **ตัวอักษร** ใช้ class `.btfp-text-h2` `.btfp-text-body-s` ฯลฯ ตาม Text Style ใน Figma
    **ช่องกรอก** ครอบด้วย `.btfp-field` + `.btfp-required` `.btfp-field__helper` `.btfp-field__error`
    **ปุ่ม** secondary ใน Figma = `outlined severity="secondary"` (ห้ามใช้ `outlined` เฉย ๆ จะเป็นสีน้ำเงิน)
-7. **ตาราง** แถวสูง 56px ข้อความบรรทัดเดียว ยาวเกินตัดด้วย ellipsis และใส่ `title`
+7. **ตาราง** ใช้ `<table class="btfp-table">` ส่วนกลาง ห้ามเขียน CSS ของตารางในหน้า (ดู Storybook Components/Data Display/Table) แถวสูง 56px ข้อความบรรทัดเดียว ยาวเกินตัดด้วย ellipsis และใส่ `title`
 8. **ปุ่มท้ายแถว** ใช้ `<btfp-row-actions>` ลำดับ ดู แก้ไข ลบ การลบต้องมีป๊อปอัปยืนยันเสมอ
 9. **ปุ่มส่งออก** ใช้ `<btfp-export-button>` ตัวเดียวทั้งระบบ
 10. **ข้อความบนหน้าจอ** ห้ามใช้ "—" และ "•" ห้ามแสดงรหัสหน้าจอ (B-01 ฯลฯ) ให้ผู้ใช้เห็น

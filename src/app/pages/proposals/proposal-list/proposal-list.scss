@@ -86,55 +86,7 @@
 }
 
 // ---------- table ----------
-.btfp-table {
-  width: 100%;
-  min-width: 1574px;
-  table-layout: fixed;
-  border-collapse: collapse;
-  font-size: var(--btfp-typography-table-size);
-
-  th,
-  td {
-    height: var(--btfp-table-row);
-    padding: 0 16px;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border-bottom: 1px solid var(--btfp-border-default);
-  }
-
-  th {
-    height: 44px;
-    background: var(--btfp-table-header-bg);
-    font-weight: 500;
-    color: var(--btfp-text-primary);
-  }
-
-  tbody tr:hover {
-    background: var(--btfp-gray-50);
-  }
-
-  tbody tr.is-selected {
-    background: var(--btfp-info-bg);
-  }
-
-  .cell-check {
-    padding: 0;
-    text-align: center;
-  }
-
-  .cell-num {
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .cell-actions {
-    padding: 0 12px 0 8px;
-    text-align: right;
-  }
-
-  .text-unassigned {
-    color: var(--btfp-orange-600);
-  }
+// ตารางใช้ .btfp-table ส่วนกลาง (src/styles.scss) ที่นี่มีแค่สีเฉพาะของหน้านี้
+.text-unassigned {
+  color: var(--btfp-orange-600);
 }

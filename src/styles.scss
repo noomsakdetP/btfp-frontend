@@ -9,10 +9,11 @@
 //   1. พื้นฐาน            box-sizing, html, body, หัวข้อ, ลิงก์
 //   2. ตัวอักษร           .btfp-text-* ตาม Text Style ใน Figma
 //   3. ฟอร์ม              .btfp-field, .btfp-required, ข้อความช่วย, ข้อความผิดพลาด, .btfp-link-button
-//   4. ปรับ PrimeNG       ส่วนที่ preset (src/app/theme/btfp-preset.ts) ทำไม่ได้
-//      4.1 Button  4.2 ช่องกรอก  4.3 Checkbox Radio Toggle  4.4 Tag Chip
-//      4.5 Tabs  4.6 Segmented  4.7 Avatar
-//   5. หน้าหุ่นจำลอง      .btfp-mock-value, .btfp-checkbox
+//   4. ตาราง              .btfp-table และเซลล์แต่ละแบบ
+//   5. ปรับ PrimeNG       ส่วนที่ preset (src/app/theme/btfp-preset.ts) ทำไม่ได้
+//      5.1 Button  5.2 ช่องกรอก  5.3 Checkbox Radio Toggle  5.4 Tag Chip
+//      5.5 Tabs  5.6 Segmented  5.7 Avatar
+//   6. หน้าหุ่นจำลอง      .btfp-mock-value, .btfp-checkbox
 // =====================================================================
 
 @layer btfp {
@@ -156,12 +157,106 @@
   }
 
   // =====================================================================
-  // 4. ปรับ PrimeNG
+  // 4. ตาราง (Figma: Domain/Data Table, Table Header Cell, Table Cell)
+  // ตารางข้อมูลทั่วไปใช้ HTML <table> + class นี้ (p-table ต้องส่งข้อมูลผ่าน binding ใช้ในหน้าหุ่นจำลองไม่ได้)
+  // ความกว้างคอลัมน์ใส่ที่ <col class="w-[160px]"> และครอบด้วย <div class="overflow-x-auto"> ให้จอแคบเลื่อนซ้ายขวาได้
+  // =====================================================================
+
+  .btfp-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: var(--btfp-typography-table-size);
+    font-weight: var(--btfp-typography-table-weight);
+    line-height: var(--btfp-line-height-compact);
+
+    // เซลล์: สูง 56px ข้อความบรรทัดเดียว ยาวเกินตัดด้วย ... (ใส่ title ให้อ่านข้อความเต็ม)
+    th,
+    td {
+      height: var(--btfp-table-row);
+      padding: 0 var(--btfp-table-cell-padding-x);
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border-bottom: 1px solid var(--btfp-border-default);
+    }
+
+    // หัวตาราง: สูง 44px Body/S Medium
+    th {
+      height: var(--btfp-table-header-height);
+      background: var(--btfp-table-header-bg);
+      font-size: var(--btfp-typography-body-s-medium-size);
+      font-weight: var(--btfp-typography-body-s-medium-weight);
+      color: var(--btfp-text-primary);
+    }
+
+    tbody tr:hover {
+      background: var(--btfp-table-row-hover-bg);
+    }
+
+    // แถวที่เลือก
+    tbody tr.is-selected {
+      background: var(--btfp-table-row-selected-bg);
+    }
+  }
+
+  // Type=checkbox: กว้าง 56px อยู่กลาง (ใส่ <col class="w-14">)
+  .btfp-table__check {
+    .btfp-table & {
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  // Type=numeric: ชิดขวา ตัวเลขกว้างเท่ากัน
+  .btfp-table__num {
+    .btfp-table & {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  // Type=actions: ชิดขวา ใส่ <btfp-row-actions>
+  .btfp-table__actions {
+    .btfp-table & {
+      padding: var(--btfp-table-actions-padding);
+      text-align: right;
+    }
+  }
+
+  // Type=text-2line: บรรทัดบน Body/S Medium บรรทัดล่าง Caption แถวสูง 64px
+  // <td class="btfp-table__2line"><span>ชื่อ</span><span class="btfp-table__sub">ข้อมูลรอง</span></td>
+  .btfp-table__2line {
+    .btfp-table & {
+      height: var(--btfp-table-row-2line);
+
+      > span {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      > span:first-child {
+        font-size: var(--btfp-typography-body-s-medium-size);
+        font-weight: var(--btfp-typography-body-s-medium-weight);
+        line-height: var(--btfp-line-height-body);
+        color: var(--btfp-text-primary);
+      }
+    }
+  }
+  .btfp-table__sub {
+    font-size: var(--btfp-typography-caption-size);
+    line-height: var(--btfp-line-height-compact);
+    color: var(--btfp-text-secondary);
+  }
+
+  // =====================================================================
+  // 5. ปรับ PrimeNG
   // ปรับที่ preset ก่อนเสมอ ใส่ในนี้เฉพาะสิ่งที่ preset ไม่มี token ให้
   // ตัวแปร --p-* ของแต่ละ component โหลดเมื่อใช้ component นั้น จึงต้องใช้ตัวแปรของ component ตัวเอง
   // =====================================================================
 
-  // ---------- 4.1 Button (Figma: Actions/Button, Actions/IconButton) ----------
+  // ---------- 5.1 Button (Figma: Actions/Button, Actions/IconButton) ----------
 
   // PrimeNG สืบ line-height 1.6 จาก body ทำให้ปุ่มสูง 44px ตั้งเป็น 1.5 ให้ได้ 40px (M) และ 48px (L)
   .p-button {
@@ -186,7 +281,7 @@
     height: var(--p-button-lg-icon-only-width);
   }
 
-  // ---------- 4.2 ช่องกรอก (Figma: Forms/TextInput, Select, Textarea) ----------
+  // ---------- 5.2 ช่องกรอก (Figma: Forms/TextInput, Select, Textarea) ----------
 
   // สถานะผิดพลาด เส้นขอบหนา 1.5px (เส้น 1px + เงาด้านใน 0.5px)
   .p-inputtext.ng-invalid.ng-dirty,
@@ -200,7 +295,7 @@
     box-shadow: inset 0 0 0 0.5px var(--btfp-input-border-error);
   }
 
-  // ---------- 4.3 Checkbox Radio Toggle (Figma: Forms/Checkbox, Radio, Toggle) ----------
+  // ---------- 5.3 Checkbox Radio Toggle (Figma: Forms/Checkbox, Radio, Toggle) ----------
 
   // Checkbox เลือกบางส่วน: พื้น primary ขีดสีขาว (PrimeNG ปกติเป็นพื้นขาว)
   .p-checkbox:has(svg[data-p-icon='minus']) .p-checkbox-box {
@@ -252,7 +347,7 @@
     color: var(--btfp-text-disabled);
   }
 
-  // ---------- 4.4 Tag และ Chip (Figma: DataDisplay/Tag) ----------
+  // ---------- 5.4 Tag และ Chip (Figma: DataDisplay/Tag) ----------
 
   // Tag มีเส้นขอบตามสี (p-tag ไม่มี token เส้นขอบ)
   .p-tag {
@@ -271,14 +366,14 @@
     line-height: 22px; // ไม่ใช่ token: 22 + ขอบบนล่าง 4 + 4 + เส้น 2 = สูง 32px ตาม Figma
   }
 
-  // ---------- 4.5 Tabs (Figma: Navigation/Tabs) ----------
+  // ---------- 5.5 Tabs (Figma: Navigation/Tabs) ----------
 
   // แท็บที่เลือกตัวหนา Medium
   .p-tab-active {
     font-weight: var(--btfp-font-weight-medium);
   }
 
-  // ---------- 4.6 Segmented Control (p-selectbutton) ----------
+  // ---------- 5.6 Segmented Control (p-selectbutton) ----------
 
   // กรอบเดียวพื้น bg/subtle มุม 12px ช่องห่างกัน 4px
   .p-selectbutton {
@@ -297,14 +392,14 @@
     }
   }
 
-  // ---------- 4.7 Avatar ----------
+  // ---------- 5.7 Avatar ----------
 
   .p-avatar {
     border: 1px solid var(--btfp-border-default);
   }
 
   // =====================================================================
-  // 5. หน้าหุ่นจำลอง (ไม่มี binding) ใช้ใน src/app/pages เท่านั้น
+  // 6. หน้าหุ่นจำลอง (ไม่มี binding) ใช้ใน src/app/pages เท่านั้น
   // =====================================================================
 
   // ค่าที่ "เลือกไว้แล้ว" ใน p-select / p-multiselect ผ่าน placeholder ให้เป็นสีปกติ ไม่ใช่สีจาง

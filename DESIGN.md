@@ -149,7 +149,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | --- | --- | --- | --- |
 | Domain/Status Badge | `btfp-status-tag` | ทำแล้ว | ครบ 14 สถานะ ใส่ `status="review"` ได้สี ไอคอน ข้อความตาม Figma ดูข้อ 4 |
 | Domain/KPI Stat Card | `btfp-kpi-card` | ทำแล้ว | Tone และ Trend ยังไม่ทำ |
-| Domain/Table Header Cell, Table Cell, Data Table | `.btfp-table` (ต่อ API ใช้ `p-table`) | ทำแล้ว | แถว 56 px บรรทัดเดียว |
+| Domain/Table Header Cell, Table Cell, Data Table | `.btfp-table` ใน `styles.scss` + `__num` `__check` `__actions` `__2line` (ต่อ API ใช้ `p-table` หรือ `@for`) | ทำแล้ว | แถว 56 px บรรทัดเดียว Storybook: Components/Data Display/Table ยังไม่มี Sort, skeleton |
 | Domain/Table Row Actions | `btfp-row-actions` | ทำแล้ว | ดู แก้ไข ลบ ลบต้องยืนยัน |
 | Domain/Empty State | `btfp-empty-state` | ทำแล้ว | 4 แบบ: general, no-results, no-files, error |
 | Domain/Modal | `p-dialog` | ต้องทำ | Size S/M/L ห้ามใช้กับฟอร์มเนื้อหา |
