@@ -48,12 +48,16 @@
           <input pInputText id="login-id" type="text" autocomplete="username" value="somchai@example.ac.th" />
         </div>
         <div class="btfp-field">
-          <!-- ลืมรหัสผ่าน: อยู่แถวเดียวกับป้ายชื่อ ชิดขวา (FP-01 ยังไม่ได้ขึ้นโครง) -->
-          <div class="btfp-field__label-row flex items-center justify-between gap-4">
-            <label for="login-password">รหัสผ่าน</label>
-            <a class="link btfp-text-body-s-medium" routerLink="/forgot-password">ลืมรหัสผ่าน?</a>
-          </div>
+          <label for="login-password">รหัสผ่าน</label>
           <input pInputText id="login-password" type="password" autocomplete="current-password" />
+        </div>
+        <!-- จดจำชื่อผู้ใช้ + ลืมรหัสผ่าน (FP-01 ยังไม่ได้ขึ้นโครง) -->
+        <div class="flex items-center gap-2.5">
+          <label class="remember flex min-w-0 flex-1 items-center gap-2 py-1">
+            <input type="checkbox" class="btfp-checkbox" />
+            <span class="btfp-text-body">จดจำชื่อผู้ใช้ในเครื่องนี้</span>
+          </label>
+          <a class="link btfp-text-body-s-medium shrink-0" routerLink="/forgot-password">ลืมรหัสผ่าน?</a>
         </div>
         <p-button label="ดำเนินการต่อ" size="large" fluid routerLink="/login/verify" />
       </form>
