@@ -1,170 +1,29 @@
 @use 'styles/tokens';
 
-// ลำดับ layer ประกาศไว้ใน src/tailwind.css (theme, base, primeng, btfp, components, utilities)
+// =====================================================================
+// สไตล์กลางของระบบ (layer btfp)
+// ลำดับ layer ประกาศไว้ใน src/tailwind.css: theme, base, primeng, btfp, components, utilities
+// ค่าทุกตัวใช้ token จาก src/styles/_tokens.scss ห้ามใส่สีหรือขนาดตรง ๆ
+//
+// สารบัญ
+//   1. พื้นฐาน            box-sizing, html, body, หัวข้อ, ลิงก์
+//   2. ตัวอักษร           .btfp-text-* ตาม Text Style ใน Figma
+//   3. ฟอร์ม              .btfp-field, .btfp-required, ข้อความช่วย, ข้อความผิดพลาด, .btfp-link-button
+//   4. ปรับ PrimeNG       ส่วนที่ preset (src/app/theme/btfp-preset.ts) ทำไม่ได้
+//      4.1 Button  4.2 ช่องกรอก  4.3 Checkbox Radio Toggle  4.4 Tag Chip
+//      4.5 Tabs  4.6 Segmented  4.7 Avatar
+//   5. หน้าหุ่นจำลอง      .btfp-mock-value, .btfp-checkbox
+// =====================================================================
 
 @layer btfp {
+  // =====================================================================
+  // 1. พื้นฐาน
+  // =====================================================================
+
   *,
   *::before,
   *::after {
     box-sizing: border-box;
-  }
-
-  // ---------- ส่วนเสริมของ PrimeNG ที่ preset ทำไม่ได้ ----------
-
-  // ช่องบังคับกรอก ข้อความช่วย และข้อความผิดพลาดใต้ช่อง (Figma Forms/*)
-  .btfp-required {
-    margin-left: 4px;
-    color: var(--btfp-danger-text);
-  }
-  .btfp-field__helper {
-    margin: 0;
-    font-size: var(--btfp-typography-caption-size);
-    line-height: var(--btfp-line-height-compact);
-    color: var(--btfp-text-secondary);
-  }
-  .btfp-field__error {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin: 0;
-    font-size: var(--btfp-typography-caption-size);
-    line-height: var(--btfp-line-height-compact);
-    color: var(--btfp-danger-text);
-
-    btfp-icon {
-      display: inline-flex;
-      color: var(--btfp-icon-danger);
-    }
-  }
-
-  // ปุ่มขนาด S ใน Figma ใช้ตัวอักษร Regular
-  .p-button-sm .p-button-label {
-    font-weight: var(--btfp-font-weight-regular);
-  }
-
-  // ปุ่มไอคอนอย่างเดียว (ใส่ไอคอนใน <ng-template #icon>) สูงเท่ากว้าง S 32 M 40 L 48 ตาม Figma Actions/IconButton
-  .p-button-icon-only {
-    height: var(--p-button-icon-only-width);
-    padding: 0;
-  }
-  .p-button-icon-only.p-button-sm {
-    height: var(--p-button-sm-icon-only-width);
-  }
-  .p-button-icon-only.p-button-lg {
-    width: var(--p-button-lg-icon-only-width);
-    height: var(--p-button-lg-icon-only-width);
-  }
-
-  // Checkbox แบบเลือกบางส่วน: พื้น primary เครื่องหมายขีดสีขาว ตาม Figma (PrimeNG ปกติเป็นพื้นขาว)
-  .p-checkbox:has(svg[data-p-icon='minus']) .p-checkbox-box {
-    border-color: var(--p-checkbox-checked-border-color);
-    background: var(--p-checkbox-checked-background);
-
-    .p-checkbox-icon {
-      color: var(--p-checkbox-icon-checked-color);
-    }
-  }
-
-  // Checkbox / Radio / Toggle ที่ปิดใช้งาน: Figma State=disabled คือหน้าตาเดิมทั้งชิ้นจาง 50%
-  // (PrimeNG ปกติเปลี่ยนเป็นพื้นเทาและไม่เห็นว่าติ๊กอยู่) ดู Figma Design System > Forms/Checkbox, Radio, Toggle
-  :is(.p-checkbox, .p-radiobutton, .p-toggleswitch)[data-p-disabled='true'] {
-    opacity: 0.5;
-  }
-  // ตัวแปร --p-* ของแต่ละ component โหลดเมื่อใช้ component นั้น จึงต้องใช้ตัวแปรของตัวเอง
-  .p-checkbox[data-p-disabled='true']:is([data-p-checked='true'], :has(svg[data-p-icon='minus'])) .p-checkbox-box {
-    border-color: var(--p-checkbox-checked-border-color);
-    background: var(--p-checkbox-checked-background);
-  }
-  .p-radiobutton[data-p-disabled='true'][data-p-checked='true'] .p-radiobutton-box {
-    border-color: var(--p-radiobutton-checked-border-color);
-    background: var(--p-radiobutton-checked-background);
-  }
-  // ช่องที่ยังไม่ติ๊ก: พื้นขาว เส้น border/strong (PrimeNG ปกติใช้พื้นเทา เส้นจางเกิน)
-  :is(.p-checkbox, .p-radiobutton)[data-p-disabled='true']:not([data-p-checked='true']) :is(.p-checkbox-box, .p-radiobutton-box) {
-    border-color: var(--btfp-border-strong);
-    background: var(--btfp-surface-raised);
-  }
-  .p-checkbox[data-p-disabled='true'] .p-checkbox-icon {
-    color: var(--p-checkbox-icon-checked-color);
-  }
-  .p-radiobutton[data-p-disabled='true'][data-p-checked='true'] .p-radiobutton-icon {
-    background: var(--p-radiobutton-icon-checked-color);
-  }
-  .p-toggleswitch[data-p-disabled='true'][data-p-checked='true'] .p-toggleswitch-slider {
-    border-color: var(--p-toggleswitch-checked-border-color);
-    background: var(--p-toggleswitch-checked-background);
-  }
-  .p-toggleswitch[data-p-disabled='true'][data-p-checked='true'] .p-toggleswitch-handle {
-    background: var(--p-toggleswitch-handle-checked-background);
-  }
-  .btfp-checkbox:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  // ป้ายข้อความของตัวเลือกที่ปิดใช้งานเป็นสีจาง
-  label:has(> :is(.p-checkbox, .p-radiobutton, .p-toggleswitch)[data-p-disabled='true'], > .btfp-checkbox:disabled) {
-    color: var(--btfp-text-disabled);
-  }
-
-  // ช่องกรอกที่ผิดพลาด เส้นขอบหนา 1.5px ตาม Figma
-  .p-inputtext.ng-invalid.ng-dirty,
-  .p-inputtext.p-invalid,
-  .p-select.ng-invalid.ng-dirty,
-  .p-select.p-invalid,
-  .p-multiselect.ng-invalid.ng-dirty,
-  .p-multiselect.p-invalid,
-  .p-textarea.ng-invalid.ng-dirty,
-  .p-textarea.p-invalid {
-    box-shadow: inset 0 0 0 0.5px var(--btfp-input-border-error);
-  }
-
-  // ตัวกรองที่ใช้อยู่ (p-chip) เหมือน DataDisplay/Tag Tone=info มีเส้นขอบ
-  .p-chip {
-    border: 1px solid var(--btfp-info-border);
-    font-size: var(--btfp-typography-body-s-size);
-    line-height: 22px; // 22 + ขอบบนล่าง 4 + 4 + เส้น 2 = 32px
-  }
-
-  // แท็บที่เลือกตัวหนา Medium
-  .p-tab-active {
-    font-weight: var(--btfp-font-weight-medium);
-  }
-
-  // DataDisplay/Tag มีเส้นขอบตามสี (p-tag ไม่มี token เส้นขอบ)
-  .p-tag {
-    border: 1px solid var(--btfp-info-border);
-    line-height: var(--btfp-line-height-body);
-  }
-  .p-tag-success { border-color: var(--btfp-success-border); }
-  .p-tag-warn { border-color: var(--btfp-warning-border); }
-  .p-tag-danger { border-color: var(--btfp-danger-border); }
-  .p-tag-secondary { border-color: var(--btfp-border-default); }
-
-  // Segmented Control (p-selectbutton): กรอบเดียวพื้น bg/subtle มุม 12px ช่องห่างกัน 4px
-  .p-selectbutton {
-    display: inline-flex;
-    gap: 4px;
-    padding: 4px;
-    border: 1px solid var(--btfp-border-default);
-    border-radius: 12px;
-    background: var(--btfp-bg-subtle);
-
-    .p-togglebutton {
-      padding: 0;
-      border: 0;
-      border-radius: 8px;
-      background: transparent;
-    }
-  }
-
-  // Avatar มีเส้นขอบ border/default
-  .p-avatar {
-    border: 1px solid var(--btfp-border-default);
-  }
-
-  // ปุ่ม PrimeNG สืบ line-height 1.6 จาก body ทำให้สูง 44px ตั้งเป็น 1.5 ให้ได้ 40px (ขนาดปกติ) และ 48px (size="large") ตาม Figma
-  .p-button {
-    line-height: var(--btfp-line-height-compact);
   }
 
   html,
@@ -186,39 +45,52 @@
   h2,
   h3,
   h4 {
+    margin: 0;
     font-family: var(--btfp-font-heading);
     font-weight: var(--btfp-font-weight-semibold);
     color: var(--btfp-text-heading);
-    margin: 0;
   }
 
   a {
     color: var(--btfp-action-link);
   }
 
-  // ---------- ตัวอักษร (Figma: Typography/*) ใช้เป็น class ได้ทุกที่ ----------
-  .btfp-text-display-xl { font: var(--btfp-typography-display-xl-weight) var(--btfp-typography-display-xl-size)/var(--btfp-line-height-display-xl) var(--btfp-font-heading); }
-  .btfp-text-display { font: var(--btfp-typography-display-weight) var(--btfp-typography-display-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
-  .btfp-text-h1 { font: var(--btfp-typography-h1-weight) var(--btfp-typography-h1-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
-  .btfp-text-h2 { font: var(--btfp-typography-h2-weight) var(--btfp-typography-h2-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
-  .btfp-text-h3 { font: var(--btfp-typography-h3-weight) var(--btfp-typography-h3-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
-  .btfp-text-h4 { font: var(--btfp-typography-h4-weight) var(--btfp-typography-h4-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
-  .btfp-text-body-l { font: var(--btfp-typography-body-l-weight) var(--btfp-typography-body-l-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-body { font: var(--btfp-typography-body-weight) var(--btfp-typography-body-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-body-medium { font: var(--btfp-typography-body-medium-weight) var(--btfp-typography-body-medium-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-body-s { font: var(--btfp-typography-body-s-weight) var(--btfp-typography-body-s-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-body-s-medium { font: var(--btfp-typography-body-s-medium-weight) var(--btfp-typography-body-s-medium-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-table { font: var(--btfp-typography-table-weight) var(--btfp-typography-table-size)/var(--btfp-line-height-compact) var(--btfp-font-body); }
-  .btfp-text-caption { font: var(--btfp-typography-caption-weight) var(--btfp-typography-caption-size)/var(--btfp-line-height-compact) var(--btfp-font-body); }
+  // =====================================================================
+  // 2. ตัวอักษร (Figma: Typography/*)
+  // ชื่อ class ตรงกับ Text Style เช่น Typography/Body/S = .btfp-text-body-s
+  // รูปแบบ font: น้ำหนัก ขนาด/ระยะบรรทัด ชนิดตัวอักษร
+  // =====================================================================
 
-  // ฟิลด์ฟอร์มแบบ "ป้ายชื่อด้านบน" ใช้ทั้งระบบ
+  // หัวข้อ IBM Plex Sans Thai
+  .btfp-text-display-xl { font: var(--btfp-typography-display-xl-weight) var(--btfp-typography-display-xl-size)/var(--btfp-line-height-display-xl) var(--btfp-font-heading); }
+  .btfp-text-display    { font: var(--btfp-typography-display-weight) var(--btfp-typography-display-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-h1         { font: var(--btfp-typography-h1-weight) var(--btfp-typography-h1-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-h2         { font: var(--btfp-typography-h2-weight) var(--btfp-typography-h2-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-h3         { font: var(--btfp-typography-h3-weight) var(--btfp-typography-h3-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-h4         { font: var(--btfp-typography-h4-weight) var(--btfp-typography-h4-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+
+  // เนื้อหา Sarabun
+  .btfp-text-body-l        { font: var(--btfp-typography-body-l-weight) var(--btfp-typography-body-l-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-body          { font: var(--btfp-typography-body-weight) var(--btfp-typography-body-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-body-medium   { font: var(--btfp-typography-body-medium-weight) var(--btfp-typography-body-medium-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-body-s        { font: var(--btfp-typography-body-s-weight) var(--btfp-typography-body-s-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-body-s-medium { font: var(--btfp-typography-body-s-medium-weight) var(--btfp-typography-body-s-medium-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-table         { font: var(--btfp-typography-table-weight) var(--btfp-typography-table-size)/var(--btfp-line-height-compact) var(--btfp-font-body); }
+  .btfp-text-caption       { font: var(--btfp-typography-caption-weight) var(--btfp-typography-caption-size)/var(--btfp-line-height-compact) var(--btfp-font-body); }
+
+  // =====================================================================
+  // 3. ฟอร์ม (Figma: Forms/*)
+  // =====================================================================
+
+  // ช่องกรอกแบบป้ายชื่อด้านบน ใช้ทั้งระบบ
+  // <div class="btfp-field"><label>ชื่อ<span class="btfp-required">*</span></label> ช่องกรอก <p class="btfp-field__helper">...</p></div>
   .btfp-field {
     display: flex;
     flex-direction: column;
     gap: var(--btfp-space-xs);
     min-width: 0;
 
-    // Figma Forms/*: ป้ายชื่อ Sarabun Medium 16 สี text/heading
+    // ป้ายชื่อ Sarabun Medium 16 สี text/heading
     > label {
       font-size: var(--btfp-typography-body-medium-size);
       font-weight: var(--btfp-typography-body-medium-weight);
@@ -226,6 +98,7 @@
       color: var(--btfp-text-heading);
     }
 
+    // ช่องกรอกเต็มความกว้างของ field
     .p-select,
     .p-multiselect,
     .p-autocomplete,
@@ -234,6 +107,36 @@
     .p-iconfield,
     input {
       width: 100%;
+    }
+  }
+
+  // เครื่องหมาย * ช่องบังคับกรอก
+  .btfp-required {
+    margin-left: 4px;
+    color: var(--btfp-danger-text);
+  }
+
+  // ข้อความช่วยใต้ช่อง
+  .btfp-field__helper {
+    margin: 0;
+    font-size: var(--btfp-typography-caption-size);
+    line-height: var(--btfp-line-height-compact);
+    color: var(--btfp-text-secondary);
+  }
+
+  // ข้อความผิดพลาดใต้ช่อง พร้อมไอคอน
+  .btfp-field__error {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    font-size: var(--btfp-typography-caption-size);
+    line-height: var(--btfp-line-height-compact);
+    color: var(--btfp-danger-text);
+
+    btfp-icon {
+      display: inline-flex;
+      color: var(--btfp-icon-danger);
     }
   }
 
@@ -252,15 +155,165 @@
     }
   }
 
-  // ---------- สำหรับหน้าแบบหุ่นจำลอง (ไม่มี binding) ----------
+  // =====================================================================
+  // 4. ปรับ PrimeNG
+  // ปรับที่ preset ก่อนเสมอ ใส่ในนี้เฉพาะสิ่งที่ preset ไม่มี token ให้
+  // ตัวแปร --p-* ของแต่ละ component โหลดเมื่อใช้ component นั้น จึงต้องใช้ตัวแปรของ component ตัวเอง
+  // =====================================================================
 
-  // p-select / p-multiselect ที่ใส่ค่าที่ "เลือกไว้แล้ว" ผ่าน placeholder ให้ตัวอักษรเป็นสีปกติ ไม่ใช่สีจาง
+  // ---------- 4.1 Button (Figma: Actions/Button, Actions/IconButton) ----------
+
+  // PrimeNG สืบ line-height 1.6 จาก body ทำให้ปุ่มสูง 44px ตั้งเป็น 1.5 ให้ได้ 40px (M) และ 48px (L)
+  .p-button {
+    line-height: var(--btfp-line-height-compact);
+  }
+
+  // ปุ่มขนาด S ใช้ตัวอักษร Regular
+  .p-button-sm .p-button-label {
+    font-weight: var(--btfp-font-weight-regular);
+  }
+
+  // ปุ่มไอคอนอย่างเดียว (ใส่ไอคอนใน <ng-template #icon>) สูงเท่ากว้าง S 32 M 40 L 48
+  .p-button-icon-only {
+    height: var(--p-button-icon-only-width);
+    padding: 0;
+  }
+  .p-button-icon-only.p-button-sm {
+    height: var(--p-button-sm-icon-only-width);
+  }
+  .p-button-icon-only.p-button-lg {
+    width: var(--p-button-lg-icon-only-width);
+    height: var(--p-button-lg-icon-only-width);
+  }
+
+  // ---------- 4.2 ช่องกรอก (Figma: Forms/TextInput, Select, Textarea) ----------
+
+  // สถานะผิดพลาด เส้นขอบหนา 1.5px (เส้น 1px + เงาด้านใน 0.5px)
+  .p-inputtext.ng-invalid.ng-dirty,
+  .p-inputtext.p-invalid,
+  .p-select.ng-invalid.ng-dirty,
+  .p-select.p-invalid,
+  .p-multiselect.ng-invalid.ng-dirty,
+  .p-multiselect.p-invalid,
+  .p-textarea.ng-invalid.ng-dirty,
+  .p-textarea.p-invalid {
+    box-shadow: inset 0 0 0 0.5px var(--btfp-input-border-error);
+  }
+
+  // ---------- 4.3 Checkbox Radio Toggle (Figma: Forms/Checkbox, Radio, Toggle) ----------
+
+  // Checkbox เลือกบางส่วน: พื้น primary ขีดสีขาว (PrimeNG ปกติเป็นพื้นขาว)
+  .p-checkbox:has(svg[data-p-icon='minus']) .p-checkbox-box {
+    border-color: var(--p-checkbox-checked-border-color);
+    background: var(--p-checkbox-checked-background);
+
+    .p-checkbox-icon {
+      color: var(--p-checkbox-icon-checked-color);
+    }
+  }
+
+  // ปิดใช้งาน: Figma State=disabled คือหน้าตาเดิมทั้งชิ้นจาง 50%
+  // (PrimeNG ปกติเปลี่ยนเป็นพื้นเทาและไม่เห็นว่าติ๊กอยู่)
+  :is(.p-checkbox, .p-radiobutton, .p-toggleswitch)[data-p-disabled='true'] {
+    opacity: 0.5;
+  }
+
+  // ปิดใช้งาน + ติ๊กอยู่: คงสีตอนติ๊ก
+  .p-checkbox[data-p-disabled='true']:is([data-p-checked='true'], :has(svg[data-p-icon='minus'])) .p-checkbox-box {
+    border-color: var(--p-checkbox-checked-border-color);
+    background: var(--p-checkbox-checked-background);
+  }
+  .p-checkbox[data-p-disabled='true'] .p-checkbox-icon {
+    color: var(--p-checkbox-icon-checked-color);
+  }
+  .p-radiobutton[data-p-disabled='true'][data-p-checked='true'] .p-radiobutton-box {
+    border-color: var(--p-radiobutton-checked-border-color);
+    background: var(--p-radiobutton-checked-background);
+  }
+  .p-radiobutton[data-p-disabled='true'][data-p-checked='true'] .p-radiobutton-icon {
+    background: var(--p-radiobutton-icon-checked-color);
+  }
+  .p-toggleswitch[data-p-disabled='true'][data-p-checked='true'] .p-toggleswitch-slider {
+    border-color: var(--p-toggleswitch-checked-border-color);
+    background: var(--p-toggleswitch-checked-background);
+  }
+  .p-toggleswitch[data-p-disabled='true'][data-p-checked='true'] .p-toggleswitch-handle {
+    background: var(--p-toggleswitch-handle-checked-background);
+  }
+
+  // ปิดใช้งาน + ยังไม่ติ๊ก: พื้นขาว เส้น border/strong (PrimeNG ปกติพื้นเทา เส้นจางเกิน)
+  :is(.p-checkbox, .p-radiobutton)[data-p-disabled='true']:not([data-p-checked='true']) :is(.p-checkbox-box, .p-radiobutton-box) {
+    border-color: var(--btfp-border-strong);
+    background: var(--btfp-surface-raised);
+  }
+
+  // ป้ายข้อความของตัวเลือกที่ปิดใช้งานเป็นสีจาง (รวม .btfp-checkbox ของหน้าหุ่นจำลอง)
+  label:has(> :is(.p-checkbox, .p-radiobutton, .p-toggleswitch)[data-p-disabled='true'], > .btfp-checkbox:disabled) {
+    color: var(--btfp-text-disabled);
+  }
+
+  // ---------- 4.4 Tag และ Chip (Figma: DataDisplay/Tag) ----------
+
+  // Tag มีเส้นขอบตามสี (p-tag ไม่มี token เส้นขอบ)
+  .p-tag {
+    border: 1px solid var(--btfp-info-border);
+    line-height: var(--btfp-line-height-body);
+  }
+  .p-tag-success   { border-color: var(--btfp-success-border); }
+  .p-tag-warn      { border-color: var(--btfp-warning-border); }
+  .p-tag-danger    { border-color: var(--btfp-danger-border); }
+  .p-tag-secondary { border-color: var(--btfp-border-default); }
+
+  // ตัวกรองที่ใช้อยู่ (p-chip) หน้าตาเหมือน Tag Tone=info
+  .p-chip {
+    border: 1px solid var(--btfp-info-border);
+    font-size: var(--btfp-typography-body-s-size);
+    line-height: 22px; // ไม่ใช่ token: 22 + ขอบบนล่าง 4 + 4 + เส้น 2 = สูง 32px ตาม Figma
+  }
+
+  // ---------- 4.5 Tabs (Figma: Navigation/Tabs) ----------
+
+  // แท็บที่เลือกตัวหนา Medium
+  .p-tab-active {
+    font-weight: var(--btfp-font-weight-medium);
+  }
+
+  // ---------- 4.6 Segmented Control (p-selectbutton) ----------
+
+  // กรอบเดียวพื้น bg/subtle มุม 12px ช่องห่างกัน 4px
+  .p-selectbutton {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--btfp-border-default);
+    border-radius: 12px;
+    background: var(--btfp-bg-subtle);
+
+    .p-togglebutton {
+      padding: 0;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+    }
+  }
+
+  // ---------- 4.7 Avatar ----------
+
+  .p-avatar {
+    border: 1px solid var(--btfp-border-default);
+  }
+
+  // =====================================================================
+  // 5. หน้าหุ่นจำลอง (ไม่มี binding) ใช้ใน src/app/pages เท่านั้น
+  // =====================================================================
+
+  // ค่าที่ "เลือกไว้แล้ว" ใน p-select / p-multiselect ผ่าน placeholder ให้เป็นสีปกติ ไม่ใช่สีจาง
   // ใช้: <p-select placeholder="2569" styleClass="btfp-mock-value" />
   .btfp-mock-value .p-placeholder {
     color: var(--btfp-text-primary);
   }
 
-  // checkbox ของ HTML ที่ตกแต่งให้เหมือน p-checkbox ใช้แสดงสถานะติ๊กแล้วได้ด้วย attribute checked
+  // checkbox ของ HTML ที่ตกแต่งให้เหมือน p-checkbox แสดงสถานะติ๊กด้วย attribute checked
   // ใช้: <input type="checkbox" class="btfp-checkbox" checked aria-label="..." />
   // ตอนต่อ API ให้เปลี่ยนเป็น <p-checkbox [binary]="true" [(ngModel)]="..." />
   .btfp-checkbox {
@@ -291,11 +344,16 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
     }
 
-    // ใช้กับหัวตาราง (เลือกบางแถว) ใส่ class is-indeterminate แทน checked
+    // หัวตาราง (เลือกบางแถว) ใส่ class is-indeterminate แทน checked
     &.is-indeterminate {
       border-color: var(--btfp-action-primary);
       background-color: var(--btfp-action-primary);
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E");
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 }
