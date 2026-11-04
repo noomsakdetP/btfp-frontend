@@ -19,7 +19,7 @@
   .btfp-field__helper {
     margin: 0;
     font-size: var(--btfp-typography-caption-size);
-    line-height: 1.5;
+    line-height: var(--btfp-line-height-compact);
     color: var(--btfp-text-secondary);
   }
   .btfp-field__error {
@@ -28,7 +28,7 @@
     gap: 4px;
     margin: 0;
     font-size: var(--btfp-typography-caption-size);
-    line-height: 1.5;
+    line-height: var(--btfp-line-height-compact);
     color: var(--btfp-danger-text);
 
     btfp-icon {
@@ -39,7 +39,7 @@
 
   // ปุ่มขนาด S ใน Figma ใช้ตัวอักษร Regular
   .p-button-sm .p-button-label {
-    font-weight: 400;
+    font-weight: var(--btfp-font-weight-regular);
   }
 
   // ปุ่มไอคอนอย่างเดียว (ใส่ไอคอนใน <ng-template #icon>) สูงเท่ากว้าง S 32 M 40 L 48 ตาม Figma Actions/IconButton
@@ -127,13 +127,13 @@
 
   // แท็บที่เลือกตัวหนา Medium
   .p-tab-active {
-    font-weight: 500;
+    font-weight: var(--btfp-font-weight-medium);
   }
 
   // DataDisplay/Tag มีเส้นขอบตามสี (p-tag ไม่มี token เส้นขอบ)
   .p-tag {
     border: 1px solid var(--btfp-info-border);
-    line-height: 1.6;
+    line-height: var(--btfp-line-height-body);
   }
   .p-tag-success { border-color: var(--btfp-success-border); }
   .p-tag-warn { border-color: var(--btfp-warning-border); }
@@ -164,7 +164,7 @@
 
   // ปุ่ม PrimeNG สืบ line-height 1.6 จาก body ทำให้สูง 44px ตั้งเป็น 1.5 ให้ได้ 40px (ขนาดปกติ) และ 48px (size="large") ตาม Figma
   .p-button {
-    line-height: 1.5;
+    line-height: var(--btfp-line-height-compact);
   }
 
   html,
@@ -176,7 +176,7 @@
   body {
     font-family: var(--btfp-font-body);
     font-size: var(--btfp-typography-body-s-size);
-    line-height: 1.6;
+    line-height: var(--btfp-line-height-body);
     color: var(--btfp-text-primary);
     background: var(--btfp-bg-subtle);
     -webkit-font-smoothing: antialiased;
@@ -187,7 +187,7 @@
   h3,
   h4 {
     font-family: var(--btfp-font-heading);
-    font-weight: 600;
+    font-weight: var(--btfp-font-weight-semibold);
     color: var(--btfp-text-heading);
     margin: 0;
   }
@@ -222,7 +222,7 @@
     > label {
       font-size: var(--btfp-typography-body-medium-size);
       font-weight: var(--btfp-typography-body-medium-weight);
-      line-height: 1.6;
+      line-height: var(--btfp-line-height-body);
       color: var(--btfp-text-heading);
     }
 
@@ -243,7 +243,7 @@
     background: none;
     padding: 0;
     font: inherit;
-    font-weight: 500;
+    font-weight: var(--btfp-font-weight-medium);
     color: var(--btfp-action-link);
     cursor: pointer;
 
