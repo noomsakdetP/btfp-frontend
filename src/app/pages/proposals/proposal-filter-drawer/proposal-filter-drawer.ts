@@ -42,7 +42,7 @@ import { BtfpDatepicker, BtfpDrawer, BtfpIcon } from '../../../shared/ui';
     .close-link:hover { background: var(--btfp-gray-100); }
     .filter-group { margin: 0; padding: 0; border: 0; }
     .filter-group legend { padding: 0; margin-bottom: 10px; font-weight: 600; color: var(--btfp-text-heading); }
-    .sub-label { font-size: 13px; color: var(--btfp-text-secondary); }
+    .sub-label { font-size: var(--btfp-typography-caption-size); line-height: var(--btfp-line-height-compact); color: var(--btfp-text-secondary); }
   `,
 })
 export class ProposalFilterDrawer {}

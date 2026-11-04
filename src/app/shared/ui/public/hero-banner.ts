@@ -163,15 +163,16 @@ import { BtfpIcon } from '../icon/icon';
       .btfp-hero-slide__content :is(h1, h2) {
         margin: 0;
         font-family: var(--btfp-font-heading);
-        font-size: 30px;
-        font-weight: 700;
-        line-height: 1.36;
+        /* หัวข้อ: มือถือ H1, แท็บเล็ต Display, จอใหญ่ Display/XL */
+        font-size: var(--btfp-typography-h1-size);
+        font-weight: var(--btfp-typography-h1-weight);
+        line-height: var(--btfp-line-height-heading);
         color: var(--btfp-text-inverse);
       }
       .btfp-hero-slide__content p {
         margin: 0;
         font-size: var(--btfp-typography-body-size);
-        line-height: 1.6;
+        line-height: var(--btfp-line-height-body);
         color: var(--btfp-text-inverse);
       }
 
@@ -192,8 +193,8 @@ import { BtfpIcon } from '../icon/icon';
       }
       @media (min-width: 1280px) {
         .btfp-hero-slide__content :is(h1, h2) {
-          font-size: 56px;
-          line-height: 76px;
+          font-size: var(--btfp-typography-display-xl-size);
+          line-height: var(--btfp-line-height-display-xl);
         }
       }
     }
