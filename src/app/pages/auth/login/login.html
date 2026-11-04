@@ -1,0 +1,82 @@
+<!--
+  F-01 เข้าสู่ระบบ ① อีเมลหรือเบอร์มือถือ (ผู้ขอรับทุน)
+  Figma: Front-end > section "เข้าสู่ระบบและลงทะเบียน (ผู้ขอรับทุน)" > frame 42:9007
+
+  หุ่นจำลอง markup + CSS เท่านั้น ไม่มีตัวแปรและ binding
+  - ช่องอีเมลแสดงค่าตัวอย่างด้วย attribute value
+  - ปุ่ม "ดำเนินการต่อ" ไปหน้ายืนยันตัวตนด้วย OTP ทางอีเมล (F-02A ยังไม่ได้ขึ้นโครง)
+  Responsive ใช้ class ของ Tailwind
+-->
+<main class="login relative isolate min-h-dvh overflow-hidden">
+  <!-- พื้นหลัง: ไล่สีน้ำเงิน + ภาพจาง 45% + ชั้นทับดำ 16% -->
+  <img class="login__image absolute inset-0 -z-10 h-full w-full object-cover" src="images/landing/hero-slide-2.jpg" alt="" />
+  <div class="login__overlay absolute inset-0 -z-10" aria-hidden="true"></div>
+
+  <!-- Navigation/Auth Help Links: มุมขวาบน ห่างขอบ 32px (จอเล็กกว่า md อยู่ใต้การ์ด) -->
+  <nav class="help absolute right-8 top-8 hidden items-center gap-5 px-4 py-2 md:flex" aria-label="ความช่วยเหลือ">
+    <a class="help__link flex items-center gap-1.5" routerLink="/guide">
+      <btfp-icon name="file-text" size="16" />
+      <span>คู่มือการใช้งาน (PDF)</span>
+    </a>
+    <a class="help__link flex items-center gap-1.5" routerLink="/contact">
+      <btfp-icon name="phone" size="16" />
+      <span>ติดต่อเจ้าหน้าที่</span>
+    </a>
+  </nav>
+
+  <div class="flex flex-col items-center gap-7 px-4 pb-20 pt-14">
+    <!-- ชื่อระบบ -->
+    <header class="flex flex-col items-center gap-1 text-center">
+      <div class="flex items-center gap-3">
+        <img src="brand/logo-nbtc.png" alt="กสทช." width="27" height="40" />
+        <span class="brand__divider h-7 w-px" aria-hidden="true"></span>
+        <img src="brand/logo-btfp.png" alt="กทปส." width="29" height="40" />
+        <span class="brand__divider h-7 w-px" aria-hidden="true"></span>
+        <span class="brand__account btfp-text-body-s-medium">บัญชีผู้ขอรับทุน</span>
+      </div>
+      <a class="brand__title btfp-text-h3" routerLink="/">ระบบบริหารจัดการทุน กทปส.</a>
+      <p class="brand__sub btfp-text-body-s">กองทุนวิจัยและพัฒนากิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม</p>
+    </header>
+
+    <!-- การ์ดเข้าสู่ระบบ กว้าง 560px -->
+    <section class="card flex w-full max-w-[560px] flex-col gap-6 px-6 py-8 sm:px-14 sm:py-12" aria-labelledby="login-title">
+      <h1 id="login-title" class="btfp-text-h1">เข้าสู่ระบบ</h1>
+
+      <form class="flex flex-col gap-6" aria-labelledby="login-title">
+        <div class="btfp-field">
+          <label for="login-id">อีเมล หรือ เบอร์มือถือ</label>
+          <input pInputText id="login-id" type="text" autocomplete="username" value="somchai@example.ac.th" />
+        </div>
+        <div class="btfp-field">
+          <label for="login-password">รหัสผ่าน</label>
+          <input pInputText id="login-password" type="password" autocomplete="current-password" />
+        </div>
+        <p-button label="ดำเนินการต่อ" size="large" fluid routerLink="/login/verify" />
+      </form>
+
+      <p class="btfp-text-body-s flex flex-wrap gap-1">
+        <span>ยังไม่มีบัญชีผู้ขอรับทุน?</span>
+        <a class="link btfp-text-body-s-medium" routerLink="/register">ลงทะเบียน</a>
+      </p>
+
+      <hr class="divider m-0 w-full" />
+
+      <p class="staff-note btfp-text-caption m-0 flex flex-wrap items-center gap-2 px-4 py-3">
+        <span class="staff-note__label">เจ้าหน้าที่ กสทช.?</span>
+        <a class="link" routerLink="/login/staff">เข้าสู่ระบบด้วยบัญชี Active Directory</a>
+      </p>
+    </section>
+
+    <!-- ลิงก์ช่วยเหลือบนจอเล็ก -->
+    <nav class="help flex items-center gap-5 px-4 py-2 md:hidden" aria-label="ความช่วยเหลือ">
+      <a class="help__link flex items-center gap-1.5" routerLink="/guide">
+        <btfp-icon name="file-text" size="16" />
+        <span>คู่มือการใช้งาน (PDF)</span>
+      </a>
+      <a class="help__link flex items-center gap-1.5" routerLink="/contact">
+        <btfp-icon name="phone" size="16" />
+        <span>ติดต่อเจ้าหน้าที่</span>
+      </a>
+    </nav>
+  </div>
+</main>

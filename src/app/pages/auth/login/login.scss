@@ -1,0 +1,96 @@
+// สไตล์หน้าตา (สี ตัวอักษร เส้น) เท่านั้น การจัดวางอยู่ใน class ของ Tailwind ใน login.html
+
+:host {
+  display: block;
+}
+
+.login {
+  background: var(--btfp-auth-bg);
+}
+
+.login__image {
+  opacity: var(--btfp-auth-image-opacity);
+}
+
+.login__overlay {
+  background: var(--btfp-auth-overlay);
+}
+
+// ---------- ชื่อระบบ ----------
+.brand__divider {
+  background: var(--btfp-border-default);
+}
+
+.brand__account {
+  color: var(--btfp-text-inverse);
+}
+
+.brand__title {
+  color: var(--btfp-text-inverse);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.brand__sub {
+  margin: 0;
+  color: var(--btfp-text-inverse);
+  opacity: 0.8;
+}
+
+// ---------- การ์ด ----------
+.card {
+  border-radius: var(--btfp-radius-card-lg);
+  background: var(--btfp-surface-raised);
+  box-shadow: var(--btfp-auth-card-shadow);
+
+  h1 {
+    margin: 0;
+    color: var(--btfp-text-heading);
+  }
+
+  p {
+    margin: 0;
+    color: var(--btfp-text-primary);
+  }
+}
+
+.link {
+  color: var(--btfp-action-link);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--btfp-border-default);
+}
+
+.staff-note {
+  border-radius: var(--btfp-radius-inner);
+  background: var(--btfp-bg-subtle);
+}
+
+.card .staff-note__label {
+  color: var(--btfp-text-secondary);
+}
+
+// ---------- ลิงก์ช่วยเหลือ ----------
+.help {
+  border-radius: var(--btfp-radius-full);
+  background: var(--btfp-navy-900);
+}
+
+.help__link {
+  font-size: var(--btfp-typography-body-s-medium-size);
+  font-weight: var(--btfp-typography-body-s-medium-weight);
+  line-height: var(--btfp-line-height-body);
+  color: var(--btfp-text-inverse);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
