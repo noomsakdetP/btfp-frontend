@@ -65,6 +65,13 @@
 
 ใช้ในโค้ดเป็น class `.btfp-text-<ชื่อ>` เช่น `.btfp-text-h2` `.btfp-text-body-s-medium` `.btfp-text-caption` (อยู่ใน `src/styles.scss`)
 
+Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอักษร ขนาด น้ำหนัก) ชุดเดียวกับ token ในโค้ด
+
+- primitives: `font/family/*` `font/size/12` ถึง `60` `font/weight/regular|medium|semibold|bold` = `--btfp-font-family-*` `--btfp-font-size-*` `--btfp-font-weight-*`
+- semantic: `font/family/heading|body` = `--btfp-font-heading` `--btfp-font-body`, `typography/<ชื่อ>/size|weight` = `--btfp-typography-<ชื่อ>-size|weight`
+- ระยะบรรทัดไม่มี Variable ใน Figma (Variable รับได้แค่ px แต่ระบบใช้ %) โค้ดใช้ `--btfp-line-height-heading` 1.35 `-body` 1.6 `-compact` 1.5 `-display-xl` 1.2
+- CSS ของ component ใช้ token ชั้น semantic ห้ามใส่ px ตรง ๆ ยกเว้นขนาดที่ Figma ใส่ค่าตรงไว้ (Hero 30/56px, ป้ายรองใน Drawer 13px)
+
 ฟอนต์โหลดจาก `@fontsource` ในโปรเจกต์ ไม่เรียกจาก Google Fonts (ใช้ได้ในเครือข่ายปิด) IBM Plex Sans Thai โหลดน้ำหนัก 500 600 700 Sarabun โหลด 400 500 600
 
 ### 2.3 ระยะห่าง มุมโค้ง ขนาด เงา

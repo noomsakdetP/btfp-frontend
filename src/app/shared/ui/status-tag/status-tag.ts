@@ -78,8 +78,8 @@ export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; ico
       border-radius: var(--btfp-radius-full);
       background: var(--tag-bg);
       color: var(--tag-text);
-      font-size: 14px;
-      font-weight: 500;
+      font-size: var(--btfp-typography-body-s-medium-size);
+      font-weight: var(--btfp-typography-body-s-medium-weight);
       line-height: 1.5;
       white-space: nowrap;
       vertical-align: middle;

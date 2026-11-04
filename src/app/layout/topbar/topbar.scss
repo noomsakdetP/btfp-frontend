@@ -55,14 +55,14 @@
 
 .topbar__system {
   font-family: var(--btfp-font-heading);
-  font-size: 18px;
-  font-weight: 600;
+  font-size: var(--btfp-typography-h4-size);
+  font-weight: var(--btfp-typography-h4-weight);
   line-height: 24px;
   color: var(--btfp-text-heading);
 }
 
 .topbar__org {
-  font-size: 12px;
+  font-size: var(--btfp-typography-caption-size);
   line-height: 18px;
   color: var(--btfp-text-secondary);
 }
@@ -103,13 +103,13 @@
 }
 
 .topbar__user-name {
-  font-size: 14px;
+  font-size: var(--btfp-typography-body-s-size);
   line-height: 22px;
   color: var(--btfp-text-primary);
 }
 
 .topbar__user-role {
-  font-size: 12px;
+  font-size: var(--btfp-typography-caption-size);
   line-height: 18px;
   color: var(--btfp-text-secondary);
 }
@@ -117,7 +117,7 @@
 :host ::ng-deep .p-avatar {
   width: 32px;
   height: 32px;
-  font-size: 12px;
+  font-size: var(--btfp-typography-caption-size);
   background: var(--btfp-gray-100);
   color: var(--btfp-text-secondary);
   border: 1px solid var(--btfp-border-default);

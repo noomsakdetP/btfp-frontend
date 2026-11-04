@@ -147,7 +147,7 @@ import { BtfpIcon } from '../icon/icon';
         border: 1px solid var(--btfp-info-border);
         border-radius: var(--btfp-radius-tag);
         background: var(--btfp-info-bg);
-        font-size: 14px;
+        font-size: var(--btfp-typography-body-s-size);
         color: var(--btfp-info-text);
       }
       .btfp-hero-slide__tag[data-severity='success'] {
@@ -170,7 +170,7 @@ import { BtfpIcon } from '../icon/icon';
       }
       .btfp-hero-slide__content p {
         margin: 0;
-        font-size: 16px;
+        font-size: var(--btfp-typography-body-size);
         line-height: 1.6;
         color: var(--btfp-text-inverse);
       }
@@ -184,10 +184,10 @@ import { BtfpIcon } from '../icon/icon';
           background: var(--btfp-hero-overlay);
         }
         .btfp-hero-slide__content :is(h1, h2) {
-          font-size: 40px;
+          font-size: var(--btfp-typography-display-size);
         }
         .btfp-hero-slide__content p {
-          font-size: 18px;
+          font-size: var(--btfp-typography-body-l-size);
         }
       }
       @media (min-width: 1280px) {

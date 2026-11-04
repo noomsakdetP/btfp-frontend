@@ -31,8 +31,8 @@ import { BtfpIcon } from '../icon/icon';
     }
     .num {
       font-family: var(--btfp-font-heading);
-      font-size: 32px;
-      font-weight: 700;
+      font-size: var(--btfp-typography-h1-size);
+      font-weight: var(--btfp-typography-h1-weight);
       line-height: 1.2;
       color: var(--btfp-blue-200);
     }
@@ -46,12 +46,12 @@ import { BtfpIcon } from '../icon/icon';
       color: var(--btfp-text-inverse);
     }
     .title {
-      font-size: 20px;
+      font-size: var(--btfp-typography-h3-size);
       color: var(--btfp-text-inverse);
     }
     .desc {
       margin: 0;
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
       color: var(--btfp-text-on-dark);
     }
   `,
@@ -107,7 +107,7 @@ export class BtfpProcessStep {
       padding: 2px 8px;
       border-radius: var(--btfp-radius-tag);
       background: var(--btfp-badge-on-image);
-      font-size: 12px;
+      font-size: var(--btfp-typography-caption-size);
       color: var(--btfp-text-secondary);
     }
     .body {
@@ -119,23 +119,23 @@ export class BtfpProcessStep {
     }
     .meta {
       margin: 0;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: var(--btfp-typography-body-s-medium-size);
+      font-weight: var(--btfp-typography-body-s-medium-weight);
       color: var(--btfp-action-link);
     }
     .title {
-      font-size: 24px;
+      font-size: var(--btfp-typography-h2-size);
       line-height: 1.35;
     }
     .org {
       margin: 0;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: var(--btfp-typography-body-s-medium-size);
+      font-weight: var(--btfp-typography-body-s-medium-weight);
       color: var(--btfp-text-secondary);
     }
     .desc {
       margin: 8px 0 0;
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
     }
     .outcome {
       display: flex;
@@ -144,8 +144,8 @@ export class BtfpProcessStep {
       margin: auto 0 0;
       padding-top: 16px;
       border-top: 1px solid var(--btfp-border-default);
-      font-size: 14px;
-      font-weight: 500;
+      font-size: var(--btfp-typography-body-s-medium-size);
+      font-weight: var(--btfp-typography-body-s-medium-weight);
       color: var(--btfp-success-text);
     }
   `,
@@ -202,7 +202,7 @@ export class BtfpShowcaseCard {
       padding: 2px 8px;
       border-radius: var(--btfp-radius-tag);
       background: var(--btfp-badge-on-image);
-      font-size: 12px;
+      font-size: var(--btfp-typography-caption-size);
       color: var(--btfp-text-secondary);
     }
     .body {
@@ -213,16 +213,16 @@ export class BtfpShowcaseCard {
     }
     .category {
       margin: 0;
-      font-size: 12px;
+      font-size: var(--btfp-typography-caption-size);
       color: var(--btfp-action-link);
     }
     .title {
-      font-size: 18px;
+      font-size: var(--btfp-typography-body-l-size);
       line-height: 1.35;
     }
     .meta {
       margin: 0;
-      font-size: 12px;
+      font-size: var(--btfp-typography-caption-size);
       color: var(--btfp-text-secondary);
     }
     .outcome {
@@ -230,8 +230,8 @@ export class BtfpShowcaseCard {
       align-items: center;
       gap: 6px;
       margin: 4px 0 0;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: var(--btfp-typography-body-s-medium-size);
+      font-weight: var(--btfp-typography-body-s-medium-weight);
       color: var(--btfp-success-text);
     }
   `,
@@ -295,13 +295,13 @@ export class BtfpResultCard {
     }
     .day {
       font-family: var(--btfp-font-heading);
-      font-size: 32px;
-      font-weight: 700;
+      font-size: var(--btfp-typography-h1-size);
+      font-weight: var(--btfp-typography-h1-weight);
       line-height: 1.1;
       color: var(--btfp-action-link);
     }
     .month {
-      font-size: 12px;
+      font-size: var(--btfp-typography-caption-size);
       color: var(--btfp-text-secondary);
     }
     .body {
@@ -312,18 +312,18 @@ export class BtfpResultCard {
     }
     .category {
       margin: 0;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: var(--btfp-typography-body-s-medium-size);
+      font-weight: var(--btfp-typography-body-s-medium-weight);
       color: var(--btfp-action-link);
     }
     .title {
-      font-size: 18px;
+      font-size: var(--btfp-typography-body-l-size);
       line-height: 1.35;
       white-space: pre-line;
     }
     .desc {
       margin: 4px 0 0;
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
       color: var(--btfp-text-secondary);
     }
   `,

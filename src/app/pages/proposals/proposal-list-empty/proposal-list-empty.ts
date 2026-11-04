@@ -58,7 +58,7 @@ import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/u
   `,
   styles: `
     :host { display: flex; flex-direction: column; gap: 24px; }
-    .page-header h1 { font-size: 24px; line-height: 32px; }
+    .page-header h1 { font-size: var(--btfp-typography-h2-size); line-height: 32px; }
     .page-header p { margin: 4px 0 0; color: var(--btfp-text-secondary); }
     .card { background: var(--btfp-surface-raised); border: 1px solid var(--btfp-border-default); border-radius: var(--btfp-radius-card); }
   `,

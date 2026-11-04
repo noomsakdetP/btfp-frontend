@@ -81,13 +81,13 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
     }
     .brand-title {
       font-family: var(--btfp-font-heading);
-      font-size: 18px;
-      font-weight: 600;
+      font-size: var(--btfp-typography-h4-size);
+      font-weight: var(--btfp-typography-h4-weight);
       line-height: 1.35;
       color: var(--btfp-text-heading);
     }
     .brand-sub {
-      font-size: 12px;
+      font-size: var(--btfp-typography-caption-size);
       line-height: 18px;
       color: var(--btfp-text-secondary);
     }
@@ -96,7 +96,7 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
       align-items: center;
       padding: 0 12px;
       border-bottom: 2px solid transparent;
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
       color: var(--btfp-text-secondary);
       text-decoration: none;
     }

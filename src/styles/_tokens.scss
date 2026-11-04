@@ -205,7 +205,58 @@
   --btfp-hero-dot: var(--btfp-gray-50);
   --btfp-table-header-bg: var(--btfp-gray-100);
 
-  // ---------- typography ----------
-  --btfp-font-body: 'Sarabun', sans-serif;
-  --btfp-font-heading: 'IBM Plex Sans Thai', 'Sarabun', sans-serif;
+  // ---------- primitives: typography (Figma: primitives/font/*) ----------
+  --btfp-font-family-ibm-plex-sans-thai: 'IBM Plex Sans Thai';
+  --btfp-font-family-sarabun: 'Sarabun';
+  --btfp-font-size-12: 12px;
+  --btfp-font-size-14: 14px;
+  --btfp-font-size-16: 16px;
+  --btfp-font-size-18: 18px;
+  --btfp-font-size-20: 20px;
+  --btfp-font-size-24: 24px;
+  --btfp-font-size-32: 32px;
+  --btfp-font-size-40: 40px;
+  --btfp-font-size-60: 60px;
+  --btfp-font-weight-regular: 400;
+  --btfp-font-weight-medium: 500;
+  --btfp-font-weight-semibold: 600;
+  --btfp-font-weight-bold: 700;
+
+  // ---------- semantic: typography (Figma: semantic/font/family/*, semantic/typography/<style>/*) ----------
+  // Text Style ใน Figma ผูกกับ variable ชุดนี้ แก้ขนาดหรือน้ำหนักที่ Figma แล้วอัปเดตตามที่นี่
+  --btfp-font-heading: var(--btfp-font-family-ibm-plex-sans-thai), var(--btfp-font-family-sarabun), sans-serif;
+  --btfp-font-body: var(--btfp-font-family-sarabun), sans-serif;
+
+  // ระยะบรรทัด: Figma เก็บเป็น % ใน Text Style (variable ของ Figma รับได้แค่ px จึงไม่ได้ผูก)
+  --btfp-line-height-display-xl: 1.2;
+  --btfp-line-height-heading: 1.35;
+  --btfp-line-height-body: 1.6;
+  --btfp-line-height-compact: 1.5;
+
+  --btfp-typography-display-xl-size: var(--btfp-font-size-60);
+  --btfp-typography-display-xl-weight: var(--btfp-font-weight-bold);
+  --btfp-typography-display-size: var(--btfp-font-size-40);
+  --btfp-typography-display-weight: var(--btfp-font-weight-bold);
+  --btfp-typography-h1-size: var(--btfp-font-size-32);
+  --btfp-typography-h1-weight: var(--btfp-font-weight-bold);
+  --btfp-typography-h2-size: var(--btfp-font-size-24);
+  --btfp-typography-h2-weight: var(--btfp-font-weight-semibold);
+  --btfp-typography-h3-size: var(--btfp-font-size-20);
+  --btfp-typography-h3-weight: var(--btfp-font-weight-semibold);
+  --btfp-typography-h4-size: var(--btfp-font-size-18);
+  --btfp-typography-h4-weight: var(--btfp-font-weight-semibold);
+  --btfp-typography-body-l-size: var(--btfp-font-size-18);
+  --btfp-typography-body-l-weight: var(--btfp-font-weight-regular);
+  --btfp-typography-body-size: var(--btfp-font-size-16);
+  --btfp-typography-body-weight: var(--btfp-font-weight-regular);
+  --btfp-typography-body-medium-size: var(--btfp-font-size-16);
+  --btfp-typography-body-medium-weight: var(--btfp-font-weight-medium);
+  --btfp-typography-body-s-size: var(--btfp-font-size-14);
+  --btfp-typography-body-s-weight: var(--btfp-font-weight-regular);
+  --btfp-typography-body-s-medium-size: var(--btfp-font-size-14);
+  --btfp-typography-body-s-medium-weight: var(--btfp-font-weight-medium);
+  --btfp-typography-table-size: var(--btfp-font-size-14);
+  --btfp-typography-table-weight: var(--btfp-font-weight-regular);
+  --btfp-typography-caption-size: var(--btfp-font-size-12);
+  --btfp-typography-caption-weight: var(--btfp-font-weight-regular);
 }

@@ -16,7 +16,7 @@
 
 .sidebar__group {
   padding: 4px 0 4px 12px;
-  font-size: 12px;
+  font-size: var(--btfp-typography-caption-size);
   color: var(--btfp-nav-group-label);
 
   &--spaced {
@@ -31,7 +31,7 @@
   height: 40px;
   padding: 0 12px;
   border-radius: var(--btfp-radius-button);
-  font-size: 16px;
+  font-size: var(--btfp-typography-body-size);
   color: var(--btfp-nav-item-text);
   text-decoration: none;
   transition: background-color 0.15s, color 0.15s;
@@ -75,6 +75,6 @@
   border-radius: var(--btfp-radius-full);
   background: var(--btfp-text-inverse);
   color: var(--btfp-action-primary);
-  font-size: 12px;
+  font-size: var(--btfp-typography-caption-size);
   line-height: 18px;
 }

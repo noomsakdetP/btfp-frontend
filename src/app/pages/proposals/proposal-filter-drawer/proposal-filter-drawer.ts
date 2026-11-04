@@ -33,7 +33,7 @@ import { BtfpDatepicker, BtfpDrawer, BtfpIcon } from '../../../shared/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './proposal-filter-drawer.html',
   styles: `
-    .filter-title h2 { font-size: 20px; line-height: 28px; }
+    .filter-title h2 { font-size: var(--btfp-typography-h3-size); line-height: 28px; }
     .filter-title p { margin: 4px 0 0; color: var(--btfp-text-secondary); font-weight: 400; }
     .close-link {
       display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0;

@@ -59,11 +59,11 @@ import { BtfpPublicTopbar } from './public-topbar';
       color: var(--btfp-icon-action);
     }
     .cookie__title {
-      font-size: 16px;
+      font-size: var(--btfp-typography-body-size);
     }
     .cookie__text {
       margin: 4px 0 0;
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
       color: var(--btfp-text-secondary);
     }
     .cookie__link {

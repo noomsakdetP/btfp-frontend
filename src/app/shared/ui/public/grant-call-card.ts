@@ -70,14 +70,14 @@ export type BtfpGrantCallState = 'open' | 'closing-soon' | 'closed';
       padding: 2px 8px;
       border-radius: var(--btfp-radius-tag);
       background: var(--btfp-badge-on-image);
-      font-size: 12px;
+      font-size: var(--btfp-typography-caption-size);
       color: var(--btfp-text-secondary);
     }
     .chip {
       padding: 2px 8px;
       border: 1px solid;
       border-radius: var(--btfp-radius-tag);
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
       white-space: nowrap;
     }
     .chip--info { background: var(--btfp-info-bg); border-color: var(--btfp-info-border); color: var(--btfp-info-text); }
@@ -85,7 +85,7 @@ export type BtfpGrantCallState = 'open' | 'closing-soon' | 'closed';
     .chip--closing-soon { background: var(--btfp-warning-bg); border-color: var(--btfp-warning-border); color: var(--btfp-warning-text); }
     .chip--closed { background: var(--btfp-gray-50); border-color: var(--btfp-border-default); color: var(--btfp-text-secondary); }
     .title {
-      font-size: 18px;
+      font-size: var(--btfp-typography-body-l-size);
       line-height: 1.35;
       white-space: pre-line;
     }
@@ -96,7 +96,7 @@ export type BtfpGrantCallState = 'open' | 'closing-soon' | 'closed';
       margin: 0;
       padding: 0;
       list-style: none;
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
       color: var(--btfp-text-secondary);
     }
     .meta li {
@@ -132,7 +132,7 @@ export type BtfpGrantCallState = 'open' | 'closing-soon' | 'closed';
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
       color: var(--btfp-action-link);
       text-decoration: none;
     }

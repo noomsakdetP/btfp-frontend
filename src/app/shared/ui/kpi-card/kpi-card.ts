@@ -61,7 +61,7 @@ import { BtfpIcon } from '../icon/icon';
       gap: 8px;
     }
     .kpi__label {
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
       color: var(--btfp-text-secondary);
     }
     .kpi__icon {
@@ -70,13 +70,13 @@ import { BtfpIcon } from '../icon/icon';
     }
     .kpi__value {
       font-family: var(--btfp-font-heading);
-      font-size: 32px;
-      font-weight: 600;
+      font-size: var(--btfp-typography-h1-size);
+      font-weight: var(--btfp-font-weight-semibold);
       line-height: 1.35;
       color: var(--btfp-text-heading);
     }
     .kpi__caption {
-      font-size: 12px;
+      font-size: var(--btfp-typography-caption-size);
       color: var(--btfp-text-secondary);
     }
   `,

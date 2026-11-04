@@ -43,8 +43,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     }
     .eyebrow {
       margin: 0 0 8px;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: var(--btfp-typography-body-s-medium-size);
+      font-weight: var(--btfp-typography-body-s-medium-weight);
       color: var(--btfp-action-link);
     }
     .title {
@@ -56,7 +56,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     }
     .desc {
       margin: 8px 0 0;
-      font-size: 16px;
+      font-size: var(--btfp-typography-body-size);
       color: var(--btfp-text-secondary);
     }
     .action {

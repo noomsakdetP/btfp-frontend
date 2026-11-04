@@ -15,7 +15,7 @@
   margin: 0;
   padding: 4px 0;
   list-style: none;
-  font-size: 14px;
+  font-size: var(--btfp-typography-body-s-size);
 
   li {
     display: flex;
@@ -53,7 +53,7 @@
 // ---------- page title ----------
 .page-title {
   h1 {
-    font-size: 24px;
+    font-size: var(--btfp-typography-h2-size);
     line-height: 32px;
   }
 
@@ -73,7 +73,7 @@
 
 :host ::ng-deep .p-chip {
   border: 1px solid var(--btfp-info-border);
-  font-size: 14px;
+  font-size: var(--btfp-typography-body-s-size);
 }
 
 .bulk-actions {
@@ -91,7 +91,7 @@
   min-width: 1574px;
   table-layout: fixed;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: var(--btfp-typography-table-size);
 
   th,
   td {

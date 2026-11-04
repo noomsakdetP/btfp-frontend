@@ -18,7 +18,7 @@
   }
   .btfp-field__helper {
     margin: 0;
-    font-size: 12px;
+    font-size: var(--btfp-typography-caption-size);
     line-height: 1.5;
     color: var(--btfp-text-secondary);
   }
@@ -27,7 +27,7 @@
     align-items: center;
     gap: 4px;
     margin: 0;
-    font-size: 12px;
+    font-size: var(--btfp-typography-caption-size);
     line-height: 1.5;
     color: var(--btfp-danger-text);
 
@@ -121,7 +121,7 @@
   // ตัวกรองที่ใช้อยู่ (p-chip) เหมือน DataDisplay/Tag Tone=info มีเส้นขอบ
   .p-chip {
     border: 1px solid var(--btfp-info-border);
-    font-size: 14px;
+    font-size: var(--btfp-typography-body-s-size);
     line-height: 22px; // 22 + ขอบบนล่าง 4 + 4 + เส้น 2 = 32px
   }
 
@@ -175,7 +175,7 @@
 
   body {
     font-family: var(--btfp-font-body);
-    font-size: 14px;
+    font-size: var(--btfp-typography-body-s-size);
     line-height: 1.6;
     color: var(--btfp-text-primary);
     background: var(--btfp-bg-subtle);
@@ -197,19 +197,19 @@
   }
 
   // ---------- ตัวอักษร (Figma: Typography/*) ใช้เป็น class ได้ทุกที่ ----------
-  .btfp-text-display-xl { font: 700 60px/1.2 var(--btfp-font-heading); }
-  .btfp-text-display { font: 700 40px/1.35 var(--btfp-font-heading); }
-  .btfp-text-h1 { font: 700 32px/1.35 var(--btfp-font-heading); }
-  .btfp-text-h2 { font: 600 24px/1.35 var(--btfp-font-heading); }
-  .btfp-text-h3 { font: 600 20px/1.35 var(--btfp-font-heading); }
-  .btfp-text-h4 { font: 600 18px/1.35 var(--btfp-font-heading); }
-  .btfp-text-body-l { font: 400 18px/1.6 var(--btfp-font-body); }
-  .btfp-text-body { font: 400 16px/1.6 var(--btfp-font-body); }
-  .btfp-text-body-medium { font: 500 16px/1.6 var(--btfp-font-body); }
-  .btfp-text-body-s { font: 400 14px/1.6 var(--btfp-font-body); }
-  .btfp-text-body-s-medium { font: 500 14px/1.6 var(--btfp-font-body); }
-  .btfp-text-table { font: 400 14px/1.5 var(--btfp-font-body); }
-  .btfp-text-caption { font: 400 12px/1.5 var(--btfp-font-body); }
+  .btfp-text-display-xl { font: var(--btfp-typography-display-xl-weight) var(--btfp-typography-display-xl-size)/var(--btfp-line-height-display-xl) var(--btfp-font-heading); }
+  .btfp-text-display { font: var(--btfp-typography-display-weight) var(--btfp-typography-display-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-h1 { font: var(--btfp-typography-h1-weight) var(--btfp-typography-h1-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-h2 { font: var(--btfp-typography-h2-weight) var(--btfp-typography-h2-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-h3 { font: var(--btfp-typography-h3-weight) var(--btfp-typography-h3-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-h4 { font: var(--btfp-typography-h4-weight) var(--btfp-typography-h4-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-body-l { font: var(--btfp-typography-body-l-weight) var(--btfp-typography-body-l-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-body { font: var(--btfp-typography-body-weight) var(--btfp-typography-body-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-body-medium { font: var(--btfp-typography-body-medium-weight) var(--btfp-typography-body-medium-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-body-s { font: var(--btfp-typography-body-s-weight) var(--btfp-typography-body-s-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-body-s-medium { font: var(--btfp-typography-body-s-medium-weight) var(--btfp-typography-body-s-medium-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
+  .btfp-text-table { font: var(--btfp-typography-table-weight) var(--btfp-typography-table-size)/var(--btfp-line-height-compact) var(--btfp-font-body); }
+  .btfp-text-caption { font: var(--btfp-typography-caption-weight) var(--btfp-typography-caption-size)/var(--btfp-line-height-compact) var(--btfp-font-body); }
 
   // ฟิลด์ฟอร์มแบบ "ป้ายชื่อด้านบน" ใช้ทั้งระบบ
   .btfp-field {
@@ -220,8 +220,8 @@
 
     // Figma Forms/*: ป้ายชื่อ Sarabun Medium 16 สี text/heading
     > label {
-      font-size: 16px;
-      font-weight: 500;
+      font-size: var(--btfp-typography-body-medium-size);
+      font-weight: var(--btfp-typography-body-medium-weight);
       line-height: 1.6;
       color: var(--btfp-text-heading);
     }

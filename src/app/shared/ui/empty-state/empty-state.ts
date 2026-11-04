@@ -59,7 +59,7 @@ export type BtfpEmptyStateType = 'general' | 'no-results' | 'no-files' | 'error'
       color: var(--btfp-danger-text);
     }
     .empty__title {
-      font-size: 18px;
+      font-size: var(--btfp-typography-body-l-size);
     }
     .empty__desc {
       margin: 0 0 8px;

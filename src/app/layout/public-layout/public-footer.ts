@@ -68,13 +68,13 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
     .footer {
       background: var(--btfp-navy-900);
       color: var(--btfp-text-on-dark);
-      font-size: 14px;
+      font-size: var(--btfp-typography-body-s-size);
     }
     .brand {
       margin-left: 8px;
       font-family: var(--btfp-font-heading);
-      font-size: 18px;
-      font-weight: 600;
+      font-size: var(--btfp-typography-h4-size);
+      font-weight: var(--btfp-typography-h4-weight);
       color: var(--btfp-text-inverse);
     }
     .divider {
@@ -88,7 +88,7 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
     }
     h2 {
       margin-bottom: 4px;
-      font-size: 18px;
+      font-size: var(--btfp-typography-body-l-size);
       color: var(--btfp-text-inverse);
     }
     a {
@@ -101,7 +101,7 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
     }
     .bottom {
       border-top: 1px solid var(--btfp-navy-700);
-      font-size: 12px;
+      font-size: var(--btfp-typography-caption-size);
     }
   `,
 })
