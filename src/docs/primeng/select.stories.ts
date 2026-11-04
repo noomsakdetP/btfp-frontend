@@ -31,7 +31,7 @@ export class MyPage {}
 | --- | --- |
 | Forms/Select | \`<p-select [options]="..." optionLabel="label" placeholder="เลือกประเภททุน" />\` |
 | Forms/MultiSelect | \`<p-multiselect display="chip" ... />\` |
-| State=disabled | \`[disabled]="true"\` |
+| State=disabled | \`[disabled]="true"\` (ทั้งชิ้นจาง 50% ตาม Figma ป้ายข้อความเป็นสี text/disabled) |
 | หน้าหุ่นจำลอง (ไม่มี binding) | \`<p-select placeholder="2569" styleClass="btfp-mock-value" />\` ค่าที่ "เลือกไว้แล้ว" แสดงผ่าน placeholder |
 
 ใน Drawer ให้ใส่ \`appendTo="body"\` ไม่งั้นรายการตัวเลือกจะโดนตัด

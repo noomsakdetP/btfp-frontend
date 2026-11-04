@@ -21,6 +21,7 @@ import { BtfpIcon } from '../icon/icon';
  *
  * ภาพพื้นหลังออกแบบไว้ที่ 1920x720 แบบ 2 ชนิด
  * 1. ภาพที่มีข้อความอยู่ในภาพแล้ว (Slide=1) ใส่ artX / artY เป็นพิกัดของปุ่มในภาพขนาด 1920x720
+ *    จอเล็กกว่า 640px ใส่ mobileImage (ภาพ 390x440) และ mobileArtX / mobileArtY เพื่อไม่ให้ข้อความในภาพโดนตัด
  *    ปุ่มจะขยับตามภาพทุกขนาดจอ
  * 2. ภาพ + ข้อความ HTML (Slide=2, 3) ใส่ overlay เพื่อทับสีน้ำเงินไล่ระดับ ข้อความเรียงซ้ายแนวเดียวกับเนื้อหาของหน้า
  *    ใส่ h1/h2 (หัวข้อ) p (คำอธิบาย) และปุ่มไว้ข้างใน ตัวอักษรจัดให้แล้ว
@@ -46,15 +47,23 @@ import { BtfpIcon } from '../icon/icon';
     '[attr.aria-hidden]': 'active() ? null : "true"',
   },
   template: `
-    <img class="btfp-hero-slide__img" [class.is-art]="isArt()" [src]="image()" [alt]="alt()" draggable="false" />
+    <picture>
+      @if (mobileImage()) {
+        <source media="(max-width: 639px)" [attr.srcset]="mobileImage()" />
+      }
+      <img class="btfp-hero-slide__img" [class.is-art]="isArt()" [src]="image()" [alt]="alt()" draggable="false" />
+    </picture>
     @if (overlay()) {
       <div class="btfp-hero-slide__overlay"></div>
     }
     <div class="btfp-hero-slide__frame" [class.is-art]="isArt()">
       <div
         class="btfp-hero-slide__content"
+        [class.has-mobile]="!!mobileImage()"
         [style.--art-x]="artX()"
         [style.--art-y]="artY()"
+        [style.--m-art-x]="mobileArtX()"
+        [style.--m-art-y]="mobileArtY()"
       >
         @if (tag() && !isArt()) {
           <span class="btfp-hero-slide__tag" [attr.data-severity]="tagSeverity()">{{ tag() }}</span>
@@ -119,6 +128,16 @@ import { BtfpIcon } from '../icon/icon';
         position: absolute;
         left: max(16px, calc(30cqw + var(--btfp-hero-h) * (var(--art-x) / 720 - 0.8)));
         top: calc(var(--btfp-hero-h) * var(--art-y) / 720);
+      }
+      /* จอเล็กกว่า 640px ที่มีภาพมือถือ: ภาพออกแบบที่ 390x440 วางปุ่มตาม mobileArtX / mobileArtY */
+      @media (max-width: 639px) {
+        .btfp-hero-slide__img.is-art {
+          object-position: center top;
+        }
+        .btfp-hero-slide__frame.is-art .btfp-hero-slide__content.has-mobile {
+          left: calc(var(--m-art-x) / 390 * 100%);
+          top: calc(var(--m-art-y) / 440 * 100%);
+        }
       }
       .btfp-hero-slide__tag {
         display: inline-flex;
@@ -190,6 +209,12 @@ export class BtfpHeroSlide {
   /** พิกัดของเนื้อหาในภาพ 1920x720 สำหรับภาพที่มีข้อความในตัว */
   readonly artX = input(undefined, { transform: (v: unknown) => (v == null || v === '' ? undefined : numberAttribute(v)) });
   readonly artY = input(undefined, { transform: (v: unknown) => (v == null || v === '' ? undefined : numberAttribute(v)) });
+
+  /** ภาพสำหรับจอเล็กกว่า 640px (ออกแบบที่ 390x440 ส่งไฟล์ 2 เท่า 780x880) ไม่ใส่ก็ได้ */
+  readonly mobileImage = input('');
+  /** พิกัดของปุ่มในภาพมือถือขนาด 390x440 */
+  readonly mobileArtX = input(20, { transform: numberAttribute });
+  readonly mobileArtY = input(240, { transform: numberAttribute });
 
   readonly isArt = computed(() => this.artX() !== undefined && this.artY() !== undefined);
 
@@ -263,6 +288,10 @@ export class BtfpHeroSlide {
   styles: `
     :host {
       --btfp-hero-h: max(37.5cqw, 440px);
+      /* จอเล็กกว่า 640px ใช้สัดส่วนภาพมือถือ 390x440 */
+      @media (max-width: 639px) {
+        --btfp-hero-h: calc(100cqw * 440 / 390);
+      }
       position: relative;
       display: block;
       container-type: inline-size;

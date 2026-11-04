@@ -34,7 +34,7 @@ export class MyPage {}
 | Checkbox Value=indeterminate | \`[indeterminate]="true"\` (พื้น primary ขีดขาวตาม Figma) |
 | Radio | \`<p-radiobutton name="..." value="..." [(ngModel)]="..." />\` 24px |
 | Toggle Value=off / on | \`<p-toggleswitch [(ngModel)]="..." />\` 44x24 |
-| State=disabled | \`[disabled]="true"\` |
+| State=disabled | \`[disabled]="true"\` (ทั้งชิ้นจาง 50% ตาม Figma ป้ายข้อความเป็นสี text/disabled) |
 | หน้าหุ่นจำลอง (ไม่มี binding) | \`<input type="checkbox" class="btfp-checkbox" checked>\` หัวตารางใช้ \`class="btfp-checkbox is-indeterminate"\` |
 
 ข้อความป้ายวางคู่ด้วย \`<label>\` ห่าง 8px คลิกที่ข้อความแล้วติ๊กได้
@@ -48,23 +48,23 @@ export const Playground: StoryObj = choicesPlayground;
 export const Checkbox: StoryObj = {
   name: "Checkbox",
   args: { a: false, b: true },
-  render: (args) => ({ props: args, template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><p-checkbox [(ngModel)]="a" [binary]="true" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><p-checkbox [(ngModel)]="b" [binary]="true" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><p-checkbox [binary]="true" [indeterminate]="true" />เลือกบางส่วน</label><label style="display:flex;gap:8px;align-items:center;opacity:.5"><p-checkbox [binary]="true" [ngModel]="true" [disabled]="true" />ปิดใช้งาน</label>`) }),
+  render: (args) => ({ props: args, template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><p-checkbox [(ngModel)]="a" [binary]="true" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><p-checkbox [(ngModel)]="b" [binary]="true" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><p-checkbox [binary]="true" [indeterminate]="true" />เลือกบางส่วน</label><label style="display:flex;gap:8px;align-items:center"><p-checkbox [binary]="true" [ngModel]="true" [disabled]="true" />ติ๊กไว้ ปิดใช้งาน</label><label style="display:flex;gap:8px;align-items:center"><p-checkbox [binary]="true" [ngModel]="false" [disabled]="true" />ปิดใช้งาน</label>`) }),
 };
 
 export const Mock: StoryObj = {
   name: "Checkbox ในหน้าหุ่นจำลอง",
   parameters: { docs: { description: { story: `\`.btfp-checkbox\` เป็น HTML ธรรมดา หน้าตาเหมือน \`p-checkbox\`` } } },
-  render: () => ({ template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" checked />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox is-indeterminate" />เลือกบางส่วน</label>`) }),
+  render: () => ({ template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" checked />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox is-indeterminate" />เลือกบางส่วน</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" checked disabled />ติ๊กไว้ ปิดใช้งาน</label>`) }),
 };
 
 export const Radio: StoryObj = {
   name: "Radio",
-  args: { r: 'one' },
-  render: (args) => ({ props: args, template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><p-radiobutton name="r" value="one" [(ngModel)]="r" />ตัวเลือกทุน 1</label><label style="display:flex;gap:8px;align-items:center"><p-radiobutton name="r" value="two" [(ngModel)]="r" />ตัวเลือกทุน 2</label>`) }),
+  args: { r: 'one', r3: 'x' },
+  render: (args) => ({ props: args, template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><p-radiobutton name="r" value="one" [(ngModel)]="r" />ตัวเลือกทุน 1</label><label style="display:flex;gap:8px;align-items:center"><p-radiobutton name="r" value="two" [(ngModel)]="r" />ตัวเลือกทุน 2</label><label style="display:flex;gap:8px;align-items:center"><p-radiobutton name="r2" value="x" [(ngModel)]="r3" [disabled]="true" />เลือกไว้ ปิดใช้งาน</label>`) }),
 };
 
 export const Toggle: StoryObj = {
   name: "Toggle",
   args: { t1: false, t2: true },
-  render: (args) => ({ props: args, template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><p-toggleswitch [(ngModel)]="t1" />ปิดอยู่</label><label style="display:flex;gap:8px;align-items:center"><p-toggleswitch [(ngModel)]="t2" />เปิดใช้งาน</label>`) }),
+  render: (args) => ({ props: args, template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><p-toggleswitch [(ngModel)]="t1" />ปิดอยู่</label><label style="display:flex;gap:8px;align-items:center"><p-toggleswitch [(ngModel)]="t2" />เปิดใช้งาน</label><label style="display:flex;gap:8px;align-items:center"><p-toggleswitch [ngModel]="true" [disabled]="true" />เปิดอยู่ ปิดใช้งาน</label>`) }),
 };

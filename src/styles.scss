@@ -65,6 +65,47 @@
     }
   }
 
+  // Checkbox / Radio / Toggle ที่ปิดใช้งาน: Figma State=disabled คือหน้าตาเดิมทั้งชิ้นจาง 50%
+  // (PrimeNG ปกติเปลี่ยนเป็นพื้นเทาและไม่เห็นว่าติ๊กอยู่) ดู Figma Design System > Forms/Checkbox, Radio, Toggle
+  :is(.p-checkbox, .p-radiobutton, .p-toggleswitch)[data-p-disabled='true'] {
+    opacity: 0.5;
+  }
+  // ตัวแปร --p-* ของแต่ละ component โหลดเมื่อใช้ component นั้น จึงต้องใช้ตัวแปรของตัวเอง
+  .p-checkbox[data-p-disabled='true']:is([data-p-checked='true'], :has(svg[data-p-icon='minus'])) .p-checkbox-box {
+    border-color: var(--p-checkbox-checked-border-color);
+    background: var(--p-checkbox-checked-background);
+  }
+  .p-radiobutton[data-p-disabled='true'][data-p-checked='true'] .p-radiobutton-box {
+    border-color: var(--p-radiobutton-checked-border-color);
+    background: var(--p-radiobutton-checked-background);
+  }
+  // ช่องที่ยังไม่ติ๊ก: พื้นขาว เส้น border/strong (PrimeNG ปกติใช้พื้นเทา เส้นจางเกิน)
+  :is(.p-checkbox, .p-radiobutton)[data-p-disabled='true']:not([data-p-checked='true']) :is(.p-checkbox-box, .p-radiobutton-box) {
+    border-color: var(--btfp-border-strong);
+    background: var(--btfp-surface-raised);
+  }
+  .p-checkbox[data-p-disabled='true'] .p-checkbox-icon {
+    color: var(--p-checkbox-icon-checked-color);
+  }
+  .p-radiobutton[data-p-disabled='true'][data-p-checked='true'] .p-radiobutton-icon {
+    background: var(--p-radiobutton-icon-checked-color);
+  }
+  .p-toggleswitch[data-p-disabled='true'][data-p-checked='true'] .p-toggleswitch-slider {
+    border-color: var(--p-toggleswitch-checked-border-color);
+    background: var(--p-toggleswitch-checked-background);
+  }
+  .p-toggleswitch[data-p-disabled='true'][data-p-checked='true'] .p-toggleswitch-handle {
+    background: var(--p-toggleswitch-handle-checked-background);
+  }
+  .btfp-checkbox:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  // ป้ายข้อความของตัวเลือกที่ปิดใช้งานเป็นสีจาง
+  label:has(> :is(.p-checkbox, .p-radiobutton, .p-toggleswitch)[data-p-disabled='true'], > .btfp-checkbox:disabled) {
+    color: var(--btfp-text-disabled);
+  }
+
   // ช่องกรอกที่ผิดพลาด เส้นขอบหนา 1.5px ตาม Figma
   .p-inputtext.ng-invalid.ng-dirty,
   .p-inputtext.p-invalid,
