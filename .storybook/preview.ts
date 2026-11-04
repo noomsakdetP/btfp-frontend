@@ -10,6 +10,11 @@ import '../src/styles.scss';
 import './docs.css';
 
 import type { Preview } from '@storybook/angular-vite';
+
+// docgen server เปิดไว้ใน main.ts เพื่อให้ MCP (addon-mcp) ส่งรายการ component และ props ให้ AI ได้
+// แต่ในหน้า Docs ให้กลับไปใช้ตาราง Controls แบบเดิม ไม่งั้นหน้า PrimeNG (ไม่มี component ให้อ่าน) จะไม่มี Controls
+const features = (globalThis as { FEATURES?: Record<string, unknown> }).FEATURES;
+if (features) features['experimentalDocgenServer'] = false;
 import { applicationConfig } from '@storybook/angular-vite';
 import { provideRouter, withHashLocation } from '@angular/router';
 import { btfpUiProviders } from '../src/app/app.config';

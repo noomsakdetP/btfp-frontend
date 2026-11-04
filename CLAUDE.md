@@ -69,6 +69,13 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
 12. ทุกลิงก์และปุ่มต้องไปที่ใดที่หนึ่ง เมนูที่ยังไม่ทำให้ไปหน้า placeholder (route `**`)
 13. ทุกหน้าใหม่ต้องมี route ใน `app.routes.ts` และ story ใน `Pages/`
 
+## Storybook MCP (ทดลอง)
+
+- เปิด `npm run storybook` ไว้ แล้ว AI จะต่อ MCP ชื่อ `storybook` ที่ `http://localhost:6006/mcp` ได้ (ตั้งไว้ใน `.mcp.json`)
+- ก่อนเขียนหน้าหรือ component ใหม่ เรียก `docs-list` ดูว่ามีอะไรอยู่แล้ว แล้ว `docs-show` ตัวที่จะใช้ ห้ามเขียน component ซ้ำกับที่มี
+- กฎ PrimeNG อยู่ในหน้า `primeng-overview--docs` เรียก `docs-show` หน้านี้ก่อนใช้ PrimeNG
+- กฎของหน้าหุ่นจำลอง (ห้าม binding ฯลฯ) อยู่ในไฟล์นี้ ไม่ได้อยู่ใน Storybook
+
 ## ขั้นตอนขึ้นหน้าใหม่
 
 1. อ่าน frame ใน Figma ทั้ง screenshot และโครงสร้าง (ขนาด ช่องว่าง ข้อความ)

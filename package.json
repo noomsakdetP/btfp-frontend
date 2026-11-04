@@ -40,6 +40,7 @@
     "@angular/compiler-cli": "^21.2.0",
     "@storybook/addon-a11y": "^10.6.5",
     "@storybook/addon-docs": "^10.6.5",
+    "@storybook/addon-mcp": "^10.6.5",
     "@storybook/angular-vite": "^10.6.5",
     "@tailwindcss/postcss": "^4.3.4",
     "@types/node": "^20",
