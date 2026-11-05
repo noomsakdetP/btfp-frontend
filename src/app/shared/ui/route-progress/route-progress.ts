@@ -44,10 +44,10 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
               <div class="sp sp-orbit" aria-hidden="true"><i></i><i></i></div>
             }
             @case ('logo') {
-              <div class="sp sp-logo" aria-hidden="true"><img src="brand/logo-btfp.png" alt="" width="20" height="28" /></div>
+              <div class="sp sp-logo" aria-hidden="true"><img src="brand/logo-btfp.png" alt="" width="29" height="40" /></div>
             }
             @default {
-              <p-progressspinner strokeWidth="4" [style]="{ width: '48px', height: '48px' }" ariaLabel="กำลังโหลด" />
+              <p-progressspinner strokeWidth="4" [style]="{ width: '72px', height: '72px' }" ariaLabel="กำลังโหลด" />
             }
           }
           <span>กำลังโหลด</span>
@@ -67,6 +67,7 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
     .bar :is(.p-progressbar) {
       background: transparent;
     }
+    /* ชั้นทับดำโปร่ง วงหมุนและข้อความวางบนชั้นทับตรง ๆ ไม่มีกล่อง */
     .overlay {
       position: fixed;
       inset: 0;
@@ -74,21 +75,21 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       display: grid;
       place-items: center;
       background: var(--btfp-loading-overlay);
+      /* สีของ p-progressspinner บนพื้นเข้ม */
+      --p-progressspinner-color-one: var(--btfp-loading-spinner);
+      --p-progressspinner-color-two: var(--btfp-loading-spinner-soft);
+      --p-progressspinner-color-three: var(--btfp-loading-spinner);
+      --p-progressspinner-color-four: var(--btfp-loading-spinner-soft);
     }
     .box {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: var(--btfp-space-sm);
-      padding: var(--btfp-space-lg) var(--btfp-space-xl);
-      border: 1px solid var(--btfp-border-default);
-      border-radius: var(--btfp-radius-card);
-      background: var(--btfp-surface-raised);
-      box-shadow: var(--btfp-shadow-2);
-      font-size: var(--btfp-typography-body-s-medium-size);
-      font-weight: var(--btfp-typography-body-s-medium-weight);
+      gap: var(--btfp-space-md);
+      font-size: var(--btfp-typography-body-medium-size);
+      font-weight: var(--btfp-typography-body-medium-weight);
       line-height: var(--btfp-line-height-body);
-      color: var(--btfp-text-heading);
+      color: var(--btfp-loading-text);
     }
     .box ::ng-deep .p-progressspinner {
       margin: 0;
@@ -97,14 +98,14 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
     /* ---------- ตัวเลือกวงหมุน (Figma: section-Feedback-Loading > ตัวเลือกวงหมุน) ---------- */
     .sp {
       position: relative;
-      width: 48px;
-      height: 48px;
+      width: 72px;
+      height: 72px;
     }
     /* แบบ 3 คลื่นสัญญาณ */
     .sp-wave i {
       position: absolute;
       inset: 0;
-      border: 3px solid var(--btfp-action-primary);
+      border: 4px solid var(--btfp-loading-spinner);
       border-radius: 50%;
       opacity: 0;
       animation: btfp-wave 1.6s ease-out infinite;
@@ -114,9 +115,9 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
     }
     .sp-wave b {
       position: absolute;
-      inset: 18px;
+      inset: 27px;
       border-radius: 50%;
-      background: var(--btfp-action-primary);
+      background: var(--btfp-loading-spinner);
     }
     @keyframes btfp-wave {
       0% { transform: scale(0.3); opacity: 1; }
@@ -127,14 +128,14 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      gap: 4px;
-      padding: 4px 0;
+      gap: 6px;
+      padding: 6px 0;
     }
     .sp-bars i {
-      width: 6px;
+      width: 9px;
       height: 100%;
-      border-radius: 3px;
-      background: var(--btfp-action-primary);
+      border-radius: 5px;
+      background: var(--btfp-loading-spinner);
       transform-origin: bottom;
       animation: btfp-bars 1s ease-in-out infinite;
     }
@@ -148,21 +149,21 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
     }
     /* แบบ 5 ดาวเทียมโคจร */
     .sp-orbit {
-      border: 2px solid var(--btfp-blue-100);
+      border: 3px solid var(--btfp-loading-spinner-soft);
       border-radius: 50%;
       animation: btfp-spin 1.4s linear infinite;
     }
     .sp-orbit i {
       position: absolute;
       left: 50%;
-      width: 12px;
-      height: 12px;
-      margin-left: -6px;
+      width: 18px;
+      height: 18px;
+      margin-left: -9px;
       border-radius: 50%;
-      background: var(--btfp-action-primary);
+      background: var(--btfp-loading-spinner);
     }
-    .sp-orbit i:first-child { top: -7px; }
-    .sp-orbit i:last-child { bottom: -7px; background: var(--btfp-blue-400); }
+    .sp-orbit i:first-child { top: -10px; }
+    .sp-orbit i:last-child { bottom: -10px; background: var(--btfp-text-inverse); }
     @keyframes btfp-spin {
       to { transform: rotate(360deg); }
     }
@@ -171,7 +172,7 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       display: grid;
       place-items: center;
       overflow: hidden;
-      border-radius: var(--btfp-radius-button);
+      border-radius: var(--btfp-radius-card);
       background: var(--btfp-info-bg);
     }
     .sp-logo img {
@@ -183,7 +184,7 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       bottom: 0;
       left: -40%;
       width: 40%;
-      height: 3px;
+      height: 4px;
       background: var(--btfp-action-primary);
       animation: btfp-run 1.2s ease-in-out infinite;
     }

@@ -205,7 +205,10 @@
   --btfp-hero-dot: var(--btfp-gray-50);
 
   // Feedback/Loading: ชั้นทับระหว่างรอเปลี่ยนเมนู (btfp-route-progress)
-  --btfp-loading-overlay: rgba(248, 250, 252, 0.72); // bg/subtle โปร่ง 72%
+  --btfp-loading-overlay: rgba(0, 0, 0, 0.45); // ดำโปร่ง 45%
+  --btfp-loading-spinner: var(--btfp-blue-400); // สีหลักของวงหมุนบนพื้นเข้ม
+  --btfp-loading-spinner-soft: var(--btfp-blue-200); // สีรอง
+  --btfp-loading-text: var(--btfp-text-inverse);
 
   // หน้าเข้าสู่ระบบและลงทะเบียน (Figma: F-01 ฯลฯ ใช้ค่าตรง ไม่ได้ผูก variable)
   --btfp-auth-bg: linear-gradient(157deg, var(--btfp-blue-800) 14%, var(--btfp-blue-600) 57%, var(--btfp-blue-500) 86%);
