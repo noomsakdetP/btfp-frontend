@@ -211,8 +211,8 @@
     }
   }
 
-  // Type=numeric: ชิดขวา ตัวเลขกว้างเท่ากัน
-  .btfp-table__num {
+  // Type=numeric: ใช้เฉพาะจำนวนเงิน ชิดขวา ตัวเลขกว้างเท่ากัน (ตัวเลขอื่นชิดซ้ายตามปกติ)
+  .btfp-table__money {
     .btfp-table & {
       text-align: right;
       font-variant-numeric: tabular-nums;

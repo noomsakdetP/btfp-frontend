@@ -36,7 +36,7 @@ export const Basic: Story = {
         <th class="btfp-table__check"><input type="checkbox" class="btfp-checkbox is-indeterminate" aria-label="เลือกทั้งหมด" /></th>
         <th>เลขที่คำขอ</th>
         <th>ชื่อโครงการ</th>
-        <th class="btfp-table__num">วงเงิน (บาท)</th>
+        <th class="btfp-table__money">วงเงิน (บาท)</th>
         <th>สถานะ</th>
         <th class="btfp-table__actions">จัดการ</th>
       </tr>
@@ -46,7 +46,7 @@ export const Basic: Story = {
         <td class="btfp-table__check"><input type="checkbox" class="btfp-checkbox" checked aria-label="เลือก 2569/0042" /></td>
         <td>2569/0042</td>
         <td title="ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน">ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน</td>
-        <td class="btfp-table__num">1,250,000.00</td>
+        <td class="btfp-table__money">1,250,000.00</td>
         <td><btfp-status-tag status="review" /></td>
         <td class="btfp-table__actions"><btfp-row-actions actions="view,edit,delete" itemLabel="2569/0042" /></td>
       </tr>
@@ -54,7 +54,7 @@ export const Basic: Story = {
         <td class="btfp-table__check"><input type="checkbox" class="btfp-checkbox" aria-label="เลือก 2569/0043" /></td>
         <td>2569/0043</td>
         <td title="ระบบเตือนภัยพิบัติผ่านโครงข่ายโทรคมนาคมสำหรับพื้นที่ห่างไกลและชุมชนชายขอบ">ระบบเตือนภัยพิบัติผ่านโครงข่ายโทรคมนาคมสำหรับพื้นที่ห่างไกลและชุมชนชายขอบ</td>
-        <td class="btfp-table__num">3,480,000.00</td>
+        <td class="btfp-table__money">3,480,000.00</td>
         <td><btfp-status-tag status="docs-incomplete" /></td>
         <td class="btfp-table__actions"><btfp-row-actions actions="view,edit,delete" itemLabel="2569/0043" /></td>
       </tr>
@@ -62,7 +62,7 @@ export const Basic: Story = {
         <td class="btfp-table__check"><input type="checkbox" class="btfp-checkbox" aria-label="เลือก 2569/0044" /></td>
         <td>2569/0044</td>
         <td title="พัฒนาทักษะดิจิทัลสำหรับผู้สูงอายุ">พัฒนาทักษะดิจิทัลสำหรับผู้สูงอายุ</td>
-        <td class="btfp-table__num">820,500.00</td>
+        <td class="btfp-table__money">820,500.00</td>
         <td><btfp-status-tag status="submitted" /></td>
         <td class="btfp-table__actions"><btfp-row-actions actions="view,edit,delete" itemLabel="2569/0044" /></td>
       </tr>
