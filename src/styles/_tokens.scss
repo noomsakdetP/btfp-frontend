@@ -204,6 +204,9 @@
   --btfp-hero-control-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   --btfp-hero-dot: var(--btfp-gray-50);
 
+  // Feedback/Loading: ชั้นทับระหว่างรอเปลี่ยนเมนู (btfp-route-progress)
+  --btfp-loading-overlay: rgba(248, 250, 252, 0.72); // bg/subtle โปร่ง 72%
+
   // หน้าเข้าสู่ระบบและลงทะเบียน (Figma: F-01 ฯลฯ ใช้ค่าตรง ไม่ได้ผูก variable)
   --btfp-auth-bg: linear-gradient(157deg, var(--btfp-blue-800) 14%, var(--btfp-blue-600) 57%, var(--btfp-blue-500) 86%);
   --btfp-auth-image-opacity: 0.45;

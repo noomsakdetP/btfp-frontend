@@ -23,6 +23,8 @@ import { Textarea } from 'primeng/textarea';
 import { ToggleSwitch } from 'primeng/toggleswitch';
 import { Tooltip } from 'primeng/tooltip';
 import { BtfpIcon } from '../../app/shared/ui/icon/icon';
+import { ProgressBar } from 'primeng/progressbar';
+import { ProgressSpinner } from 'primeng/progressspinner';
 
 /** import ทุกตัวที่ story ในหมวด PrimeNG ใช้ (ใช้เฉพาะใน Storybook) */
 export const primengStoryImports = moduleMetadata({
@@ -42,6 +44,8 @@ export const primengStoryImports = moduleMetadata({
     InputText,
     MultiSelect,
     Paginator,
+    ProgressBar,
+    ProgressSpinner,
     RadioButton,
     Select,
     SelectButton,

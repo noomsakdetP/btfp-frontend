@@ -150,6 +150,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Domain/Status Badge | `btfp-status-tag` | ทำแล้ว | ครบ 14 สถานะ ใส่ `status="review"` ได้สี ไอคอน ข้อความตาม Figma ดูข้อ 4 |
 | Domain/KPI Stat Card | `btfp-kpi-card` | ทำแล้ว | Tone และ Trend ยังไม่ทำ |
 | Domain/Table Header Cell, Table Cell, Data Table | `.btfp-table` ใน `styles.scss` + `__num` `__check` `__actions` `__2line` (ต่อ API ใช้ `p-table` หรือ `@for`) | ทำแล้ว | แถว 56 px บรรทัดเดียว Storybook: Components/Data Display/Table ยังไม่มี Sort, skeleton |
+| Feedback/Progress Bar, Feedback/Loading Spinner | `p-progressbar` `p-progressspinner` (สีใน preset) + `btfp-route-progress` ใน `app.ts` | ทำแล้ว | เปลี่ยนเมนูรอเกิน 150 ms แถบบน 3px, เกิน 800 ms วงกลมกลางจอ |
 | Domain/Table Row Actions | `btfp-row-actions` | ทำแล้ว | ดู แก้ไข ลบ ลบต้องยืนยัน |
 | Domain/Empty State | `btfp-empty-state` | ทำแล้ว | 4 แบบ: general, no-results, no-files, error |
 | Domain/Modal | `p-dialog` | ต้องทำ | Size S/M/L ห้ามใช้กับฟอร์มเนื้อหา |
