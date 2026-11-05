@@ -16,15 +16,16 @@ import * as TableStories from './table.stories';
 1. แถวสูง 56px หัวตารางสูง 44px ข้อความบรรทัดเดียว ยาวเกินตัดด้วย ... ให้ใส่ `title` ที่ `<td>` เป็นข้อความเต็ม
 2. กำหนดความกว้างคอลัมน์ที่ `<colgroup>` ด้วย class ของ Tailwind เช่น `<col class="w-[160px]" />` คอลัมน์ที่ไม่ใส่ความกว้างจะยืดเต็มที่เหลือ
 3. ครอบด้วย `<div class="overflow-x-auto">` และใส่ความกว้างขั้นต่ำที่ตาราง เช่น `class="btfp-table min-w-[1574px]"` จอแคบจะเลื่อนซ้ายขวาได้ ไม่บีบคอลัมน์
-4. สถานะใช้ `<btfp-status-tag status="..." />` ปุ่มท้ายแถวใช้ `<btfp-row-actions>` เท่านั้น
-5. ไม่ต้องเขียน SCSS ของตารางในหน้า ถ้าต้องการสีเฉพาะของหน้า (เช่น ข้อความ "ยังไม่มอบหมาย" สีส้ม) ใส่ class ของหน้าเองได้
+4. **ชิดขวาเฉพาะจำนวนเงิน** (ใส่ `btfp-table__money` ทั้ง `<th>` และ `<td>`) ตัวเลขอื่น เช่น จำนวนราย จำนวนโครงการ ร้อยละ คะแนน จำนวนวัน ชิดซ้ายเหมือนข้อความ
+5. สถานะใช้ `<btfp-status-tag status="..." />` ปุ่มท้ายแถวใช้ `<btfp-row-actions>` เท่านั้น
+6. ไม่ต้องเขียน SCSS ของตารางในหน้า ถ้าต้องการสีเฉพาะของหน้า (เช่น ข้อความ "ยังไม่มอบหมาย" สีส้ม) ใส่ class ของหน้าเองได้
 
 ## ชนิดเซลล์
 
 | Figma (Type) | class ที่ `<th>` และ `<td>` | หน้าตา |
 | --- | --- | --- |
-| text | ไม่ต้องใส่ | ชิดซ้าย Typography/Table หัวตาราง Body/S Medium |
-| numeric | `btfp-table__num` | ชิดขวา ตัวเลขกว้างเท่ากัน |
+| text | ไม่ต้องใส่ | ชิดซ้าย Typography/Table หัวตาราง Body/S Medium ใช้กับตัวเลขที่ไม่ใช่เงินด้วย เช่น จำนวนราย จำนวนวัน ร้อยละ คะแนน |
+| numeric (จำนวนเงินเท่านั้น) | `btfp-table__money` | ชิดขวา ตัวเลขกว้างเท่ากัน |
 | checkbox | `btfp-table__check` | คอลัมน์ 56px (`<col class="w-14" />`) ช่องอยู่กลาง |
 | actions | `btfp-table__actions` | ชิดขวา คอลัมน์ 112px (`<col class="w-28" />`) |
 | status | ไม่ต้องใส่ | ใส่ `btfp-status-tag` ในเซลล์ |
@@ -52,7 +53,7 @@ import * as TableStories from './table.stories';
         <th class="btfp-table__check"><input type="checkbox" class="btfp-checkbox is-indeterminate" aria-label="เลือกทั้งหมด" /></th>
         <th>เลขที่คำขอ</th>
         <th>ชื่อโครงการ</th>
-        <th class="btfp-table__num">วงเงิน (บาท)</th>
+        <th class="btfp-table__money">วงเงิน (บาท)</th>
         <th>สถานะ</th>
         <th class="btfp-table__actions">จัดการ</th>
       </tr>
@@ -62,7 +63,7 @@ import * as TableStories from './table.stories';
         <td class="btfp-table__check"><input type="checkbox" class="btfp-checkbox" checked aria-label="เลือก 2569/0042" /></td>
         <td>2569/0042</td>
         <td title="ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน">ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน</td>
-        <td class="btfp-table__num">1,250,000.00</td>
+        <td class="btfp-table__money">1,250,000.00</td>
         <td><btfp-status-tag status="review" /></td>
         <td class="btfp-table__actions"><btfp-row-actions actions="view,edit,delete" itemLabel="2569/0042" /></td>
       </tr>
