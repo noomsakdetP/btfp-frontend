@@ -125,7 +125,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Forms/Select | `p-select` | PrimeNG | |
 | Forms/MultiSelect | `p-multiselect` | PrimeNG | `display="chip"` |
 | Forms/Autocomplete | `p-autocomplete` | PrimeNG | |
-| Forms/DatePicker | `btfp-datepicker` | ทำแล้ว | แสดง พ.ศ. เก็บ ค.ศ. Mode month / month-range ยังไม่ทำ |
+| Forms/DatePicker | `btfp-datepicker` | ทำแล้ว | แสดงแบบ 1 ม.ค. 2569 (พ.ศ.) เก็บ ค.ศ. Mode month / month-range ยังไม่ทำ |
 | Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง |
 | Forms/OtpInput | `p-inputotp` | PrimeNG | |
 | Forms/SearchField | `p-iconfield` + `p-inputicon` + `pInputText` | PrimeNG | |
@@ -150,7 +150,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Domain/Status Badge | `btfp-status-tag` | ทำแล้ว | ครบ 14 สถานะ ใส่ `status="review"` ได้สี ไอคอน ข้อความตาม Figma ดูข้อ 4 |
 | Domain/KPI Stat Card | `btfp-kpi-card` | ทำแล้ว | Tone และ Trend ยังไม่ทำ |
 | Domain/Table Header Cell, Table Cell, Data Table | `.btfp-table` ใน `styles.scss` + `__num` `__check` `__actions` `__2line` (ต่อ API ใช้ `p-table` หรือ `@for`) | ทำแล้ว | แถว 56 px บรรทัดเดียว Storybook: Components/Data Display/Table ยังไม่มี Sort, skeleton |
-| Feedback/Progress Bar, Feedback/Loading Spinner | `p-progressbar` `p-progressspinner` (สีใน preset) + `btfp-route-progress` ใน `app.ts` | ทำแล้ว | เปลี่ยนเมนูรอเกิน 150 ms แถบบน 3px, เกิน 800 ms วงกลมกลางจอ |
+| Feedback/Progress Bar, Feedback/Loading Spinner | `p-progressbar` `p-progressspinner` (สีใน preset) + `btfp-route-progress` ใน `app.ts` | ทำแล้ว | เปลี่ยนเมนูรอเกิน 150 ms แถบบน 3px, เกิน 800 ms วงกลมกลางจอ เรียก API แสดงแถบอย่างเดียว ตัวจับคือ ngx-ui-loader (`btfpLoaderProviders()`) |
 | Domain/Table Row Actions | `btfp-row-actions` | ทำแล้ว | ดู แก้ไข ลบ ลบต้องยืนยัน |
 | Domain/Empty State | `btfp-empty-state` | ทำแล้ว | 4 แบบ: general, no-results, no-files, error |
 | Domain/Modal | `p-dialog` | ต้องทำ | Size S/M/L ห้ามใช้กับฟอร์มเนื้อหา |
@@ -233,7 +233,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 ใช้ `btfp-export-button` เท่านั้น ตัวเลือก Excel (.xlsx), PDF (.pdf), CSV (.csv) ส่งออกจากแถวที่เลือกใช้ปุ่ม "ส่งออกที่เลือก" ในแถบจัดการ
 
 ### วันที่และตัวเลข
-- วันที่แสดง วว/ดด/ปปปป แบบ พ.ศ. เช่น 15/03/2569 เก็บและส่ง API เป็น ค.ศ.
+- วันที่แสดงแบบราชการ เช่น 1 ม.ค. 2569 (วันไม่มี 0 นำหน้า เดือนย่อ ปี พ.ศ.) ช่วงวันที่เขียนเต็มทั้งสองฝั่ง เช่น 1 ก.ย. 2569 - 30 ก.ย. 2569 เก็บและส่ง API เป็น ค.ศ.
 - ปีงบประมาณใช้ พ.ศ. 4 หลัก
 - เงินแสดงทศนิยม 2 ตำแหน่ง หน่วย บาท หรือ THB
 

@@ -5,15 +5,24 @@ import { DatePicker } from 'primeng/datepicker';
 export const BE_OFFSET = 543;
 
 /**
+ * รูปแบบวันที่ของระบบ (รูปแบบราชการ) เช่น 1 ม.ค. 2569
+ * ตามรูปแบบของ PrimeNG: d = วันไม่มี 0 นำหน้า, M = ชื่อเดือนย่อจาก TH_LOCALE, yy = ปี 4 หลัก
+ */
+export const BTFP_DATE_FORMAT = 'd M yy';
+
+/** รูปแบบตัวเลขที่ผู้ใช้พิมพ์เองได้ เช่น 1/1/2569 หรือ 01/01/2569 */
+const NUMERIC_INPUT = /^\s*\d{1,2}\/\d{1,2}\/\d{4}\s*$/;
+
+/**
  * btfpBuddhistEra : ทำให้ p-datepicker แสดงปีเป็น พ.ศ.
  *
  * หลักการ
  * - ค่าที่เก็บในฟอร์ม (ngModel / FormControl) ยังเป็น Date ปกติ (ค.ศ.) ส่งให้ API ได้เลย ไม่ต้องแปลง
  * - แปลงเฉพาะสิ่งที่ผู้ใช้เห็น: ช่องกรอก, ปีบนหัวปฏิทิน, ตารางเลือกปี
- * - ผู้ใช้พิมพ์ปีเป็น พ.ศ. ได้ (เช่น 15/03/2569) ระบบจะแปลงกลับเป็น ค.ศ. ให้เอง
+ * - ผู้ใช้พิมพ์ปีเป็น พ.ศ. ได้ ทั้ง 15 มี.ค. 2569 และ 15/3/2569 ระบบจะแปลงกลับเป็น ค.ศ. ให้เอง
  *
  * ข้อจำกัดที่ทดสอบแล้วกับ PrimeNG 21.1
- * - ใช้กับ dateFormat ที่มีปี 4 หลัก (yy) เท่านั้น เช่น dd/mm/yy
+ * - ใช้กับ dateFormat ที่มีปี 4 หลัก (yy) เท่านั้น เช่น d M yy (ค่าเริ่มต้นของระบบ) หรือ dd/mm/yy
  * - directive นี้แทนที่ method ภายในของ DatePicker (formatDate, parseDate, getYear, yearPickerValues, onYearSelect)
  *   ถ้าอัปเกรด PrimeNG ต้องเปิด Storybook หน้า "Datepicker (พ.ศ.)" ทดสอบซ้ำทุกครั้ง
  *
@@ -40,7 +49,9 @@ export class BtfpBuddhistEra {
 
     const parseDate = dp.parseDate.bind(dp);
     dp.parseDate = (value: string, format: string): Date | null => {
-      const ceText = (value ?? '').replace(/\b(\d{4})\b/, (_m, y: string) => String(Number(y) - BE_OFFSET));
+      const ceText = (value ?? '').replace(/(\d{4})/, (_m, y: string) => String(Number(y) - BE_OFFSET));
+      // ผู้ใช้พิมพ์เป็นตัวเลข เช่น 1/1/2569 ก็รับได้ แม้รูปแบบที่แสดงจะเป็นชื่อเดือน
+      if (format !== 'd/m/yy' && NUMERIC_INPUT.test(ceText)) return parseDate(ceText.trim(), 'd/m/yy');
       return parseDate(ceText, format);
     };
 

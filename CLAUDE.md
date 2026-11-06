@@ -57,7 +57,7 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
    ปรับธีม PrimeNG แล้วให้อัปเดตหน้า Storybook ใน `src/docs/primeng/` (หนึ่งไฟล์ต่อ component มีตาราง Figma กับโค้ด)
 4. **สี ระยะ มุมโค้ง** ใช้ CSS variable `--btfp-*` จาก `src/styles/_tokens.scss` ห้ามใส่รหัสสีตรง
 5. **ไอคอน** `<btfp-icon name="eye" size="16" />` ไอคอนใหม่ต้องเพิ่มใน `src/app/theme/icons.ts` (import จาก `lucide`)
-6. **วันที่** ใช้ `<btfp-datepicker>` เสมอ (แสดง พ.ศ. เก็บ ค.ศ.)
+6. **วันที่** ใช้ `<btfp-datepicker>` เสมอ (แสดงแบบ 1 ม.ค. 2569 ปี พ.ศ. เก็บ ค.ศ.) ข้อความวันที่ในหน้าใช้รูปแบบเดียวกัน ช่วงวันที่เขียน 1 ก.ย. 2569 - 30 ก.ย. 2569
    **สถานะ** ใช้ `<btfp-status-tag status="review" />` ห้ามเลือกสีเอง (ดู 14 สถานะใน DESIGN.md ข้อ 4)
    **ตัวอักษร** ใช้ class `.btfp-text-h2` `.btfp-text-body-s` ฯลฯ ตาม Text Style ใน Figma
    **ช่องกรอก** ครอบด้วย `.btfp-field` + `.btfp-required` `.btfp-field__helper` `.btfp-field__error` (มีลิงก์ขวาของป้ายชื่อ เช่น ลืมรหัสผ่าน ครอบด้วย `.btfp-field__label-row`)
@@ -83,6 +83,8 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
 ## สิ่งที่ต้องระวัง
 
 - `btfp-datepicker` แทนที่ method ภายในของ PrimeNG DatePicker ถ้าอัปเกรด PrimeNG ต้องทดสอบหน้า Storybook "Datepicker (พ.ศ.)" ซ้ำ
+  ไม่ใช้แพ็กเกจ `primeng-buddhist-year-datepicker` เพราะเป็นสำเนา DatePicker ของ PrimeNG 21.0.6 ใช้ selector `p-datepicker` ซ้ำกับของ PrimeNG และไม่ได้รับการแก้บั๊กของ PrimeNG รุ่นใหม่
+- การโหลดหน้าและเรียก API ใช้ ngx-ui-loader เป็นตัวจับ (`btfpLoaderProviders()` ใน `app.config.ts`) แสดงผลผ่าน `btfp-route-progress` เท่านั้น ห้ามใส่ `<ngx-ui-loader>` ในหน้า
 - อย่าใช้ `@lucide/angular` (ไฟล์ใหญ่ 11MB ทำ Storybook build แรมเกิน) ใช้ `lucide` ผ่าน `btfp-icon`
 - ไอคอนใน Figma (หน้า Design System, ชื่อ `icon/<หมวด>/<ชื่อ>`) มาจาก Lucide ทั้ง 118 ตัว ใช้ชื่อหลัง `/` สุดท้ายได้เลย
   ยกเว้น 6 ตัวที่ Lucide v1 เปลี่ยนชื่อ: `trash-2` → `trash`, `filter` → `funnel`, `circle-help` → `circle-question-mark`,

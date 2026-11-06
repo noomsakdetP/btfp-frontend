@@ -14,7 +14,7 @@ export const TH_LOCALE: Translation = {
   clear: 'ล้าง',
   weekHeader: 'สัปดาห์',
   firstDayOfWeek: 0,
-  dateFormat: 'dd/mm/yy',
+  dateFormat: 'd M yy',
   emptyMessage: 'ไม่พบข้อมูล',
   emptyFilterMessage: 'ไม่พบข้อมูลที่ค้นหา',
   emptySearchMessage: 'ไม่พบข้อมูลที่ค้นหา',

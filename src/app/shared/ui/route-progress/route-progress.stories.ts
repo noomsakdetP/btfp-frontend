@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { moduleMetadata } from '@storybook/angular-vite';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { BtfpPublicFooter } from '../../../layout/public-layout/public-footer';
 import { BtfpPublicTopbar } from '../../../layout/public-layout/public-topbar';
 import { LandingPage } from '../../../pages/public/landing/landing';
@@ -54,11 +55,47 @@ class RouteProgressCycle {
   }
 }
 
+/**
+ * ใช้เฉพาะ Storybook: จำลองการเรียก API ผ่าน NgxUiLoaderService (background) ทุก 4 วินาที
+ * ของจริง NgxUiLoaderHttpModule เรียกให้เองทุกครั้งที่ใช้ HttpClient
+ */
+@Component({
+  selector: 'sb-route-progress-api',
+  imports: [BtfpRouteProgress],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `<btfp-route-progress /><div class="caption">{{ busy() ? 'กำลังเรียก API: แถบด้านบนอย่างเดียว ไม่บังหน้าจอ' : 'เรียก API เสร็จ' }}</div>`,
+  styles: `
+    .caption {
+      position: fixed; left: 50%; bottom: 24px; z-index: 1300; transform: translateX(-50%);
+      padding: 6px 16px; border-radius: var(--btfp-radius-full); background: var(--btfp-navy-900);
+      font-size: var(--btfp-typography-body-s-medium-size); font-weight: var(--btfp-typography-body-s-medium-weight); color: var(--btfp-text-inverse);
+    }
+  `,
+})
+class RouteProgressApi {
+  private readonly loader = inject(NgxUiLoaderService);
+  readonly busy = signal(false);
+  constructor() {
+    let timer: ReturnType<typeof setTimeout>;
+    const run = () => {
+      this.busy.set(true);
+      this.loader.startBackground('sb-api');
+      timer = setTimeout(() => {
+        this.loader.stopBackground('sb-api');
+        this.busy.set(false);
+        timer = setTimeout(run, 1500);
+      }, 2500);
+    };
+    timer = setTimeout(run, 500);
+    inject(DestroyRef).onDestroy(() => { clearTimeout(timer); this.loader.stopBackground('sb-api'); });
+  }
+}
+
 const meta: Meta<BtfpRouteProgress> = {
   title: 'Components/Feedback/Route Progress',
   component: BtfpRouteProgress,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [BtfpPublicTopbar, BtfpPublicFooter, LandingPage, RouteProgressCycle] })],
+  decorators: [moduleMetadata({ imports: [BtfpPublicTopbar, BtfpPublicFooter, LandingPage, RouteProgressCycle, RouteProgressApi] })],
   argTypes: {
     variant: { control: 'inline-radio', options: ['primeng', 'wave', 'bars', 'orbit', 'logo'], description: 'ตัวเลือกวงหมุน (ชั่วคราว ให้ BA เลือก)' },
     demo: { control: 'inline-radio', options: ['', 'bar', 'spinner'], description: "ใช้เฉพาะ Storybook: 'bar' แถบด้านบน, 'spinner' แถบ + วงกลมหมุน" },
@@ -75,6 +112,8 @@ const meta: Meta<BtfpRouteProgress> = {
           '- **วงกลมหมุน** กลางจอบนชั้นทับโปร่ง ขึ้นเมื่อรอเกิน 800 ms ใช้กรณีเน็ตช้า',
           '- ใส่ไว้ใน `app.ts` ครั้งเดียวแล้ว ทุกหน้าได้ทันที **หน้าใหม่ไม่ต้องใส่เอง**',
           '- ภายในใช้ `p-progressbar` และ `p-progressspinner` สีตาม `btfp-preset.ts`',
+          '- ตัวจับว่ากำลังโหลดคือ **ngx-ui-loader** ตั้งค่าใน `app.config.ts` ด้วย `btfpLoaderProviders()` เปลี่ยนเมนูแสดงแถบและวงกลม เรียก API ผ่าน HttpClient แสดงแถบอย่างเดียว',
+          '- งานที่ไม่ได้ผ่าน HttpClient สั่งเองได้: `loader.start(\'save\')` แล้ว `loader.stop(\'save\')` (NgxUiLoaderService)',
           '',
           'ตัวอย่างด้านล่างวางทับหน้าแรกจริง ตัวแรกวนให้ดูจังหวะการขึ้น อีกสองตัวบังคับแสดงค้างไว้ด้วย `demo` (ใช้เฉพาะ Storybook)',
         ].join('\n'),
@@ -97,6 +136,12 @@ export const Cycle: Story = {
   name: 'จำลองการเปลี่ยนเมนู (วนซ้ำ)',
   parameters: { docs: { source: { code: '<btfp-route-progress />' } } },
   render: () => ({ template: `${page}<sb-route-progress-cycle />` }),
+};
+
+export const Api: Story = {
+  name: 'เรียก API (แถบด้านบนอย่างเดียว)',
+  parameters: { docs: { source: { code: "// NgxUiLoaderHttpModule เรียกให้เองทุกครั้งที่ใช้ HttpClient\nthis.http.get('/api/proposals').subscribe();" } } },
+  render: () => ({ template: `${page}<sb-route-progress-api />` }),
 };
 
 export const Bar: Story = {

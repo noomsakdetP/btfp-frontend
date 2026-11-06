@@ -1,14 +1,15 @@
 import { ChangeDetectionStrategy, Component, booleanAttribute, computed, forwardRef, input, signal } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DatePicker } from 'primeng/datepicker';
-import { BtfpBuddhistEra } from './buddhist-era.directive';
+import { BTFP_DATE_FORMAT, BtfpBuddhistEra } from './buddhist-era.directive';
 
 /**
  * btfp-datepicker : ช่องเลือกวันที่ แสดงปีเป็น พ.ศ. (Figma: Forms/DatePicker 4:1571)
  *
  * ใช้แทน p-datepicker ทุกที่ในระบบ
  * - ค่าที่ได้จาก ngModel / formControl เป็น Date ปกติ (ค.ศ.)
- * - ผู้ใช้เห็นและพิมพ์เป็น วว/ดด/ปปปป แบบ พ.ศ.
+ * - ผู้ใช้เห็นเป็นรูปแบบราชการ เช่น 1 ม.ค. 2569 (ปี พ.ศ.)
+ * - พิมพ์เองได้ทั้ง 1 ม.ค. 2569 และ 1/1/2569
  *
  * @example
  * <btfp-datepicker [(ngModel)]="submittedFrom" />
@@ -22,7 +23,7 @@ import { BtfpBuddhistEra } from './buddhist-era.directive';
   template: `
     <p-datepicker
       btfpBuddhistEra
-      dateFormat="dd/mm/yy"
+      [dateFormat]="format"
       [placeholder]="placeholder()"
       [showIcon]="true"
       iconDisplay="input"
@@ -44,7 +45,10 @@ import { BtfpBuddhistEra } from './buddhist-era.directive';
   `,
 })
 export class BtfpDatepicker implements ControlValueAccessor {
-  readonly placeholder = input('วว/ดด/ปปปป');
+  readonly placeholder = input('เลือกวันที่');
+
+  /** รูปแบบของ PrimeNG: d = วันไม่มี 0 นำหน้า, M = ชื่อเดือนย่อ (ม.ค.), yy = ปี 4 หลัก */
+  protected readonly format = BTFP_DATE_FORMAT;
   readonly minDate = input<Date | null>();
   readonly maxDate = input<Date | null>();
   readonly inputId = input<string>();

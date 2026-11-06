@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, inject, input, numberAttribute, signal } from '@angular/core';
-import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ProgressBar } from 'primeng/progressbar';
 import { ProgressSpinner } from 'primeng/progressspinner';
 
@@ -15,7 +15,12 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
  * 2. วงกลมหมุนกลางจอบนชั้นทับโปร่ง ขึ้นเมื่อรอเกิน spinnerDelay (ค่าเริ่มต้น 800 ms) ใช้กรณีเน็ตช้า
  *
  * ใช้ p-progressbar และ p-progressspinner ของ PrimeNG สีตั้งไว้ใน btfp-preset.ts
- * PrimeNG ไม่มีตัวที่รู้ว่ากำลังเปลี่ยนเมนู component นี้จึงฟัง event ของ Router แล้วแสดงหรือซ่อนให้
+ *
+ * ตัวจับว่ากำลังโหลดคือ ngx-ui-loader (ตั้งค่าใน app.config.ts ด้วย btfpLoaderProviders)
+ * - เปลี่ยนเมนู (NgxUiLoaderRouterModule) = foreground: แถบด้านบน แล้วตามด้วยวงกลมหมุนถ้ารอนาน
+ * - เรียก API ผ่าน HttpClient (NgxUiLoaderHttpModule) = background: แถบด้านบนอย่างเดียว ไม่บังหน้าจอ
+ * - หยุดหรือเริ่มเองได้ผ่าน NgxUiLoaderService เช่น loader.start('save') และ loader.stop('save')
+ * ไม่ได้ใช้หน้าตาของ ngx-ui-loader (<ngx-ui-loader>) เพราะต้องการหน้าตาตามธีมของระบบ
  *
  * @example
  * <btfp-route-progress />
@@ -212,29 +217,45 @@ export class BtfpRouteProgress {
 
   protected readonly showBar = signal(false);
   protected readonly showSpinner = signal(false);
-  private timers: ReturnType<typeof setTimeout>[] = [];
+  private fgTimers: ReturnType<typeof setTimeout>[] = [];
+  private bgTimer?: ReturnType<typeof setTimeout>;
+  private foreground = false;
+  private background = false;
 
   constructor() {
-    const router = inject(Router, { optional: true });
-    const sub = router?.events.subscribe((e) => {
-      if (e instanceof NavigationStart) {
-        this.clear();
-        this.timers.push(setTimeout(() => this.showBar.set(true), this.barDelay()));
-        this.timers.push(setTimeout(() => this.showSpinner.set(true), this.spinnerDelay()));
-      } else if (e instanceof NavigationEnd || e instanceof NavigationCancel || e instanceof NavigationError) {
-        this.clear();
-        this.showBar.set(false);
+    const loader = inject(NgxUiLoaderService, { optional: true });
+    if (!loader) return;
+    const master = loader.getDefaultConfig().masterLoaderId ?? 'master';
+    // ผูก loader หลักแทน <ngx-ui-loader> (เราแสดงหน้าตาเอง)
+    if (!loader.getLoader(master)?.isBound) loader.bindLoaderData(master);
+
+    const fg = loader.showForeground$.subscribe(({ loaderId, isShow }) => {
+      if (loaderId !== master) return;
+      this.foreground = isShow;
+      this.fgTimers.forEach(clearTimeout);
+      this.fgTimers = [];
+      if (isShow) {
+        this.fgTimers.push(setTimeout(() => this.showBar.set(true), this.barDelay()));
+        this.fgTimers.push(setTimeout(() => this.showSpinner.set(true), this.spinnerDelay()));
+      } else {
         this.showSpinner.set(false);
+        if (!this.background) this.showBar.set(false);
       }
     });
-    inject(DestroyRef).onDestroy(() => {
-      sub?.unsubscribe();
-      this.clear();
+    const bg = loader.showBackground$.subscribe(({ loaderId, isShow }) => {
+      if (loaderId !== master) return;
+      this.background = isShow;
+      clearTimeout(this.bgTimer);
+      if (isShow) this.bgTimer = setTimeout(() => this.showBar.set(true), this.barDelay());
+      else if (!this.foreground) this.showBar.set(false);
     });
-  }
 
-  private clear(): void {
-    this.timers.forEach(clearTimeout);
-    this.timers = [];
+    inject(DestroyRef).onDestroy(() => {
+      fg.unsubscribe();
+      bg.unsubscribe();
+      this.fgTimers.forEach(clearTimeout);
+      clearTimeout(this.bgTimer);
+      loader.destroyLoaderData(master);
+    });
   }
 }
