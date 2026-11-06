@@ -39,6 +39,8 @@ import { BtfpDrawer } from '../../shared/ui';
     layout: 'fullscreen',
   },
 };
+// Drawer มีชั้นทับเต็มจอ ในหน้า Docs ต้องแสดงในกรอบแยก (iframe) ไม่งั้นชั้นทับจะคลุมทั้งหน้า Docs
+meta.parameters = { ...meta.parameters, docs: { ...meta.parameters!['docs'], story: { inline: false, height: '520px' } } };
 export default meta;
 
 export const Open: StoryObj = {
