@@ -90,24 +90,29 @@ src/
 | `btfp-kpi-card` | เขียนเอง (PrimeNG ไม่มี) | Domain/KPI Stat Card |
 | `btfp-empty-state` | เขียนเอง (PrimeNG ไม่มี) | Empty State |
 | `btfp-export-button` | `p-button` + `p-menu` | Actions/Export Menu Button |
-| `btfp-datepicker` | `p-datepicker` + แสดงปี พ.ศ. | Forms/DatePicker |
-| `btfp-drawer` | `p-drawer` ที่เปิดด้วย attribute `open` | Drawer |
 | `btfp-hero-banner` | เขียนเอง (`p-carousel` ต้องใช้ binding) | Domain/Hero Banner |
+
+**directive ที่เติมให้ PrimeNG** (ใช้ tag ของ PrimeNG ตรง ๆ แล้วใส่ attribute เพิ่ม)
+
+| Directive | ใช้กับ | เพิ่มอะไร | Figma |
+| --- | --- | --- | --- |
+| `btfpDatepicker` | `<p-datepicker>` | แสดงปี พ.ศ. รูปแบบ 1 ม.ค. 2569 ไอคอนในช่อง ปุ่มวันนี้/ล้าง | Forms/DatePicker |
+| `btfpDrawer` | `<p-drawer>` | กว้าง 480px ไม่ปิดเอง เปิดค้างด้วย attribute `open` (หน้าหุ่นจำลอง) | Drawer |
 
 **หลักการเลือก**
 
 1. PrimeNG มีและหน้าตาปรับผ่าน preset ได้ ใช้ PrimeNG ตรง ๆ (เช่น `p-select`, `p-multiselect`, `p-drawer`, `p-tabs`, `p-paginator`)
-2. PrimeNG มีแต่ระบบมีกฎเฉพาะ ห่อเป็น `btfp-*` (เช่น row actions ต้องเรียง ดู แก้ไข ลบ และลบต้องยืนยัน)
+2. PrimeNG มีแต่เราเพิ่มความสามารถ ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive `btfp*` (เช่น `<p-datepicker btfpDatepicker>`) ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG ถ้าประกอบจากหลายชิ้นและมีกฎเฉพาะ สร้างเป็น `btfp-*` (เช่น row actions ต้องเรียง ดู แก้ไข ลบ และลบต้องยืนยัน)
 3. PrimeNG ไม่มี เขียนเองเป็น `btfp-*` ตั้งชื่อ input แบบ PrimeNG (`severity`, `size`, `label`)
 
 ### วันที่แบบ พ.ศ.
 
-ใช้ `<btfp-datepicker>` แทน `p-datepicker` ทุกที่
+ใช้ `<p-datepicker btfpDatepicker appendTo="body">` ทุกที่ (import `DatePicker` จาก `primeng/datepicker` และ `BtfpDatepicker` จาก `shared/ui`)
 
 - ผู้ใช้เห็นวันที่แบบราชการ (1 ม.ค. 2569) พิมพ์เองได้ทั้ง 1 ม.ค. 2569 และ 1/1/2569 หัวปฏิทินและตารางเลือกปีเป็น พ.ศ.
 - ค่าใน `ngModel` / `FormControl` เป็น `Date` ปกติ (ค.ศ.) ส่ง API ได้เลยไม่ต้องแปลง
 - ทดสอบกับ PrimeNG 21.1 แล้ว: เลือกวัน, พิมพ์วันที่, 29 ก.พ. 2567, เลือกปี
-- ทำงานโดยแทนที่ method ภายในของ DatePicker **ถ้าอัปเกรด PrimeNG ให้เปิด Storybook หน้า "Datepicker (พ.ศ.)" ทดสอบซ้ำ**
+- ทำงานโดยแทนที่ method ภายในของ DatePicker **ถ้าอัปเกรด PrimeNG ให้เปิด Storybook หน้า "PrimeNG (ธีม กทปส.)/Forms/DatePicker" ทดสอบซ้ำ**
 
 ---
 

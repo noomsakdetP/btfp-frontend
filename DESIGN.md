@@ -113,6 +113,11 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 
 สถานะ: **ทำแล้ว** = มีในโปรเจกต์ ใช้ได้เลย / **PrimeNG** = ใช้ของ PrimeNG ตรง ๆ ปรับผ่าน preset / **ต้องทำ** = ยังไม่มีในโค้ด
 
+ของแต่ละแบบอยู่ที่ไหน
+- **PrimeNG มี ปรับแค่ธีม:** ปรับที่ preset หน้า Storybook อยู่ในหมวด PrimeNG (ธีม กทปส.) ไม่มี story แยก
+- **PrimeNG มี แต่เราเพิ่มความสามารถ:** ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive เช่น `<p-datepicker btfpDatepicker>` (ปี พ.ศ.) `<p-drawer btfpDrawer>` หน้า Storybook อยู่ในหมวด PrimeNG พร้อมตัวอย่างเฉพาะส่วนที่เพิ่ม ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG
+- **PrimeNG ไม่มี:** สร้าง `btfp-*` อยู่ในหมวด Components ของ Storybook
+
 ### 3.1 พื้นฐาน
 
 | Figma | ในโค้ด | สถานะ | หมายเหตุ |
@@ -125,7 +130,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Forms/Select | `p-select` | PrimeNG | |
 | Forms/MultiSelect | `p-multiselect` | PrimeNG | `display="chip"` |
 | Forms/Autocomplete | `p-autocomplete` | PrimeNG | |
-| Forms/DatePicker | `btfp-datepicker` | ทำแล้ว | แสดงแบบ 1 ม.ค. 2569 (พ.ศ.) เก็บ ค.ศ. Mode month / month-range ยังไม่ทำ |
+| Forms/DatePicker | `p-datepicker` + `btfpDatepicker` | ทำแล้ว | แสดงแบบ 1 ม.ค. 2569 (พ.ศ.) เก็บ ค.ศ. Mode month / month-range ยังไม่ทำ |
 | Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง |
 | Forms/OtpInput | `p-inputotp` | PrimeNG | |
 | Forms/SearchField | `p-iconfield` + `p-inputicon` + `pInputText` | PrimeNG | |
@@ -176,7 +181,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Public/Accordion Item | `<details>` ในหน้า | ทำแล้ว | หน้าหุ่นจำลองใช้ HTML ล้วน ต่อ API แล้วใช้ `p-accordion` ได้ |
 | Public/CTA Banner, Footer, Cookie Consent | ในหน้าแรก, `btfp-public-footer`, `btfp-public-layout` | ทำแล้ว | |
 | Public/Objective Card, Announcement Bar, Utility Bar | | ต้องทำ | |
-| Drawer (ใน Figma วาดในหน้า B-01F) | `btfp-drawer` | ทำแล้ว | ห่อ `p-drawer` ให้เปิดด้วย attribute ได้ |
+| Drawer (ใน Figma วาดในหน้า B-01F) | `p-drawer` + `btfpDrawer` | ทำแล้ว | ตั้งค่าตามระบบ เปิดค้างด้วย attribute `open` ได้ |
 
 ---
 

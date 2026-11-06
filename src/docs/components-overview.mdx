@@ -4,7 +4,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Components (btfp-*)
 
-<p className="doc-lead">component กลางที่ทีมสร้างเอง อยู่ใน <code>src/app/shared/ui/</code> และ import จาก <code>index.ts</code> ที่เดียว</p>
+<p className="doc-lead">component กลางที่ทีมสร้างเอง (ของที่ PrimeNG ไม่มี) อยู่ใน <code>src/app/shared/ui/</code> และ import จาก <code>index.ts</code> ที่เดียว ของที่ PrimeNG มีอยู่แล้วดูหมวด PrimeNG (ธีม กทปส.)</p>
 
 <div className="doc-section">
   <h2 className="doc-section-title">สร้างเองเมื่อไร</h2>
@@ -18,13 +18,13 @@ import { Meta } from '@storybook/addon-docs/blocks';
   </div>
   <div className="doc-card">
     <span className="doc-card-label">กรณีที่ 2</span>
-    <span className="doc-card-title">PrimeNG มี แต่ระบบมีกฎเฉพาะ</span>
-    <span className="doc-card-text">เช่น ปุ่มท้ายแถวต้องเรียง ดู แก้ไข ลบ และลบต้องยืนยัน, วันที่ต้องแสดง พ.ศ.</span>
+    <span className="doc-card-title">ประกอบจากหลายชิ้นและมีกฎเฉพาะ</span>
+    <span className="doc-card-text">เช่น ปุ่มท้ายแถวต้องเรียง ดู แก้ไข ลบ และลบต้องยืนยัน ถ้าเป็นชิ้นเดียวของ PrimeNG ที่แค่เพิ่มความสามารถ (เช่น DatePicker แสดง พ.ศ., Drawer) ให้ใช้ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive และอยู่ในหน้า PrimeNG</span>
   </div>
   <div className="doc-card">
     <span className="doc-card-label">กรณีที่ 3</span>
     <span className="doc-card-title">ต้องใช้ในหน้าหุ่นจำลอง</span>
-    <span className="doc-card-text">component ของ PrimeNG ที่ต้องใช้ binding ห่อให้รับ attribute ธรรมดาได้ เช่น Drawer, Hero Banner</span>
+    <span className="doc-card-text">component ของ PrimeNG ที่ต้องส่งข้อมูลผ่าน binding และ directive ช่วยไม่ได้ เช่น Hero Banner (p-carousel)</span>
   </div>
 </div>
 
@@ -42,12 +42,6 @@ import { Meta } from '@storybook/addon-docs/blocks';
     </div>
   </details>
   <details>
-    <summary>Forms <span className="doc-count">1</span></summary>
-    <div className="doc-accordion-body">
-      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-datepicker--docs" target="_top">Datepicker (พ.ศ.)</a></span><span className="doc-row-value"><code>btfp-datepicker</code><small>Figma: Forms/DatePicker แสดงปี พ.ศ. แต่เก็บค่าเป็น ค.ศ.</small></span></div>
-    </div>
-  </details>
-  <details>
     <summary>Data Display <span className="doc-count">3</span></summary>
     <div className="doc-accordion-body">
       <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-data-display-status-tag--docs" target="_top">Status Tag</a></span><span className="doc-row-value"><code>btfp-status-tag</code><small>Figma: Domain/Status Badge ครบ 14 สถานะ ใส่ status อย่างเดียว</small></span></div>
@@ -60,12 +54,6 @@ import { Meta } from '@storybook/addon-docs/blocks';
     <div className="doc-accordion-body">
       <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-feedback-empty-state--docs" target="_top">Empty State</a></span><span className="doc-row-value"><code>btfp-empty-state</code><small>4 แบบ: ยังไม่มีข้อมูล, ค้นหาไม่พบ, ไม่มีไฟล์, โหลดไม่สำเร็จ</small></span></div>
       <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-feedback-route-progress--docs" target="_top">Route Progress</a></span><span className="doc-row-value"><code>btfp-route-progress</code><small>Figma: Feedback/Progress Bar, Loading Spinner แถบโหลดและวงกลมหมุนตอนเปลี่ยนเมนู ใส่ไว้ใน app.ts แล้ว</small></span></div>
-    </div>
-  </details>
-  <details>
-    <summary>Overlay <span className="doc-count">1</span></summary>
-    <div className="doc-accordion-body">
-      <div className="doc-row"><span className="doc-row-name"><a href="./?path=/docs/components-overlay-drawer--docs" target="_top">Drawer</a></span><span className="doc-row-value"><code>btfp-drawer</code><small>ห่อ p-drawer ให้เปิดด้วย attribute open ได้</small></span></div>
     </div>
   </details>
   <details>

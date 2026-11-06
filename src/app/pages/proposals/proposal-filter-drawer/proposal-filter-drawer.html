@@ -1,12 +1,13 @@
 <!--
   B-01F ตัวกรองเพิ่มเติม (Drawer)  Figma: 479:132339
   หุ่นจำลอง: แสดงเมื่อเข้า /proposals/filters ปิดด้วยลิงก์กลับ /proposals (ไม่มี logic)
-  - ใช้ btfp-drawer (ห่อ p-drawer) ใส่ attribute open เพื่อเปิดค้างไว้ ปิดด้วยลิงก์ของเราเอง
+  - ใช้ p-drawer ของ PrimeNG + btfpDrawer (ตั้งค่าตามระบบ) ใส่ attribute open เพื่อเปิดค้างไว้ ปิดด้วยลิงก์ของเราเอง
   - จอเล็กกว่า sm (640px) Drawer กว้างเต็มจอ
   ตอนต่อ API: ใช้ p-drawer [(visible)] ในหน้า B-01 ได้เลย
 -->
-<btfp-drawer open>
-    <div btfpDrawerHeader class="flex w-full items-start gap-3">
+<p-drawer btfpDrawer open position="right">
+  <ng-template #header>
+    <div class="flex w-full items-start gap-3">
       <div class="filter-title min-w-0 flex-1">
         <h2>ตัวกรองเพิ่มเติม</h2>
         <p>เลือกได้หลายเงื่อนไข ระบบจะแสดงข้อเสนอที่ตรงทุกเงื่อนไข</p>
@@ -15,6 +16,7 @@
         <btfp-icon name="x" size="20" />
       </a>
     </div>
+  </ng-template>
 
   <div class="flex flex-col gap-5">
     <fieldset class="filter-group flex flex-col gap-2.5">
@@ -74,11 +76,11 @@
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div class="btfp-field">
           <label for="d-date-from">วันที่ยื่น ตั้งแต่</label>
-          <btfp-datepicker inputId="d-date-from" />
+          <p-datepicker btfpDatepicker appendTo="body" inputId="d-date-from" />
         </div>
         <div class="btfp-field">
           <label for="d-date-to">ถึง</label>
-          <btfp-datepicker inputId="d-date-to" />
+          <p-datepicker btfpDatepicker appendTo="body" inputId="d-date-to" />
         </div>
       </div>
     </fieldset>
@@ -96,7 +98,8 @@
   </div>
 
     <!-- จอเล็ก: ล้างทั้งหมดอยู่บน ปุ่มยกเลิกกับใช้ตัวกรองแบ่งครึ่งด้านล่าง  จอ sm ขึ้นไป: เรียงแถวเดียว -->
-    <div btfpDrawerFooter class="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+  <ng-template #footer>
+    <div class="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
       <p-button label="ล้างทั้งหมด" text styleClass="w-full sm:w-auto" />
       <span class="hidden flex-1 sm:block"></span>
       <div class="grid grid-cols-2 gap-3 sm:flex">
@@ -104,4 +107,5 @@
         <p-button label="ใช้ตัวกรอง (3)" routerLink="/proposals" styleClass="w-full whitespace-nowrap" />
       </div>
     </div>
-</btfp-drawer>
+  </ng-template>
+</p-drawer>

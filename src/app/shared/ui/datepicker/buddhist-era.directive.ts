@@ -24,9 +24,9 @@ const NUMERIC_INPUT = /^\s*\d{1,2}\/\d{1,2}\/\d{4}\s*$/;
  * ข้อจำกัดที่ทดสอบแล้วกับ PrimeNG 21.1
  * - ใช้กับ dateFormat ที่มีปี 4 หลัก (yy) เท่านั้น เช่น d M yy (ค่าเริ่มต้นของระบบ) หรือ dd/mm/yy
  * - directive นี้แทนที่ method ภายในของ DatePicker (formatDate, parseDate, getYear, yearPickerValues, onYearSelect)
- *   ถ้าอัปเกรด PrimeNG ต้องเปิด Storybook หน้า "Datepicker (พ.ศ.)" ทดสอบซ้ำทุกครั้ง
+ *   ถ้าอัปเกรด PrimeNG ต้องเปิด Storybook หน้า "PrimeNG (ธีม กทปส.)/Forms/DatePicker" ทดสอบซ้ำทุกครั้ง
  *
- * ใช้ผ่าน <btfp-datepicker> ดีกว่าใส่ directive เอง
+ * ปกติใช้ผ่าน btfpDatepicker (รวม directive นี้ไว้แล้ว) ไม่ต้องใส่เอง
  */
 @Directive({
   selector: 'p-datepicker[btfpBuddhistEra], p-datePicker[btfpBuddhistEra]',

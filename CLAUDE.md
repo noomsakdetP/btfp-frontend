@@ -44,7 +44,7 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
      (ใช้ได้เฉพาะ input ที่ PrimeNG ใส่ booleanAttribute/numberAttribute หรือเป็น string ถ้า build error ว่า string ไม่ตรง type ให้หาทางอื่น)
    - ค่าที่ "เลือกไว้แล้ว" ใน select ใช้ `placeholder="2569" styleClass="btfp-mock-value"`
    - checkbox ที่ติ๊กไว้ใช้ `<input type="checkbox" class="btfp-checkbox" checked>` (หัวตารางใช้ class `is-indeterminate`)
-   - สถานะเปิด เช่น Drawer ทำเป็น route ลูกแล้วเปิดด้วย `routerLink` (ดู `/proposals/filters`) ใช้ `<btfp-drawer open>`
+   - สถานะเปิด เช่น Drawer ทำเป็น route ลูกแล้วเปิดด้วย `routerLink` (ดู `/proposals/filters`) ใช้ `<p-drawer btfpDrawer open position="right">`
    - logic ภายใน component กลาง `btfp-*` มีได้ เพราะไม่ใช่ไฟล์ของหน้า
    - **Responsive ใช้ class ของ Tailwind** ในไฟล์ HTML (sm 640, md 768, lg 1024, xl 1280, wide 1440, 2xl 1536)
      ห้ามใช้ breakpoint แบบ `min-[1440px]:` เพราะ Tailwind เรียงลำดับผิด ถ้าต้องการขนาดใหม่ให้เพิ่มใน `@theme` ของ `src/tailwind.css`
@@ -53,11 +53,14 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
    - **Responsive ต้องไม่ทำให้หน้าตาต่างจาก Figma บนจอเดสก์ท็อป** กลุ่มที่ Figma วางเป็นแถวเดียว (เช่น การ์ด KPI)
      ให้คงแถวเดียวแล้วเลื่อนซ้ายขวาเมื่อจอแคบ ห้ามตัดลงบรรทัดใหม่ ถ้าจำเป็นต้องจัดใหม่ให้ถามผู้ใช้ก่อน
 2. **ใช้ PrimeNG ก่อน** ปรับหน้าตาที่ `src/app/theme/btfp-preset.ts` ไม่เขียน CSS ทับ PrimeNG ถ้าไม่จำเป็น
-3. ถ้า PrimeNG ไม่มี หรือมีกฎเฉพาะ ให้สร้าง `btfp-*` ใน `src/app/shared/ui/` พร้อม `.stories.ts` (ใส่ `tags: ['autodocs']` และ title `Components/<หมวดตาม Figma>/<ชื่อ>`) และ export ใน `index.ts`
-   ปรับธีม PrimeNG แล้วให้อัปเดตหน้า Storybook ใน `src/docs/primeng/` (หนึ่งไฟล์ต่อ component มีตาราง Figma กับโค้ด)
+3. **ของแต่ละแบบอยู่ที่ไหน** (โค้ดและ Storybook)
+   - **PrimeNG มี ปรับแค่ธีม:** ปรับที่ preset แล้วอัปเดตหน้าใน `src/docs/primeng/` (หนึ่งไฟล์ต่อ component มีตาราง Figma กับโค้ด) ไม่มี story แยก
+   - **PrimeNG มี แต่เราเพิ่มความสามารถ:** ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive `btfp*` ใน `src/app/shared/ui/` (เช่น `<p-datepicker btfpDatepicker>`, `<p-drawer btfpDrawer>`) ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG หน้า Storybook อยู่ใน `src/docs/primeng/` พร้อมตัวอย่างเฉพาะส่วนที่เราเพิ่ม
+   - **PrimeNG ไม่มี:** สร้าง `btfp-*` ใน `src/app/shared/ui/` พร้อม `.stories.ts` (ใส่ `tags: ['autodocs']` และ title `Components/<หมวดตาม Figma>/<ชื่อ>`)
+   ทุกตัว export ใน `index.ts`
 4. **สี ระยะ มุมโค้ง** ใช้ CSS variable `--btfp-*` จาก `src/styles/_tokens.scss` ห้ามใส่รหัสสีตรง
 5. **ไอคอน** `<btfp-icon name="eye" size="16" />` ไอคอนใหม่ต้องเพิ่มใน `src/app/theme/icons.ts` (import จาก `lucide`)
-6. **วันที่** ใช้ `<btfp-datepicker>` เสมอ (แสดงแบบ 1 ม.ค. 2569 ปี พ.ศ. เก็บ ค.ศ.) ข้อความวันที่ในหน้าใช้รูปแบบเดียวกัน ช่วงวันที่เขียน 1 ก.ย. 2569 - 30 ก.ย. 2569
+6. **วันที่** ใช้ `<p-datepicker btfpDatepicker appendTo="body">` เสมอ (แสดงแบบ 1 ม.ค. 2569 ปี พ.ศ. เก็บ ค.ศ.) ข้อความวันที่ในหน้าใช้รูปแบบเดียวกัน ช่วงวันที่เขียน 1 ก.ย. 2569 - 30 ก.ย. 2569
    **สถานะ** ใช้ `<btfp-status-tag status="review" />` ห้ามเลือกสีเอง (ดู 14 สถานะใน DESIGN.md ข้อ 4)
    **ตัวอักษร** ใช้ class `.btfp-text-h2` `.btfp-text-body-s` ฯลฯ ตาม Text Style ใน Figma
    **ช่องกรอก** ครอบด้วย `.btfp-field` + `.btfp-required` `.btfp-field__helper` `.btfp-field__error` (มีลิงก์ขวาของป้ายชื่อ เช่น ลืมรหัสผ่าน ครอบด้วย `.btfp-field__label-row`)
@@ -82,13 +85,14 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
 
 ## สิ่งที่ต้องระวัง
 
-- `btfp-datepicker` แทนที่ method ภายในของ PrimeNG DatePicker ถ้าอัปเกรด PrimeNG ต้องทดสอบหน้า Storybook "Datepicker (พ.ศ.)" ซ้ำ
+- `btfpDatepicker` แทนที่ method ภายในของ PrimeNG DatePicker ถ้าอัปเกรด PrimeNG ต้องทดสอบหน้า Storybook "PrimeNG (ธีม กทปส.)/Forms/DatePicker" ซ้ำ
   ไม่ใช้แพ็กเกจ `primeng-buddhist-year-datepicker` เพราะเป็นสำเนา DatePicker ของ PrimeNG 21.0.6 ใช้ selector `p-datepicker` ซ้ำกับของ PrimeNG และไม่ได้รับการแก้บั๊กของ PrimeNG รุ่นใหม่
+- directive ที่เติมให้ PrimeNG (`btfpDatepicker`, `btfpDrawer`) ตั้งค่าได้เฉพาะ input แบบเดิมของ PrimeNG input ที่เป็น signal (เช่น `appendTo`, `position`) ต้องใส่เป็น attribute ในหน้าเอง
 - การโหลดหน้าและเรียก API ใช้ ngx-ui-loader เป็นตัวจับ (`btfpLoaderProviders()` ใน `app.config.ts`) แสดงผลผ่าน `btfp-route-progress` เท่านั้น ห้ามใส่ `<ngx-ui-loader>` ในหน้า
 - อย่าใช้ `@lucide/angular` (ไฟล์ใหญ่ 11MB ทำ Storybook build แรมเกิน) ใช้ `lucide` ผ่าน `btfp-icon`
 - ไอคอนใน Figma (หน้า Design System, ชื่อ `icon/<หมวด>/<ชื่อ>`) มาจาก Lucide ทั้ง 118 ตัว ใช้ชื่อหลัง `/` สุดท้ายได้เลย
   ยกเว้น 6 ตัวที่ Lucide v1 เปลี่ยนชื่อ: `trash-2` → `trash`, `filter` → `funnel`, `circle-help` → `circle-question-mark`,
   `building-2` → `building-complex`, `history` → `rotate-ccw-clock`, `bold` → `letter-b`
 - ความหนาเส้นไอคอนตาม Figma คือ 1.5 (16px ลงมา 1.25) `btfp-icon` ตั้งให้อัตโนมัติ ไม่ต้องใส่ `strokeWidth`
-- `p-select`, `p-multiselect` ใน Drawer ให้ใส่ `appendTo="body"` ไม่งั้น overlay จะโดนตัด
+- `p-select`, `p-multiselect`, `p-datepicker` ใน Drawer ให้ใส่ `appendTo="body"` ไม่งั้น overlay จะโดนตัด
 - ลำดับ CSS layer: theme, base, primeng, btfp, components, utilities (ประกาศใน `src/tailwind.css` และ `app.config.ts` ต้องตรงกัน)

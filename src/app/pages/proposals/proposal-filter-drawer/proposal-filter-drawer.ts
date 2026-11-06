@@ -8,6 +8,8 @@ import { InputGroupAddon } from 'primeng/inputgroupaddon';
 import { InputText } from 'primeng/inputtext';
 import { MultiSelect } from 'primeng/multiselect';
 import { Select } from 'primeng/select';
+import { DatePicker } from 'primeng/datepicker';
+import { Drawer } from 'primeng/drawer';
 import { BtfpDatepicker, BtfpDrawer, BtfpIcon } from '../../../shared/ui';
 
 /**
@@ -26,6 +28,8 @@ import { BtfpDatepicker, BtfpDrawer, BtfpIcon } from '../../../shared/ui';
     InputText,
     MultiSelect,
     Select,
+    DatePicker,
+    Drawer,
     BtfpDatepicker,
     BtfpDrawer,
     BtfpIcon,

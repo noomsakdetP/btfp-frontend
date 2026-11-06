@@ -1,49 +1,46 @@
-import { ChangeDetectionStrategy, Component, booleanAttribute, input } from '@angular/core';
+import { Directive, OnInit, booleanAttribute, inject, input } from '@angular/core';
 import { Drawer } from 'primeng/drawer';
 
 /**
- * btfp-drawer : แผงเลื่อนจากขอบจอ สร้างบน p-drawer ของ PrimeNG
+ * btfpDrawer : ตั้งค่า p-drawer ของ PrimeNG ตามกฎของระบบ
  *
- * ทำไมต้องห่อ: p-drawer รับ visible เป็น attribute ธรรมดาไม่ได้ (ต้องใช้ binding)
- * แต่หน้าแบบหุ่นจำลองต้องไม่มี binding จึงห่อให้รับ attribute "open" แทน
+ * ใช้ p-drawer ของ PrimeNG ตรง ๆ แล้วใส่ attribute btfpDrawer เพิ่ม
+ * - กว้าง 480px บนจอ sm ขึ้นไป และเต็มจอบนมือถือ
+ * - มีชั้นทับ ล็อกการเลื่อนหน้า ไม่ปิดเองเมื่อกดนอกแผงหรือกด Esc (ใส่ปุ่ม/ลิงก์ปิดเองในหัว Drawer)
+ * - attribute open: เปิดค้างไว้ สำหรับหน้าหุ่นจำลองที่ห้ามมี binding
+ *   (visible ของ PrimeNG รับ attribute ธรรมดาไม่ได้) ตอนต่อ API ใช้ [(visible)] ของ PrimeNG แทน
  *
- * ช่องใส่เนื้อหา
- * - [btfpDrawerHeader]  หัว Drawer (ใส่ปุ่ม/ลิงก์ปิดเอง เพราะปิดการปิดอัตโนมัติไว้)
- * - เนื้อหาหลัก         ใส่ตรง ๆ
- * - [btfpDrawerFooter]  แถบปุ่มด้านล่าง
- *
- * กว้าง 480px บนจอ sm ขึ้นไป และเต็มจอบนมือถือ
+ * หัวและแถบปุ่มด้านล่างใช้ ng-template ของ PrimeNG (#header, #footer)
  *
  * @example
- * <btfp-drawer open>
- *   <div btfpDrawerHeader>...</div>
+ * <p-drawer btfpDrawer open position="right">
+ *   <ng-template #header>...</ng-template>
  *   ...
- *   <div btfpDrawerFooter>...</div>
- * </btfp-drawer>
+ *   <ng-template #footer>...</ng-template>
+ * </p-drawer>
  */
-@Component({
-  selector: 'btfp-drawer',
-  imports: [Drawer],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <p-drawer
-      [visible]="open()"
-      [position]="position()"
-      [modal]="true"
-      [blockScroll]="true"
-      [closable]="false"
-      [dismissible]="false"
-      [closeOnEscape]="false"
-      styleClass="w-full sm:w-[480px]"
-    >
-      <ng-template #header><ng-content select="[btfpDrawerHeader]" /></ng-template>
-      <ng-content />
-      <ng-template #footer><ng-content select="[btfpDrawerFooter]" /></ng-template>
-    </p-drawer>
-  `,
+@Directive({
+  selector: 'p-drawer[btfpDrawer]',
 })
-export class BtfpDrawer {
-  /** ใส่ attribute open เพื่อแสดง Drawer */
+export class BtfpDrawer implements OnInit {
+  /** ใส่ attribute open เพื่อเปิด Drawer ค้างไว้ (หน้าหุ่นจำลอง) */
   readonly open = input(false, { transform: booleanAttribute });
-  readonly position = input<'left' | 'right' | 'top' | 'bottom'>('right');
+
+  // property เหล่านี้ของ PrimeNG 21 เป็น @Input แบบเดิม ตั้งค่าเริ่มต้นได้ และ attribute ในหน้าจะทับทีหลัง
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private readonly drawer = inject(Drawer) as any;
+
+  constructor() {
+    const d = this.drawer;
+    d.modal = true;
+    d.blockScroll = true;
+    d.closable = false;
+    d.dismissible = false;
+    d.closeOnEscape = false;
+    d.styleClass = 'w-full sm:w-[480px]';
+  }
+
+  ngOnInit(): void {
+    if (this.open()) this.drawer.visible = true;
+  }
 }
