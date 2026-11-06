@@ -23,7 +23,7 @@ const NUMERIC_INPUT = /^\s*\d{1,2}\/\d{1,2}\/\d{4}\s*$/;
  *
  * ข้อจำกัดที่ทดสอบแล้วกับ PrimeNG 21.1
  * - ใช้กับ dateFormat ที่มีปี 4 หลัก (yy) เท่านั้น เช่น d M yy (ค่าเริ่มต้นของระบบ) หรือ dd/mm/yy
- * - directive นี้แทนที่ method ภายในของ DatePicker (formatDate, parseDate, getYear, yearPickerValues, onYearSelect)
+ * - directive นี้แทนที่ method ภายในของ DatePicker (formatDate, parseDate, getYear, yearPickerValues, isYearSelected, isYearDisabled, onYearSelect)
  *   ถ้าอัปเกรด PrimeNG ต้องเปิด Storybook หน้า "PrimeNG (ธีม กทปส.)/Forms/DatePicker" ทดสอบซ้ำทุกครั้ง
  *
  * ปกติใช้ผ่าน btfpDatepicker (รวม directive นี้ไว้แล้ว) ไม่ต้องใส่เอง
@@ -60,6 +60,13 @@ export class BtfpBuddhistEra {
 
     const yearPickerValues = dp.yearPickerValues.bind(dp);
     dp.yearPickerValues = (): number[] => yearPickerValues().map((y: number) => y + BE_OFFSET);
+
+    // ตารางเลือกปีส่งปี พ.ศ. มาตรวจ ต้องแปลงกลับเป็น ค.ศ. ไม่งั้นปีที่เลือกไม่ไฮไลต์และ minDate/maxDate ไม่ทำงาน
+    const isYearSelected = dp.isYearSelected.bind(dp);
+    dp.isYearSelected = (year: number): boolean => isYearSelected(year - BE_OFFSET);
+
+    const isYearDisabled = dp.isYearDisabled.bind(dp);
+    dp.isYearDisabled = (year: number): boolean => isYearDisabled(year - BE_OFFSET);
 
     const onYearSelect = dp.onYearSelect.bind(dp);
     dp.onYearSelect = (event: Event, year: number) => onYearSelect(event, year - BE_OFFSET);

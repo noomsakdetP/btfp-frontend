@@ -130,7 +130,7 @@ Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื�
 | Forms/Select | `p-select` | PrimeNG | |
 | Forms/MultiSelect | `p-multiselect` | PrimeNG | `display="chip"` |
 | Forms/Autocomplete | `p-autocomplete` | PrimeNG | |
-| Forms/DatePicker | `p-datepicker` + `btfpDatepicker` | ทำแล้ว | แสดงแบบ 1 ม.ค. 2569 (พ.ศ.) เก็บ ค.ศ. Mode month / month-range ยังไม่ทำ |
+| Forms/DatePicker | `p-datepicker` + `btfpDatepicker` | ทำแล้ว | แสดงแบบ 1 ม.ค. 2569 (พ.ศ.) เก็บ ค.ศ. Mode month = `view="month"` (ม.ค. 2569) month-range = `view="month" selectionMode="range"` error = `invalid` แผงปฏิทินกว้าง 280px ตาม Figma DatePicker Panel |
 | Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง |
 | Forms/OtpInput | `p-inputotp` | PrimeNG | |
 | Forms/SearchField | `p-iconfield` + `p-inputicon` + `pInputText` | PrimeNG | |

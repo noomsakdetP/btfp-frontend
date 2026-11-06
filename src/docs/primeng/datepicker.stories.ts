@@ -2,9 +2,11 @@ import { Component, computed, input, signal } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import type { Meta, StoryObj } from '@storybook/angular-vite';
+import { moduleMetadata } from '@storybook/angular-vite';
 import { DatePicker } from 'primeng/datepicker';
 import { BtfpDatepicker } from '../../app/shared/ui/datepicker/datepicker';
-import { primengParameters } from './_shared';
+import { BtfpIcon } from '../../app/shared/ui/icon/icon';
+import { error, helper, primengParameters } from './_shared';
 
 /**
  * ตัวอย่างสำหรับทดสอบส่วนที่เราเพิ่ม (ปี พ.ศ.): เห็นทั้งสิ่งที่ผู้ใช้เห็นและค่าที่เก็บจริง (ค.ศ.)
@@ -62,6 +64,7 @@ const meta: Meta<DatepickerDemo> = {
   id: 'primeng-datepicker',
   component: DatepickerDemo,
   tags: ['autodocs'],
+  decorators: [moduleMetadata({ imports: [DatePicker, BtfpDatepicker, FormsModule, BtfpIcon] })],
   parameters: primengParameters(`**Figma:** \`Forms/DatePicker\` (หน้าตาตาม PrimeNG แผงปฏิทินดูได้ที่ \`DatePicker Panel\`)  
 **PrimeNG:** [\`p-datepicker\`](https://primeng.org/datepicker) + \`btfpDatepicker\` ของเรา
 
@@ -83,8 +86,13 @@ import { BtfpDatepicker } from '../../shared/ui';
 
 | Figma | ในโค้ด |
 | --- | --- |
-| Forms/DatePicker Mode=date | \`<p-datepicker btfpDatepicker appendTo="body" inputId="start" [(ngModel)]="startDate" />\` |
-| State=disabled | \`[disabled]="true"\` |
+| Mode=date | \`<p-datepicker btfpDatepicker appendTo="body" inputId="start" [(ngModel)]="startDate" />\` แสดง 1 ม.ค. 2569 |
+| Mode=month | เพิ่ม \`view="month"\` แสดง ม.ค. 2569 (รูปแบบเปลี่ยนให้เอง) |
+| Mode=month-range | เพิ่ม \`view="month" selectionMode="range"\` แสดง มี.ค. 2569 - มิ.ย. 2569 ค่าเป็น \`[Date, Date]\` |
+| State=hover, focus | PrimeNG ทำให้เองเมื่อชี้หรือคลิก |
+| State=open | กดที่ช่อง (ดูหน้าตาแผงในตัวอย่าง "แผงปฏิทิน" ด้านล่าง) |
+| State=disabled | \`disabled\` หรือ \`[disabled]="true"\` |
+| State=error | \`invalid\` (ฟอร์มจริงใส่ \`ng-invalid ng-dirty\` ให้เอง) + \`<p class="btfp-field__error">\` แทนข้อความช่วย |
 | หน้าหุ่นจำลอง (ไม่มี binding) | \`<p-datepicker btfpDatepicker appendTo="body" inputId="start" />\` |
 
 \`appendTo="body"\` ต้องใส่เองทุกครั้ง (PrimeNG ไม่ให้ตั้งจากโค้ด) ไม่งั้นปฏิทินโดนตัดเมื่ออยู่ใน Drawer หรือกล่องที่เลื่อนได้
@@ -109,3 +117,48 @@ export const MinMax: Story = {
   args: { label: 'วันส่งมอบงวดงาน (มี.ค. 2569)', min: '2026-03-01', max: '2026-03-31', initial: '2026-03-10' },
 };
 export const Disabled: Story = { name: 'ปิดการใช้งาน', args: { initial: '2026-03-15', disabled: true } };
+
+/** ฟิลด์ตาม Figma: ป้ายชื่อ + ช่อง + ข้อความช่วยหรือข้อความผิดพลาด */
+const dpField = (id: string, label: string, attrs: string, foot = helper('รองรับปีพุทธศักราช (พ.ศ.)')) =>
+  `<div class="btfp-field" style="width:336px;max-width:100%"><label for="${id}">${label}<span class="btfp-required" aria-hidden="true">*</span></label><p-datepicker btfpDatepicker appendTo="body" inputId="${id}" ${attrs} />${foot}</div>`;
+
+export const States: Story = {
+  name: 'สถานะตาม Figma (State)',
+  parameters: { docs: { description: { story: 'Figma: Forms/DatePicker State = default, disabled, error ส่วน hover, focus, open เกิดเองเมื่อใช้งาน' } } },
+  render: () => ({
+    props: { value: new Date(2026, 8, 29) },
+    template: `<div style="display:flex;flex-wrap:wrap;gap:24px">
+      ${dpField('st-empty', 'วันที่เริ่มโครงการ (ยังไม่เลือก)', '')}
+      ${dpField('st-value', 'วันที่เริ่มโครงการ', '[(ngModel)]="value"')}
+      ${dpField('st-disabled', 'วันที่เริ่มโครงการ (ปิดใช้งาน)', '[ngModel]="value" disabled')}
+      ${dpField('st-error', 'วันที่เริ่มโครงการ (ผิดพลาด)', 'invalid', error())}
+    </div>`,
+  }),
+};
+
+export const Modes: Story = {
+  name: 'Mode ตาม Figma (วัน เดือน ช่วงเดือน)',
+  parameters: { docs: { description: { story: 'Figma: Forms/DatePicker Mode = date, month, month-range' } } },
+  render: () => ({
+    props: { day: new Date(2026, 8, 29), month: new Date(2026, 8, 1), range: [new Date(2026, 2, 1), new Date(2026, 5, 1)] },
+    template: `<div style="display:flex;flex-wrap:wrap;gap:24px;min-height:120px">
+      ${dpField('md-date', 'วันที่เริ่มโครงการ (date)', '[(ngModel)]="day"')}
+      ${dpField('md-month', 'เดือนที่รายงาน (month)', 'view="month" [(ngModel)]="month"')}
+      ${dpField('md-range', 'ช่วงเดือนที่รายงาน (month-range)', 'view="month" selectionMode="range" [(ngModel)]="range"')}
+    </div>`,
+  }),
+};
+
+export const Panels: Story = {
+  name: 'แผงปฏิทิน (State=open)',
+  parameters: { docs: { description: { story: 'Figma: DatePicker Panel View = date, month, month-range, year แสดงแบบ inline ให้เห็นหน้าตาแผงที่เปิดอยู่ กดปีที่หัวปฏิทินเพื่อไปหน้าเลือกปี' } } },
+  render: () => ({
+    props: { day: new Date(2026, 8, 29), month: new Date(2026, 8, 1), range: [new Date(2026, 2, 1), new Date(2026, 5, 1)], year: new Date(2026, 0, 1) },
+    template: `<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+      <div><p class="btfp-field__helper">View=date</p><p-datepicker btfpDatepicker [inline]="true" [(ngModel)]="day" /></div>
+      <div><p class="btfp-field__helper">View=month</p><p-datepicker btfpDatepicker [inline]="true" view="month" [(ngModel)]="month" /></div>
+      <div><p class="btfp-field__helper">View=month-range</p><p-datepicker btfpDatepicker [inline]="true" view="month" selectionMode="range" [(ngModel)]="range" /></div>
+      <div><p class="btfp-field__helper">View=year</p><p-datepicker btfpDatepicker [inline]="true" view="year" [(ngModel)]="year" /></div>
+    </div>`,
+  }),
+};
