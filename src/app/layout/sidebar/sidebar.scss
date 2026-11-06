@@ -1,10 +1,10 @@
 :host {
   display: block;
-  width: var(--btfp-sidebar-width);
+  width: var(--p-sidebar-width);
   max-width: 85vw;
   flex-shrink: 0;
-  background: var(--btfp-sidebar-bg);
-  border-right: 1px solid var(--btfp-sidebar-border);
+  background: var(--p-sidebar-bg);
+  border-right: 1px solid var(--p-sidebar-border);
 }
 
 .sidebar {
@@ -16,8 +16,8 @@
 
 .sidebar__group {
   padding: 4px 0 4px 12px;
-  font-size: var(--btfp-typography-caption-size);
-  color: var(--btfp-nav-group-label);
+  font-size: var(--p-typography-caption-size);
+  color: var(--p-nav-group-label);
 
   &--spaced {
     margin-top: 12px;
@@ -30,34 +30,34 @@
   gap: 12px;
   height: 40px;
   padding: 0 12px;
-  border-radius: var(--btfp-radius-button);
-  font-size: var(--btfp-typography-body-size);
-  color: var(--btfp-nav-item-text);
+  border-radius: var(--p-radius-button);
+  font-size: var(--p-typography-body-size);
+  color: var(--p-nav-item-text);
   text-decoration: none;
   transition: background-color 0.15s, color 0.15s;
 
   btfp-icon {
     flex-shrink: 0;
-    color: var(--btfp-nav-item-icon);
+    color: var(--p-nav-item-icon);
   }
 
   &:hover {
-    background: var(--btfp-nav-item-hover-bg);
-    color: var(--btfp-text-inverse);
+    background: var(--p-nav-item-hover-bg);
+    color: var(--p-text-inverse);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--btfp-blue-300);
+    outline: 2px solid var(--p-blue-300);
     outline-offset: -2px;
   }
 
   &.is-active {
-    background: var(--btfp-nav-item-active-bg);
-    color: var(--btfp-text-inverse);
+    background: var(--p-nav-item-active-bg);
+    color: var(--p-text-inverse);
     font-weight: 500;
 
     btfp-icon {
-      color: var(--btfp-text-inverse);
+      color: var(--p-text-inverse);
     }
   }
 }
@@ -72,9 +72,9 @@
 
 .sidebar__badge {
   padding: 0 8px;
-  border-radius: var(--btfp-radius-full);
-  background: var(--btfp-text-inverse);
-  color: var(--btfp-action-primary);
-  font-size: var(--btfp-typography-caption-size);
+  border-radius: var(--p-radius-full);
+  background: var(--p-text-inverse);
+  color: var(--p-action-primary);
+  font-size: var(--p-typography-caption-size);
   line-height: 18px;
 }

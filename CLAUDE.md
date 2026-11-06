@@ -58,7 +58,7 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
    - **PrimeNG มี แต่เราเพิ่มความสามารถ:** ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive `btfp*` ใน `src/app/shared/ui/` (เช่น `<p-datepicker btfpDatepicker>`, `<p-drawer btfpDrawer>`) ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG หน้า Storybook อยู่ใน `src/docs/primeng/` พร้อมตัวอย่างเฉพาะส่วนที่เราเพิ่ม
    - **PrimeNG ไม่มี:** สร้าง `btfp-*` ใน `src/app/shared/ui/` พร้อม `.stories.ts` (ใส่ `tags: ['autodocs']` และ title `Components/<หมวดตาม Figma>/<ชื่อ>`)
    ทุกตัว export ใน `index.ts`
-4. **สี ระยะ มุมโค้ง** ใช้ CSS variable `--btfp-*` จาก `src/styles/_tokens.scss` ห้ามใส่รหัสสีตรง
+4. **สี ระยะ มุมโค้ง** ใช้ CSS variable `--p-*` จาก `src/styles/_tokens.scss` ห้ามใส่รหัสสีตรง
 5. **ไอคอน** `<btfp-icon name="eye" size="16" />` ไอคอนใหม่ต้องเพิ่มใน `src/app/theme/icons.ts` (import จาก `lucide`)
 6. **วันที่** ใช้ `<p-datepicker btfpDatepicker appendTo="body">` เสมอ (แสดงแบบ 1 ม.ค. 2569 ปี พ.ศ. เก็บ ค.ศ.) ข้อความวันที่ในหน้าใช้รูปแบบเดียวกัน ช่วงวันที่เขียน 1 ก.ย. 2569 - 30 ก.ย. 2569
    **สถานะ** ใช้ `<btfp-status-tag status="review" />` ห้ามเลือกสีเอง (ดู 14 สถานะใน DESIGN.md ข้อ 4)

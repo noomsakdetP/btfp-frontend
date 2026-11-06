@@ -27,11 +27,11 @@ import { BtfpRouteProgress, BtfpRouteProgressDemo, BtfpSpinnerVariant } from './
       z-index: 1300;
       transform: translateX(-50%);
       padding: 6px 16px;
-      border-radius: var(--btfp-radius-full);
-      background: var(--btfp-navy-900);
-      font-size: var(--btfp-typography-body-s-medium-size);
-      font-weight: var(--btfp-typography-body-s-medium-weight);
-      color: var(--btfp-text-inverse);
+      border-radius: var(--p-radius-full);
+      background: var(--p-navy-900);
+      font-size: var(--p-typography-body-s-medium-size);
+      font-weight: var(--p-typography-body-s-medium-weight);
+      color: var(--p-text-inverse);
     }
   `,
 })
@@ -67,8 +67,8 @@ class RouteProgressCycle {
   styles: `
     .caption {
       position: fixed; left: 50%; bottom: 24px; z-index: 1300; transform: translateX(-50%);
-      padding: 6px 16px; border-radius: var(--btfp-radius-full); background: var(--btfp-navy-900);
-      font-size: var(--btfp-typography-body-s-medium-size); font-weight: var(--btfp-typography-body-s-medium-weight); color: var(--btfp-text-inverse);
+      padding: 6px 16px; border-radius: var(--p-radius-full); background: var(--p-navy-900);
+      font-size: var(--p-typography-body-s-medium-size); font-weight: var(--p-typography-body-s-medium-weight); color: var(--p-text-inverse);
     }
   `,
 })
@@ -126,7 +126,7 @@ type Story = StoryObj<BtfpRouteProgress>;
 
 /** หน้าแรกเป็นพื้นหลัง */
 const page = `
-  <div style="height:100vh;overflow:hidden;background:var(--btfp-surface-raised)">
+  <div style="height:100vh;overflow:hidden;background:var(--p-surface-raised)">
     <btfp-public-topbar />
     <btfp-landing-page />
     <btfp-public-footer />
@@ -171,10 +171,10 @@ export const Options: Story = {
   parameters: { docs: { story: { height: '560px' }, source: { code: '<btfp-route-progress variant="wave" />' } } },
   render: () => ({
     template: `
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;padding:24px;background:var(--btfp-surface-raised)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;padding:24px;background:var(--p-surface-raised)">
         ${VARIANTS.map(([v, label]) => `
           <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
-            <div style="position:relative;height:220px;overflow:hidden;transform:translateZ(0);border:1px solid var(--btfp-border-default);border-radius:var(--btfp-radius-card);background:var(--btfp-bg-subtle)">
+            <div style="position:relative;height:220px;overflow:hidden;transform:translateZ(0);border:1px solid var(--p-border-default);border-radius:var(--p-radius-card);background:var(--p-bg-subtle)">
               <div style="padding:24px"><p class="btfp-text-h4" style="margin:0">ข้อเสนอโครงการ</p><p class="btfp-text-body-s" style="margin:4px 0 0">เนื้อหาหน้าเดิม</p></div>
               <btfp-route-progress demo="spinner" variant="${v}" />
             </div>

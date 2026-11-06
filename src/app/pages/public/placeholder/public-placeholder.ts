@@ -20,7 +20,7 @@ import { BtfpEmptyState } from '../../../shared/ui';
     </div>
   `,
   styles: `
-    .box { border: 1px solid var(--btfp-border-default); border-radius: var(--btfp-radius-card); background: var(--btfp-surface-raised); }
+    .box { border: 1px solid var(--p-border-default); border-radius: var(--p-radius-card); background: var(--p-surface-raised); }
     .back { margin: 0 0 48px; text-align: center; }
   `,
 })

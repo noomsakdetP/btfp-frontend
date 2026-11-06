@@ -16,7 +16,7 @@ import { BtfpEmptyState } from '../../shared/ui';
     <p class="back"><a routerLink="/proposals">กลับไปหน้าข้อเสนอโครงการ</a></p>
   `,
   styles: `
-    :host { display: block; background: var(--btfp-surface-raised); border: 1px solid var(--btfp-border-default); border-radius: var(--btfp-radius-card); }
+    :host { display: block; background: var(--p-surface-raised); border: 1px solid var(--p-border-default); border-radius: var(--p-radius-card); }
     .back { text-align: center; margin: 0 0 48px; }
   `,
 })

@@ -43,21 +43,21 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     }
     .eyebrow {
       margin: 0 0 8px;
-      font-size: var(--btfp-typography-body-s-medium-size);
-      font-weight: var(--btfp-typography-body-s-medium-weight);
-      color: var(--btfp-action-link);
+      font-size: var(--p-typography-body-s-medium-size);
+      font-weight: var(--p-typography-body-s-medium-weight);
+      color: var(--p-action-link);
     }
     .title {
       font-size: clamp(28px, 3.2vw, 40px);
       font-weight: 700;
       line-height: 1.35;
       white-space: pre-line;
-      color: var(--btfp-text-heading);
+      color: var(--p-text-heading);
     }
     .desc {
       margin: 8px 0 0;
-      font-size: var(--btfp-typography-body-size);
-      color: var(--btfp-text-secondary);
+      font-size: var(--p-typography-body-size);
+      color: var(--p-text-secondary);
     }
     .action {
       flex-shrink: 0;
@@ -66,13 +66,13 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       display: none;
     }
     :host(.is-dark) .eyebrow {
-      color: var(--btfp-blue-200);
+      color: var(--p-blue-200);
     }
     :host(.is-dark) .title {
-      color: var(--btfp-text-inverse);
+      color: var(--p-text-inverse);
     }
     :host(.is-dark) .desc {
-      color: var(--btfp-text-on-dark);
+      color: var(--p-text-on-dark);
     }
   `,
 })

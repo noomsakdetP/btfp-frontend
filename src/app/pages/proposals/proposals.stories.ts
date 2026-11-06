@@ -9,7 +9,7 @@ import { ProposalFilterDrawer } from './proposal-filter-drawer/proposal-filter-d
 
 /** ประกอบหน้าเต็มเหมือน btfp-staff-layout: เมนูซ้าย (ซ่อนบนจอเล็ก) + แถบบน + เนื้อหา */
 const shell = (page: string) => `
-  <div class="flex min-h-screen bg-[var(--btfp-bg-subtle)]">
+  <div class="flex min-h-screen bg-[var(--p-bg-subtle)]">
     <input id="btfp-nav-toggle" type="checkbox" class="peer sr-only" aria-label="เปิดปิดเมนู" />
     <label for="btfp-nav-toggle" class="fixed inset-0 z-30 hidden bg-black/40 peer-checked:block lg:peer-checked:hidden" aria-hidden="true"></label>
     <btfp-sidebar class="fixed inset-y-0 left-0 z-40 -translate-x-full overflow-y-auto transition-transform duration-200 peer-checked:translate-x-0 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0" />

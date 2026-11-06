@@ -10,15 +10,15 @@ const meta: Meta = {
 
 | ชั้น | Figma collection | ตัวอย่างในโค้ด | ใช้เมื่อ |
 | --- | --- | --- | --- |
-| Primitive | \`primitives\` (color/blue/600) | \`--btfp-blue-600\` | ไม่ควรใช้ตรง ๆ ยกเว้นไม่มี semantic ที่ตรงความหมาย |
-| Semantic | \`semantic\` (color/action/primary) | \`--btfp-action-primary\` | ใช้เป็นหลักในหน้าจอและ component |
-| Component | \`component\` (input/border/focus) | \`--btfp-input-border-focus\` | ค่าเฉพาะ component |
+| Primitive | \`primitives\` (color/blue/600) | \`--p-blue-600\` | ไม่ควรใช้ตรง ๆ ยกเว้นไม่มี semantic ที่ตรงความหมาย |
+| Semantic | \`semantic\` (color/action/primary) | \`--p-action-primary\` | ใช้เป็นหลักในหน้าจอและ component |
+| Component | \`component\` (input/border/focus) | \`--p-input-border-focus\` | ค่าเฉพาะ component |
 
 \`\`\`scss
 .my-card {
-  background: var(--btfp-surface-raised);
-  border: 1px solid var(--btfp-border-default);
-  color: var(--btfp-text-primary);
+  background: var(--p-surface-raised);
+  border: 1px solid var(--p-border-default);
+  color: var(--p-text-primary);
 }
 \`\`\`
 

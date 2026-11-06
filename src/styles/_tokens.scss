@@ -6,278 +6,278 @@
 
 :root {
   // ---------- primitives: color (Figma: primitives/color/*  gray = cool-gray) ----------
-  --btfp-blue-50: #eaf8ff;
-  --btfp-blue-100: #d0efff;
-  --btfp-blue-200: #a8e1fa;
-  --btfp-blue-300: #73cff2;
-  --btfp-blue-400: #38b7e7;
-  --btfp-blue-500: #0095db;
-  --btfp-blue-600: #0077b6;
-  --btfp-blue-700: #005e91;
-  --btfp-blue-800: #00466e;
-  --btfp-blue-900: #052f46;
+  --p-blue-50: #eaf8ff;
+  --p-blue-100: #d0efff;
+  --p-blue-200: #a8e1fa;
+  --p-blue-300: #73cff2;
+  --p-blue-400: #38b7e7;
+  --p-blue-500: #0095db;
+  --p-blue-600: #0077b6;
+  --p-blue-700: #005e91;
+  --p-blue-800: #00466e;
+  --p-blue-900: #052f46;
 
-  --btfp-navy-50: #f0f7fa;
-  --btfp-navy-100: #ddebf2;
-  --btfp-navy-200: #b8d4e2;
-  --btfp-navy-300: #88b6cd;
-  --btfp-navy-400: #4d8cae;
-  --btfp-navy-500: #176b96;
-  --btfp-navy-600: #05547e;
-  --btfp-navy-700: #0a4263;
-  --btfp-navy-800: #0b3551;
-  --btfp-navy-900: #092a48;
+  --p-navy-50: #f0f7fa;
+  --p-navy-100: #ddebf2;
+  --p-navy-200: #b8d4e2;
+  --p-navy-300: #88b6cd;
+  --p-navy-400: #4d8cae;
+  --p-navy-500: #176b96;
+  --p-navy-600: #05547e;
+  --p-navy-700: #0a4263;
+  --p-navy-800: #0b3551;
+  --p-navy-900: #092a48;
 
-  --btfp-teal-50: #eef9f8;
-  --btfp-teal-100: #d6efed;
-  --btfp-teal-200: #abdcda;
-  --btfp-teal-300: #7ac3c1;
-  --btfp-teal-400: #50a4a4;
-  --btfp-teal-500: #308082;
-  --btfp-teal-600: #276c6e;
-  --btfp-teal-700: #21575a;
-  --btfp-teal-800: #1c4649;
-  --btfp-teal-900: #173a3c;
+  --p-teal-50: #eef9f8;
+  --p-teal-100: #d6efed;
+  --p-teal-200: #abdcda;
+  --p-teal-300: #7ac3c1;
+  --p-teal-400: #50a4a4;
+  --p-teal-500: #308082;
+  --p-teal-600: #276c6e;
+  --p-teal-700: #21575a;
+  --p-teal-800: #1c4649;
+  --p-teal-900: #173a3c;
 
-  --btfp-gray-50: #f8fafc;
-  --btfp-gray-100: #f1f5f9;
-  --btfp-gray-200: #e2e8f0;
-  --btfp-gray-300: #cbd5e1;
-  --btfp-gray-400: #94a3b8;
-  --btfp-gray-500: #64748b;
-  --btfp-gray-600: #475569;
-  --btfp-gray-700: #334155;
-  --btfp-gray-800: #1e293b;
-  --btfp-gray-900: #0f172a;
+  --p-gray-50: #f8fafc;
+  --p-gray-100: #f1f5f9;
+  --p-gray-200: #e2e8f0;
+  --p-gray-300: #cbd5e1;
+  --p-gray-400: #94a3b8;
+  --p-gray-500: #64748b;
+  --p-gray-600: #475569;
+  --p-gray-700: #334155;
+  --p-gray-800: #1e293b;
+  --p-gray-900: #0f172a;
 
-  --btfp-red-50: #fff1f2;
-  --btfp-red-100: #ffe4e6;
-  --btfp-red-200: #fecdd3;
-  --btfp-red-300: #fda4af;
-  --btfp-red-400: #fb7185;
-  --btfp-red-500: #e11d48;
-  --btfp-red-600: #be123c;
-  --btfp-red-700: #9f1239;
-  --btfp-red-800: #881337;
-  --btfp-red-900: #4c0519;
+  --p-red-50: #fff1f2;
+  --p-red-100: #ffe4e6;
+  --p-red-200: #fecdd3;
+  --p-red-300: #fda4af;
+  --p-red-400: #fb7185;
+  --p-red-500: #e11d48;
+  --p-red-600: #be123c;
+  --p-red-700: #9f1239;
+  --p-red-800: #881337;
+  --p-red-900: #4c0519;
 
-  --btfp-orange-50: #fff7ed;
-  --btfp-orange-100: #ffedd5;
-  --btfp-orange-200: #fed7aa;
-  --btfp-orange-300: #fdba74;
-  --btfp-orange-400: #fb923c;
-  --btfp-orange-500: #ea580c;
-  --btfp-orange-600: #c2410c;
-  --btfp-orange-700: #9a3412;
-  --btfp-orange-800: #7c2d12;
-  --btfp-orange-900: #431407;
+  --p-orange-50: #fff7ed;
+  --p-orange-100: #ffedd5;
+  --p-orange-200: #fed7aa;
+  --p-orange-300: #fdba74;
+  --p-orange-400: #fb923c;
+  --p-orange-500: #ea580c;
+  --p-orange-600: #c2410c;
+  --p-orange-700: #9a3412;
+  --p-orange-800: #7c2d12;
+  --p-orange-900: #431407;
 
-  --btfp-green-50: #f0fdf4;
-  --btfp-green-100: #dcfce7;
-  --btfp-green-200: #bbf7d0;
-  --btfp-green-300: #86efac;
-  --btfp-green-400: #4ade80;
-  --btfp-green-500: #16a34a;
-  --btfp-green-600: #15803d;
-  --btfp-green-700: #166534;
-  --btfp-green-800: #14532d;
-  --btfp-green-900: #052e16;
+  --p-green-50: #f0fdf4;
+  --p-green-100: #dcfce7;
+  --p-green-200: #bbf7d0;
+  --p-green-300: #86efac;
+  --p-green-400: #4ade80;
+  --p-green-500: #16a34a;
+  --p-green-600: #15803d;
+  --p-green-700: #166534;
+  --p-green-800: #14532d;
+  --p-green-900: #052e16;
 
-  --btfp-yellow-50: #fefce8;
-  --btfp-yellow-100: #fef9c3;
-  --btfp-yellow-200: #fef08a;
-  --btfp-yellow-300: #fde047;
-  --btfp-yellow-400: #facc15;
-  --btfp-yellow-500: #ca8a04;
-  --btfp-yellow-600: #a16207;
-  --btfp-yellow-700: #854d0e;
-  --btfp-yellow-800: #713f12;
-  --btfp-yellow-900: #422006;
+  --p-yellow-50: #fefce8;
+  --p-yellow-100: #fef9c3;
+  --p-yellow-200: #fef08a;
+  --p-yellow-300: #fde047;
+  --p-yellow-400: #facc15;
+  --p-yellow-500: #ca8a04;
+  --p-yellow-600: #a16207;
+  --p-yellow-700: #854d0e;
+  --p-yellow-800: #713f12;
+  --p-yellow-900: #422006;
 
-  --btfp-white: #ffffff;
-  --btfp-black: #000000;
+  --p-white: #ffffff;
+  --p-black: #000000;
 
   // ---------- semantic: color ----------
-  --btfp-bg-default: #ffffff;
-  --btfp-bg-subtle: var(--btfp-gray-50);
-  --btfp-bg-inverse: var(--btfp-navy-900);
-  --btfp-surface-raised: #ffffff;
+  --p-bg-default: #ffffff;
+  --p-bg-subtle: var(--p-gray-50);
+  --p-bg-inverse: var(--p-navy-900);
+  --p-surface-raised: #ffffff;
 
-  --btfp-text-primary: var(--btfp-gray-800);
-  --btfp-text-secondary: var(--btfp-gray-600);
-  --btfp-text-disabled: var(--btfp-gray-400);
-  --btfp-text-inverse: #ffffff;
-  --btfp-text-heading: var(--btfp-navy-900);
-  --btfp-text-on-dark: #d7e5ee; // ข้อความรองบนพื้นน้ำเงินเข้ม (Figma ใช้ค่าตรง #d7e5ee)
-  --btfp-badge-on-image: rgba(255, 255, 255, 0.92); // ป้ายที่วางทับรูป
+  --p-text-primary: var(--p-gray-800);
+  --p-text-secondary: var(--p-gray-600);
+  --p-text-disabled: var(--p-gray-400);
+  --p-text-inverse: #ffffff;
+  --p-text-heading: var(--p-navy-900);
+  --p-text-on-dark: #d7e5ee; // ข้อความรองบนพื้นน้ำเงินเข้ม (Figma ใช้ค่าตรง #d7e5ee)
+  --p-badge-on-image: rgba(255, 255, 255, 0.92); // ป้ายที่วางทับรูป
 
-  --btfp-border-default: var(--btfp-gray-200);
-  --btfp-border-strong: var(--btfp-gray-400);
+  --p-border-default: var(--p-gray-200);
+  --p-border-strong: var(--p-gray-400);
 
-  --btfp-action-primary: var(--btfp-blue-600);
-  --btfp-action-primary-hover: var(--btfp-blue-700);
-  --btfp-action-primary-pressed: var(--btfp-blue-800);
-  --btfp-action-primary-disabled: var(--btfp-gray-300);
-  --btfp-action-secondary: var(--btfp-navy-700); // ข้อความปุ่มรอง (Figma: action/secondary)
-  --btfp-action-link: var(--btfp-blue-700);
-  --btfp-focus-ring: var(--btfp-blue-600);
+  --p-action-primary: var(--p-blue-600);
+  --p-action-primary-hover: var(--p-blue-700);
+  --p-action-primary-pressed: var(--p-blue-800);
+  --p-action-primary-disabled: var(--p-gray-300);
+  --p-action-secondary: var(--p-navy-700); // ข้อความปุ่มรอง (Figma: action/secondary)
+  --p-action-link: var(--p-blue-700);
+  --p-focus-ring: var(--p-blue-600);
 
-  --btfp-success-bg: var(--btfp-green-50);
-  --btfp-success-text: var(--btfp-green-700);
-  --btfp-success-border: var(--btfp-green-200);
-  --btfp-warning-bg: var(--btfp-yellow-50);
-  --btfp-warning-text: var(--btfp-yellow-800);
-  --btfp-warning-border: var(--btfp-yellow-200);
-  --btfp-danger-bg: var(--btfp-red-50);
-  --btfp-danger-text: var(--btfp-red-700);
-  --btfp-danger-border: var(--btfp-red-200);
-  --btfp-info-bg: var(--btfp-blue-50);
-  --btfp-info-text: var(--btfp-blue-700);
-  --btfp-info-border: var(--btfp-blue-200);
+  --p-success-bg: var(--p-green-50);
+  --p-success-text: var(--p-green-700);
+  --p-success-border: var(--p-green-200);
+  --p-warning-bg: var(--p-yellow-50);
+  --p-warning-text: var(--p-yellow-800);
+  --p-warning-border: var(--p-yellow-200);
+  --p-danger-bg: var(--p-red-50);
+  --p-danger-text: var(--p-red-700);
+  --p-danger-border: var(--p-red-200);
+  --p-info-bg: var(--p-blue-50);
+  --p-info-text: var(--p-blue-700);
+  --p-info-border: var(--p-blue-200);
 
-  --btfp-icon-default: var(--btfp-gray-600);
-  --btfp-icon-subtle: var(--btfp-gray-400);
-  --btfp-icon-strong: var(--btfp-navy-900);
-  --btfp-icon-brand: var(--btfp-blue-500);
-  --btfp-icon-action: var(--btfp-blue-600);
-  --btfp-icon-disabled: var(--btfp-gray-300);
-  --btfp-icon-inverse: var(--btfp-white);
-  --btfp-icon-success: var(--btfp-green-600);
-  --btfp-icon-warning: var(--btfp-yellow-700);
-  --btfp-icon-danger: var(--btfp-red-600);
-  --btfp-icon-info: var(--btfp-blue-600);
+  --p-icon-default: var(--p-gray-600);
+  --p-icon-subtle: var(--p-gray-400);
+  --p-icon-strong: var(--p-navy-900);
+  --p-icon-brand: var(--p-blue-500);
+  --p-icon-action: var(--p-blue-600);
+  --p-icon-disabled: var(--p-gray-300);
+  --p-icon-inverse: var(--p-white);
+  --p-icon-success: var(--p-green-600);
+  --p-icon-warning: var(--p-yellow-700);
+  --p-icon-danger: var(--p-red-600);
+  --p-icon-info: var(--p-blue-600);
 
   // ---------- spacing ----------
-  --btfp-space-xs: 4px;
-  --btfp-space-sm: 8px;
-  --btfp-space-md: 16px;
-  --btfp-space-lg: 24px;
-  --btfp-space-xl: 32px;
-  --btfp-space-2xl: 48px;
-  --btfp-space-3xl: 64px;
+  --p-space-xs: 4px;
+  --p-space-sm: 8px;
+  --p-space-md: 16px;
+  --p-space-lg: 24px;
+  --p-space-xl: 32px;
+  --p-space-2xl: 48px;
+  --p-space-3xl: 64px;
 
   // ---------- radius ----------
-  --btfp-radius-input: 4px;
-  --btfp-radius-tag: 4px;
-  --btfp-radius-button: 8px;
-  --btfp-radius-card: 12px;
-  --btfp-radius-modal: 12px;
-  --btfp-radius-inner: 8px;
-  --btfp-radius-card-lg: 16px;
-  --btfp-radius-full: 9999px;
+  --p-radius-input: 4px;
+  --p-radius-tag: 4px;
+  --p-radius-button: 8px;
+  --p-radius-card: 12px;
+  --p-radius-modal: 12px;
+  --p-radius-inner: 8px;
+  --p-radius-card-lg: 16px;
+  --p-radius-full: 9999px;
 
   // ---------- elevation (Figma: Elevation/01-03) ----------
-  --btfp-shadow-1: 0 1px 3px rgba(9, 42, 72, 0.08);
-  --btfp-shadow-2: 0 4px 12px -2px rgba(9, 42, 72, 0.1);
-  --btfp-shadow-3: 0 12px 28px -6px rgba(9, 42, 72, 0.14);
+  --p-shadow-1: 0 1px 3px rgba(9, 42, 72, 0.08);
+  --p-shadow-2: 0 4px 12px -2px rgba(9, 42, 72, 0.1);
+  --p-shadow-3: 0 12px 28px -6px rgba(9, 42, 72, 0.14);
 
   // ---------- size ----------
-  --btfp-control-sm: 32px;
-  --btfp-control-md: 40px;
-  --btfp-control-lg: 48px;
-  --btfp-table-row: 56px;
-  --btfp-sidebar-width: 264px;
-  --btfp-topbar-height: 64px;
+  --p-control-sm: 32px;
+  --p-control-md: 40px;
+  --p-control-lg: 48px;
+  --p-table-row: 56px;
+  --p-sidebar-width: 264px;
+  --p-topbar-height: 64px;
 
   // ---------- component (Figma: component/*) ----------
-  --btfp-input-border: var(--btfp-border-default);
-  --btfp-input-border-hover: var(--btfp-border-strong);
-  --btfp-input-border-focus: var(--btfp-focus-ring);
-  --btfp-input-border-error: var(--btfp-red-600);
-  --btfp-input-bg-disabled: var(--btfp-bg-subtle);
-  --btfp-card-bg: var(--btfp-surface-raised);
-  --btfp-card-border: var(--btfp-border-default);
-  --btfp-card-padding: var(--btfp-space-lg);
-  --btfp-button-ghost-hover-bg: var(--btfp-gray-100);
-  --btfp-sidebar-bg: var(--btfp-navy-900);
-  --btfp-sidebar-border: var(--btfp-navy-800);
-  --btfp-nav-item-text: var(--btfp-gray-300);
-  --btfp-nav-item-icon: var(--btfp-gray-400);
-  --btfp-nav-item-hover-bg: var(--btfp-navy-800);
-  --btfp-nav-item-active-bg: var(--btfp-blue-600);
-  --btfp-nav-group-label: var(--btfp-gray-400);
+  --p-input-border: var(--p-border-default);
+  --p-input-border-hover: var(--p-border-strong);
+  --p-input-border-focus: var(--p-focus-ring);
+  --p-input-border-error: var(--p-red-600);
+  --p-input-bg-disabled: var(--p-bg-subtle);
+  --p-card-bg: var(--p-surface-raised);
+  --p-card-border: var(--p-border-default);
+  --p-card-padding: var(--p-space-lg);
+  --p-button-ghost-hover-bg: var(--p-gray-100);
+  --p-sidebar-bg: var(--p-navy-900);
+  --p-sidebar-border: var(--p-navy-800);
+  --p-nav-item-text: var(--p-gray-300);
+  --p-nav-item-icon: var(--p-gray-400);
+  --p-nav-item-hover-bg: var(--p-navy-800);
+  --p-nav-item-active-bg: var(--p-blue-600);
+  --p-nav-group-label: var(--p-gray-400);
 
   // Domain/Hero Banner (Figma ใช้ค่าตรง ไม่ได้ผูก variable)
-  --btfp-hero-overlay: linear-gradient(90deg, rgba(10, 33, 82, 0.94) 0%, rgba(10, 33, 82, 0.75) 45%, rgba(10, 33, 82, 0.1) 80%, rgba(10, 33, 82, 0) 100%);
-  --btfp-hero-overlay-mobile: linear-gradient(0deg, rgba(10, 33, 82, 0.94) 0%, rgba(10, 33, 82, 0.8) 60%, rgba(10, 33, 82, 0.55) 100%);
-  --btfp-hero-control-bg: rgba(255, 255, 255, 0.85);
-  --btfp-hero-control-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  --btfp-hero-dot: var(--btfp-gray-50);
+  --p-hero-overlay: linear-gradient(90deg, rgba(10, 33, 82, 0.94) 0%, rgba(10, 33, 82, 0.75) 45%, rgba(10, 33, 82, 0.1) 80%, rgba(10, 33, 82, 0) 100%);
+  --p-hero-overlay-mobile: linear-gradient(0deg, rgba(10, 33, 82, 0.94) 0%, rgba(10, 33, 82, 0.8) 60%, rgba(10, 33, 82, 0.55) 100%);
+  --p-hero-control-bg: rgba(255, 255, 255, 0.85);
+  --p-hero-control-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --p-hero-dot: var(--p-gray-50);
 
   // Feedback/Loading: ชั้นทับระหว่างรอเปลี่ยนเมนู (btfp-route-progress)
-  --btfp-loading-overlay: rgba(0, 0, 0, 0.45); // ดำโปร่ง 45%
-  --btfp-loading-spinner: var(--btfp-blue-400); // สีหลักของวงหมุนบนพื้นเข้ม
-  --btfp-loading-spinner-soft: var(--btfp-blue-200); // สีรอง
-  --btfp-loading-text: var(--btfp-text-inverse);
+  --p-loading-overlay: rgba(0, 0, 0, 0.45); // ดำโปร่ง 45%
+  --p-loading-spinner: var(--p-blue-400); // สีหลักของวงหมุนบนพื้นเข้ม
+  --p-loading-spinner-soft: var(--p-blue-200); // สีรอง
+  --p-loading-text: var(--p-text-inverse);
 
   // หน้าเข้าสู่ระบบและลงทะเบียน (Figma: F-01 ฯลฯ ใช้ค่าตรง ไม่ได้ผูก variable)
-  --btfp-auth-bg: linear-gradient(157deg, var(--btfp-blue-800) 14%, var(--btfp-blue-600) 57%, var(--btfp-blue-500) 86%);
-  --btfp-auth-image-opacity: 0.45;
-  --btfp-auth-overlay: rgba(0, 0, 0, 0.16);
-  --btfp-auth-card-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.25);
+  --p-auth-bg: linear-gradient(157deg, var(--p-blue-800) 14%, var(--p-blue-600) 57%, var(--p-blue-500) 86%);
+  --p-auth-image-opacity: 0.45;
+  --p-auth-overlay: rgba(0, 0, 0, 0.16);
+  --p-auth-card-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.25);
 
   // Domain/Table Header Cell, Domain/Table Cell, Domain/Data Table
-  --btfp-table-header-bg: var(--btfp-gray-100); // Figma: component/table/header/bg
-  --btfp-table-header-height: 44px;
-  --btfp-table-row-2line: 64px; // เซลล์ 2 บรรทัด (Type=text-2line)
-  --btfp-table-cell-padding-x: var(--btfp-space-md);
-  --btfp-table-check-width: 56px;
-  --btfp-table-actions-padding: 0 12px 0 8px; // ให้ปุ่ม 3 ปุ่มของ btfp-row-actions พอดีคอลัมน์ 112px ตามหน้ารายการข้อเสนอ
-  --btfp-table-row-hover-bg: var(--btfp-gray-50); // Figma ไม่ได้กำหนด ใช้ในโค้ดให้รู้ว่าชี้แถวไหนอยู่
-  --btfp-table-row-selected-bg: var(--btfp-info-bg); // Figma: แถวที่เลือก color/blue/50
+  --p-table-header-bg: var(--p-gray-100); // Figma: component/table/header/bg
+  --p-table-header-height: 44px;
+  --p-table-row-2line: 64px; // เซลล์ 2 บรรทัด (Type=text-2line)
+  --p-table-cell-padding-x: var(--p-space-md);
+  --p-table-check-width: 56px;
+  --p-table-actions-padding: 0 12px 0 8px; // ให้ปุ่ม 3 ปุ่มของ btfp-row-actions พอดีคอลัมน์ 112px ตามหน้ารายการข้อเสนอ
+  --p-table-row-hover-bg: var(--p-gray-50); // Figma ไม่ได้กำหนด ใช้ในโค้ดให้รู้ว่าชี้แถวไหนอยู่
+  --p-table-row-selected-bg: var(--p-info-bg); // Figma: แถวที่เลือก color/blue/50
 
   // ---------- primitives: typography (Figma: primitives/font/*) ----------
-  --btfp-font-family-ibm-plex-sans-thai: 'IBM Plex Sans Thai';
-  --btfp-font-family-sarabun: 'Sarabun';
-  --btfp-font-size-12: 12px;
-  --btfp-font-size-14: 14px;
-  --btfp-font-size-16: 16px;
-  --btfp-font-size-18: 18px;
-  --btfp-font-size-20: 20px;
-  --btfp-font-size-24: 24px;
-  --btfp-font-size-32: 32px;
-  --btfp-font-size-40: 40px;
-  --btfp-font-size-60: 60px;
-  --btfp-font-weight-regular: 400;
-  --btfp-font-weight-medium: 500;
-  --btfp-font-weight-semibold: 600;
-  --btfp-font-weight-bold: 700;
+  --p-font-family-ibm-plex-sans-thai: 'IBM Plex Sans Thai';
+  --p-font-family-sarabun: 'Sarabun';
+  --p-font-size-12: 12px;
+  --p-font-size-14: 14px;
+  --p-font-size-16: 16px;
+  --p-font-size-18: 18px;
+  --p-font-size-20: 20px;
+  --p-font-size-24: 24px;
+  --p-font-size-32: 32px;
+  --p-font-size-40: 40px;
+  --p-font-size-60: 60px;
+  --p-font-weight-regular: 400;
+  --p-font-weight-medium: 500;
+  --p-font-weight-semibold: 600;
+  --p-font-weight-bold: 700;
 
   // ---------- semantic: typography (Figma: semantic/font/family/*, semantic/typography/<style>/*) ----------
   // Text Style ใน Figma ผูกกับ variable ชุดนี้ แก้ขนาดหรือน้ำหนักที่ Figma แล้วอัปเดตตามที่นี่
-  --btfp-font-heading: var(--btfp-font-family-ibm-plex-sans-thai), var(--btfp-font-family-sarabun), sans-serif;
-  --btfp-font-body: var(--btfp-font-family-sarabun), sans-serif;
+  --p-font-heading: var(--p-font-family-ibm-plex-sans-thai), var(--p-font-family-sarabun), sans-serif;
+  --p-font-body: var(--p-font-family-sarabun), sans-serif;
 
   // ระยะบรรทัด: Figma เก็บเป็น % ใน Text Style (variable ของ Figma รับได้แค่ px จึงไม่ได้ผูก)
-  --btfp-line-height-display-xl: 1.2;
-  --btfp-line-height-heading: 1.35;
-  --btfp-line-height-body: 1.6;
-  --btfp-line-height-compact: 1.5;
+  --p-line-height-display-xl: 1.2;
+  --p-line-height-heading: 1.35;
+  --p-line-height-body: 1.6;
+  --p-line-height-compact: 1.5;
 
-  --btfp-typography-display-xl-size: var(--btfp-font-size-60);
-  --btfp-typography-display-xl-weight: var(--btfp-font-weight-bold);
-  --btfp-typography-display-size: var(--btfp-font-size-40);
-  --btfp-typography-display-weight: var(--btfp-font-weight-bold);
-  --btfp-typography-h1-size: var(--btfp-font-size-32);
-  --btfp-typography-h1-weight: var(--btfp-font-weight-bold);
-  --btfp-typography-h2-size: var(--btfp-font-size-24);
-  --btfp-typography-h2-weight: var(--btfp-font-weight-semibold);
-  --btfp-typography-h3-size: var(--btfp-font-size-20);
-  --btfp-typography-h3-weight: var(--btfp-font-weight-semibold);
-  --btfp-typography-h4-size: var(--btfp-font-size-18);
-  --btfp-typography-h4-weight: var(--btfp-font-weight-semibold);
-  --btfp-typography-body-l-size: var(--btfp-font-size-18);
-  --btfp-typography-body-l-weight: var(--btfp-font-weight-regular);
-  --btfp-typography-body-size: var(--btfp-font-size-16);
-  --btfp-typography-body-weight: var(--btfp-font-weight-regular);
-  --btfp-typography-body-medium-size: var(--btfp-font-size-16);
-  --btfp-typography-body-medium-weight: var(--btfp-font-weight-medium);
-  --btfp-typography-body-s-size: var(--btfp-font-size-14);
-  --btfp-typography-body-s-weight: var(--btfp-font-weight-regular);
-  --btfp-typography-body-s-medium-size: var(--btfp-font-size-14);
-  --btfp-typography-body-s-medium-weight: var(--btfp-font-weight-medium);
-  --btfp-typography-table-size: var(--btfp-font-size-14);
-  --btfp-typography-table-weight: var(--btfp-font-weight-regular);
-  --btfp-typography-caption-size: var(--btfp-font-size-12);
-  --btfp-typography-caption-weight: var(--btfp-font-weight-regular);
+  --p-typography-display-xl-size: var(--p-font-size-60);
+  --p-typography-display-xl-weight: var(--p-font-weight-bold);
+  --p-typography-display-size: var(--p-font-size-40);
+  --p-typography-display-weight: var(--p-font-weight-bold);
+  --p-typography-h1-size: var(--p-font-size-32);
+  --p-typography-h1-weight: var(--p-font-weight-bold);
+  --p-typography-h2-size: var(--p-font-size-24);
+  --p-typography-h2-weight: var(--p-font-weight-semibold);
+  --p-typography-h3-size: var(--p-font-size-20);
+  --p-typography-h3-weight: var(--p-font-weight-semibold);
+  --p-typography-h4-size: var(--p-font-size-18);
+  --p-typography-h4-weight: var(--p-font-weight-semibold);
+  --p-typography-body-l-size: var(--p-font-size-18);
+  --p-typography-body-l-weight: var(--p-font-weight-regular);
+  --p-typography-body-size: var(--p-font-size-16);
+  --p-typography-body-weight: var(--p-font-weight-regular);
+  --p-typography-body-medium-size: var(--p-font-size-16);
+  --p-typography-body-medium-weight: var(--p-font-weight-medium);
+  --p-typography-body-s-size: var(--p-font-size-14);
+  --p-typography-body-s-weight: var(--p-font-weight-regular);
+  --p-typography-body-s-medium-size: var(--p-font-size-14);
+  --p-typography-body-s-medium-weight: var(--p-font-weight-medium);
+  --p-typography-table-size: var(--p-font-size-14);
+  --p-typography-table-weight: var(--p-font-weight-regular);
+  --p-typography-caption-size: var(--p-font-size-12);
+  --p-typography-caption-weight: var(--p-font-weight-regular);
 }

@@ -25,7 +25,7 @@ export const Landing: StoryObj = {
   name: 'หน้าแรก',
   render: () => ({
     template: `
-      <div style="background:var(--btfp-surface-raised)">
+      <div style="background:var(--p-surface-raised)">
         <btfp-public-topbar />
         <btfp-landing-page />
         <btfp-public-footer />

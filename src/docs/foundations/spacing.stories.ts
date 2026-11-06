@@ -8,11 +8,11 @@ const meta: Meta = {
   decorators: [foundationImports],
   parameters: { backgrounds: { default: 'white' }, docs: { description: { component: `| กลุ่ม | ค่า | CSS variable |
 | --- | --- | --- |
-| Spacing | 4, 8, 16, 24, 32, 48, 64 px | \`--btfp-space-xs\` ถึง \`--btfp-space-3xl\` |
-| Radius | input/tag 4, button/inner 8, card/modal 12, card-lg 16, full | \`--btfp-radius-*\` |
-| Elevation | 3 ระดับ | \`--btfp-shadow-1\` ถึง \`--btfp-shadow-3\` |
-| ขนาดปุ่มและช่องกรอก | S 32, M 40, L 48 px | \`--btfp-control-sm/md/lg\` |
-| แถวตาราง | 56 px | \`--btfp-table-row\` |
+| Spacing | 4, 8, 16, 24, 32, 48, 64 px | \`--p-space-xs\` ถึง \`--p-space-3xl\` |
+| Radius | input/tag 4, button/inner 8, card/modal 12, card-lg 16, full | \`--p-radius-*\` |
+| Elevation | 3 ระดับ | \`--p-shadow-1\` ถึง \`--p-shadow-3\` |
+| ขนาดปุ่มและช่องกรอก | S 32, M 40, L 48 px | \`--p-control-sm/md/lg\` |
+| แถวตาราง | 56 px | \`--p-table-row\` |
 
 Layout ในหน้าใช้ class ของ Tailwind (1 หน่วย = 4px เช่น \`gap-4\` = 16px \`p-6\` = 24px) ตรงกับ spacing ของ Figma` } } },
 };

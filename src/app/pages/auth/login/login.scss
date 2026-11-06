@@ -5,62 +5,62 @@
 }
 
 .login {
-  background: var(--btfp-auth-bg);
+  background: var(--p-auth-bg);
 }
 
 .login__image {
-  opacity: var(--btfp-auth-image-opacity);
+  opacity: var(--p-auth-image-opacity);
 }
 
 .login__overlay {
-  background: var(--btfp-auth-overlay);
+  background: var(--p-auth-overlay);
 }
 
 // ---------- ชื่อระบบ ----------
 .brand__divider {
-  background: var(--btfp-border-default);
+  background: var(--p-border-default);
 }
 
 .brand__account {
-  color: var(--btfp-text-inverse);
+  color: var(--p-text-inverse);
 }
 
 .brand__title {
-  color: var(--btfp-text-inverse);
+  color: var(--p-text-inverse);
   text-decoration: none;
   opacity: 0.9;
 }
 
 .brand__sub {
   margin: 0;
-  color: var(--btfp-text-inverse);
+  color: var(--p-text-inverse);
   opacity: 0.8;
 }
 
 // ---------- การ์ด ----------
 .card {
-  border-radius: var(--btfp-radius-card-lg);
-  background: var(--btfp-surface-raised);
-  box-shadow: var(--btfp-auth-card-shadow);
+  border-radius: var(--p-radius-card-lg);
+  background: var(--p-surface-raised);
+  box-shadow: var(--p-auth-card-shadow);
 
   h1 {
     margin: 0;
-    color: var(--btfp-text-heading);
+    color: var(--p-text-heading);
   }
 
   p {
     margin: 0;
-    color: var(--btfp-text-primary);
+    color: var(--p-text-primary);
   }
 }
 
 .remember {
-  color: var(--btfp-text-primary);
+  color: var(--p-text-primary);
   cursor: pointer;
 }
 
 .link {
-  color: var(--btfp-action-link);
+  color: var(--p-action-link);
   text-decoration: none;
 
   &:hover {
@@ -70,29 +70,29 @@
 
 .divider {
   border: 0;
-  border-top: 1px solid var(--btfp-border-default);
+  border-top: 1px solid var(--p-border-default);
 }
 
 .staff-note {
-  border-radius: var(--btfp-radius-inner);
-  background: var(--btfp-bg-subtle);
+  border-radius: var(--p-radius-inner);
+  background: var(--p-bg-subtle);
 }
 
 .card .staff-note__label {
-  color: var(--btfp-text-secondary);
+  color: var(--p-text-secondary);
 }
 
 // ---------- ลิงก์ช่วยเหลือ ----------
 .help {
-  border-radius: var(--btfp-radius-full);
-  background: var(--btfp-navy-900);
+  border-radius: var(--p-radius-full);
+  background: var(--p-navy-900);
 }
 
 .help__link {
-  font-size: var(--btfp-typography-body-s-medium-size);
-  font-weight: var(--btfp-typography-body-s-medium-weight);
-  line-height: var(--btfp-line-height-body);
-  color: var(--btfp-text-inverse);
+  font-size: var(--p-typography-body-s-medium-size);
+  font-weight: var(--p-typography-body-s-medium-weight);
+  line-height: var(--p-line-height-body);
+  color: var(--p-text-inverse);
   text-decoration: none;
 
   &:hover {

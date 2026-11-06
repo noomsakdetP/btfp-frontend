@@ -38,7 +38,7 @@ export const AllStatuses: Story = {
     template: `
       <div style="display:grid; grid-template-columns:max-content max-content; gap:12px 24px; align-items:center">
         ${STATUSES.map(
-          (s) => `<code style="font-size:12px;color:var(--btfp-text-secondary)">status="${s}"</code><span><btfp-status-tag status="${s}" /></span>`,
+          (s) => `<code style="font-size:12px;color:var(--p-text-secondary)">status="${s}"</code><span><btfp-status-tag status="${s}" /></span>`,
         ).join('')}
       </div>`,
   }),

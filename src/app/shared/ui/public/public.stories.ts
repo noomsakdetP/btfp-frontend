@@ -67,7 +67,7 @@ export const SectionHeader: StoryObj = {
     template: `
       <btfp-section-header eyebrow="ประกาศทุนที่เปิดรับ" heading="โอกาสทุนสำหรับโครงการที่พร้อมสร้างผลลัพธ์"
         description="ตรวจสอบประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR และกำหนดส่งข้อเสนอของแต่ละประกาศ">
-        <a href="#" style="color:var(--btfp-action-link)">ดูประกาศทั้งหมด</a>
+        <a href="#" style="color:var(--p-action-link)">ดูประกาศทั้งหมด</a>
       </btfp-section-header>`,
   }),
 };
@@ -94,7 +94,7 @@ export const ProcessStep: StoryObj = {
   name: 'Process Step',
   render: () => ({
     template: `
-      <div class="grid gap-5 p-6 md:grid-cols-2" style="background:var(--btfp-navy-900)">
+      <div class="grid gap-5 p-6 md:grid-cols-2" style="background:var(--p-navy-900)">
         <btfp-process-step step="01" icon="user-check" heading="ลงทะเบียนและยืนยันตัวตน" description="สร้างบัญชีหน่วยงาน และยืนยันตัวตนด้วยรหัส OTP ทางอีเมลทุกครั้งที่เข้าสู่ระบบ" />
         <btfp-process-step step="02" icon="list-filter" heading="เลือกประกาศและขอบเขต" description="เลือกประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR" />
       </div>`,

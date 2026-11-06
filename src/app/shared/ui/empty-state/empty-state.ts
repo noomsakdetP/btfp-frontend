@@ -50,21 +50,21 @@ export type BtfpEmptyStateType = 'general' | 'no-results' | 'no-files' | 'error'
       width: 64px;
       height: 64px;
       margin-bottom: 8px;
-      border-radius: var(--btfp-radius-full);
-      background: var(--btfp-info-bg);
-      color: var(--btfp-icon-action);
+      border-radius: var(--p-radius-full);
+      background: var(--p-info-bg);
+      color: var(--p-icon-action);
     }
     .empty__icon--error {
-      background: var(--btfp-danger-bg);
-      color: var(--btfp-danger-text);
+      background: var(--p-danger-bg);
+      color: var(--p-danger-text);
     }
     .empty__title {
-      font-size: var(--btfp-typography-body-l-size);
+      font-size: var(--p-typography-body-l-size);
     }
     .empty__desc {
       margin: 0 0 8px;
       max-width: 420px;
-      color: var(--btfp-text-secondary);
+      color: var(--p-text-secondary);
     }
   `,
 })

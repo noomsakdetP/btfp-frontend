@@ -83,7 +83,7 @@ import { BtfpIcon } from '../icon/icon';
       .btfp-hero-slide__overlay {
         position: absolute;
         inset: 0;
-        background: var(--btfp-hero-overlay-mobile);
+        background: var(--p-hero-overlay-mobile);
       }
       .btfp-hero-slide__frame {
         position: relative;
@@ -106,36 +106,36 @@ import { BtfpIcon } from '../icon/icon';
         align-items: center;
         height: 32px;
         padding: 0 12px;
-        border: 1px solid var(--btfp-info-border);
-        border-radius: var(--btfp-radius-tag);
-        background: var(--btfp-info-bg);
-        font-size: var(--btfp-typography-body-s-size);
-        color: var(--btfp-info-text);
+        border: 1px solid var(--p-info-border);
+        border-radius: var(--p-radius-tag);
+        background: var(--p-info-bg);
+        font-size: var(--p-typography-body-s-size);
+        color: var(--p-info-text);
       }
       .btfp-hero-slide__tag[data-severity='success'] {
-        border-color: var(--btfp-success-border);
-        background: var(--btfp-success-bg);
-        color: var(--btfp-success-text);
+        border-color: var(--p-success-border);
+        background: var(--p-success-bg);
+        color: var(--p-success-text);
       }
       .btfp-hero-slide__tag[data-severity='warn'] {
-        border-color: var(--btfp-warning-border);
-        background: var(--btfp-warning-bg);
-        color: var(--btfp-warning-text);
+        border-color: var(--p-warning-border);
+        background: var(--p-warning-bg);
+        color: var(--p-warning-text);
       }
       .btfp-hero-slide__content :is(h1, h2) {
         margin: 0;
-        font-family: var(--btfp-font-heading);
+        font-family: var(--p-font-heading);
         /* หัวข้อ: มือถือ H1, แท็บเล็ต Display, จอใหญ่ Display/XL */
-        font-size: var(--btfp-typography-h1-size);
-        font-weight: var(--btfp-typography-h1-weight);
-        line-height: var(--btfp-line-height-heading);
-        color: var(--btfp-text-inverse);
+        font-size: var(--p-typography-h1-size);
+        font-weight: var(--p-typography-h1-weight);
+        line-height: var(--p-line-height-heading);
+        color: var(--p-text-inverse);
       }
       .btfp-hero-slide__content p {
         margin: 0;
-        font-size: var(--btfp-typography-body-size);
-        line-height: var(--btfp-line-height-body);
-        color: var(--btfp-text-inverse);
+        font-size: var(--p-typography-body-size);
+        line-height: var(--p-line-height-body);
+        color: var(--p-text-inverse);
       }
 
       @media (min-width: 768px) {
@@ -144,19 +144,19 @@ import { BtfpIcon } from '../icon/icon';
           padding: 0 96px 20px;
         }
         .btfp-hero-slide__overlay {
-          background: var(--btfp-hero-overlay);
+          background: var(--p-hero-overlay);
         }
         .btfp-hero-slide__content :is(h1, h2) {
-          font-size: var(--btfp-typography-display-size);
+          font-size: var(--p-typography-display-size);
         }
         .btfp-hero-slide__content p {
-          font-size: var(--btfp-typography-body-l-size);
+          font-size: var(--p-typography-body-l-size);
         }
       }
       @media (min-width: 1280px) {
         .btfp-hero-slide__content :is(h1, h2) {
-          font-size: var(--btfp-typography-display-xl-size);
-          line-height: var(--btfp-line-height-display-xl);
+          font-size: var(--p-typography-display-xl-size);
+          line-height: var(--p-line-height-display-xl);
         }
       }
     }
@@ -237,17 +237,17 @@ export class BtfpHeroSlide {
   `,
   styles: `
     :host {
-      --btfp-hero-h: max(37.5cqw, 440px);
+      --p-hero-h: max(37.5cqw, 440px);
       position: relative;
       display: block;
       container-type: inline-size;
       overflow: hidden;
-      background: var(--btfp-navy-900);
+      background: var(--p-navy-900);
       touch-action: pan-y;
     }
     .viewport {
       position: relative;
-      height: var(--btfp-hero-h);
+      height: var(--p-hero-h);
     }
     .arrow {
       position: absolute;
@@ -260,17 +260,17 @@ export class BtfpHeroSlide {
       margin-top: -24px;
       border: 0;
       border-radius: 24px;
-      background: var(--btfp-hero-control-bg);
-      box-shadow: var(--btfp-hero-control-shadow);
-      color: var(--btfp-icon-default);
+      background: var(--p-hero-control-bg);
+      box-shadow: var(--p-hero-control-shadow);
+      color: var(--p-icon-default);
       cursor: pointer;
     }
     .arrow:hover {
-      background: var(--btfp-surface-raised);
+      background: var(--p-surface-raised);
     }
     .arrow:focus-visible,
     .dot:focus-visible {
-      outline: 2px solid var(--btfp-surface-raised);
+      outline: 2px solid var(--p-surface-raised);
       outline-offset: 2px;
     }
     .arrow--prev {
@@ -299,14 +299,14 @@ export class BtfpHeroSlide {
       padding: 0;
       border: 0;
       border-radius: 5px;
-      background: var(--btfp-hero-dot);
-      box-shadow: var(--btfp-hero-control-shadow);
+      background: var(--p-hero-dot);
+      box-shadow: var(--p-hero-control-shadow);
       cursor: pointer;
       transition: width 300ms ease;
     }
     .dot.is-active {
       width: 32px;
-      background: var(--btfp-action-primary);
+      background: var(--p-action-primary);
     }
   `,
 })

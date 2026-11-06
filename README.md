@@ -56,7 +56,7 @@ npm run build-storybook   # build Storybook ไว้ที่ storybook-static/
 ```
 src/
   tailwind.css                 Tailwind + ลำดับ CSS layer
-  styles/_tokens.scss          token จาก Figma (สี ระยะ มุมโค้ง ขนาด) เป็น CSS variable --btfp-*
+  styles/_tokens.scss          token จาก Figma (สี ระยะ มุมโค้ง ขนาด) เป็น CSS variable --p-*
   styles.scss                  สไตล์พื้นฐาน และ class กลาง (.btfp-field, .btfp-link-button)
   app/
     app.config.ts              ตั้งค่า PrimeNG (preset, ภาษาไทย) ใช้ร่วมกับ Storybook

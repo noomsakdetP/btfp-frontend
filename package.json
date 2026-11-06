@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "storybook": "ng run btfp-frontend:storybook",
-    "build-storybook": "ng run btfp-frontend:build-storybook"
+    "build-storybook": "ng run btfp-frontend:build-storybook",
+    "check:tokens": "node scripts/check-tokens.mjs"
   },
   "private": true,
   "packageManager": "npm@10.9.9",

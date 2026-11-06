@@ -79,22 +79,22 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       z-index: 1100;
       display: grid;
       place-items: center;
-      background: var(--btfp-loading-overlay);
+      background: var(--p-loading-overlay);
       /* สีของ p-progressspinner บนพื้นเข้ม */
-      --p-progressspinner-color-one: var(--btfp-loading-spinner);
-      --p-progressspinner-color-two: var(--btfp-loading-spinner-soft);
-      --p-progressspinner-color-three: var(--btfp-loading-spinner);
-      --p-progressspinner-color-four: var(--btfp-loading-spinner-soft);
+      --p-progressspinner-color-one: var(--p-loading-spinner);
+      --p-progressspinner-color-two: var(--p-loading-spinner-soft);
+      --p-progressspinner-color-three: var(--p-loading-spinner);
+      --p-progressspinner-color-four: var(--p-loading-spinner-soft);
     }
     .box {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: var(--btfp-space-md);
-      font-size: var(--btfp-typography-body-medium-size);
-      font-weight: var(--btfp-typography-body-medium-weight);
-      line-height: var(--btfp-line-height-body);
-      color: var(--btfp-loading-text);
+      gap: var(--p-space-md);
+      font-size: var(--p-typography-body-medium-size);
+      font-weight: var(--p-typography-body-medium-weight);
+      line-height: var(--p-line-height-body);
+      color: var(--p-loading-text);
     }
     .box ::ng-deep .p-progressspinner {
       margin: 0;
@@ -110,7 +110,7 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
     .sp-wave i {
       position: absolute;
       inset: 0;
-      border: 4px solid var(--btfp-loading-spinner);
+      border: 4px solid var(--p-loading-spinner);
       border-radius: 50%;
       opacity: 0;
       animation: btfp-wave 1.6s ease-out infinite;
@@ -122,7 +122,7 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       position: absolute;
       inset: 27px;
       border-radius: 50%;
-      background: var(--btfp-loading-spinner);
+      background: var(--p-loading-spinner);
     }
     @keyframes btfp-wave {
       0% { transform: scale(0.3); opacity: 1; }
@@ -140,7 +140,7 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       width: 9px;
       height: 100%;
       border-radius: 5px;
-      background: var(--btfp-loading-spinner);
+      background: var(--p-loading-spinner);
       transform-origin: bottom;
       animation: btfp-bars 1s ease-in-out infinite;
     }
@@ -154,7 +154,7 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
     }
     /* แบบ 5 ดาวเทียมโคจร */
     .sp-orbit {
-      border: 3px solid var(--btfp-loading-spinner-soft);
+      border: 3px solid var(--p-loading-spinner-soft);
       border-radius: 50%;
       animation: btfp-spin 1.4s linear infinite;
     }
@@ -165,10 +165,10 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       height: 18px;
       margin-left: -9px;
       border-radius: 50%;
-      background: var(--btfp-loading-spinner);
+      background: var(--p-loading-spinner);
     }
     .sp-orbit i:first-child { top: -10px; }
-    .sp-orbit i:last-child { bottom: -10px; background: var(--btfp-text-inverse); }
+    .sp-orbit i:last-child { bottom: -10px; background: var(--p-text-inverse); }
     @keyframes btfp-spin {
       to { transform: rotate(360deg); }
     }
@@ -177,8 +177,8 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       display: grid;
       place-items: center;
       overflow: hidden;
-      border-radius: var(--btfp-radius-card);
-      background: var(--btfp-info-bg);
+      border-radius: var(--p-radius-card);
+      background: var(--p-info-bg);
     }
     .sp-logo img {
       animation: btfp-fade 1.4s ease-in-out infinite;
@@ -190,7 +190,7 @@ export type BtfpSpinnerVariant = 'primeng' | 'wave' | 'bars' | 'orbit' | 'logo';
       left: -40%;
       width: 40%;
       height: 4px;
-      background: var(--btfp-action-primary);
+      background: var(--p-action-primary);
       animation: btfp-run 1.2s ease-in-out infinite;
     }
     @keyframes btfp-fade {

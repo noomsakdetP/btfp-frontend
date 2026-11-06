@@ -4,15 +4,15 @@
  * :not(.docs-story *) = ไม่กระทบตัวอย่าง component ที่แสดงในหน้า Docs
  */
 #storybook-docs {
-  font-family: var(--btfp-font-body);
-  color: var(--btfp-text-primary);
+  font-family: var(--p-font-body);
+  color: var(--p-text-primary);
 }
 
 /* Typography/H1 ถึง H4 */
 #storybook-docs :is(h1, h2, h3, h4):not(.docs-story *) {
-  font-family: var(--btfp-font-heading);
+  font-family: var(--p-font-heading);
   line-height: 1.35;
-  color: var(--btfp-text-heading);
+  color: var(--p-text-heading);
 }
 #storybook-docs h1:not(.docs-story *) {
   font-size: 32px;
@@ -21,7 +21,7 @@
 #storybook-docs h2:not(.docs-story *) {
   font-size: 24px;
   font-weight: 600;
-  border-bottom-color: var(--btfp-border-default);
+  border-bottom-color: var(--p-border-default);
 }
 #storybook-docs :is(h3, h4):not(.docs-story *) {
   font-size: 20px;
@@ -30,10 +30,10 @@
 
 /* Typography/Body 16/160% */
 #storybook-docs :is(p, li, blockquote):not(.docs-story *) {
-  font-family: var(--btfp-font-body);
+  font-family: var(--p-font-body);
   font-size: 16px;
   line-height: 1.6;
-  color: var(--btfp-text-primary);
+  color: var(--p-text-primary);
 }
 
 /* Tailwind preflight ลบเลขและจุดหน้ารายการ ใส่คืนเฉพาะใน Docs */
@@ -48,28 +48,28 @@
 
 /* ตารางใน Docs ใช้ Typography/Table 14/150% หัวตารางพื้น table/header/bg */
 #storybook-docs table:not(.docs-story *) {
-  font-family: var(--btfp-font-body);
+  font-family: var(--p-font-body);
   font-size: 14px;
   line-height: 1.5;
-  color: var(--btfp-text-primary);
+  color: var(--p-text-primary);
 }
 #storybook-docs table:not(.docs-story *) :is(th, td) {
-  border-color: var(--btfp-border-default);
+  border-color: var(--p-border-default);
 }
 #storybook-docs table:not(.docs-story *) th {
-  background: var(--btfp-table-header-bg);
+  background: var(--p-table-header-bg);
   font-weight: 600;
-  color: var(--btfp-text-heading);
+  color: var(--p-text-heading);
 }
 
 #storybook-docs a:not(.docs-story *) {
-  color: var(--btfp-action-link);
+  color: var(--p-action-link);
 }
 
 /* code ในบรรทัด */
 #storybook-docs :is(p, li, td) > code:not(.docs-story *) {
   font-size: 13px;
-  color: var(--btfp-navy-700);
+  color: var(--p-navy-700);
 }
 
 /* =====================================================================
@@ -81,7 +81,7 @@
   margin: 8px 0 32px;
   font-size: 18px;
   line-height: 1.6;
-  color: var(--btfp-text-secondary);
+  color: var(--p-text-secondary);
 }
 
 /* หัวข้อส่วน */
@@ -90,16 +90,16 @@
 }
 #storybook-docs .doc-section-title {
   margin: 0 0 4px;
-  font-family: var(--btfp-font-heading);
+  font-family: var(--p-font-heading);
   font-size: 20px;
   font-weight: 600;
   line-height: 1.35;
-  color: var(--btfp-text-heading);
+  color: var(--p-text-heading);
 }
 #storybook-docs .doc-section-desc {
   margin: 0;
   font-size: 14px;
-  color: var(--btfp-text-secondary);
+  color: var(--p-text-secondary);
 }
 
 /* การ์ดเรียงเป็นตาราง */
@@ -114,56 +114,56 @@
   flex-direction: column;
   gap: 8px;
   padding: 20px;
-  border: 1px solid var(--btfp-border-default);
-  border-radius: var(--btfp-radius-card);
-  background: var(--btfp-surface-raised);
-  color: var(--btfp-text-primary);
+  border: 1px solid var(--p-border-default);
+  border-radius: var(--p-radius-card);
+  background: var(--p-surface-raised);
+  color: var(--p-text-primary);
   text-decoration: none;
 }
 #storybook-docs a.doc-card:hover {
-  border-color: var(--btfp-action-primary);
-  box-shadow: var(--btfp-shadow-2);
+  border-color: var(--p-action-primary);
+  box-shadow: var(--p-shadow-2);
 }
 #storybook-docs .doc-card-label {
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: var(--btfp-action-link);
+  color: var(--p-action-link);
 }
 #storybook-docs .doc-card-title {
-  font-family: var(--btfp-font-heading);
+  font-family: var(--p-font-heading);
   font-size: 18px;
   font-weight: 600;
   line-height: 1.35;
-  color: var(--btfp-text-heading);
+  color: var(--p-text-heading);
 }
 #storybook-docs .doc-card-text {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--btfp-text-secondary);
+  color: var(--p-text-secondary);
 }
 #storybook-docs .doc-card code,
 #storybook-docs .doc-rule code,
 #storybook-docs .doc-row code {
   padding: 1px 6px;
-  border: 1px solid var(--btfp-border-default);
-  border-radius: var(--btfp-radius-input);
-  background: var(--btfp-bg-subtle);
+  border: 1px solid var(--p-border-default);
+  border-radius: var(--p-radius-input);
+  background: var(--p-bg-subtle);
   font-size: 13px;
-  color: var(--btfp-navy-700);
+  color: var(--p-navy-700);
   word-break: break-word;
 }
 
 /* Accordion (<details>) */
 #storybook-docs .doc-accordion {
   margin: 16px 0;
-  border: 1px solid var(--btfp-border-default);
-  border-radius: var(--btfp-radius-card);
-  background: var(--btfp-surface-raised);
+  border: 1px solid var(--p-border-default);
+  border-radius: var(--p-radius-card);
+  background: var(--p-surface-raised);
   overflow: hidden;
 }
 #storybook-docs .doc-accordion details + details {
-  border-top: 1px solid var(--btfp-border-default);
+  border-top: 1px solid var(--p-border-default);
 }
 #storybook-docs .doc-accordion summary {
   display: flex;
@@ -172,10 +172,10 @@
   padding: 16px 20px;
   cursor: pointer;
   list-style: none;
-  font-family: var(--btfp-font-heading);
+  font-family: var(--p-font-heading);
   font-size: 16px;
   font-weight: 600;
-  color: var(--btfp-text-heading);
+  color: var(--p-text-heading);
 }
 #storybook-docs .doc-accordion summary::-webkit-details-marker {
   display: none;
@@ -185,8 +185,8 @@
   width: 8px;
   height: 8px;
   margin-left: auto;
-  border-right: 1.5px solid var(--btfp-icon-default);
-  border-bottom: 1.5px solid var(--btfp-icon-default);
+  border-right: 1.5px solid var(--p-icon-default);
+  border-bottom: 1.5px solid var(--p-icon-default);
   transform: rotate(45deg);
   transition: transform 0.15s;
 }
@@ -194,17 +194,17 @@
   transform: rotate(-135deg);
 }
 #storybook-docs .doc-accordion summary:hover {
-  background: var(--btfp-bg-subtle);
+  background: var(--p-bg-subtle);
 }
 #storybook-docs .doc-count {
   padding: 0 8px;
-  border-radius: var(--btfp-radius-full);
-  background: var(--btfp-info-bg);
-  font-family: var(--btfp-font-body);
+  border-radius: var(--p-radius-full);
+  background: var(--p-info-bg);
+  font-family: var(--p-font-body);
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
-  color: var(--btfp-info-text);
+  color: var(--p-info-text);
 }
 #storybook-docs .doc-accordion-body {
   padding: 0 20px 16px;
@@ -216,7 +216,7 @@
   grid-template-columns: minmax(160px, 220px) 1fr;
   gap: 16px;
   padding: 12px 0;
-  border-top: 1px solid var(--btfp-border-default);
+  border-top: 1px solid var(--p-border-default);
   font-size: 14px;
   line-height: 1.6;
 }
@@ -225,19 +225,19 @@
 }
 #storybook-docs .doc-row-name {
   font-weight: 500;
-  color: var(--btfp-text-heading);
+  color: var(--p-text-heading);
 }
 #storybook-docs .doc-row-name a {
-  color: var(--btfp-action-link);
+  color: var(--p-action-link);
 }
 #storybook-docs .doc-row-value {
-  color: var(--btfp-text-primary);
+  color: var(--p-text-primary);
 }
 #storybook-docs .doc-row-value small {
   display: block;
   margin-top: 2px;
   font-size: 13px;
-  color: var(--btfp-text-secondary);
+  color: var(--p-text-secondary);
 }
 
 /* กฎแบบมีเลข */
@@ -254,9 +254,9 @@
   gap: 12px;
   align-items: start;
   padding: 16px;
-  border: 1px solid var(--btfp-border-default);
-  border-radius: var(--btfp-radius-card);
-  background: var(--btfp-surface-raised);
+  border: 1px solid var(--p-border-default);
+  border-radius: var(--p-radius-card);
+  background: var(--p-surface-raised);
   font-size: 15px;
   line-height: 1.6;
 }
@@ -265,20 +265,20 @@
   place-items: center;
   width: 32px;
   height: 32px;
-  border-radius: var(--btfp-radius-full);
-  background: var(--btfp-info-bg);
+  border-radius: var(--p-radius-full);
+  background: var(--p-info-bg);
   font-weight: 600;
-  color: var(--btfp-info-text);
+  color: var(--p-info-text);
 }
 #storybook-docs .doc-rule-title {
   display: block;
   font-weight: 600;
-  color: var(--btfp-text-heading);
+  color: var(--p-text-heading);
 }
 #storybook-docs .doc-rule-text {
   display: block;
   font-size: 14px;
-  color: var(--btfp-text-secondary);
+  color: var(--p-text-secondary);
 }
 
 /* กล่องหมายเหตุ */
@@ -287,12 +287,12 @@
   gap: 12px;
   margin: 24px 0;
   padding: 16px 20px;
-  border: 1px solid var(--btfp-info-border);
-  border-radius: var(--btfp-radius-card);
-  background: var(--btfp-info-bg);
+  border: 1px solid var(--p-info-border);
+  border-radius: var(--p-radius-card);
+  background: var(--p-info-bg);
   font-size: 14px;
   line-height: 1.6;
-  color: var(--btfp-info-text);
+  color: var(--p-info-text);
 }
 
 @media (max-width: 640px) {

@@ -37,21 +37,21 @@ import { BtfpIcon } from '../icon/icon';
       gap: 8px;
       min-width: 0;
       padding: 24px;
-      background: var(--btfp-surface-raised);
-      border: 1px solid var(--btfp-border-default);
-      border-radius: var(--btfp-radius-card);
+      background: var(--p-surface-raised);
+      border: 1px solid var(--p-border-default);
+      border-radius: var(--p-radius-card);
       cursor: pointer;
       transition: border-color 0.15s, box-shadow 0.15s;
     }
     :host(:hover) {
-      border-color: var(--btfp-border-strong);
+      border-color: var(--p-border-strong);
     }
     :host(:focus-visible) {
-      outline: 2px solid var(--btfp-focus-ring);
+      outline: 2px solid var(--p-focus-ring);
       outline-offset: 2px;
     }
     :host(.is-active) {
-      border: 2px solid var(--btfp-action-primary);
+      border: 2px solid var(--p-action-primary);
       padding: 23px;
     }
     .kpi__top {
@@ -61,23 +61,23 @@ import { BtfpIcon } from '../icon/icon';
       gap: 8px;
     }
     .kpi__label {
-      font-size: var(--btfp-typography-body-s-size);
-      color: var(--btfp-text-secondary);
+      font-size: var(--p-typography-body-s-size);
+      color: var(--p-text-secondary);
     }
     .kpi__icon {
-      color: var(--btfp-icon-action);
+      color: var(--p-icon-action);
       flex-shrink: 0;
     }
     .kpi__value {
-      font-family: var(--btfp-font-heading);
-      font-size: var(--btfp-typography-h1-size);
-      font-weight: var(--btfp-font-weight-semibold);
+      font-family: var(--p-font-heading);
+      font-size: var(--p-typography-h1-size);
+      font-weight: var(--p-font-weight-semibold);
       line-height: 1.35;
-      color: var(--btfp-text-heading);
+      color: var(--p-text-heading);
     }
     .kpi__caption {
-      font-size: var(--btfp-typography-caption-size);
-      color: var(--btfp-text-secondary);
+      font-size: var(--p-typography-caption-size);
+      color: var(--p-text-secondary);
     }
   `,
 })

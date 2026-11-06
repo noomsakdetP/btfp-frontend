@@ -15,7 +15,7 @@ import { BtfpPublicTopbar } from './public-topbar';
   selector: 'btfp-public-layout',
   imports: [RouterOutlet, RouterLink, Button, BtfpIcon, BtfpPublicTopbar, BtfpPublicFooter],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'flex min-h-screen flex-col bg-[var(--btfp-surface-raised)]' },
+  host: { class: 'flex min-h-screen flex-col bg-[var(--p-surface-raised)]' },
   template: `
     <btfp-public-topbar />
     <main class="flex-1">
@@ -45,31 +45,31 @@ import { BtfpPublicTopbar } from './public-topbar';
   `,
   styles: `
     .cookie {
-      background: var(--btfp-surface-raised);
-      border: 1px solid var(--btfp-border-default);
-      border-radius: var(--btfp-radius-card);
-      box-shadow: var(--btfp-shadow-3);
+      background: var(--p-surface-raised);
+      border: 1px solid var(--p-border-default);
+      border-radius: var(--p-radius-card);
+      box-shadow: var(--p-shadow-3);
     }
     .cookie__icon {
       place-items: center;
       width: 44px;
       height: 44px;
-      border-radius: var(--btfp-radius-full);
-      background: var(--btfp-info-bg);
-      color: var(--btfp-icon-action);
+      border-radius: var(--p-radius-full);
+      background: var(--p-info-bg);
+      color: var(--p-icon-action);
     }
     .cookie__title {
-      font-size: var(--btfp-typography-body-size);
+      font-size: var(--p-typography-body-size);
     }
     .cookie__text {
       margin: 4px 0 0;
-      font-size: var(--btfp-typography-body-s-size);
-      color: var(--btfp-text-secondary);
+      font-size: var(--p-typography-body-s-size);
+      color: var(--p-text-secondary);
     }
     .cookie__link {
       padding: 0 8px;
       font-weight: 500;
-      color: var(--btfp-action-link);
+      color: var(--p-action-link);
       text-decoration: none;
     }
   `,

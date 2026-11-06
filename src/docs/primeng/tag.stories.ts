@@ -48,5 +48,5 @@ export const Tones: StoryObj = {
 
 export const Chip: StoryObj = {
   name: "ตัวกรองที่ใช้อยู่ (p-chip)",
-  render: () => ({ template: rowOf(`<span style="font-size:14px;color:var(--btfp-text-secondary)">ตัวกรองที่ใช้:</span><p-chip label="ทุนประเภท 1" [removable]="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip><p-chip label="ปีงบ 2569" [removable]="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>`) }),
+  render: () => ({ template: rowOf(`<span style="font-size:14px;color:var(--p-text-secondary)">ตัวกรองที่ใช้:</span><p-chip label="ทุนประเภท 1" [removable]="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip><p-chip label="ปีงบ 2569" [removable]="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>`) }),
 };

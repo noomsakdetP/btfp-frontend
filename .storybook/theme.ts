@@ -8,24 +8,24 @@ import { create } from 'storybook/theming';
 export const btfpTheme = create({
   base: 'light',
   brandTitle: 'ระบบบริหารจัดการทุน กทปส.',
-  fontBase: "'Sarabun', sans-serif", // --btfp-font-body
+  fontBase: "'Sarabun', sans-serif", // --p-font-body
   fontCode: "ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace",
-  colorPrimary: '#0077b6', // --btfp-action-primary
+  colorPrimary: '#0077b6', // --p-action-primary
   colorSecondary: '#0077b6',
-  appBg: '#f8fafc', // --btfp-bg-subtle
-  appContentBg: '#ffffff', // --btfp-surface-raised
+  appBg: '#f8fafc', // --p-bg-subtle
+  appContentBg: '#ffffff', // --p-surface-raised
   appPreviewBg: '#ffffff',
-  appBorderColor: '#e2e8f0', // --btfp-border-default
-  appBorderRadius: 8, // --btfp-radius-button
-  textColor: '#1e293b', // --btfp-text-primary
-  textMutedColor: '#475569', // --btfp-text-secondary
+  appBorderColor: '#e2e8f0', // --p-border-default
+  appBorderRadius: 8, // --p-radius-button
+  textColor: '#1e293b', // --p-text-primary
+  textMutedColor: '#475569', // --p-text-secondary
   textInverseColor: '#ffffff',
   barTextColor: '#475569',
   barSelectedColor: '#0077b6',
   barHoverColor: '#005e91',
   barBg: '#ffffff',
   inputBg: '#ffffff',
-  inputBorder: '#94a3b8', // --btfp-border-strong
+  inputBorder: '#94a3b8', // --p-border-strong
   inputTextColor: '#1e293b',
-  inputBorderRadius: 4, // --btfp-radius-input
+  inputBorderRadius: 4, // --p-radius-input
 });

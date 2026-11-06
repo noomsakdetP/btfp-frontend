@@ -26,7 +26,7 @@ import { primengParameters } from './_shared';
         [ngModel]="initialDate()"
         (ngModelChange)="picked.set($event)"
       />
-      <div style="margin-top:8px; font-size:13px; color:var(--btfp-text-secondary); line-height:1.8">
+      <div style="margin-top:8px; font-size:13px; color:var(--p-text-secondary); line-height:1.8">
         ค่าที่เก็บในฟอร์ม (ค.ศ. ส่ง API):<br />
         <code>{{ value() ? (value() | date: 'yyyy-MM-dd') : 'ยังไม่ได้เลือก' }}</code>
       </div>

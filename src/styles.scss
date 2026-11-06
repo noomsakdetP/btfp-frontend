@@ -34,11 +34,11 @@
   }
 
   body {
-    font-family: var(--btfp-font-body);
-    font-size: var(--btfp-typography-body-s-size);
-    line-height: var(--btfp-line-height-body);
-    color: var(--btfp-text-primary);
-    background: var(--btfp-bg-subtle);
+    font-family: var(--p-font-body);
+    font-size: var(--p-typography-body-s-size);
+    line-height: var(--p-line-height-body);
+    color: var(--p-text-primary);
+    background: var(--p-bg-subtle);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -47,13 +47,13 @@
   h3,
   h4 {
     margin: 0;
-    font-family: var(--btfp-font-heading);
-    font-weight: var(--btfp-font-weight-semibold);
-    color: var(--btfp-text-heading);
+    font-family: var(--p-font-heading);
+    font-weight: var(--p-font-weight-semibold);
+    color: var(--p-text-heading);
   }
 
   a {
-    color: var(--btfp-action-link);
+    color: var(--p-action-link);
   }
 
   // =====================================================================
@@ -63,21 +63,21 @@
   // =====================================================================
 
   // หัวข้อ IBM Plex Sans Thai
-  .btfp-text-display-xl { font: var(--btfp-typography-display-xl-weight) var(--btfp-typography-display-xl-size)/var(--btfp-line-height-display-xl) var(--btfp-font-heading); }
-  .btfp-text-display    { font: var(--btfp-typography-display-weight) var(--btfp-typography-display-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
-  .btfp-text-h1         { font: var(--btfp-typography-h1-weight) var(--btfp-typography-h1-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
-  .btfp-text-h2         { font: var(--btfp-typography-h2-weight) var(--btfp-typography-h2-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
-  .btfp-text-h3         { font: var(--btfp-typography-h3-weight) var(--btfp-typography-h3-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
-  .btfp-text-h4         { font: var(--btfp-typography-h4-weight) var(--btfp-typography-h4-size)/var(--btfp-line-height-heading) var(--btfp-font-heading); }
+  .btfp-text-display-xl { font: var(--p-typography-display-xl-weight) var(--p-typography-display-xl-size)/var(--p-line-height-display-xl) var(--p-font-heading); }
+  .btfp-text-display    { font: var(--p-typography-display-weight) var(--p-typography-display-size)/var(--p-line-height-heading) var(--p-font-heading); }
+  .btfp-text-h1         { font: var(--p-typography-h1-weight) var(--p-typography-h1-size)/var(--p-line-height-heading) var(--p-font-heading); }
+  .btfp-text-h2         { font: var(--p-typography-h2-weight) var(--p-typography-h2-size)/var(--p-line-height-heading) var(--p-font-heading); }
+  .btfp-text-h3         { font: var(--p-typography-h3-weight) var(--p-typography-h3-size)/var(--p-line-height-heading) var(--p-font-heading); }
+  .btfp-text-h4         { font: var(--p-typography-h4-weight) var(--p-typography-h4-size)/var(--p-line-height-heading) var(--p-font-heading); }
 
   // เนื้อหา Sarabun
-  .btfp-text-body-l        { font: var(--btfp-typography-body-l-weight) var(--btfp-typography-body-l-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-body          { font: var(--btfp-typography-body-weight) var(--btfp-typography-body-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-body-medium   { font: var(--btfp-typography-body-medium-weight) var(--btfp-typography-body-medium-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-body-s        { font: var(--btfp-typography-body-s-weight) var(--btfp-typography-body-s-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-body-s-medium { font: var(--btfp-typography-body-s-medium-weight) var(--btfp-typography-body-s-medium-size)/var(--btfp-line-height-body) var(--btfp-font-body); }
-  .btfp-text-table         { font: var(--btfp-typography-table-weight) var(--btfp-typography-table-size)/var(--btfp-line-height-compact) var(--btfp-font-body); }
-  .btfp-text-caption       { font: var(--btfp-typography-caption-weight) var(--btfp-typography-caption-size)/var(--btfp-line-height-compact) var(--btfp-font-body); }
+  .btfp-text-body-l        { font: var(--p-typography-body-l-weight) var(--p-typography-body-l-size)/var(--p-line-height-body) var(--p-font-body); }
+  .btfp-text-body          { font: var(--p-typography-body-weight) var(--p-typography-body-size)/var(--p-line-height-body) var(--p-font-body); }
+  .btfp-text-body-medium   { font: var(--p-typography-body-medium-weight) var(--p-typography-body-medium-size)/var(--p-line-height-body) var(--p-font-body); }
+  .btfp-text-body-s        { font: var(--p-typography-body-s-weight) var(--p-typography-body-s-size)/var(--p-line-height-body) var(--p-font-body); }
+  .btfp-text-body-s-medium { font: var(--p-typography-body-s-medium-weight) var(--p-typography-body-s-medium-size)/var(--p-line-height-body) var(--p-font-body); }
+  .btfp-text-table         { font: var(--p-typography-table-weight) var(--p-typography-table-size)/var(--p-line-height-compact) var(--p-font-body); }
+  .btfp-text-caption       { font: var(--p-typography-caption-weight) var(--p-typography-caption-size)/var(--p-line-height-compact) var(--p-font-body); }
 
   // =====================================================================
   // 3. ฟอร์ม (Figma: Forms/*)
@@ -88,17 +88,17 @@
   .btfp-field {
     display: flex;
     flex-direction: column;
-    gap: var(--btfp-space-xs);
+    gap: var(--p-space-xs);
     min-width: 0;
 
     // ป้ายชื่อ Sarabun Medium 16 สี text/heading
     // มีลิงก์ขวามือ (เช่น ลืมรหัสผ่าน?) ครอบป้ายชื่อกับลิงก์ด้วย <div class="btfp-field__label-row">
     > label,
     > .btfp-field__label-row > label {
-      font-size: var(--btfp-typography-body-medium-size);
-      font-weight: var(--btfp-typography-body-medium-weight);
-      line-height: var(--btfp-line-height-body);
-      color: var(--btfp-text-heading);
+      font-size: var(--p-typography-body-medium-size);
+      font-weight: var(--p-typography-body-medium-weight);
+      line-height: var(--p-line-height-body);
+      color: var(--p-text-heading);
     }
 
     // ช่องกรอกเต็มความกว้างของ field
@@ -116,15 +116,15 @@
   // เครื่องหมาย * ช่องบังคับกรอก
   .btfp-required {
     margin-left: 4px;
-    color: var(--btfp-danger-text);
+    color: var(--p-danger-text);
   }
 
   // ข้อความช่วยใต้ช่อง
   .btfp-field__helper {
     margin: 0;
-    font-size: var(--btfp-typography-caption-size);
-    line-height: var(--btfp-line-height-compact);
-    color: var(--btfp-text-secondary);
+    font-size: var(--p-typography-caption-size);
+    line-height: var(--p-line-height-compact);
+    color: var(--p-text-secondary);
   }
 
   // ข้อความผิดพลาดใต้ช่อง พร้อมไอคอน
@@ -133,13 +133,13 @@
     align-items: center;
     gap: 4px;
     margin: 0;
-    font-size: var(--btfp-typography-caption-size);
-    line-height: var(--btfp-line-height-compact);
-    color: var(--btfp-danger-text);
+    font-size: var(--p-typography-caption-size);
+    line-height: var(--p-line-height-compact);
+    color: var(--p-danger-text);
 
     btfp-icon {
       display: inline-flex;
-      color: var(--btfp-icon-danger);
+      color: var(--p-icon-danger);
     }
   }
 
@@ -149,8 +149,8 @@
     background: none;
     padding: 0;
     font: inherit;
-    font-weight: var(--btfp-font-weight-medium);
-    color: var(--btfp-action-link);
+    font-weight: var(--p-font-weight-medium);
+    color: var(--p-action-link);
     cursor: pointer;
 
     &:hover {
@@ -168,38 +168,38 @@
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
-    font-size: var(--btfp-typography-table-size);
-    font-weight: var(--btfp-typography-table-weight);
-    line-height: var(--btfp-line-height-compact);
+    font-size: var(--p-typography-table-size);
+    font-weight: var(--p-typography-table-weight);
+    line-height: var(--p-line-height-compact);
 
     // เซลล์: สูง 56px ข้อความบรรทัดเดียว ยาวเกินตัดด้วย ... (ใส่ title ให้อ่านข้อความเต็ม)
     th,
     td {
-      height: var(--btfp-table-row);
-      padding: 0 var(--btfp-table-cell-padding-x);
+      height: var(--p-table-row);
+      padding: 0 var(--p-table-cell-padding-x);
       text-align: left;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      border-bottom: 1px solid var(--btfp-border-default);
+      border-bottom: 1px solid var(--p-border-default);
     }
 
     // หัวตาราง: สูง 44px Body/S Medium
     th {
-      height: var(--btfp-table-header-height);
-      background: var(--btfp-table-header-bg);
-      font-size: var(--btfp-typography-body-s-medium-size);
-      font-weight: var(--btfp-typography-body-s-medium-weight);
-      color: var(--btfp-text-primary);
+      height: var(--p-table-header-height);
+      background: var(--p-table-header-bg);
+      font-size: var(--p-typography-body-s-medium-size);
+      font-weight: var(--p-typography-body-s-medium-weight);
+      color: var(--p-text-primary);
     }
 
     tbody tr:hover {
-      background: var(--btfp-table-row-hover-bg);
+      background: var(--p-table-row-hover-bg);
     }
 
     // แถวที่เลือก
     tbody tr.is-selected {
-      background: var(--btfp-table-row-selected-bg);
+      background: var(--p-table-row-selected-bg);
     }
   }
 
@@ -222,7 +222,7 @@
   // Type=actions: ชิดขวา ใส่ <btfp-row-actions>
   .btfp-table__actions {
     .btfp-table & {
-      padding: var(--btfp-table-actions-padding);
+      padding: var(--p-table-actions-padding);
       text-align: right;
     }
   }
@@ -231,7 +231,7 @@
   // <td class="btfp-table__2line"><span>ชื่อ</span><span class="btfp-table__sub">ข้อมูลรอง</span></td>
   .btfp-table__2line {
     .btfp-table & {
-      height: var(--btfp-table-row-2line);
+      height: var(--p-table-row-2line);
 
       > span {
         display: block;
@@ -239,17 +239,17 @@
         text-overflow: ellipsis;
       }
       > span:first-child {
-        font-size: var(--btfp-typography-body-s-medium-size);
-        font-weight: var(--btfp-typography-body-s-medium-weight);
-        line-height: var(--btfp-line-height-body);
-        color: var(--btfp-text-primary);
+        font-size: var(--p-typography-body-s-medium-size);
+        font-weight: var(--p-typography-body-s-medium-weight);
+        line-height: var(--p-line-height-body);
+        color: var(--p-text-primary);
       }
     }
   }
   .btfp-table__sub {
-    font-size: var(--btfp-typography-caption-size);
-    line-height: var(--btfp-line-height-compact);
-    color: var(--btfp-text-secondary);
+    font-size: var(--p-typography-caption-size);
+    line-height: var(--p-line-height-compact);
+    color: var(--p-text-secondary);
   }
 
   // =====================================================================
@@ -262,12 +262,12 @@
 
   // PrimeNG สืบ line-height 1.6 จาก body ทำให้ปุ่มสูง 44px ตั้งเป็น 1.5 ให้ได้ 40px (M) และ 48px (L)
   .p-button {
-    line-height: var(--btfp-line-height-compact);
+    line-height: var(--p-line-height-compact);
   }
 
   // ปุ่มขนาด S ใช้ตัวอักษร Regular
   .p-button-sm .p-button-label {
-    font-weight: var(--btfp-font-weight-regular);
+    font-weight: var(--p-font-weight-regular);
   }
 
   // ปุ่มไอคอนอย่างเดียว (ใส่ไอคอนใน <ng-template #icon>) สูงเท่ากว้าง S 32 M 40 L 48
@@ -294,7 +294,7 @@
   .p-multiselect.p-invalid,
   .p-textarea.ng-invalid.ng-dirty,
   .p-textarea.p-invalid {
-    box-shadow: inset 0 0 0 0.5px var(--btfp-input-border-error);
+    box-shadow: inset 0 0 0 0.5px var(--p-input-border-error);
   }
 
   // ---------- 5.3 Checkbox Radio Toggle (Figma: Forms/Checkbox, Radio, Toggle) ----------
@@ -340,31 +340,31 @@
 
   // ปิดใช้งาน + ยังไม่ติ๊ก: พื้นขาว เส้น border/strong (PrimeNG ปกติพื้นเทา เส้นจางเกิน)
   :is(.p-checkbox, .p-radiobutton)[data-p-disabled='true']:not([data-p-checked='true']) :is(.p-checkbox-box, .p-radiobutton-box) {
-    border-color: var(--btfp-border-strong);
-    background: var(--btfp-surface-raised);
+    border-color: var(--p-border-strong);
+    background: var(--p-surface-raised);
   }
 
   // ป้ายข้อความของตัวเลือกที่ปิดใช้งานเป็นสีจาง (รวม .btfp-checkbox ของหน้าหุ่นจำลอง)
   label:has(> :is(.p-checkbox, .p-radiobutton, .p-toggleswitch)[data-p-disabled='true'], > .btfp-checkbox:disabled) {
-    color: var(--btfp-text-disabled);
+    color: var(--p-text-disabled);
   }
 
   // ---------- 5.4 Tag และ Chip (Figma: DataDisplay/Tag) ----------
 
   // Tag มีเส้นขอบตามสี (p-tag ไม่มี token เส้นขอบ)
   .p-tag {
-    border: 1px solid var(--btfp-info-border);
-    line-height: var(--btfp-line-height-body);
+    border: 1px solid var(--p-info-border);
+    line-height: var(--p-line-height-body);
   }
-  .p-tag-success   { border-color: var(--btfp-success-border); }
-  .p-tag-warn      { border-color: var(--btfp-warning-border); }
-  .p-tag-danger    { border-color: var(--btfp-danger-border); }
-  .p-tag-secondary { border-color: var(--btfp-border-default); }
+  .p-tag-success   { border-color: var(--p-success-border); }
+  .p-tag-warn      { border-color: var(--p-warning-border); }
+  .p-tag-danger    { border-color: var(--p-danger-border); }
+  .p-tag-secondary { border-color: var(--p-border-default); }
 
   // ตัวกรองที่ใช้อยู่ (p-chip) หน้าตาเหมือน Tag Tone=info
   .p-chip {
-    border: 1px solid var(--btfp-info-border);
-    font-size: var(--btfp-typography-body-s-size);
+    border: 1px solid var(--p-info-border);
+    font-size: var(--p-typography-body-s-size);
     line-height: 22px; // ไม่ใช่ token: 22 + ขอบบนล่าง 4 + 4 + เส้น 2 = สูง 32px ตาม Figma
   }
 
@@ -372,7 +372,7 @@
 
   // แท็บที่เลือกตัวหนา Medium
   .p-tab-active {
-    font-weight: var(--btfp-font-weight-medium);
+    font-weight: var(--p-font-weight-medium);
   }
 
   // ---------- 5.6 Segmented Control (p-selectbutton) ----------
@@ -382,9 +382,9 @@
     display: inline-flex;
     gap: 4px;
     padding: 4px;
-    border: 1px solid var(--btfp-border-default);
+    border: 1px solid var(--p-border-default);
     border-radius: 12px;
-    background: var(--btfp-bg-subtle);
+    background: var(--p-bg-subtle);
 
     .p-togglebutton {
       padding: 0;
@@ -397,7 +397,7 @@
   // ---------- 5.7 Avatar ----------
 
   .p-avatar {
-    border: 1px solid var(--btfp-border-default);
+    border: 1px solid var(--p-border-default);
   }
 
   // =====================================================================
@@ -407,7 +407,7 @@
   // ค่าที่ "เลือกไว้แล้ว" ใน p-select / p-multiselect ผ่าน placeholder ให้เป็นสีปกติ ไม่ใช่สีจาง
   // ใช้: <p-select placeholder="2569" styleClass="btfp-mock-value" />
   .btfp-mock-value .p-placeholder {
-    color: var(--btfp-text-primary);
+    color: var(--p-text-primary);
   }
 
   // checkbox ของ HTML ที่ตกแต่งให้เหมือน p-checkbox แสดงสถานะติ๊กด้วย attribute checked
@@ -419,32 +419,32 @@
     width: 24px; // Figma Forms/Checkbox 24px เครื่องหมาย 16px
     height: 24px;
     margin: 0;
-    border: 1px solid var(--btfp-border-strong);
-    border-radius: var(--btfp-radius-input);
-    background: var(--btfp-surface-raised) center / 16px no-repeat;
+    border: 1px solid var(--p-border-strong);
+    border-radius: var(--p-radius-input);
+    background: var(--p-surface-raised) center / 16px no-repeat;
     vertical-align: middle;
     cursor: pointer;
     transition: background-color 0.15s, border-color 0.15s;
 
     &:hover {
-      border-color: var(--btfp-action-primary);
+      border-color: var(--p-action-primary);
     }
 
     &:focus-visible {
-      outline: 2px solid var(--btfp-focus-ring);
+      outline: 2px solid var(--p-focus-ring);
       outline-offset: 2px;
     }
 
     &:checked {
-      border-color: var(--btfp-action-primary);
-      background-color: var(--btfp-action-primary);
+      border-color: var(--p-action-primary);
+      background-color: var(--p-action-primary);
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
     }
 
     // หัวตาราง (เลือกบางแถว) ใส่ class is-indeterminate แทน checked
     &.is-indeterminate {
-      border-color: var(--btfp-action-primary);
-      background-color: var(--btfp-action-primary);
+      border-color: var(--p-action-primary);
+      background-color: var(--p-action-primary);
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E");
     }
 

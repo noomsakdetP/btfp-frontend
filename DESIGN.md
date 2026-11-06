@@ -22,26 +22,26 @@
 
 ### 2.1 สี
 
-ทุกสีในโค้ดต้องมาจาก token (`src/styles/_tokens.scss` เป็น CSS variable `--btfp-*` และ `src/app/theme/btfp-preset.ts` สำหรับ PrimeNG) ห้ามใส่รหัสสีตรง
+ทุกสีในโค้ดต้องมาจาก token (`src/styles/_tokens.scss` เป็น CSS variable `--p-*` และ `src/app/theme/btfp-preset.ts` สำหรับ PrimeNG) ห้ามใส่รหัสสีตรง
 
 ดูค่าทั้งหมดใน Storybook หมวด **Foundations** (สี ตัวอักษร ระยะ มุมโค้ง เงา ไอคอน) ค่าใน `_tokens.scss` ตรงกับ Figma Variables ครบทุกตัว (primitives 102 ตัว semantic 63 ตัว component 26 ตัว)
 
-**Primitive** (Figma collection `primitives`): blue, navy, teal, cool-gray, red, orange, green, yellow ระดับ 50 ถึง 900 ในโค้ดชื่อ `--btfp-<สี>-<ระดับ>` (cool-gray ใช้ชื่อ `gray`)
+**Primitive** (Figma collection `primitives`): blue, navy, teal, cool-gray, red, orange, green, yellow ระดับ 50 ถึง 900 ในโค้ดชื่อ `--p-<สี>-<ระดับ>` (cool-gray ใช้ชื่อ `gray`)
 
 **Semantic** ที่ใช้บ่อย
 
 | การใช้งาน | Token ใน Figma | ค่า | CSS variable |
 | --- | --- | --- | --- |
-| พื้นหลังหน้า | color/bg/subtle | cool-gray/50 #f8fafc | `--btfp-bg-subtle` |
-| พื้นการ์ด | color/surface/raised | white | `--btfp-surface-raised` |
-| ข้อความหลัก | color/text/primary | cool-gray/800 #1e293b | `--btfp-text-primary` |
-| ข้อความรอง | color/text/secondary | cool-gray/600 #475569 | `--btfp-text-secondary` |
-| หัวข้อ | color/text/heading | navy/900 #092a48 | `--btfp-text-heading` |
-| ปุ่มหลัก | color/action/primary | blue/600 #0077b6 | `--btfp-action-primary` |
-| ลิงก์ | color/action/link | blue/700 #005e91 | `--btfp-action-link` |
-| เส้นขอบ | color/border/default | cool-gray/200 #e2e8f0 | `--btfp-border-default` |
-| เมนูซ้าย | nav/sidebar/bg | navy/900 #092a48 | `--btfp-sidebar-bg` |
-| หัวตาราง | table/header/bg | cool-gray/100 #f1f5f9 | `--btfp-table-header-bg` |
+| พื้นหลังหน้า | color/bg/subtle | cool-gray/50 #f8fafc | `--p-bg-subtle` |
+| พื้นการ์ด | color/surface/raised | white | `--p-surface-raised` |
+| ข้อความหลัก | color/text/primary | cool-gray/800 #1e293b | `--p-text-primary` |
+| ข้อความรอง | color/text/secondary | cool-gray/600 #475569 | `--p-text-secondary` |
+| หัวข้อ | color/text/heading | navy/900 #092a48 | `--p-text-heading` |
+| ปุ่มหลัก | color/action/primary | blue/600 #0077b6 | `--p-action-primary` |
+| ลิงก์ | color/action/link | blue/700 #005e91 | `--p-action-link` |
+| เส้นขอบ | color/border/default | cool-gray/200 #e2e8f0 | `--p-border-default` |
+| เมนูซ้าย | nav/sidebar/bg | navy/900 #092a48 | `--p-sidebar-bg` |
+| หัวตาราง | table/header/bg | cool-gray/100 #f1f5f9 | `--p-table-header-bg` |
 
 **Feedback** (พื้น / ตัวอักษร / เส้นขอบ): success = green 50/700/200, warning = yellow 50/800/200, danger = red 50/700/200, info = blue 50/700/200
 
@@ -67,9 +67,9 @@
 
 Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอักษร ขนาด น้ำหนัก) ชุดเดียวกับ token ในโค้ด
 
-- primitives: `font/family/*` `font/size/12` ถึง `60` `font/weight/regular|medium|semibold|bold` = `--btfp-font-family-*` `--btfp-font-size-*` `--btfp-font-weight-*`
-- semantic: `font/family/heading|body` = `--btfp-font-heading` `--btfp-font-body`, `typography/<ชื่อ>/size|weight` = `--btfp-typography-<ชื่อ>-size|weight`
-- ระยะบรรทัดไม่มี Variable ใน Figma (Variable รับได้แค่ px แต่ระบบใช้ %) โค้ดใช้ `--btfp-line-height-heading` 1.35 `-body` 1.6 `-compact` 1.5 `-display-xl` 1.2
+- primitives: `font/family/*` `font/size/12` ถึง `60` `font/weight/regular|medium|semibold|bold` = `--p-font-family-*` `--p-font-size-*` `--p-font-weight-*`
+- semantic: `font/family/heading|body` = `--p-font-heading` `--p-font-body`, `typography/<ชื่อ>/size|weight` = `--p-typography-<ชื่อ>-size|weight`
+- ระยะบรรทัดไม่มี Variable ใน Figma (Variable รับได้แค่ px แต่ระบบใช้ %) โค้ดใช้ `--p-line-height-heading` 1.35 `-body` 1.6 `-compact` 1.5 `-display-xl` 1.2
 - CSS ของ component ใช้ token ชั้น semantic ห้ามใส่ px ตรง ๆ ยกเว้นขนาดที่ Figma ใส่ค่าตรงไว้ (Hero 30/56px, ป้ายรองใน Drawer 13px)
 
 ฟอนต์โหลดจาก `@fontsource` ในโปรเจกต์ ไม่เรียกจาก Google Fonts (ใช้ได้ในเครือข่ายปิด) IBM Plex Sans Thai โหลดน้ำหนัก 500 600 700 Sarabun โหลด 400 500 600

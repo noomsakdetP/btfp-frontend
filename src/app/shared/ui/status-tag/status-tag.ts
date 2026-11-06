@@ -65,9 +65,9 @@ export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; ico
   `,
   styles: `
     :host {
-      --tag-bg: var(--btfp-info-bg);
-      --tag-border: var(--btfp-info-border);
-      --tag-text: var(--btfp-info-text);
+      --tag-bg: var(--p-info-bg);
+      --tag-border: var(--p-info-border);
+      --tag-text: var(--p-info-text);
       display: inline-flex;
       align-items: center;
       gap: 4px;
@@ -75,11 +75,11 @@ export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; ico
       height: 32px;
       padding: 0 8px;
       border: 1px solid var(--tag-border);
-      border-radius: var(--btfp-radius-full);
+      border-radius: var(--p-radius-full);
       background: var(--tag-bg);
       color: var(--tag-text);
-      font-size: var(--btfp-typography-body-s-medium-size);
-      font-weight: var(--btfp-typography-body-s-medium-weight);
+      font-size: var(--p-typography-body-s-medium-size);
+      font-weight: var(--p-typography-body-s-medium-weight);
       line-height: 1.5;
       white-space: nowrap;
       vertical-align: middle;
@@ -92,13 +92,13 @@ export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; ico
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    :host([data-severity='success']) { --tag-bg: var(--btfp-success-bg); --tag-border: var(--btfp-success-border); --tag-text: var(--btfp-success-text); }
-    :host([data-severity='warn']) { --tag-bg: var(--btfp-warning-bg); --tag-border: var(--btfp-warning-border); --tag-text: var(--btfp-warning-text); }
-    :host([data-severity='danger']) { --tag-bg: var(--btfp-danger-bg); --tag-border: var(--btfp-danger-border); --tag-text: var(--btfp-danger-text); }
-    :host([data-severity='secondary']) { --tag-bg: var(--btfp-gray-50); --tag-border: var(--btfp-gray-200); --tag-text: var(--btfp-gray-700); }
-    :host([data-severity='navy']) { --tag-bg: var(--btfp-navy-50); --tag-border: var(--btfp-navy-200); --tag-text: var(--btfp-navy-700); }
-    :host([data-severity='teal']) { --tag-bg: var(--btfp-teal-50); --tag-border: var(--btfp-teal-200); --tag-text: var(--btfp-teal-700); }
-    :host([data-severity='orange']) { --tag-bg: var(--btfp-orange-50); --tag-border: var(--btfp-orange-200); --tag-text: var(--btfp-orange-700); }
+    :host([data-severity='success']) { --tag-bg: var(--p-success-bg); --tag-border: var(--p-success-border); --tag-text: var(--p-success-text); }
+    :host([data-severity='warn']) { --tag-bg: var(--p-warning-bg); --tag-border: var(--p-warning-border); --tag-text: var(--p-warning-text); }
+    :host([data-severity='danger']) { --tag-bg: var(--p-danger-bg); --tag-border: var(--p-danger-border); --tag-text: var(--p-danger-text); }
+    :host([data-severity='secondary']) { --tag-bg: var(--p-gray-50); --tag-border: var(--p-gray-200); --tag-text: var(--p-gray-700); }
+    :host([data-severity='navy']) { --tag-bg: var(--p-navy-50); --tag-border: var(--p-navy-200); --tag-text: var(--p-navy-700); }
+    :host([data-severity='teal']) { --tag-bg: var(--p-teal-50); --tag-border: var(--p-teal-200); --tag-text: var(--p-teal-700); }
+    :host([data-severity='orange']) { --tag-bg: var(--p-orange-50); --tag-border: var(--p-orange-200); --tag-text: var(--p-orange-700); }
   `,
 })
 export class BtfpStatusTag {

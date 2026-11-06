@@ -66,21 +66,21 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
   `,
   styles: `
     .footer {
-      background: var(--btfp-navy-900);
-      color: var(--btfp-text-on-dark);
-      font-size: var(--btfp-typography-body-s-size);
+      background: var(--p-navy-900);
+      color: var(--p-text-on-dark);
+      font-size: var(--p-typography-body-s-size);
     }
     .brand {
       margin-left: 8px;
-      font-family: var(--btfp-font-heading);
-      font-size: var(--btfp-typography-h4-size);
-      font-weight: var(--btfp-typography-h4-weight);
-      color: var(--btfp-text-inverse);
+      font-family: var(--p-font-heading);
+      font-size: var(--p-typography-h4-size);
+      font-weight: var(--p-typography-h4-weight);
+      color: var(--p-text-inverse);
     }
     .divider {
       width: 1px;
       height: 28px;
-      background: var(--btfp-navy-600);
+      background: var(--p-navy-600);
     }
     .muted {
       margin: 0;
@@ -88,20 +88,20 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
     }
     h2 {
       margin-bottom: 4px;
-      font-size: var(--btfp-typography-body-l-size);
-      color: var(--btfp-text-inverse);
+      font-size: var(--p-typography-body-l-size);
+      color: var(--p-text-inverse);
     }
     a {
-      color: var(--btfp-text-on-dark);
+      color: var(--p-text-on-dark);
       text-decoration: none;
     }
     a:hover {
-      color: var(--btfp-text-inverse);
+      color: var(--p-text-inverse);
       text-decoration: underline;
     }
     .bottom {
-      border-top: 1px solid var(--btfp-navy-700);
-      font-size: var(--btfp-typography-caption-size);
+      border-top: 1px solid var(--p-navy-700);
+      font-size: var(--p-typography-caption-size);
     }
   `,
 })

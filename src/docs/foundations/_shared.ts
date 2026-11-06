@@ -19,10 +19,10 @@ import { BTFP_ICONS } from '../../app/theme/icons';
   `,
   styles: `
     :host { display: flex; flex-direction: column; gap: 4px; min-width: 0; font-size: 12px; line-height: 1.4; }
-    .swatch { height: 48px; border: 1px solid var(--btfp-border-default); border-radius: var(--btfp-radius-inner); }
-    code { overflow-wrap: anywhere; color: var(--btfp-text-primary); }
-    .alias { color: var(--btfp-action-link); }
-    .value { color: var(--btfp-text-secondary); text-transform: uppercase; }
+    .swatch { height: 48px; border: 1px solid var(--p-border-default); border-radius: var(--p-radius-inner); }
+    code { overflow-wrap: anywhere; color: var(--p-text-primary); }
+    .alias { color: var(--p-action-link); }
+    .value { color: var(--p-text-secondary); text-transform: uppercase; }
   `,
 })
 export class SbToken {
@@ -40,12 +40,12 @@ export const PALETTES = ['blue', 'navy', 'teal', 'gray', 'red', 'orange', 'green
 export const STEPS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 export const SEMANTIC: [string, string][] = [
-  ['--btfp-bg-default', 'white'], ['--btfp-bg-subtle', 'gray/50'], ['--btfp-bg-inverse', 'navy/900'], ['--btfp-surface-raised', 'white'],
-  ['--btfp-text-primary', 'gray/800'], ['--btfp-text-secondary', 'gray/600'], ['--btfp-text-disabled', 'gray/400'], ['--btfp-text-heading', 'navy/900'], ['--btfp-text-inverse', 'white'],
-  ['--btfp-border-default', 'gray/200'], ['--btfp-border-strong', 'gray/400'],
-  ['--btfp-action-primary', 'blue/600'], ['--btfp-action-primary-hover', 'blue/700'], ['--btfp-action-primary-pressed', 'blue/800'], ['--btfp-action-primary-disabled', 'gray/300'],
-  ['--btfp-action-secondary', 'navy/700'], ['--btfp-action-link', 'blue/700'], ['--btfp-focus-ring', 'blue/600'],
-  ['--btfp-icon-default', 'gray/600'], ['--btfp-icon-subtle', 'gray/400'], ['--btfp-icon-strong', 'navy/900'], ['--btfp-icon-brand', 'blue/500'], ['--btfp-icon-action', 'blue/600'], ['--btfp-icon-disabled', 'gray/300'],
+  ['--p-bg-default', 'white'], ['--p-bg-subtle', 'gray/50'], ['--p-bg-inverse', 'navy/900'], ['--p-surface-raised', 'white'],
+  ['--p-text-primary', 'gray/800'], ['--p-text-secondary', 'gray/600'], ['--p-text-disabled', 'gray/400'], ['--p-text-heading', 'navy/900'], ['--p-text-inverse', 'white'],
+  ['--p-border-default', 'gray/200'], ['--p-border-strong', 'gray/400'],
+  ['--p-action-primary', 'blue/600'], ['--p-action-primary-hover', 'blue/700'], ['--p-action-primary-pressed', 'blue/800'], ['--p-action-primary-disabled', 'gray/300'],
+  ['--p-action-secondary', 'navy/700'], ['--p-action-link', 'blue/700'], ['--p-focus-ring', 'blue/600'],
+  ['--p-icon-default', 'gray/600'], ['--p-icon-subtle', 'gray/400'], ['--p-icon-strong', 'navy/900'], ['--p-icon-brand', 'blue/500'], ['--p-icon-action', 'blue/600'], ['--p-icon-disabled', 'gray/300'],
 ];
 export const FEEDBACK = ['success', 'warning', 'danger', 'info'];
 
@@ -74,7 +74,7 @@ export const primitivesTpl = () =>
   PALETTES.map(
     (p) =>
       `<p class="btfp-text-body-s-medium" style="margin:16px 0 8px">${p}</p>` +
-      grid(110, STEPS.map((s) => `<sb-token name="--btfp-${p}-${s}" />`).join('')),
+      grid(110, STEPS.map((s) => `<sb-token name="--p-${p}-${s}" />`).join('')),
   ).join('');
 
 export const semanticTpl = () => grid(170, SEMANTIC.map(([n, a]) => `<sb-token name="${n}" alias="${a}" />`).join(''));
@@ -85,9 +85,9 @@ export const feedbackTpl = () =>
     FEEDBACK.map(
       (f) =>
         `<div style="display:flex;flex-direction:column;gap:8px">
-           <div style="padding:12px 16px;border:1px solid var(--btfp-${f}-border);border-radius:var(--btfp-radius-inner);background:var(--btfp-${f}-bg);color:var(--btfp-${f}-text)" class="btfp-text-body-s-medium">${f}</div>
+           <div style="padding:12px 16px;border:1px solid var(--p-${f}-border);border-radius:var(--p-radius-inner);background:var(--p-${f}-bg);color:var(--p-${f}-text)" class="btfp-text-body-s-medium">${f}</div>
            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
-             <sb-token name="--btfp-${f}-bg" /><sb-token name="--btfp-${f}-text" /><sb-token name="--btfp-${f}-border" />
+             <sb-token name="--p-${f}-bg" /><sb-token name="--p-${f}-text" /><sb-token name="--p-${f}-border" />
            </div>
          </div>`,
     ).join(''),
@@ -97,9 +97,9 @@ export const typeTpl = (rows: [string, string, string][]) =>
   `<div style="display:flex;flex-direction:column">${rows
     .map(
       ([c, n, d]) =>
-        `<div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--btfp-border-default)">
-           <div class="btfp-text-caption" style="color:var(--btfp-text-secondary)"><div class="btfp-text-body-s-medium" style="color:var(--btfp-text-primary)">${n}</div>${d}<br /><code>.${c}</code></div>
-           <div class="${c}" style="color:var(--btfp-text-heading)">ทุน กทปส. เพื่อประโยชน์สาธารณะ 2569</div>
+        `<div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--p-border-default)">
+           <div class="btfp-text-caption" style="color:var(--p-text-secondary)"><div class="btfp-text-body-s-medium" style="color:var(--p-text-primary)">${n}</div>${d}<br /><code>.${c}</code></div>
+           <div class="${c}" style="color:var(--p-text-heading)">ทุน กทปส. เพื่อประโยชน์สาธารณะ 2569</div>
          </div>`,
     )
     .join('')}</div>`;
@@ -110,7 +110,7 @@ export const spacingTpl = () =>
   )
     .map(
       ([n, v]) =>
-        `<div style="display:flex;align-items:center;gap:16px"><code style="width:160px" class="btfp-text-caption">--btfp-space-${n}</code><span class="btfp-text-caption" style="width:40px;color:var(--btfp-text-secondary)">${v}px</span><span style="height:16px;width:var(--btfp-space-${n});background:var(--btfp-blue-300);border-radius:2px"></span></div>`,
+        `<div style="display:flex;align-items:center;gap:16px"><code style="width:160px" class="btfp-text-caption">--p-space-${n}</code><span class="btfp-text-caption" style="width:40px;color:var(--p-text-secondary)">${v}px</span><span style="height:16px;width:var(--p-space-${n});background:var(--p-blue-300);border-radius:2px"></span></div>`,
     )
     .join('')}</div>`;
 
@@ -118,15 +118,15 @@ export const radiusTpl = () =>
   `<div style="display:flex;flex-wrap:wrap;gap:24px">${['input', 'tag', 'button', 'inner', 'card', 'modal', 'card-lg', 'full']
     .map(
       (n) =>
-        `<div style="display:flex;flex-direction:column;gap:8px;width:140px"><div style="height:56px;border:2px solid var(--btfp-blue-600);border-radius:var(--btfp-radius-${n});background:var(--btfp-blue-50)"></div><sb-token name="--btfp-radius-${n}" swatch="false" /></div>`,
+        `<div style="display:flex;flex-direction:column;gap:8px;width:140px"><div style="height:56px;border:2px solid var(--p-blue-600);border-radius:var(--p-radius-${n});background:var(--p-blue-50)"></div><sb-token name="--p-radius-${n}" swatch="false" /></div>`,
     )
     .join('')}</div>`;
 
 export const shadowTpl = () =>
-  `<div style="display:flex;flex-wrap:wrap;gap:32px;padding:16px;background:var(--btfp-bg-subtle);border-radius:var(--btfp-radius-card)">${[1, 2, 3]
+  `<div style="display:flex;flex-wrap:wrap;gap:32px;padding:16px;background:var(--p-bg-subtle);border-radius:var(--p-radius-card)">${[1, 2, 3]
     .map(
       (n) =>
-        `<div style="width:200px;height:120px;display:grid;place-items:center;background:var(--btfp-surface-raised);border-radius:var(--btfp-radius-card);box-shadow:var(--btfp-shadow-${n})"><code class="btfp-text-caption">--btfp-shadow-${n}</code></div>`,
+        `<div style="width:200px;height:120px;display:grid;place-items:center;background:var(--p-surface-raised);border-radius:var(--p-radius-card);box-shadow:var(--p-shadow-${n})"><code class="btfp-text-caption">--p-shadow-${n}</code></div>`,
     )
     .join('')}</div>`;
 
@@ -137,13 +137,13 @@ export const iconsTpl = () =>
       .sort()
       .map(
         (n) =>
-          `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border:1px solid var(--btfp-border-default);border-radius:var(--btfp-radius-inner);color:var(--btfp-icon-default)"><btfp-icon name="${n}" size="24" /><code class="btfp-text-caption" style="color:var(--btfp-text-secondary);text-align:center;overflow-wrap:anywhere">${n}</code></div>`,
+          `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border:1px solid var(--p-border-default);border-radius:var(--p-radius-inner);color:var(--p-icon-default)"><btfp-icon name="${n}" size="24" /><code class="btfp-text-caption" style="color:var(--p-text-secondary);text-align:center;overflow-wrap:anywhere">${n}</code></div>`,
       )
       .join(''),
   );
 
 export const iconSizesTpl = () =>
-  `<div style="display:flex;align-items:end;gap:24px;color:var(--btfp-icon-default)">${[14, 16, 20, 24, 32]
+  `<div style="display:flex;align-items:end;gap:24px;color:var(--p-icon-default)">${[14, 16, 20, 24, 32]
     .map((s) => `<div style="display:flex;flex-direction:column;align-items:center;gap:8px"><btfp-icon name="file-text" size="${s}" /><span class="btfp-text-caption">${s}</span></div>`)
     .join('')}</div>`;
 

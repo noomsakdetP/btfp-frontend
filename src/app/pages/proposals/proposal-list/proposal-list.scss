@@ -7,7 +7,7 @@
 }
 
 .text-muted {
-  color: var(--btfp-text-secondary);
+  color: var(--p-text-secondary);
 }
 
 // ---------- breadcrumb ----------
@@ -15,37 +15,37 @@
   margin: 0;
   padding: 4px 0;
   list-style: none;
-  font-size: var(--btfp-typography-body-s-size);
+  font-size: var(--p-typography-body-s-size);
 
   li {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--btfp-text-secondary);
+    color: var(--p-text-secondary);
   }
 
   li + li::before {
     content: '';
     width: 6px;
     height: 6px;
-    border-top: 1.5px solid var(--btfp-icon-subtle);
-    border-right: 1.5px solid var(--btfp-icon-subtle);
+    border-top: 1.5px solid var(--p-icon-subtle);
+    border-right: 1.5px solid var(--p-icon-subtle);
     transform: rotate(45deg);
     margin: 0 4px;
   }
 
   a {
-    color: var(--btfp-text-secondary);
+    color: var(--p-text-secondary);
     text-decoration: none;
 
     &:hover {
-      color: var(--btfp-action-link);
+      color: var(--p-action-link);
       text-decoration: underline;
     }
   }
 
   [aria-current='page'] {
-    color: var(--btfp-text-primary);
+    color: var(--p-text-primary);
     font-weight: 500;
   }
 }
@@ -53,40 +53,40 @@
 // ---------- page title ----------
 .page-title {
   h1 {
-    font-size: var(--btfp-typography-h2-size);
+    font-size: var(--p-typography-h2-size);
     line-height: 32px;
   }
 
   p {
     margin: 4px 0 0;
-    color: var(--btfp-text-secondary);
+    color: var(--p-text-secondary);
   }
 }
 
 // ---------- card ----------
 .proposal-card {
-  background: var(--btfp-surface-raised);
-  border: 1px solid var(--btfp-border-default);
-  border-radius: var(--btfp-radius-card);
+  background: var(--p-surface-raised);
+  border: 1px solid var(--p-border-default);
+  border-radius: var(--p-radius-card);
   overflow: hidden;
 }
 
 :host ::ng-deep .p-chip {
-  border: 1px solid var(--btfp-info-border);
-  font-size: var(--btfp-typography-body-s-size);
+  border: 1px solid var(--p-info-border);
+  font-size: var(--p-typography-body-s-size);
 }
 
 .bulk-actions {
-  border-top: 1px solid var(--btfp-border-default);
+  border-top: 1px solid var(--p-border-default);
 }
 
 .bulk-actions__count {
   font-weight: 500;
-  color: var(--btfp-action-link);
+  color: var(--p-action-link);
 }
 
 // ---------- table ----------
 // ตารางใช้ .btfp-table ส่วนกลาง (src/styles.scss) ที่นี่มีแค่สีเฉพาะของหน้านี้
 .text-unassigned {
-  color: var(--btfp-orange-600);
+  color: var(--p-orange-600);
 }

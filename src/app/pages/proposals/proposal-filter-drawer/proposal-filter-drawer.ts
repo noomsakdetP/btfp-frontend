@@ -37,16 +37,16 @@ import { BtfpDatepicker, BtfpDrawer, BtfpIcon } from '../../../shared/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './proposal-filter-drawer.html',
   styles: `
-    .filter-title h2 { font-size: var(--btfp-typography-h3-size); line-height: 28px; }
-    .filter-title p { margin: 4px 0 0; color: var(--btfp-text-secondary); font-weight: 400; }
+    .filter-title h2 { font-size: var(--p-typography-h3-size); line-height: 28px; }
+    .filter-title p { margin: 4px 0 0; color: var(--p-text-secondary); font-weight: 400; }
     .close-link {
       display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0;
-      border-radius: var(--btfp-radius-button); color: var(--btfp-icon-default);
+      border-radius: var(--p-radius-button); color: var(--p-icon-default);
     }
-    .close-link:hover { background: var(--btfp-gray-100); }
+    .close-link:hover { background: var(--p-gray-100); }
     .filter-group { margin: 0; padding: 0; border: 0; }
-    .filter-group legend { padding: 0; margin-bottom: 10px; font-weight: 600; color: var(--btfp-text-heading); }
-    .sub-label { font-size: var(--btfp-typography-caption-size); line-height: var(--btfp-line-height-compact); color: var(--btfp-text-secondary); }
+    .filter-group legend { padding: 0; margin-bottom: 10px; font-weight: 600; color: var(--p-text-heading); }
+    .sub-label { font-size: var(--p-typography-caption-size); line-height: var(--p-line-height-compact); color: var(--p-text-secondary); }
   `,
 })
 export class ProposalFilterDrawer {}
