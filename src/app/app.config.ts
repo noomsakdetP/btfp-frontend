@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { providePrimeNG } from 'primeng/config';
 import { ConfirmationService } from 'primeng/api';
@@ -29,8 +29,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding()),
-    // withInterceptorsFromDi ให้ ngx-ui-loader จับการเรียก API ได้ (แสดงแถบโหลดด้านบน)
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(),
     btfpLoaderProviders(),
     ...btfpUiProviders,
   ],

@@ -94,7 +94,8 @@ npm run check:tokens      # ต้องผ่านเมื่อเพิ่�
 - `btfpDatepicker` แทนที่ method ภายในของ PrimeNG DatePicker ถ้าอัปเกรด PrimeNG ต้องทดสอบหน้า Storybook "PrimeNG (ธีม กทปส.)/Forms/DatePicker" ซ้ำ
   ไม่ใช้แพ็กเกจ `primeng-buddhist-year-datepicker` เพราะเป็นสำเนา DatePicker ของ PrimeNG 21.0.6 ใช้ selector `p-datepicker` ซ้ำกับของ PrimeNG และไม่ได้รับการแก้บั๊กของ PrimeNG รุ่นใหม่
 - directive ที่เติมให้ PrimeNG (`btfpDatepicker`, `btfpDrawer`) ตั้งค่าได้เฉพาะ input แบบเดิมของ PrimeNG input ที่เป็น signal (เช่น `appendTo`, `position`) ต้องใส่เป็น attribute ในหน้าเอง
-- การโหลดหน้าและเรียก API ใช้ ngx-ui-loader (`btfpLoaderProviders()` ใน `app.config.ts` หน้าตาตามค่าที่ BA เลือกใน `BTFP_LOADER_CONFIG` สีผูก token `--p-loading-*`) แสดงผลผ่าน `btfp-route-progress` ใน `app.ts` เท่านั้น ห้ามใส่ `<ngx-ui-loader>` ในหน้า
+- การโหลดตอนเปลี่ยนเมนูใช้ ngx-ui-loader (`btfpLoaderProviders()` ใน `app.config.ts` หน้าตาตามค่าที่ BA เลือกใน `BTFP_LOADER_CONFIG` สีผูก token `--p-loading-*`) แสดงผลผ่าน `btfp-route-progress` ใน `app.ts` เท่านั้น ห้ามใส่ `<ngx-ui-loader>` ในหน้า
+- การเรียก API ไม่มีตัวโหลดกลาง (ตกลงไม่ใช้วงหมุนมุมขวาล่าง) ให้แสดงสถานะที่ component ที่ผู้ใช้กด: ปุ่มใช้ `<p-button loading>` (กดซ้ำไม่ได้) ตารางใช้แถว `<p-skeleton>` ระหว่างรอข้อมูล ดู Storybook "PrimeNG (ธีม กทปส.)/Feedback/Progress และ Spinner"
 - ไอคอนใน Figma มีสองชุด: PrimeIcons `pi-<ชื่อ>` 313 ตัว (ขยายเต็มกรอบเหมือนฟอนต์จริง) และ Icon กลาง `icon/<หมวด>/<ชื่อ>` 26 ตัว (วาดให้เข้ากับ PrimeIcons) ใช้ชื่อหลัง `/` สุดท้ายกับ `btfp-icon`
 - `btfp-icon` ตั้งความหนาเส้น Icon กลางให้อัตโนมัติ 1.5 คงที่ (ย่อขยายตามรูปเหมือน PrimeIcons) ไม่ต้องใส่ `strokeWidth`
 - ตาราง input/output ในหน้า Docs ของ Storybook สร้างจาก Compodoc (`documentation.json` สร้างใหม่ทุกครั้งที่เปิด Storybook ไม่ต้อง commit) คำอธิบายมาจาก comment `/** */` เหนือ input/output ให้เขียนเป็นภาษาไทยทุกตัว member ที่ไม่ใช่ API ให้เป็น `protected` หรือ `private` จะได้ไม่ขึ้นในตาราง

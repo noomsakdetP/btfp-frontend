@@ -40,7 +40,7 @@ export const Feedback: StoryObj = {
 
 export const Loading: StoryObj = {
   name: "Loading",
-  parameters: { docs: { description: { story: `สีของตัวโหลดตอนเปลี่ยนเมนูและเรียก API (\`btfp-route-progress\` ใช้ ngx-ui-loader) ผูกกับ semantic ของระบบ ภาพขวาเป็นภาพจำลองนิ่ง ดูตัวจริงที่ Components > Feedback > Route Progress` } } },
+  parameters: { docs: { description: { story: `สีของตัวโหลดตอนเปลี่ยนเมนู (\`btfp-route-progress\` ใช้ ngx-ui-loader) ผูกกับ semantic ของระบบ ภาพขวาเป็นภาพจำลองนิ่ง ดูตัวจริงที่ Components > Feedback > Route Progress` } } },
   render: () => ({ template: loadingTpl() }),
 };
 

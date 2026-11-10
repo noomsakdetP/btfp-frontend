@@ -51,7 +51,6 @@ export const FEEDBACK = ['success', 'warning', 'danger', 'info'];
 /** สีของตัวโหลด (btfp-route-progress / ngx-ui-loader) */
 export const LOADING: [string, string][] = [
   ['--p-loading-spinner', 'action/primary'],
-  ['--p-loading-background', 'action/primary'],
   ['--p-loading-overlay', 'bg/inverse 80%'],
   ['--p-loading-text', 'text/inverse'],
 ];
@@ -95,7 +94,6 @@ export const loadingTpl = () =>
      <div style="position:absolute;inset:0;display:grid;place-items:center;background:var(--p-loading-overlay)">
        <div style="display:flex;gap:6px;height:56px;align-items:center">${[1, 0.6, 1, 0.6, 1].map((h) => `<i style="display:block;width:8px;height:${h * 100}%;background:var(--p-loading-spinner)"></i>`).join('')}</div>
      </div>
-     <div style="position:absolute;right:16px;bottom:16px;width:32px;height:32px;border-radius:50%;border:4px solid var(--p-loading-background);border-right-color:transparent;opacity:.5"></div>
    </div></div>`;
 
 export const feedbackTpl = () =>

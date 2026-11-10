@@ -44,43 +44,13 @@ class RouteProgressCycle {
   }
 }
 
-/**
- * ใช้เฉพาะ Storybook: จำลองการเรียก API (background) ทุก 4 วินาที
- * ของจริง NgxUiLoaderHttpModule เรียกให้เองทุกครั้งที่ใช้ HttpClient
- */
-@Component({
-  selector: 'sb-route-progress-api',
-  imports: [BtfpRouteProgress],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<btfp-route-progress /><div class="caption">{{ busy() ? 'กำลังเรียก API: วงหมุนมุมขวาล่าง ไม่บังหน้าจอ' : 'เรียก API เสร็จ' }}</div>`,
-  styles: captionStyle,
-})
-class RouteProgressApi {
-  private readonly loader = inject(NgxUiLoaderService);
-  readonly busy = signal(false);
-  constructor() {
-    let timer: ReturnType<typeof setTimeout>;
-    const run = () => {
-      this.busy.set(true);
-      this.loader.startBackground('sb-api');
-      timer = setTimeout(() => {
-        this.loader.stopBackground('sb-api');
-        this.busy.set(false);
-        timer = setTimeout(run, 1500);
-      }, 2500);
-    };
-    timer = setTimeout(run, 500);
-    inject(DestroyRef).onDestroy(() => { clearTimeout(timer); this.loader.stopBackground('sb-api'); });
-  }
-}
-
 const meta: Meta<BtfpRouteProgress> = {
   title: 'Components/Feedback/Route Progress',
   component: BtfpRouteProgress,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [NgxUiLoaderModule, BtfpPublicTopbar, BtfpPublicFooter, LandingPage, RouteProgressCycle, RouteProgressApi] })],
+  decorators: [moduleMetadata({ imports: [NgxUiLoaderModule, BtfpPublicTopbar, BtfpPublicFooter, LandingPage, RouteProgressCycle] })],
   argTypes: {
-    demo: { control: 'inline-radio', options: ['', 'foreground', 'background'] },
+    demo: { control: 'inline-radio', options: ['', 'foreground'] },
   },
   parameters: {
     layout: 'fullscreen',
@@ -88,22 +58,20 @@ const meta: Meta<BtfpRouteProgress> = {
       story: { inline: false, height: '640px' },
       description: {
         component: [
-          'แสดงว่ากำลังโหลด (Figma: Feedback/Progress Bar, Feedback/Loading Spinner) ภายในคือ `<ngx-ui-loader>` หน้าตาตามค่าที่ BA เลือก',
+          'แสดงว่ากำลังเปลี่ยนเมนู (Figma: Feedback/Progress Bar, Feedback/Loading Spinner) ภายในคือ `<ngx-ui-loader>` หน้าตาตามค่าที่ BA เลือก',
           '',
           '- **เปลี่ยนเมนู:** แถบบน 3px, ชั้นทับพื้นเข้มของระบบ โปร่ง 80% เบลอหน้าเดิม 3px และแท่งเด้ง 80px กลางจอ',
-          '- **เรียก API ผ่าน HttpClient:** วงหมุน 60px มุมขวาล่าง โปร่ง 50% ไม่บังหน้าจอ',
+          '- **เรียก API ไม่ใช้ตัวนี้:** แสดงสถานะที่ component ที่ผู้ใช้กด เช่น `<p-button loading>` หรือแถว `p-skeleton` ในตาราง (ดู PrimeNG > Feedback > Progress และ Spinner)',
           '- แสดงอย่างน้อย 300 ms ขึ้นทันทีไม่มีหน่วง',
           '- ใส่ไว้ใน `app.ts` ครั้งเดียวแล้ว ทุกหน้าได้ทันที **หน้าใหม่ไม่ต้องใส่เอง** ห้ามใส่ `<ngx-ui-loader>` ในหน้า',
           '- ค่าตั้งอยู่ที่ `BTFP_LOADER_CONFIG` ใน `loader-providers.ts` สีผูก token `--p-loading-*` ใน `_tokens.scss`',
-          '- งานที่ไม่ได้ผ่าน HttpClient สั่งเองได้: `loader.start(\'save\')` แล้ว `loader.stop(\'save\')` (NgxUiLoaderService)',
           '',
           '**สีของตัวโหลด** (ดูค่าจริงที่ Foundations > สี > Loading)',
           '',
           '| ส่วน | ค่าใน config | token | ผูกกับ semantic |',
           '| --- | --- | --- | --- |',
-          '| แถบบน (เฉพาะเปลี่ยนเมนู) | `pbColor` | `--p-loading-spinner` | `--p-action-primary` |',
+          '| แถบบน | `pbColor` | `--p-loading-spinner` | `--p-action-primary` |',
           '| แท่งเด้งกลางจอ | `fgsColor` | `--p-loading-spinner` | `--p-action-primary` |',
-          '| วงหมุนมุมขวาล่าง (โปร่ง 50%) | `bgsColor` | `--p-loading-background` | `--p-action-primary` |',
           '| ชั้นทับ | `overlayColor` | `--p-loading-overlay` | `--p-bg-inverse` โปร่ง 80% |',
           '| ข้อความ | `textColor` | `--p-loading-text` | `--p-text-inverse` |',
         ].join('\n'),
@@ -128,20 +96,8 @@ export const Cycle: Story = {
   render: () => ({ template: `${page}<sb-route-progress-cycle />` }),
 };
 
-export const Api: Story = {
-  name: 'เรียก API (วนซ้ำ)',
-  parameters: { docs: { source: { code: "// NgxUiLoaderHttpModule เรียกให้เองทุกครั้งที่ใช้ HttpClient\nthis.http.get('/api/proposals').subscribe();" } } },
-  render: () => ({ template: `${page}<sb-route-progress-api />` }),
-};
-
 export const Foreground: Story = {
   name: 'เปลี่ยนเมนู (แสดงค้าง)',
   args: { demo: 'foreground' },
-  render: (args) => ({ props: args, template: `${page}<btfp-route-progress [demo]="demo" />` }),
-};
-
-export const Background: Story = {
-  name: 'เรียก API (แสดงค้าง)',
-  args: { demo: 'background' },
   render: (args) => ({ props: args, template: `${page}<btfp-route-progress [demo]="demo" />` }),
 };

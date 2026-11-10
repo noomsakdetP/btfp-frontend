@@ -204,10 +204,9 @@
   --p-hero-control-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   --p-hero-dot: var(--p-gray-50);
 
-  // Feedback/Loading: ngx-ui-loader ผ่าน btfp-route-progress (ดู loader-providers.ts) ผูกกับ semantic ของระบบ
+  // Feedback/Loading: ตัวโหลดตอนเปลี่ยนเมนู ngx-ui-loader ผ่าน btfp-route-progress (ดู loader-providers.ts) ผูกกับ semantic ของระบบ
   --p-loading-overlay: color-mix(in srgb, var(--p-bg-inverse) 80%, transparent); // ชั้นทับตอนเปลี่ยนเมนู พื้นเข้มของระบบ (navy/900) โปร่ง 80%
   --p-loading-spinner: var(--p-action-primary); // แท่งเด้งกลางจอและแถบบน
-  --p-loading-background: var(--p-action-primary); // วงหมุนมุมขวาล่างตอนเรียก API (โปร่ง 50% จาก bgsOpacity)
   --p-loading-text: var(--p-text-inverse); // ข้อความบนชั้นทับ
 
   // หน้าเข้าสู่ระบบและลงทะเบียน (Figma: F-01 ฯลฯ ใช้ค่าตรง ไม่ได้ผูก variable)

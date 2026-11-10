@@ -25,6 +25,7 @@ import { Tooltip } from 'primeng/tooltip';
 import { BtfpIcon } from '../../app/shared/ui/icon/icon';
 import { ProgressBar } from 'primeng/progressbar';
 import { ProgressSpinner } from 'primeng/progressspinner';
+import { Skeleton } from 'primeng/skeleton';
 
 /** import ทุกตัวที่ story ในหมวด PrimeNG ใช้ (ใช้เฉพาะใน Storybook) */
 export const primengStoryImports = moduleMetadata({
@@ -46,6 +47,7 @@ export const primengStoryImports = moduleMetadata({
     Paginator,
     ProgressBar,
     ProgressSpinner,
+    Skeleton,
     RadioButton,
     Select,
     SelectButton,
