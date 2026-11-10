@@ -43,6 +43,7 @@ npm start                 # เปิดแอปที่ http://localhost:4200
 npm run storybook         # เปิด Storybook ที่ http://localhost:6006
 npm run build             # build แอปไว้ที่ dist/
 npm run build-storybook   # build Storybook ไว้ที่ storybook-static/
+npm run check:tokens      # ตรวจว่าชื่อ token ชนกับตัวแปรของ PrimeNG ไหม (รันเมื่อเพิ่ม token หรืออัปเกรด PrimeNG)
 ```
 
 **เครื่อง Windows ที่บริษัทบล็อก PowerShell script:** ให้เปิด **Command Prompt (cmd)** แล้วรันคำสั่งเดิม ไม่ต้องใช้ PowerShell

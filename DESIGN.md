@@ -24,6 +24,8 @@
 
 ทุกสีในโค้ดต้องมาจาก token (`src/styles/_tokens.scss` เป็น CSS variable `--p-*` และ `src/app/theme/btfp-preset.ts` สำหรับ PrimeNG) ห้ามใส่รหัสสีตรง
 
+token ใช้ prefix `--p-*` เหมือนตัวแปรของ PrimeNG ชุดสีพื้นฐานของเราจึงทับชุดสีของ PrimeNG ด้วย (ตั้งใจ) component ของ PrimeNG จะใช้สีของเราทั้งหมด เพิ่ม token ใหม่แล้วรัน `npm run check:tokens` เพื่อตรวจว่าไม่ได้ไปทับตัวแปรอื่นของ PrimeNG โดยไม่ตั้งใจ
+
 ดูค่าทั้งหมดใน Storybook หมวด **Foundations** (สี ตัวอักษร ระยะ มุมโค้ง เงา ไอคอน) ค่าใน `_tokens.scss` ตรงกับ Figma Variables ครบทุกตัว (primitives 102 ตัว semantic 63 ตัว component 26 ตัว)
 
 **Primitive** (Figma collection `primitives`): blue, navy, teal, cool-gray, red, orange, green, yellow ระดับ 50 ถึง 900 ในโค้ดชื่อ `--p-<สี>-<ระดับ>` (cool-gray ใช้ชื่อ `gray`)

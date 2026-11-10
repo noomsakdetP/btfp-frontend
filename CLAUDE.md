@@ -14,6 +14,7 @@ npm start                 # dev server :4200
 npm run build             # ต้องผ่านก่อนบอกว่างานเสร็จ
 npm run storybook         # :6006
 npm run build-storybook   # ต้องผ่านก่อนบอกว่างานเสร็จ
+npm run check:tokens      # ต้องผ่านเมื่อเพิ่ม/เปลี่ยน token หรืออัปเกรด PrimeNG
 ```
 
 เครื่อง Windows ของบริษัทบล็อก PowerShell script ให้รัน npm ผ่าน cmd
@@ -95,4 +96,7 @@ npm run build-storybook   # ต้องผ่านก่อนบอกว่�
   `building-2` → `building-complex`, `history` → `rotate-ccw-clock`, `bold` → `letter-b`
 - ความหนาเส้นไอคอนตาม Figma คือ 1.5 (16px ลงมา 1.25) `btfp-icon` ตั้งให้อัตโนมัติ ไม่ต้องใส่ `strokeWidth`
 - `p-select`, `p-multiselect`, `p-datepicker` ใน Drawer ให้ใส่ `appendTo="body"` ไม่งั้น overlay จะโดนตัด
+- token ใช้ prefix `--p-*` เหมือน PrimeNG และอยู่นอก CSS layer จึงชนะค่าของ PrimeNG เสมอ ชุดสีพื้นฐาน (`--p-blue-500`, `--p-red-500`, `--p-gray-500` ฯลฯ 70 ตัว) ตั้งใจทับชุดสีของ PrimeNG
+  token ใหม่ห้ามตั้งชื่อตรงกับตัวแปรของ PrimeNG โดยไม่ตั้งใจ `npm run check:tokens` จะหยุดถ้าเจอ
+  ชื่อ class และ component ยังใช้ `btfp-` (รอทีมตัดสิน prefix กลาง) ห้ามใช้ `p-` เพราะชนกับ PrimeNG แล้วหน้าพังโดย build ไม่เตือน
 - ลำดับ CSS layer: theme, base, primeng, btfp, components, utilities (ประกาศใน `src/tailwind.css` และ `app.config.ts` ต้องตรงกัน)
