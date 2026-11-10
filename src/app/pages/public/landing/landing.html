@@ -12,49 +12,49 @@
 -->
 
 <!-- ===================== ป้ายสไลด์ (Figma: Domain/Hero Banner 531:90464) ===================== -->
-<btfp-hero-banner label="ประกาศและผลงานเด่น">
-  <btfp-hero-slide image="images/landing/hero-slide-1.jpg" overlay>
+<p-hero-banner label="ประกาศและผลงานเด่น">
+  <p-hero-slide image="images/landing/hero-slide-1.jpg" overlay>
     <h1>เปิดรับข้อเสนอโครงการ<br class="hidden md:inline" /> เพื่อขอรับทุนจาก กสทช.</h1>
     <p>สนับสนุนการพัฒนาเทคโนโลยี นวัตกรรม และการสื่อสาร เพื่อประโยชน์สูงสุดของประชาชน</p>
     <p-button size="large" routerLink="/grants">
       <span>ดูประกาศทุนทั้งหมด</span>
-      <btfp-icon name="pi-chevron-right" size="20" />
+      <p-ui-icon name="pi-chevron-right" size="20" />
     </p-button>
-  </btfp-hero-slide>
+  </p-hero-slide>
 
-  <btfp-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
+  <p-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
     <h2>ทุนวิจัยและพัฒนาด้านโทรคมนาคม<br class="hidden md:inline" /> เพื่อประโยชน์สาธารณะ ปี 2570</h2>
     <p>ยื่นข้อเสนอโครงการได้ถึงวันที่ 31 ต.ค. 2569 ผ่านระบบออนไลน์</p>
     <p-button size="large" routerLink="/login">
       <span>ยื่นข้อเสนอ</span>
-      <btfp-icon name="pi-chevron-right" size="20" />
+      <p-ui-icon name="pi-chevron-right" size="20" />
     </p-button>
-  </btfp-hero-slide>
+  </p-hero-slide>
 
-  <btfp-hero-slide image="images/landing/hero-slide-3.jpg" overlay tag="ผลงานเด่น" tagSeverity="info">
+  <p-hero-slide image="images/landing/hero-slide-3.jpg" overlay tag="ผลงานเด่น" tagSeverity="info">
     <h2>ผลงานทุน กทปส. ที่ต่อยอด<br class="hidden md:inline" /> สู่การใช้งานจริงในชุมชน</h2>
     <p>รวมผลงานวิจัยและนวัตกรรมจากหน่วยงานผู้รับทุนทั่วประเทศ</p>
     <p-button size="large" routerLink="/results">
       <span>ดูผลงานทั้งหมด</span>
-      <btfp-icon name="pi-chevron-right" size="20" />
+      <p-ui-icon name="pi-chevron-right" size="20" />
     </p-button>
-  </btfp-hero-slide>
-</btfp-hero-banner>
+  </p-hero-slide>
+</p-hero-banner>
 
 <!-- ===================== ประกาศทุนที่เปิดรับ ===================== -->
 <section class="py-16 2xl:py-[104px]">
   <div class="mx-auto flex max-w-[1664px] flex-col gap-10 px-4 md:px-8">
-    <btfp-section-header
+    <p-section-header
       eyebrow="ประกาศทุนที่เปิดรับ"
       heading="โอกาสทุนสำหรับโครงการที่พร้อมสร้างผลลัพธ์"
       description="ตรวจสอบประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR และกำหนดส่งข้อเสนอของแต่ละประกาศ"
     >
-      <a class="more-link" routerLink="/grants">ดูประกาศทั้งหมด <btfp-icon name="pi-chevron-right" size="16" /></a>
-    </btfp-section-header>
+      <a class="more-link" routerLink="/grants">ดูประกาศทั้งหมด <p-ui-icon name="pi-chevron-right" size="16" /></a>
+    </p-section-header>
 
     <!-- 4 ใบแถวเดียวตั้งแต่จอ xl (1280px) จอเล็กกว่าเรียง 2 / 1 คอลัมน์ -->
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-      <btfp-grant-call-card
+      <p-grant-call-card
         image="images/landing/cover-1.jpg"
         sector="กิจการโทรคมนาคม"
         grantType="ทุนประเภท 1"
@@ -64,7 +64,7 @@
         scope="มาตรา 52(1)–(6) เลือกวัตถุประสงค์ได้ 1 ข้อ"
         budget="วงเงินรวม 150,000,000 บาท"
       />
-      <btfp-grant-call-card
+      <p-grant-call-card
         image="images/landing/cover-2.jpg"
         sector="ทุกด้านกิจการ"
         grantType="ทุนประเภท 2"
@@ -74,7 +74,7 @@
         scope="ตามนโยบายคณะกรรมการบริหารกองทุน มี TOR ย่อย"
         budget="วงเงินรวม 150,000,000 บาท"
       />
-      <btfp-grant-call-card
+      <p-grant-call-card
         image="images/landing/cover-3.jpg"
         sector="ทุกด้านกิจการ"
         grantType="ทุนประเภท 2"
@@ -84,7 +84,7 @@
         scope="ต่อยอดโครงการทุนประเภท 2 ที่ปิดแล้ว เลือก TOR ย่อยของปีนี้"
         budget="ยังไม่มีโครงการทุนประเภท 2 ที่ปิดแล้ว จึงยื่นต่อเนื่องไม่ได้"
       />
-      <btfp-grant-call-card
+      <p-grant-call-card
         image="images/landing/cover-4.jpg"
         sector="กิจการโทรคมนาคม"
         grantType="ทุนประเภท 3"
@@ -98,7 +98,7 @@
 
     <div class="notice flex flex-col gap-3 p-4 md:flex-row md:items-center md:justify-between">
       <p class="flex items-start gap-4">
-        <btfp-icon class="mt-1" name="pi-info-circle" size="20" />
+        <p-ui-icon class="mt-1" name="pi-info-circle" size="20" />
         <span>
           กำหนดการอาจปรับตามประกาศฉบับทางการ<br />
           กรุณาเข้าสู่ระบบเพื่อติดตามข่าวและดาวน์โหลดเอกสาร TOR ล่าสุด
@@ -112,7 +112,7 @@
 <!-- ===================== ขอบเขตการสนับสนุน ===================== -->
 <section class="bg-subtle pt-16 pb-16 2xl:pt-[88px] 2xl:pb-[104px]">
   <div class="mx-auto flex max-w-[1664px] flex-col gap-11 px-4 md:px-8">
-    <btfp-section-header
+    <p-section-header
       eyebrow="วัตถุประสงค์ตามมาตรา 52"
       heading="ทุนครอบคลุม 6&#10;พื้นที่สำคัญของระบบนิเวศการสื่อสารไทย"
       description="เลือกขอบเขตที่สอดคล้องกับผลลัพธ์หลักของโครงการ ก่อนพิจารณาประเภททุนและเงื่อนไขเฉพาะ"
@@ -121,32 +121,32 @@
     <!-- 3 คอลัมน์ 2 แถวตาม Figma ตั้งแต่จอ lg -->
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <article class="scope-card">
-        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="radio" size="20" /></span><span class="scope-card__section">มาตรา 52(1)</span></div>
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><p-ui-icon name="radio" size="20" /></span><span class="scope-card__section">มาตรา 52(1)</span></div>
         <h3>กิจการกระจายเสียง</h3>
         <p>ยกระดับคุณภาพ เนื้อหา และการเข้าถึงบริการเสียงเพื่อสาธารณะ</p>
       </article>
       <article class="scope-card">
-        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="pi-desktop" size="20" /></span><span class="scope-card__section">มาตรา 52(2)</span></div>
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><p-ui-icon name="pi-desktop" size="20" /></span><span class="scope-card__section">มาตรา 52(2)</span></div>
         <h3>กิจการโทรทัศน์</h3>
         <p>สื่อสร้างสรรค์ การรู้เท่าทันสื่อ และนวัตกรรมโทรทัศน์</p>
       </article>
       <article class="scope-card">
-        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="antenna" size="20" /></span><span class="scope-card__section">มาตรา 52(3)</span></div>
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><p-ui-icon name="antenna" size="20" /></span><span class="scope-card__section">มาตรา 52(3)</span></div>
         <h3>กิจการโทรคมนาคม</h3>
         <p>โครงข่าย บริการดิจิทัล และการเชื่อมต่อที่ทั่วถึง</p>
       </article>
       <article class="scope-card">
-        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="accessibility" size="20" /></span><span class="scope-card__section">มาตรา 52(4)</span></div>
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><p-ui-icon name="accessibility" size="20" /></span><span class="scope-card__section">มาตรา 52(4)</span></div>
         <h3>การเข้าถึงอย่างเท่าเทียม</h3>
         <p>เทคโนโลยีช่วยเหลือ ผู้พิการ ผู้สูงอายุ และพื้นที่ห่างไกล</p>
       </article>
       <article class="scope-card">
-        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="flask-conical" size="20" /></span><span class="scope-card__section">มาตรา 52(5)</span></div>
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><p-ui-icon name="flask-conical" size="20" /></span><span class="scope-card__section">มาตรา 52(5)</span></div>
         <h3>วิจัยและพัฒนา</h3>
         <p>งานวิจัยประยุกต์ มาตรฐาน และนวัตกรรมที่นำไปใช้ได้จริง</p>
       </article>
       <article class="scope-card">
-        <div class="flex items-center justify-between"><span class="scope-card__icon"><btfp-icon name="heart-handshake" size="20" /></span><span class="scope-card__section">มาตรา 52(6)</span></div>
+        <div class="flex items-center justify-between"><span class="scope-card__icon"><p-ui-icon name="heart-handshake" size="20" /></span><span class="scope-card__section">มาตรา 52(6)</span></div>
         <h3>ประโยชน์สาธารณะ</h3>
         <p>การศึกษา ความปลอดภัย ชุมชน และบริการสังคมที่วัดผลได้</p>
       </article>
@@ -157,7 +157,7 @@
 <!-- ===================== ขั้นตอนสมัครทุน ===================== -->
 <section class="bg-navy py-16 2xl:py-[100px]">
   <div class="mx-auto flex max-w-[1664px] flex-col gap-11 px-4 md:px-8">
-    <btfp-section-header
+    <p-section-header
       theme="dark"
       eyebrow="เริ่มต้นได้ใน 4 ขั้นตอน"
       heading="ยื่นข้อเสนออย่างเป็นระบบ และรู้สถานะทุกขั้นตอน"
@@ -165,21 +165,21 @@
     >
       <p-button outlined severity="secondary" routerLink="/guide" styleClass="on-dark-button">
         <span>อ่านคู่มือการสมัคร</span>
-        <btfp-icon name="pi-chevron-right" size="16" />
+        <p-ui-icon name="pi-chevron-right" size="16" />
       </p-button>
-    </btfp-section-header>
+    </p-section-header>
 
     <!-- 4 ขั้นตอนแถวเดียวตั้งแต่จอ xl -->
     <ol class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-      <li><btfp-process-step step="01" icon="user-check" heading="ลงทะเบียนและยืนยันตัวตน" description="สร้างบัญชีหน่วยงาน และยืนยันตัวตนด้วยรหัส OTP ทางอีเมลทุกครั้งที่เข้าสู่ระบบ" /></li>
-      <li><btfp-process-step step="02" icon="pi-filter" heading="เลือกประกาศและขอบเขต" description="เลือกประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR ที่ตรงกับโครงการ" /></li>
-      <li><btfp-process-step step="03" icon="pi-clone" heading="จัดทำข้อเสนอและแนบเอกสาร" description="กรอกแบบ ทบ.001–003 บันทึกร่าง และแนบเอกสารตามรูปแบบที่ประกาศกำหนด" /></li>
-      <li><btfp-process-step step="04" icon="pi-send" heading="ส่งและติดตามสถานะ" description="ตรวจสอบความครบถ้วน ส่งคำขอ รับแจ้งเตือน และแก้ไขเมื่อเจ้าหน้าที่ส่งกลับ" /></li>
+      <li><p-process-step step="01" icon="user-check" heading="ลงทะเบียนและยืนยันตัวตน" description="สร้างบัญชีหน่วยงาน และยืนยันตัวตนด้วยรหัส OTP ทางอีเมลทุกครั้งที่เข้าสู่ระบบ" /></li>
+      <li><p-process-step step="02" icon="pi-filter" heading="เลือกประกาศและขอบเขต" description="เลือกประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR ที่ตรงกับโครงการ" /></li>
+      <li><p-process-step step="03" icon="pi-clone" heading="จัดทำข้อเสนอและแนบเอกสาร" description="กรอกแบบ ทบ.001–003 บันทึกร่าง และแนบเอกสารตามรูปแบบที่ประกาศกำหนด" /></li>
+      <li><p-process-step step="04" icon="pi-send" heading="ส่งและติดตามสถานะ" description="ตรวจสอบความครบถ้วน ส่งคำขอ รับแจ้งเตือน และแก้ไขเมื่อเจ้าหน้าที่ส่งกลับ" /></li>
     </ol>
 
     <div class="system-bar flex flex-col gap-3 px-5 py-4 lg:flex-row lg:items-center lg:gap-[18px]">
       <span class="flex items-center gap-3 font-medium">
-        <btfp-icon class="text-[var(--p-icon-action)]" name="pi-shield" size="24" />
+        <p-ui-icon class="text-[var(--p-icon-action)]" name="pi-shield" size="24" />
         ยืนยันตัวตน 2 ขั้นตอน (รหัสผ่าน และรหัส OTP ทางอีเมล)
       </span>
       <span class="system-bar__divider hidden lg:block"></span>
@@ -195,16 +195,16 @@
 <!-- ===================== ผลงานเด่น ===================== -->
 <section class="py-16 2xl:py-[104px]">
   <div class="mx-auto flex max-w-[1664px] flex-col gap-11 px-4 md:px-8">
-    <btfp-section-header
+    <p-section-header
       eyebrow="ผลงานทุนที่สร้างการเปลี่ยนแปลง"
       heading="จากข้อเสนอ สู่ผลลัพธ์ที่ชุมชนใช้ได้จริง"
       description="เรื่องราวจากหน่วยงานผู้รับทุนที่นำเทคโนโลยี การศึกษา และโครงสร้างพื้นฐานการสื่อสารไปแก้ปัญหาสาธารณะ"
     >
-      <a class="more-link" routerLink="/results">ดูผลงานทั้งหมด <btfp-icon name="pi-chevron-right" size="16" /></a>
-    </btfp-section-header>
+      <a class="more-link" routerLink="/results">ดูผลงานทั้งหมด <p-ui-icon name="pi-chevron-right" size="16" /></a>
+    </p-section-header>
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-      <btfp-showcase-card
+      <p-showcase-card
         image="images/landing/showcase-1.jpg"
         meta="ทุนประเภท 1 2568"
         heading="เครือข่ายสื่อสารฉุกเฉินสำหรับชุมชนพื้นที่สูง"
@@ -212,7 +212,7 @@
         description="เชื่อมศูนย์ประสานงานชุมชนกับหน่วยแพทย์และระบบเตือนภัยในพื้นที่สัญญาณจำกัด"
         outcome="เข้าถึง 18 ชุมชน อาสาสมัคร 240 คน"
       />
-      <btfp-showcase-card
+      <p-showcase-card
         image="images/landing/showcase-2.jpg"
         meta="ทุนประเภท 2 2568"
         heading="ห้องเรียนดิจิทัลที่ทุกคนเข้าถึงได้"
@@ -220,7 +220,7 @@
         description="พัฒนาสื่อการเรียนรู้พร้อมคำบรรยายเสียง ภาษามือ และเครื่องมือสำหรับผู้เรียนที่มีข้อจำกัด"
         outcome="สื่อ 96 ชุด ครูและผู้เรียนกว่า 3,000 คน"
       />
-      <btfp-showcase-card
+      <p-showcase-card
         image="images/landing/showcase-3.jpg"
         meta="ทุนประเภท 3 2567"
         heading="ข้อมูลอากาศและคลื่นเพื่อความปลอดภัยชาวประมง"
@@ -248,10 +248,10 @@
 
     <!-- 4 ใบแถวเดียวตั้งแต่จอ xl -->
     <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-      <div class="stat-card"><div class="flex justify-between gap-2"><span>โครงการที่ได้รับการสนับสนุน</span><btfp-icon name="pi-clone" size="22" /></div><strong>326 โครงการ</strong></div>
-      <div class="stat-card"><div class="flex justify-between gap-2"><span>งบประมาณที่อนุมัติสะสม</span><btfp-icon name="pi-money-bill" size="22" /></div><strong>2,180 ล้านบาท</strong></div>
-      <div class="stat-card"><div class="flex justify-between gap-2"><span>จังหวัดที่มีโครงการ</span><btfp-icon name="pi-map-marker" size="22" /></div><strong>68 จังหวัด</strong></div>
-      <div class="stat-card"><div class="flex justify-between gap-2"><span>ผู้ได้รับประโยชน์โดยประมาณ</span><btfp-icon name="pi-users" size="22" /></div><strong>1.2 ล้านคน</strong></div>
+      <div class="stat-card"><div class="flex justify-between gap-2"><span>โครงการที่ได้รับการสนับสนุน</span><p-ui-icon name="pi-clone" size="22" /></div><strong>326 โครงการ</strong></div>
+      <div class="stat-card"><div class="flex justify-between gap-2"><span>งบประมาณที่อนุมัติสะสม</span><p-ui-icon name="pi-money-bill" size="22" /></div><strong>2,180 ล้านบาท</strong></div>
+      <div class="stat-card"><div class="flex justify-between gap-2"><span>จังหวัดที่มีโครงการ</span><p-ui-icon name="pi-map-marker" size="22" /></div><strong>68 จังหวัด</strong></div>
+      <div class="stat-card"><div class="flex justify-between gap-2"><span>ผู้ได้รับประโยชน์โดยประมาณ</span><p-ui-icon name="pi-users" size="22" /></div><strong>1.2 ล้านคน</strong></div>
     </div>
   </div>
 </section>
@@ -259,13 +259,13 @@
 <!-- ===================== ฐานข้อมูลผลงานทุน ===================== -->
 <section class="py-16 2xl:py-[100px]">
   <div class="mx-auto flex max-w-[1664px] flex-col gap-9 px-4 md:px-8">
-    <btfp-section-header
+    <p-section-header
       eyebrow="ฐานข้อมูลผลงานทุน"
       heading="ค้นหาองค์ความรู้ ผลงาน และผลลัพธ์สาธารณะ"
       description="เลือกดูตามหมวดผลลัพธ์ ปีงบประมาณ ประเภททุน หรือค้นหาจากชื่อโครงการและหน่วยงาน"
     >
-      <a class="more-link" routerLink="/results">ดูฐานข้อมูลทั้งหมด <btfp-icon name="pi-chevron-right" size="16" /></a>
-    </btfp-section-header>
+      <a class="more-link" routerLink="/results">ดูฐานข้อมูลทั้งหมด <p-ui-icon name="pi-chevron-right" size="16" /></a>
+    </p-section-header>
 
     <p-tabs value="all" scrollable="true">
       <p-tablist>
@@ -281,40 +281,40 @@
     </p-tabs>
 
     <div class="grid grid-cols-1 items-end gap-4 md:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_240px_240px]">
-      <div class="btfp-field md:col-span-2 xl:col-span-1">
+      <div class="p-field md:col-span-2 xl:col-span-1">
         <label for="r-search">ค้นหาผลงานทุน</label>
         <p-iconfield>
-          <p-inputicon><btfp-icon name="pi-search" size="16" /></p-inputicon>
+          <p-inputicon><p-ui-icon name="pi-search" size="16" /></p-inputicon>
           <input id="r-search" type="search" pInputText placeholder="ค้นหาชื่อโครงการหรือหน่วยงาน" />
         </p-iconfield>
       </div>
-      <div class="btfp-field">
+      <div class="p-field">
         <label for="r-year">ปีงบประมาณ</label>
-        <p-select inputId="r-year" placeholder="ทุกปีงบประมาณ" styleClass="btfp-mock-value" />
+        <p-select inputId="r-year" placeholder="ทุกปีงบประมาณ" styleClass="p-mock-value" />
       </div>
-      <div class="btfp-field">
+      <div class="p-field">
         <label for="r-type">ประเภททุน</label>
-        <p-select inputId="r-type" placeholder="ทุกประเภททุน" styleClass="btfp-mock-value" />
+        <p-select inputId="r-type" placeholder="ทุกประเภททุน" styleClass="p-mock-value" />
       </div>
     </div>
 
     <!-- การ์ดรูปซ้าย ต้องกว้างพอ จึงเป็น 3 ใบตั้งแต่จอ xl จอเล็กกว่าเรียง 2 / 1 -->
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
-      <btfp-result-card
+      <p-result-card
         image="images/landing/result-1.jpg"
         category="การศึกษาและรู้เท่าทันสื่อ"
         heading="หลักสูตรนักสืบข่าวดิจิทัลสำหรับโรงเรียน"
         meta="มูลนิธิสื่อเพื่อเยาวชน 2568"
         outcome="นำร่อง 35 โรงเรียน"
       />
-      <btfp-result-card
+      <p-result-card
         image="images/landing/result-2.jpg"
         category="การเข้าถึง"
         heading="ระบบคำบรรยายสดภาษาไทยเพื่อบริการสาธารณะ"
         meta="มหาวิทยาลัยขอนแก่น 2568"
         outcome="ความแม่นยำเฉลี่ย 91%"
       />
-      <btfp-result-card
+      <p-result-card
         image="images/landing/result-3.jpg"
         category="โทรคมนาคมเพื่อสาธารณะ"
         heading="เครือข่ายเตือนไฟป่าระดับชุมชน"
@@ -328,16 +328,16 @@
 <!-- ===================== ข่าวสาร ===================== -->
 <section class="bg-subtle pt-16 pb-16 2xl:pt-[88px] 2xl:pb-[100px]">
   <div class="mx-auto flex max-w-[1664px] flex-col gap-9 px-4 md:px-8">
-    <btfp-section-header
+    <p-section-header
       eyebrow="ข่าวสาร"
       heading="ข่าวสารและวันสำคัญ"
       description="ติดตามกำหนดรับข้อเสนอ ประกาศแก้ไข และความเคลื่อนไหวจากโครงการที่ได้รับทุน"
     >
-      <a class="more-link" routerLink="/news">ดูข่าวทั้งหมด <btfp-icon name="pi-chevron-right" size="16" /></a>
-    </btfp-section-header>
+      <a class="more-link" routerLink="/news">ดูข่าวทั้งหมด <p-ui-icon name="pi-chevron-right" size="16" /></a>
+    </p-section-header>
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-      <btfp-news-card
+      <p-news-card
         image="images/landing/news-1.jpg"
         day="30"
         month="พ.ย. 69"
@@ -345,7 +345,7 @@
         heading="วันสุดท้ายรับข้อเสนอโครงการทุนประเภท 1 ประจำปี 2569"
         description="ระบบปิดรับข้อเสนอเวลา 16.30 น. ควรส่งล่วงหน้าเพื่อเผื่อเวลาตรวจสอบเอกสาร"
       />
-      <btfp-news-card
+      <p-news-card
         image="images/landing/news-2.jpg"
         day="12"
         month="ต.ค. 69"
@@ -353,7 +353,7 @@
         heading="เผยแพร่ร่าง TOR ทุนประเภท 2&#10;ด้านการสื่อสารเพื่อความปลอดภัย"
         description="เปิดรับฟังความคิดเห็นจากหน่วยงานและผู้มีส่วนได้ส่วนเสียผ่านระบบออนไลน์"
       />
-      <btfp-news-card
+      <p-news-card
         image="images/landing/news-3.jpg"
         day="28"
         month="ก.ย. 69"
@@ -382,27 +382,27 @@
     <!-- เปิดปิดด้วย <details> ของ HTML ไม่ต้องมี logic สองข้อแรกเปิดไว้ตาม Figma -->
     <div class="flex flex-col gap-3">
       <details class="faq" open>
-        <summary>หน่วยงานใดสามารถยื่นขอรับทุนได้?<btfp-icon class="faq__plus" name="pi-plus" size="20" /><btfp-icon class="faq__minus" name="pi-minus" size="20" /></summary>
+        <summary>หน่วยงานใดสามารถยื่นขอรับทุนได้?<p-ui-icon class="faq__plus" name="pi-plus" size="20" /><p-ui-icon class="faq__minus" name="pi-minus" size="20" /></summary>
         <p>หน่วยงานรัฐ หน่วยงานเอกชน สถานศึกษา บริษัท สมาคม และมูลนิธิที่มีสถานะนิติบุคคลและมีคุณสมบัติตามประกาศแต่ละประเภททุน สามารถลงทะเบียนเพื่อยื่นข้อเสนอได้</p>
       </details>
       <details class="faq" open>
-        <summary>ระบบรองรับไฟล์เอกสารประเภทใดบ้าง?<btfp-icon class="faq__plus" name="pi-plus" size="20" /><btfp-icon class="faq__minus" name="pi-minus" size="20" /></summary>
+        <summary>ระบบรองรับไฟล์เอกสารประเภทใดบ้าง?<p-ui-icon class="faq__plus" name="pi-plus" size="20" /><p-ui-icon class="faq__minus" name="pi-minus" size="20" /></summary>
         <p>รองรับ .doc .docx .pdf .xls .xlsx .jpg และ .png โปรดตรวจสอบขนาดไฟล์และรายการเอกสารบังคับในประกาศทุน</p>
       </details>
       <details class="faq">
-        <summary>เหตุใดจึงต้องยืนยันตัวตนแบบ 2FA?<btfp-icon class="faq__plus" name="pi-plus" size="20" /><btfp-icon class="faq__minus" name="pi-minus" size="20" /></summary>
+        <summary>เหตุใดจึงต้องยืนยันตัวตนแบบ 2FA?<p-ui-icon class="faq__plus" name="pi-plus" size="20" /><p-ui-icon class="faq__minus" name="pi-minus" size="20" /></summary>
         <p>เพื่อป้องกันไม่ให้ผู้อื่นเข้าใช้บัญชีของหน่วยงาน แม้จะรู้รหัสผ่าน เมื่อเข้าสู่ระบบ ระบบจะส่งรหัสยืนยัน 6 หลักแบบใช้ครั้งเดียว (OTP) ไปที่อีเมลที่ลงทะเบียนไว้ รหัสมีอายุ 5 นาที กรอกรหัสนี้อีกชั้นก่อนเข้าระบบ ช่วยปกป้องข้อเสนอโครงการและเอกสารของหน่วยงาน</p>
       </details>
       <details class="faq">
-        <summary>สามารถบันทึกร่างและกลับมาแก้ไขภายหลังได้หรือไม่?<btfp-icon class="faq__plus" name="pi-plus" size="20" /><btfp-icon class="faq__minus" name="pi-minus" size="20" /></summary>
+        <summary>สามารถบันทึกร่างและกลับมาแก้ไขภายหลังได้หรือไม่?<p-ui-icon class="faq__plus" name="pi-plus" size="20" /><p-ui-icon class="faq__minus" name="pi-minus" size="20" /></summary>
         <p>ได้ กดปุ่ม "บันทึกฉบับร่าง" ที่แถบด้านล่างของแบบฟอร์มได้ทุกขั้นตอน แล้วกลับมาแก้ไขต่อได้จากรายการข้อเสนอของหน่วยงาน จนกว่าจะกดส่งข้อเสนอหรือถึงวันปิดรับข้อเสนอ</p>
       </details>
       <details class="faq">
-        <summary>หากคำขอถูกส่งกลับให้แก้ไข ต้องดำเนินการอย่างไร?<btfp-icon class="faq__plus" name="pi-plus" size="20" /><btfp-icon class="faq__minus" name="pi-minus" size="20" /></summary>
+        <summary>หากคำขอถูกส่งกลับให้แก้ไข ต้องดำเนินการอย่างไร?<p-ui-icon class="faq__plus" name="pi-plus" size="20" /><p-ui-icon class="faq__minus" name="pi-minus" size="20" /></summary>
         <p>ระบบจะแจ้งเตือนและเปลี่ยนสถานะเป็น "ไม่ผ่าน รอแก้ไข" หรือ "เอกสารไม่ครบ รอแก้ไข" เปิดข้อเสนอเพื่ออ่านความเห็นของเจ้าหน้าที่ แก้ไขข้อมูลหรือแนบเอกสารเพิ่ม แล้วกดส่งอีกครั้งภายในกำหนดเวลาที่ระบุ</p>
       </details>
       <details class="faq">
-        <summary>ติดตามสถานะและดาวน์โหลดข้อมูลได้จากที่ใด?<btfp-icon class="faq__plus" name="pi-plus" size="20" /><btfp-icon class="faq__minus" name="pi-minus" size="20" /></summary>
+        <summary>ติดตามสถานะและดาวน์โหลดข้อมูลได้จากที่ใด?<p-ui-icon class="faq__plus" name="pi-plus" size="20" /><p-ui-icon class="faq__minus" name="pi-minus" size="20" /></summary>
         <p>เข้าสู่ระบบแล้วไปที่รายการข้อเสนอของหน่วยงาน แต่ละรายการแสดงสถานะล่าสุดและประวัติการพิจารณา ดาวน์โหลดข้อเสนอที่ส่งแล้ว เอกสารแนบ และหนังสือแจ้งผลได้จากหน้ารายละเอียดข้อเสนอ ส่วนคู่มือและแบบฟอร์มดาวน์โหลดได้ที่เมนูคู่มือ</p>
       </details>
     </div>
@@ -418,7 +418,7 @@
     </div>
     <p-button outlined severity="secondary" routerLink="/grants" styleClass="on-dark-button shrink-0">
       <span>ดูประกาศทุนที่เปิดรับ</span>
-      <btfp-icon name="pi-chevron-right" size="16" />
+      <p-ui-icon name="pi-chevron-right" size="16" />
     </p-button>
   </div>
 </section>

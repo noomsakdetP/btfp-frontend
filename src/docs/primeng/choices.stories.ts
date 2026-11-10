@@ -35,7 +35,7 @@ export class MyPage {}
 | Radio | \`<p-radiobutton name="..." value="..." [(ngModel)]="..." />\` 24px |
 | Toggle Value=off / on | \`<p-toggleswitch [(ngModel)]="..." />\` 44x24 |
 | State=disabled | \`[disabled]="true"\` (ทั้งชิ้นจาง 50% ตาม Figma ป้ายข้อความเป็นสี text/disabled) |
-| หน้าหุ่นจำลอง (ไม่มี binding) | \`<input type="checkbox" class="btfp-checkbox" checked>\` หัวตารางใช้ \`class="btfp-checkbox is-indeterminate"\` |
+| หน้าหุ่นจำลอง (ไม่มี binding) | \`<input type="checkbox" class="p-native-checkbox" checked>\` หัวตารางใช้ \`class="p-native-checkbox is-indeterminate"\` |
 
 ข้อความป้ายวางคู่ด้วย \`<label>\` ห่าง 8px คลิกที่ข้อความแล้วติ๊กได้
 `),
@@ -53,8 +53,8 @@ export const Checkbox: StoryObj = {
 
 export const Mock: StoryObj = {
   name: "Checkbox ในหน้าหุ่นจำลอง",
-  parameters: { docs: { description: { story: `\`.btfp-checkbox\` เป็น HTML ธรรมดา หน้าตาเหมือน \`p-checkbox\`` } } },
-  render: () => ({ template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" checked />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox is-indeterminate" />เลือกบางส่วน</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="btfp-checkbox" checked disabled />ติ๊กไว้ ปิดใช้งาน</label>`) }),
+  parameters: { docs: { description: { story: `\`.p-native-checkbox\` เป็น HTML ธรรมดา หน้าตาเหมือน \`p-checkbox\`` } } },
+  render: () => ({ template: rowOf(`<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="p-native-checkbox" />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="p-native-checkbox" checked />ยอมรับเงื่อนไข</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="p-native-checkbox is-indeterminate" />เลือกบางส่วน</label><label style="display:flex;gap:8px;align-items:center"><input type="checkbox" class="p-native-checkbox" checked disabled />ติ๊กไว้ ปิดใช้งาน</label>`) }),
 };
 
 export const Radio: StoryObj = {

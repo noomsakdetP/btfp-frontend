@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
-import { BtfpExportButton } from './export-button';
+import { ExportButton } from './export-button';
 
-const meta: Meta<BtfpExportButton> = {
+const meta: Meta<ExportButton> = {
   title: 'Components/Actions/Export Button',
-  component: BtfpExportButton,
+  component: ExportButton,
   tags: ['autodocs'],
   parameters: {
     docs: {
@@ -15,9 +15,9 @@ const meta: Meta<BtfpExportButton> = {
   },
   render: (args) => ({
     props: { ...args, onExport: (f: string) => console.log('export', f) },
-    template: `<div style="height:180px"><btfp-export-button [label]="label" (export)="onExport($event)" /></div>`,
+    template: `<div style="height:180px"><p-export-button [label]="label" (export)="onExport($event)" /></div>`,
   }),
   args: { label: 'ส่งออก' },
 };
 export default meta;
-export const Default: StoryObj<BtfpExportButton> = { name: 'ปกติ' };
+export const Default: StoryObj<ExportButton> = { name: 'ปกติ' };

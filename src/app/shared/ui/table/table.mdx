@@ -5,7 +5,7 @@ import * as TableStories from './table.stories';
 
 # Table
 
-ตารางข้อมูล (Figma: Domain/Data Table, Domain/Table Header Cell, Domain/Table Cell) ใช้ HTML `<table>` ใส่ class `btfp-table` ไม่ต้องเขียน CSS ของตารางในหน้าเอง สไตล์อยู่ใน `src/styles.scss` หมวด 4
+ตารางข้อมูล (Figma: Domain/Data Table, Domain/Table Header Cell, Domain/Table Cell) ใช้ HTML `<table>` ใส่ class `p-simple-table` ไม่ต้องเขียน CSS ของตารางในหน้าเอง สไตล์อยู่ใน `src/styles.scss` หมวด 4
 
 ทำไมไม่ใช้ `p-table` ของ PrimeNG: `p-table` ต้องส่งข้อมูลผ่าน binding (`[value]`) ซึ่งหน้าหุ่นจำลองใช้ไม่ได้ ตอนต่อ API จะเปลี่ยนเป็น `p-table` หรือใช้ `@for` กับ class เดิมก็ได้
 
@@ -15,9 +15,9 @@ import * as TableStories from './table.stories';
 
 1. แถวสูง 56px หัวตารางสูง 44px ข้อความบรรทัดเดียว ยาวเกินตัดด้วย ... ให้ใส่ `title` ที่ `<td>` เป็นข้อความเต็ม
 2. กำหนดความกว้างคอลัมน์ที่ `<colgroup>` ด้วย class ของ Tailwind เช่น `<col class="w-[160px]" />` คอลัมน์ที่ไม่ใส่ความกว้างจะยืดเต็มที่เหลือ
-3. ครอบด้วย `<div class="overflow-x-auto">` และใส่ความกว้างขั้นต่ำที่ตาราง เช่น `class="btfp-table min-w-[1574px]"` จอแคบจะเลื่อนซ้ายขวาได้ ไม่บีบคอลัมน์
-4. **ชิดขวาเฉพาะจำนวนเงิน** (ใส่ `btfp-table__money` ทั้ง `<th>` และ `<td>`) ตัวเลขอื่น เช่น จำนวนราย จำนวนโครงการ ร้อยละ คะแนน จำนวนวัน ชิดซ้ายเหมือนข้อความ
-5. สถานะใช้ `<btfp-status-tag status="..." />` ปุ่มท้ายแถวใช้ `<btfp-row-actions>` เท่านั้น
+3. ครอบด้วย `<div class="overflow-x-auto">` และใส่ความกว้างขั้นต่ำที่ตาราง เช่น `class="p-simple-table min-w-[1574px]"` จอแคบจะเลื่อนซ้ายขวาได้ ไม่บีบคอลัมน์
+4. **ชิดขวาเฉพาะจำนวนเงิน** (ใส่ `p-simple-table__money` ทั้ง `<th>` และ `<td>`) ตัวเลขอื่น เช่น จำนวนราย จำนวนโครงการ ร้อยละ คะแนน จำนวนวัน ชิดซ้ายเหมือนข้อความ
+5. สถานะใช้ `<p-status-tag status="..." />` ปุ่มท้ายแถวใช้ `<p-row-actions>` เท่านั้น
 6. ไม่ต้องเขียน SCSS ของตารางในหน้า ถ้าต้องการสีเฉพาะของหน้า (เช่น ข้อความ "ยังไม่มอบหมาย" สีส้ม) ใส่ class ของหน้าเองได้
 
 ## ชนิดเซลล์
@@ -25,21 +25,21 @@ import * as TableStories from './table.stories';
 | Figma (Type) | class ที่ `<th>` และ `<td>` | หน้าตา |
 | --- | --- | --- |
 | text | ไม่ต้องใส่ | ชิดซ้าย Typography/Table หัวตาราง Body/S Medium ใช้กับตัวเลขที่ไม่ใช่เงินด้วย เช่น จำนวนราย จำนวนวัน ร้อยละ คะแนน |
-| numeric (จำนวนเงินเท่านั้น) | `btfp-table__money` | ชิดขวา ตัวเลขกว้างเท่ากัน |
-| checkbox | `btfp-table__check` | คอลัมน์ 56px (`<col class="w-14" />`) ช่องอยู่กลาง |
-| actions | `btfp-table__actions` | ชิดขวา คอลัมน์ 112px (`<col class="w-28" />`) |
-| status | ไม่ต้องใส่ | ใส่ `btfp-status-tag` ในเซลล์ |
-| text-2line | `btfp-table__2line` | 2 บรรทัด แถวสูง 64px ดูตัวอย่างด้านล่าง |
+| numeric (จำนวนเงินเท่านั้น) | `p-simple-table__money` | ชิดขวา ตัวเลขกว้างเท่ากัน |
+| checkbox | `p-simple-table__check` | คอลัมน์ 56px (`<col class="w-14" />`) ช่องอยู่กลาง |
+| actions | `p-simple-table__actions` | ชิดขวา คอลัมน์ 112px (`<col class="w-28" />`) |
+| status | ไม่ต้องใส่ | ใส่ `p-status-tag` ในเซลล์ |
+| text-2line | `p-simple-table__2line` | 2 บรรทัด แถวสูง 64px ดูตัวอย่างด้านล่าง |
 
 แถวที่เลือก ใส่ `class="is-selected"` ที่ `<tr>` (พื้นสีฟ้าอ่อน) ชี้เมาส์ที่แถวจะเป็นพื้นเทาอ่อน
 
-ช่องเลือกในหน้าหุ่นจำลองใช้ `<input type="checkbox" class="btfp-checkbox">` หัวตารางที่เลือกบางแถวใส่ `is-indeterminate`
+ช่องเลือกในหน้าหุ่นจำลองใช้ `<input type="checkbox" class="p-native-checkbox">` หัวตารางที่เลือกบางแถวใส่ `is-indeterminate`
 
 ## ตัวอย่างโค้ด
 
 ```html
 <div class="overflow-x-auto">
-  <table class="btfp-table min-w-[880px]">
+  <table class="p-simple-table min-w-[880px]">
     <colgroup>
       <col class="w-14" />
       <col class="w-[130px]" />
@@ -50,29 +50,29 @@ import * as TableStories from './table.stories';
     </colgroup>
     <thead>
       <tr>
-        <th class="btfp-table__check"><input type="checkbox" class="btfp-checkbox is-indeterminate" aria-label="เลือกทั้งหมด" /></th>
+        <th class="p-simple-table__check"><input type="checkbox" class="p-native-checkbox is-indeterminate" aria-label="เลือกทั้งหมด" /></th>
         <th>เลขที่คำขอ</th>
         <th>ชื่อโครงการ</th>
-        <th class="btfp-table__money">วงเงิน (บาท)</th>
+        <th class="p-simple-table__money">วงเงิน (บาท)</th>
         <th>สถานะ</th>
-        <th class="btfp-table__actions">จัดการ</th>
+        <th class="p-simple-table__actions">จัดการ</th>
       </tr>
     </thead>
     <tbody>
       <tr class="is-selected">
-        <td class="btfp-table__check"><input type="checkbox" class="btfp-checkbox" checked aria-label="เลือก 2569/0042" /></td>
+        <td class="p-simple-table__check"><input type="checkbox" class="p-native-checkbox" checked aria-label="เลือก 2569/0042" /></td>
         <td>2569/0042</td>
         <td title="ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน">ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน</td>
-        <td class="btfp-table__money">1,250,000.00</td>
-        <td><btfp-status-tag status="review" /></td>
-        <td class="btfp-table__actions"><btfp-row-actions actions="view,edit,delete" itemLabel="2569/0042" /></td>
+        <td class="p-simple-table__money">1,250,000.00</td>
+        <td><p-status-tag status="review" /></td>
+        <td class="p-simple-table__actions"><p-row-actions actions="view,edit,delete" itemLabel="2569/0042" /></td>
       </tr>
     </tbody>
   </table>
 </div>
 ```
 
-ไฟล์ `.ts` ของหน้า import `BtfpStatusTag` และ `BtfpRowActions` จาก `shared/ui`
+ไฟล์ `.ts` ของหน้า import `StatusTag` และ `RowActions` จาก `shared/ui`
 
 ## เซลล์ 2 บรรทัด
 
@@ -81,9 +81,9 @@ import * as TableStories from './table.stories';
 <Canvas of={TableStories.TwoLine} />
 
 ```html
-<td class="btfp-table__2line">
+<td class="p-simple-table__2line">
   <span title="ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน">ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน</span>
-  <span class="btfp-table__sub">มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี</span>
+  <span class="p-simple-table__sub">มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี</span>
 </td>
 ```
 
@@ -100,4 +100,4 @@ import * as TableStories from './table.stories';
 | `--p-table-cell-padding-x` | 16px |
 | `--p-table-actions-padding` | 0 12px 0 8px |
 
-ยังไม่มีในโค้ด: หัวตารางเรียงลำดับ (Sort asc, desc), สถานะกำลังโหลด (skeleton) และตารางว่าง (ใช้ `btfp-empty-state` แทนได้)
+ยังไม่มีในโค้ด: หัวตารางเรียงลำดับ (Sort asc, desc), สถานะกำลังโหลด (skeleton) และตารางว่าง (ใช้ `p-empty-state` แทนได้)

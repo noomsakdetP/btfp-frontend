@@ -22,7 +22,7 @@ import { Tag } from 'primeng/tag';
 import { Textarea } from 'primeng/textarea';
 import { ToggleSwitch } from 'primeng/toggleswitch';
 import { Tooltip } from 'primeng/tooltip';
-import { BtfpIcon } from '../../app/shared/ui/icon/icon';
+import { UiIcon } from '../../app/shared/ui/icon/icon';
 import { ProgressBar } from 'primeng/progressbar';
 import { ProgressSpinner } from 'primeng/progressspinner';
 import { Skeleton } from 'primeng/skeleton';
@@ -58,7 +58,7 @@ export const primengStoryImports = moduleMetadata({
     Textarea,
     ToggleSwitch,
     Tooltip,
-    BtfpIcon,
+    UiIcon,
   ],
 });
 
@@ -74,10 +74,10 @@ export const rowOf = (body: string) => `<div style="display:flex;flex-wrap:wrap;
 
 /** ช่องกรอกพร้อมป้ายชื่อตาม Figma Forms/* */
 export const field = (label: string, control: string, foot = '', required = true) =>
-  `<div class="btfp-field" style="width:336px;max-width:100%"><label>${label}${required ? '<span class="btfp-required" aria-hidden="true">*</span>' : ''}</label>${control}${foot}</div>`;
+  `<div class="p-field" style="width:336px;max-width:100%"><label>${label}${required ? '<span class="p-required" aria-hidden="true">*</span>' : ''}</label>${control}${foot}</div>`;
 
-export const helper = (t = 'กรอกข้อมูลให้ครบถ้วนตามเอกสาร') => `<p class="btfp-field__helper">${t}</p>`;
-export const error = (t = 'กรุณาตรวจสอบข้อมูลอีกครั้ง') => `<p class="btfp-field__error"><btfp-icon name="pi-exclamation-circle" size="16" />${t}</p>`;
+export const helper = (t = 'กรอกข้อมูลให้ครบถ้วนตามเอกสาร') => `<p class="p-field__helper">${t}</p>`;
+export const error = (t = 'กรุณาตรวจสอบข้อมูลอีกครั้ง') => `<p class="p-field__error"><p-ui-icon name="pi-exclamation-circle" size="16" />${t}</p>`;
 
 /** ค่า parameters ที่ทุก story ในหมวดนี้ใช้ */
 export const primengParameters = (component: string) => ({

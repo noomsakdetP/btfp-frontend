@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { BtfpPublicLayout } from './layout/public-layout/public-layout';
-import { BtfpStaffLayout } from './layout/staff-layout/staff-layout';
+import { PublicLayout } from './layout/public-layout/public-layout';
+import { StaffLayout } from './layout/staff-layout/staff-layout';
 
 const SITE = 'ระบบบริหารจัดการทุน กทปส.';
 
@@ -19,7 +19,7 @@ export const routes: Routes = [
   {
     // ===== เว็บไซต์สาธารณะ (ผู้เยี่ยมชม / ผู้ขอรับทุนที่ยังไม่เข้าสู่ระบบ) =====
     path: '',
-    component: BtfpPublicLayout,
+    component: PublicLayout,
     children: [
       {
         // หน้าแรก "ระบบประกาศทุนและผลงานทุน กทปส."  Figma 50:6410
@@ -38,7 +38,7 @@ export const routes: Routes = [
   {
     // ===== ระบบหลังบ้าน (เจ้าหน้าที่) =====
     path: '',
-    component: BtfpStaffLayout,
+    component: StaffLayout,
     children: [
       {
         // B-21.3 ตัวอย่างสถานะยังไม่มีข้อมูล

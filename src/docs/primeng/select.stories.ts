@@ -32,23 +32,23 @@ export class MyPage {}
 | Forms/Select | \`<p-select [options]="..." optionLabel="label" placeholder="เลือกประเภททุน" />\` |
 | Forms/MultiSelect | \`<p-multiselect display="chip" ... />\` |
 | State=disabled | \`[disabled]="true"\` (ทั้งชิ้นจาง 50% ตาม Figma ป้ายข้อความเป็นสี text/disabled) |
-| หน้าหุ่นจำลอง (ไม่มี binding) | \`<p-select placeholder="2569" styleClass="btfp-mock-value" />\` ค่าที่ "เลือกไว้แล้ว" แสดงผ่าน placeholder |
+| หน้าหุ่นจำลอง (ไม่มี binding) | \`<p-select placeholder="2569" styleClass="p-mock-value" />\` ค่าที่ "เลือกไว้แล้ว" แสดงผ่าน placeholder |
 
 ใน Drawer ให้ใส่ \`appendTo="body"\` ไม่งั้นรายการตัวเลือกจะโดนตัด
 
 ไอคอนในช่องกรอก (ลูกศร ค้นหา ปฏิทิน วงหมุนตอนโหลด) ขนาด 16px ตาม Figma ตั้งไว้ใน \`styles.scss\` แล้ว (PrimeNG ตั้งไว้ 14px) ปุ่มลบในชิปคง 14px
 
-**ป้ายชื่อ ข้อความช่วย ข้อความผิดพลาด** ครอบด้วย \`.btfp-field\` (กำหนดใน \`styles.scss\`)
+**ป้ายชื่อ ข้อความช่วย ข้อความผิดพลาด** ครอบด้วย \`.p-field\` (กำหนดใน \`styles.scss\`)
 
 \`\`\`html
-<div class="btfp-field">
-  <label for="name">ชื่อโครงการ<span class="btfp-required" aria-hidden="true">*</span></label>
+<div class="p-field">
+  <label for="name">ชื่อโครงการ<span class="p-required" aria-hidden="true">*</span></label>
   <input pInputText id="name" placeholder="กรอกชื่อโครงการ" />
-  <p class="btfp-field__helper">กรอกข้อมูลให้ครบถ้วนตามเอกสาร</p>
+  <p class="p-field__helper">กรอกข้อมูลให้ครบถ้วนตามเอกสาร</p>
 </div>
 \`\`\`
 
-สถานะผิดพลาด: ฟอร์มจริงใส่ class \`ng-invalid ng-dirty\` ให้เอง แล้วแสดง \`<p class="btfp-field__error"><btfp-icon name="pi-exclamation-circle" size="16" />ข้อความ</p>\` แทนข้อความช่วย
+สถานะผิดพลาด: ฟอร์มจริงใส่ class \`ng-invalid ng-dirty\` ให้เอง แล้วแสดง \`<p class="p-field__error"><p-ui-icon name="pi-exclamation-circle" size="16" />ข้อความ</p>\` แทนข้อความช่วย
 `),
 };
 export default meta;
@@ -70,6 +70,6 @@ export const MultiSelect: StoryObj = {
 
 export const Mock: StoryObj = {
   name: "หน้าหุ่นจำลอง",
-  parameters: { docs: { description: { story: `ไม่มี binding ใช้ placeholder + \`btfp-mock-value\` แสดงค่าที่เลือกไว้` } } },
-  render: () => ({ template: field('ปีงบประมาณ', '<p-select placeholder="2569" styleClass="btfp-mock-value" />', '', false) }),
+  parameters: { docs: { description: { story: `ไม่มี binding ใช้ placeholder + \`p-mock-value\` แสดงค่าที่เลือกไว้` } } },
+  render: () => ({ template: field('ปีงบประมาณ', '<p-select placeholder="2569" styleClass="p-mock-value" />', '', false) }),
 };

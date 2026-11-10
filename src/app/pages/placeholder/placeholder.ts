@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { BtfpEmptyState } from '../../shared/ui';
+import { EmptyState } from '../../shared/ui';
 
 /** หน้าชั่วคราวสำหรับเมนูที่ยังไม่ได้ขึ้นโครง ลิงก์ในเมนูจะได้ไม่เสีย */
 @Component({
-  selector: 'btfp-placeholder-page',
-  imports: [BtfpEmptyState, RouterLink],
+  selector: 'p-placeholder-page',
+  imports: [EmptyState, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <btfp-empty-state
+    <p-empty-state
       type="general"
       title="หน้านี้ยังไม่ได้ขึ้นโครง"
       description="ตัวอย่างนำร่องมีเฉพาะหน้าข้อเสนอโครงการ (B-21) หน้าอื่นจะทยอยทำตามแบบใน Figma"

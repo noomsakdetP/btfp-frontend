@@ -13,9 +13,9 @@ import './docs.css';
 import type { Preview } from '@storybook/angular-vite';
 import { applicationConfig } from '@storybook/angular-vite';
 import { provideRouter, withHashLocation } from '@angular/router';
-import { btfpUiProviders } from '../src/app/app.config';
-import { btfpLoaderProviders } from '../src/app/shared/ui/route-progress/loader-providers';
-import { btfpTheme } from './theme';
+import { uiProviders } from '../src/app/app.config';
+import { loaderProviders } from '../src/app/shared/ui/route-progress/loader-providers';
+import { storybookTheme } from './theme';
 import { htmlSnippetTransform } from './source-snippet';
 // documentation.json สร้างโดย Compodoc ตอนเปิด/build Storybook (ไม่ต้อง commit) ใช้ทำตาราง input/output ในหน้า Docs
 import compodocJson from '../documentation.json';
@@ -33,8 +33,8 @@ const preview: Preview = {
   decorators: [
     // ใช้ธีม PrimeNG, ภาษาไทย, ไอคอน, ConfirmationService และตัวโหลด ชุดเดียวกับแอปจริง
     applicationConfig({
-      // btfpLoaderProviders: ตัวโหลดใน Storybook ใช้ค่าเดียวกับแอปจริง (BTFP_LOADER_CONFIG)
-      providers: [...btfpUiProviders, btfpLoaderProviders(), provideRouter([], withHashLocation())],
+      // loaderProviders: ตัวโหลดใน Storybook ใช้ค่าเดียวกับแอปจริง (BTFP_LOADER_CONFIG)
+      providers: [...uiProviders, loaderProviders(), provideRouter([], withHashLocation())],
     }),
   ],
   parameters: {
@@ -42,7 +42,7 @@ const preview: Preview = {
     backgrounds: { default: 'subtle', options: { subtle: { name: 'subtle', value: '#f8fafc' }, white: { name: 'white', value: '#ffffff' } } },
     controls: { expanded: true },
     // Show code แสดง HTML ที่ copy ไปใช้ได้ (ดู source-snippet.ts)
-    docs: { theme: btfpTheme, source: { language: 'html', transform: htmlSnippetTransform } },
+    docs: { theme: storybookTheme, source: { language: 'html', transform: htmlSnippetTransform } },
     a11y: { test: 'todo' },
     options: {
       storySort: {

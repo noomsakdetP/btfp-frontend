@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { BtfpIcon } from '../../shared/ui/icon/icon';
+import { UiIcon } from '../../shared/ui/icon/icon';
 
-/** btfp-public-footer : ส่วนท้ายเว็บไซต์สาธารณะ (Figma: Public/Footer) */
+/** p-public-footer : ส่วนท้ายเว็บไซต์สาธารณะ (Figma: Public/Footer) */
 @Component({
-  selector: 'btfp-public-footer',
-  imports: [RouterLink, BtfpIcon],
+  selector: 'p-public-footer',
+  imports: [RouterLink, UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
@@ -21,7 +21,7 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
             </span>
             <p class="muted max-w-[480px]">กองทุนวิจัยและพัฒนากิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม เพื่อประโยชน์สาธารณะ</p>
             <p class="muted flex max-w-[480px] gap-2">
-              <btfp-icon class="mt-0.5" name="pi-map-marker" size="18" />
+              <p-ui-icon class="mt-0.5" name="pi-map-marker" size="18" />
               <span>สำนักงาน กสทช. 87 ถนนพหลโยธิน ซอย 8 แขวงสามเสนใน เขตพญาไท กรุงเทพฯ 10400</span>
             </p>
             <p class="flex flex-wrap gap-4">
@@ -105,4 +105,4 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
     }
   `,
 })
-export class BtfpPublicFooter {}
+export class PublicFooter {}

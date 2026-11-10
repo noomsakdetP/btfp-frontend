@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
-import { BtfpIcon } from '../../app/shared/ui/icon/icon';
+import { UiIcon } from '../../app/shared/ui/icon/icon';
 import { CENTRAL_ICONS } from './_shared';
 import { PRIMEICONS_NAMES } from './primeicons-names';
 
@@ -10,19 +10,19 @@ import { PRIMEICONS_NAMES } from './primeicons-names';
  */
 @Component({
   selector: 'sb-icon-gallery',
-  imports: [BtfpIcon],
+  imports: [UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <details open>
       <summary>
         <span class="title">Icon กลาง</span>
         <span class="count">{{ central.length }} ตัว</span>
-        <span class="hint">ไอคอนที่ PrimeIcons ไม่มี วาดให้เข้ากับ PrimeIcons ใช้ <code>btfp-icon</code></span>
+        <span class="hint">ไอคอนที่ PrimeIcons ไม่มี วาดให้เข้ากับ PrimeIcons ใช้ <code>p-ui-icon</code></span>
       </summary>
       <div class="grid">
         @for (n of central; track n) {
           <button type="button" class="cell" [class.copied]="copied() === 'c:' + n" (click)="copy('c:' + n, centralCode(n))" [title]="centralCode(n)">
-            <btfp-icon [name]="n" size="24" />
+            <p-ui-icon [name]="n" size="24" />
             <code>{{ copied() === 'c:' + n ? 'คัดลอกแล้ว' : n }}</code>
           </button>
         }
@@ -63,13 +63,13 @@ import { PRIMEICONS_NAMES } from './primeicons-names';
     <details>
       <summary>
         <span class="title">ขนาด</span>
-        <span class="hint">16 ในตาราง ปุ่ม S ข้อความ ไอคอนในช่องกรอก และลูกศรลง (chevron-down) ทุกที่, 20 ในเมนูและปุ่ม M L, 24 หัวข้อ ขนาดอื่นตาม Figma ใช้ <code>&lt;btfp-icon name="pi-ชื่อ" size="18" /&gt;</code></span>
+        <span class="hint">16 ในตาราง ปุ่ม S ข้อความ ไอคอนในช่องกรอก และลูกศรลง (chevron-down) ทุกที่, 20 ในเมนูและปุ่ม M L, 24 หัวข้อ ขนาดอื่นตาม Figma ใช้ <code>&lt;p-ui-icon name="pi-ชื่อ" size="18" /&gt;</code></span>
       </summary>
       <div class="sizes">
         @for (s of sizes; track s.px) {
           <div class="size">
             <i [class]="'pi pi-file ' + s.cls"></i>
-            <btfp-icon name="file-text" [size]="s.px" />
+            <p-ui-icon name="file-text" [size]="s.px" />
             <code>{{ s.px }}px</code>
             <code>{{ s.cls }} / size="{{ s.px }}"</code>
           </div>
@@ -129,7 +129,7 @@ export class SbIconGallery {
   }
 
   protected centralCode(n: string): string {
-    return `<btfp-icon name="${n}" size="16" />`;
+    return `<p-ui-icon name="${n}" size="16" />`;
   }
 
   protected copy(key: string, text: string): void {

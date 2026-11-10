@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
-import { BtfpEmptyState } from './empty-state';
+import { EmptyState } from './empty-state';
 
-const meta: Meta<BtfpEmptyState> = {
+const meta: Meta<EmptyState> = {
   title: 'Components/Feedback/Empty State',
-  component: BtfpEmptyState,
+  component: EmptyState,
   tags: ['autodocs'],
   parameters: {
     backgrounds: { default: 'white' },
@@ -12,7 +12,7 @@ const meta: Meta<BtfpEmptyState> = {
   argTypes: { type: { control: 'select', options: ['general', 'no-results', 'no-files', 'error'] } },
 };
 export default meta;
-type Story = StoryObj<BtfpEmptyState>;
+type Story = StoryObj<EmptyState>;
 
 export const General: Story = {
   name: 'ยังไม่มีข้อมูล',

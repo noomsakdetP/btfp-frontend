@@ -1,18 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Button } from 'primeng/button';
-import { BtfpIcon } from '../../shared/ui/icon/icon';
+import { UiIcon } from '../../shared/ui/icon/icon';
 
 /**
- * btfp-public-topbar : แถบบนของเว็บไซต์สาธารณะ (Figma: Navigation/TopBar Type=front-office-guest)
+ * p-public-topbar : แถบบนของเว็บไซต์สาธารณะ (Figma: Navigation/TopBar Type=front-office-guest)
  *
  * Responsive (ไม่มี logic)
  * - จอ xl (1280px) ขึ้นไป: เมนูเรียงแนวนอน
- * - จอเล็กกว่า: กดปุ่มเมนูเพื่อเปิดรายการ ใช้ checkbox ที่ซ่อน (#btfp-public-nav) + peer-checked ของ Tailwind
+ * - จอเล็กกว่า: กดปุ่มเมนูเพื่อเปิดรายการ ใช้ checkbox ที่ซ่อน (#p-public-nav) + peer-checked ของ Tailwind
  */
 @Component({
-  selector: 'btfp-public-topbar',
-  imports: [RouterLink, RouterLinkActive, Button, BtfpIcon],
+  selector: 'p-public-topbar',
+  imports: [RouterLink, RouterLinkActive, Button, UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block sticky top-0 z-40' },
   template: `
@@ -46,15 +46,15 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
         <div class="ml-auto flex shrink-0 items-center gap-2 md:gap-3">
           <p-button outlined severity="secondary" label="ลงทะเบียน" routerLink="/register" styleClass="hidden sm:inline-flex" />
           <p-button label="เข้าสู่ระบบ" routerLink="/login" />
-          <label for="btfp-public-nav" class="menu-button grid place-items-center xl:hidden" aria-label="เปิดเมนู">
-            <btfp-icon name="pi-bars" size="22" />
+          <label for="p-public-nav" class="menu-button grid place-items-center xl:hidden" aria-label="เปิดเมนู">
+            <p-ui-icon name="pi-bars" size="22" />
           </label>
         </div>
       </div>
     </header>
 
     <!-- เมนูบนจอเล็ก -->
-    <input id="btfp-public-nav" type="checkbox" class="peer sr-only" aria-label="เปิดปิดเมนู" />
+    <input id="p-public-nav" type="checkbox" class="peer sr-only" aria-label="เปิดปิดเมนู" />
     <nav class="mobile-nav hidden flex-col px-4 py-2 peer-checked:flex xl:peer-checked:hidden" aria-label="เมนูหลัก">
       <a routerLink="/">หน้าแรก</a>
       <a routerLink="/grants">ประกาศทุน</a>
@@ -134,4 +134,4 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
     }
   `,
 })
-export class BtfpPublicTopbar {}
+export class PublicTopbar {}

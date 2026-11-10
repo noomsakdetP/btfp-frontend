@@ -22,7 +22,7 @@ const meta: Meta = {
 }
 \`\`\`
 
-ใน Figma ชื่อ \`cool-gray\` ในโค้ดใช้ชื่อ \`gray\` ส่วนสีของ PrimeNG ตั้งไว้ใน \`src/app/theme/btfp-preset.ts\` ค่าที่แสดงด้านล่างอ่านจาก browser จริง` } } },
+ใน Figma ชื่อ \`cool-gray\` ในโค้ดใช้ชื่อ \`gray\` ส่วนสีของ PrimeNG ตั้งไว้ใน \`src/app/theme/theme-preset.ts\` ค่าที่แสดงด้านล่างอ่านจาก browser จริง` } } },
 };
 export default meta;
 
@@ -34,13 +34,13 @@ export const Semantic: StoryObj = {
 
 export const Feedback: StoryObj = {
   name: "Feedback",
-  parameters: { docs: { description: { story: `สถานะสำเร็จ เตือน ผิดพลาด ข้อมูล แต่ละแบบมีพื้น ข้อความ เส้นขอบ (ป้ายสถานะ 14 แบบใช้ \`btfp-status-tag\`)` } } },
+  parameters: { docs: { description: { story: `สถานะสำเร็จ เตือน ผิดพลาด ข้อมูล แต่ละแบบมีพื้น ข้อความ เส้นขอบ (ป้ายสถานะ 14 แบบใช้ \`p-status-tag\`)` } } },
   render: () => ({ template: feedbackTpl() }),
 };
 
 export const Loading: StoryObj = {
   name: "Loading",
-  parameters: { docs: { description: { story: `สีของตัวโหลดตอนเปลี่ยนเมนู (\`btfp-route-progress\` ใช้ ngx-ui-loader) ผูกกับ semantic ของระบบ ภาพขวาเป็นภาพจำลองนิ่ง ดูตัวจริงที่ Components > Feedback > Route Progress` } } },
+  parameters: { docs: { description: { story: `สีของตัวโหลดตอนเปลี่ยนเมนู (\`p-route-progress\` ใช้ ngx-ui-loader) ผูกกับ semantic ของระบบ ภาพขวาเป็นภาพจำลองนิ่ง ดูตัวจริงที่ Components > Feedback > Route Progress` } } },
   render: () => ({ template: loadingTpl() }),
 };
 

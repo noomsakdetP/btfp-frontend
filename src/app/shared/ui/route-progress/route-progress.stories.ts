@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { moduleMetadata } from '@storybook/angular-vite';
 import { NgxUiLoaderModule, NgxUiLoaderService } from 'ngx-ui-loader';
-import { BtfpPublicFooter } from '../../../layout/public-layout/public-footer';
-import { BtfpPublicTopbar } from '../../../layout/public-layout/public-topbar';
+import { PublicFooter } from '../../../layout/public-layout/public-footer';
+import { PublicTopbar } from '../../../layout/public-layout/public-topbar';
 import { LandingPage } from '../../../pages/public/landing/landing';
-import { BtfpRouteProgress } from './route-progress';
+import { RouteProgress } from './route-progress';
 
 const captionStyle = `
   .caption {
@@ -20,9 +20,9 @@ const captionStyle = `
  */
 @Component({
   selector: 'sb-route-progress-cycle',
-  imports: [BtfpRouteProgress],
+  imports: [RouteProgress],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<btfp-route-progress /><div class="caption">{{ busy() ? 'กดเมนู: กำลังโหลดหน้าใหม่' : 'หน้าเปิดเสร็จ' }}</div>`,
+  template: `<p-route-progress /><div class="caption">{{ busy() ? 'กดเมนู: กำลังโหลดหน้าใหม่' : 'หน้าเปิดเสร็จ' }}</div>`,
   styles: captionStyle,
 })
 class RouteProgressCycle {
@@ -44,11 +44,11 @@ class RouteProgressCycle {
   }
 }
 
-const meta: Meta<BtfpRouteProgress> = {
+const meta: Meta<RouteProgress> = {
   title: 'Components/Feedback/Route Progress',
-  component: BtfpRouteProgress,
+  component: RouteProgress,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [NgxUiLoaderModule, BtfpPublicTopbar, BtfpPublicFooter, LandingPage, RouteProgressCycle] })],
+  decorators: [moduleMetadata({ imports: [NgxUiLoaderModule, PublicTopbar, PublicFooter, LandingPage, RouteProgressCycle] })],
   argTypes: {
     demo: { control: 'inline-radio', options: ['', 'foreground'] },
   },
@@ -80,24 +80,24 @@ const meta: Meta<BtfpRouteProgress> = {
   },
 };
 export default meta;
-type Story = StoryObj<BtfpRouteProgress>;
+type Story = StoryObj<RouteProgress>;
 
 /** หน้าแรกเป็นพื้นหลัง ครอบด้วย ngxUiLoaderBlurred เหมือน app.ts */
 const page = `
   <div ngxUiLoaderBlurred style="height:100vh;overflow:hidden;background:var(--p-surface-raised)">
-    <btfp-public-topbar />
-    <btfp-landing-page />
-    <btfp-public-footer />
+    <p-public-topbar />
+    <p-landing-page />
+    <p-public-footer />
   </div>`;
 
 export const Cycle: Story = {
   name: 'จำลองการเปลี่ยนเมนู (วนซ้ำ)',
-  parameters: { docs: { source: { code: '<btfp-route-progress />' } } },
+  parameters: { docs: { source: { code: '<p-route-progress />' } } },
   render: () => ({ template: `${page}<sb-route-progress-cycle />` }),
 };
 
 export const Foreground: Story = {
   name: 'เปลี่ยนเมนู (แสดงค้าง)',
   args: { demo: 'foreground' },
-  render: (args) => ({ props: args, template: `${page}<btfp-route-progress [demo]="demo" />` }),
+  render: (args) => ({ props: args, template: `${page}<p-route-progress [demo]="demo" />` }),
 };

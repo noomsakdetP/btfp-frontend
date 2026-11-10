@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, inject, input, signal } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular-vite';
-import { BtfpIcon } from '../../app/shared/ui/icon/icon';
+import { UiIcon } from '../../app/shared/ui/icon/icon';
 import { BTFP_CENTRAL_ICONS } from '../../app/theme/central-icons';
 
 /** แสดงค่าจริงของ CSS variable ที่ browser คำนวณได้ (ใช้เฉพาะใน Storybook) */
@@ -48,7 +48,7 @@ export const SEMANTIC: [string, string][] = [
   ['--p-icon-default', 'gray/600'], ['--p-icon-subtle', 'gray/400'], ['--p-icon-strong', 'navy/900'], ['--p-icon-brand', 'blue/500'], ['--p-icon-action', 'blue/600'], ['--p-icon-disabled', 'gray/300'],
 ];
 export const FEEDBACK = ['success', 'warning', 'danger', 'info'];
-/** สีของตัวโหลด (btfp-route-progress / ngx-ui-loader) */
+/** สีของตัวโหลด (p-route-progress / ngx-ui-loader) */
 export const LOADING: [string, string][] = [
   ['--p-loading-spinner', 'action/primary'],
   ['--p-loading-overlay', 'bg/inverse 80%'],
@@ -56,30 +56,30 @@ export const LOADING: [string, string][] = [
 ];
 
 export const TYPE: [string, string, string][] = [
-  ['btfp-text-display-xl', 'Display/XL', 'IBM Plex Sans Thai Bold 60/120%'],
-  ['btfp-text-display', 'Display', 'IBM Plex Sans Thai Bold 40/135%'],
-  ['btfp-text-h1', 'H1', 'IBM Plex Sans Thai Bold 32/135%'],
-  ['btfp-text-h2', 'H2', 'IBM Plex Sans Thai SemiBold 24/135%'],
-  ['btfp-text-h3', 'H3', 'IBM Plex Sans Thai SemiBold 20/135%'],
-  ['btfp-text-h4', 'H4', 'IBM Plex Sans Thai SemiBold 18/135%'],
-  ['btfp-text-body-l', 'Body/L', 'Sarabun Regular 18/160%'],
-  ['btfp-text-body', 'Body', 'Sarabun Regular 16/160%'],
-  ['btfp-text-body-medium', 'Body/Medium', 'Sarabun Medium 16/160%'],
-  ['btfp-text-body-s', 'Body/S', 'Sarabun Regular 14/160%'],
-  ['btfp-text-body-s-medium', 'Body/S Medium', 'Sarabun Medium 14/160%'],
-  ['btfp-text-table', 'Table', 'Sarabun Regular 14/150%'],
-  ['btfp-text-caption', 'Caption', 'Sarabun Regular 12/150%'],
+  ['p-text-display-xl', 'Display/XL', 'IBM Plex Sans Thai Bold 60/120%'],
+  ['p-text-display', 'Display', 'IBM Plex Sans Thai Bold 40/135%'],
+  ['p-text-h1', 'H1', 'IBM Plex Sans Thai Bold 32/135%'],
+  ['p-text-h2', 'H2', 'IBM Plex Sans Thai SemiBold 24/135%'],
+  ['p-text-h3', 'H3', 'IBM Plex Sans Thai SemiBold 20/135%'],
+  ['p-text-h4', 'H4', 'IBM Plex Sans Thai SemiBold 18/135%'],
+  ['p-text-body-l', 'Body/L', 'Sarabun Regular 18/160%'],
+  ['p-text-body', 'Body', 'Sarabun Regular 16/160%'],
+  ['p-text-body-medium', 'Body/Medium', 'Sarabun Medium 16/160%'],
+  ['p-text-body-s', 'Body/S', 'Sarabun Regular 14/160%'],
+  ['p-text-body-s-medium', 'Body/S Medium', 'Sarabun Medium 14/160%'],
+  ['p-text-table', 'Table', 'Sarabun Regular 14/150%'],
+  ['p-text-caption', 'Caption', 'Sarabun Regular 12/150%'],
 ];
 
 /** imports + พื้นหลังขาว ที่ทุกหน้าใน Foundations ใช้ */
-export const foundationImports = moduleMetadata({ imports: [SbToken, BtfpIcon] });
+export const foundationImports = moduleMetadata({ imports: [SbToken, UiIcon] });
 
 const grid = (min: number, body: string) => `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(${min}px,1fr));gap:12px">${body}</div>`;
 
 export const primitivesTpl = () =>
   PALETTES.map(
     (p) =>
-      `<p class="btfp-text-body-s-medium" style="margin:16px 0 8px">${p}</p>` +
+      `<p class="p-text-body-s-medium" style="margin:16px 0 8px">${p}</p>` +
       grid(110, STEPS.map((s) => `<sb-token name="--p-${p}-${s}" />`).join('')),
   ).join('');
 
@@ -89,7 +89,7 @@ export const loadingTpl = () =>
   `<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:24px;align-items:start">` +
   grid(150, LOADING.map(([n, a]) => `<sb-token name="${n}" alias="${a}" />`).join('')) +
   `<div style="position:relative;height:220px;overflow:hidden;border-radius:var(--p-radius-card);border:1px solid var(--p-border-default);background:var(--p-bg-subtle)">
-     <div style="padding:24px;filter:blur(3px)"><p class="btfp-text-h4" style="margin:0">ข้อเสนอโครงการ</p><p class="btfp-text-body-s" style="margin:4px 0 0">เนื้อหาหน้าเดิม</p></div>
+     <div style="padding:24px;filter:blur(3px)"><p class="p-text-h4" style="margin:0">ข้อเสนอโครงการ</p><p class="p-text-body-s" style="margin:4px 0 0">เนื้อหาหน้าเดิม</p></div>
      <div style="position:absolute;inset:0 0 auto;height:3px;width:40%;background:var(--p-loading-spinner)"></div>
      <div style="position:absolute;inset:0;display:grid;place-items:center;background:var(--p-loading-overlay)">
        <div style="display:flex;gap:6px;height:56px;align-items:center">${[1, 0.6, 1, 0.6, 1].map((h) => `<i style="display:block;width:8px;height:${h * 100}%;background:var(--p-loading-spinner)"></i>`).join('')}</div>
@@ -102,7 +102,7 @@ export const feedbackTpl = () =>
     FEEDBACK.map(
       (f) =>
         `<div style="display:flex;flex-direction:column;gap:8px">
-           <div style="padding:12px 16px;border:1px solid var(--p-${f}-border);border-radius:var(--p-radius-inner);background:var(--p-${f}-bg);color:var(--p-${f}-text)" class="btfp-text-body-s-medium">${f}</div>
+           <div style="padding:12px 16px;border:1px solid var(--p-${f}-border);border-radius:var(--p-radius-inner);background:var(--p-${f}-bg);color:var(--p-${f}-text)" class="p-text-body-s-medium">${f}</div>
            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
              <sb-token name="--p-${f}-bg" /><sb-token name="--p-${f}-text" /><sb-token name="--p-${f}-border" />
            </div>
@@ -115,7 +115,7 @@ export const typeTpl = (rows: [string, string, string][]) =>
     .map(
       ([c, n, d]) =>
         `<div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--p-border-default)">
-           <div class="btfp-text-caption" style="color:var(--p-text-secondary)"><div class="btfp-text-body-s-medium" style="color:var(--p-text-primary)">${n}</div>${d}<br /><code>.${c}</code></div>
+           <div class="p-text-caption" style="color:var(--p-text-secondary)"><div class="p-text-body-s-medium" style="color:var(--p-text-primary)">${n}</div>${d}<br /><code>.${c}</code></div>
            <div class="${c}" style="color:var(--p-text-heading)">ทุน กทปส. เพื่อประโยชน์สาธารณะ 2569</div>
          </div>`,
     )
@@ -127,7 +127,7 @@ export const spacingTpl = () =>
   )
     .map(
       ([n, v]) =>
-        `<div style="display:flex;align-items:center;gap:16px"><code style="width:160px" class="btfp-text-caption">--p-space-${n}</code><span class="btfp-text-caption" style="width:40px;color:var(--p-text-secondary)">${v}px</span><span style="height:16px;width:var(--p-space-${n});background:var(--p-blue-300);border-radius:2px"></span></div>`,
+        `<div style="display:flex;align-items:center;gap:16px"><code style="width:160px" class="p-text-caption">--p-space-${n}</code><span class="p-text-caption" style="width:40px;color:var(--p-text-secondary)">${v}px</span><span style="height:16px;width:var(--p-space-${n});background:var(--p-blue-300);border-radius:2px"></span></div>`,
     )
     .join('')}</div>`;
 
@@ -143,7 +143,7 @@ export const shadowTpl = () =>
   `<div style="display:flex;flex-wrap:wrap;gap:32px;padding:16px;background:var(--p-bg-subtle);border-radius:var(--p-radius-card)">${[1, 2, 3]
     .map(
       (n) =>
-        `<div style="width:200px;height:120px;display:grid;place-items:center;background:var(--p-surface-raised);border-radius:var(--p-radius-card);box-shadow:var(--p-shadow-${n})"><code class="btfp-text-caption">--p-shadow-${n}</code></div>`,
+        `<div style="width:200px;height:120px;display:grid;place-items:center;background:var(--p-surface-raised);border-radius:var(--p-radius-card);box-shadow:var(--p-shadow-${n})"><code class="p-text-caption">--p-shadow-${n}</code></div>`,
     )
     .join('')}</div>`;
 

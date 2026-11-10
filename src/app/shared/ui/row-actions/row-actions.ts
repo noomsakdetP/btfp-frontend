@@ -2,40 +2,40 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, output } f
 import { Button } from 'primeng/button';
 import { Tooltip } from 'primeng/tooltip';
 import { ConfirmationService } from 'primeng/api';
-import { BtfpIcon } from '../icon/icon';
+import { UiIcon } from '../icon/icon';
 
-export type BtfpRowAction = 'view' | 'edit' | 'delete';
+export type RowAction = 'view' | 'edit' | 'delete';
 
 /**
- * btfp-row-actions : ปุ่มจัดการท้ายแถวตาราง (Figma: Domain/Table Row Actions)
+ * p-row-actions : ปุ่มจัดการท้ายแถวตาราง (Figma: Domain/Table Row Actions)
  *
  * กฎของระบบ
  * 1. ลำดับปุ่มต้องเป็น ดู แก้ไข ลบ เสมอ (ส่งมาลำดับไหนก็จะเรียงให้ใหม่)
  * 2. ลบ ต้องเปิดป๊อปอัปยืนยันก่อนทุกครั้ง (component นี้เปิดให้เอง ส่ง event delete หลังผู้ใช้กดยืนยันเท่านั้น)
  *
  * @example
- * <btfp-row-actions actions="view,edit,delete" itemLabel="2569/0042" (view)="..." (delete)="..." />
+ * <p-row-actions actions="view,edit,delete" itemLabel="2569/0042" (view)="..." (delete)="..." />
  */
 @Component({
-  selector: 'btfp-row-actions',
-  imports: [Button, Tooltip, BtfpIcon],
+  selector: 'p-row-actions',
+  imports: [Button, Tooltip, UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @for (action of orderedActions(); track action) {
       @switch (action) {
         @case ('view') {
           <p-button [text]="true" severity="secondary" size="small" ariaLabel="ดูรายละเอียด" pTooltip="ดูรายละเอียด" tooltipPosition="top" (onClick)="view.emit()">
-            <ng-template #icon><btfp-icon name="pi-eye" size="18" /></ng-template>
+            <ng-template #icon><p-ui-icon name="pi-eye" size="18" /></ng-template>
           </p-button>
         }
         @case ('edit') {
           <p-button [text]="true" severity="secondary" size="small" ariaLabel="แก้ไข" pTooltip="แก้ไข" tooltipPosition="top" (onClick)="edit.emit()">
-            <ng-template #icon><btfp-icon name="pi-pencil" size="18" /></ng-template>
+            <ng-template #icon><p-ui-icon name="pi-pencil" size="18" /></ng-template>
           </p-button>
         }
         @case ('delete') {
           <p-button [text]="true" severity="danger" size="small" ariaLabel="ลบ" pTooltip="ลบ" tooltipPosition="top" (onClick)="confirmDelete()">
-            <ng-template #icon><btfp-icon name="pi-trash" size="18" /></ng-template>
+            <ng-template #icon><p-ui-icon name="pi-trash" size="18" /></ng-template>
           </p-button>
         }
       }
@@ -55,7 +55,7 @@ export type BtfpRowAction = 'view' | 'edit' | 'delete';
     }
   `,
 })
-export class BtfpRowActions {
+export class RowActions {
   private readonly confirmation = inject(ConfirmationService);
 
   /** ปุ่มที่จะแสดง คั่นด้วยจุลภาค เช่น "view" หรือ "view,edit,delete" */
@@ -67,11 +67,11 @@ export class BtfpRowActions {
   readonly edit = output<void>();
   readonly delete = output<void>();
 
-  private static readonly ORDER: BtfpRowAction[] = ['view', 'edit', 'delete'];
+  private static readonly ORDER: RowAction[] = ['view', 'edit', 'delete'];
 
   protected readonly orderedActions = computed(() => {
     const wanted = this.actions().split(',').map((a) => a.trim());
-    return BtfpRowActions.ORDER.filter((a) => wanted.includes(a));
+    return RowActions.ORDER.filter((a) => wanted.includes(a));
   });
 
   protected confirmDelete(): void {

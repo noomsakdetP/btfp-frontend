@@ -31,20 +31,20 @@ export class MyPage {}
 | --- | --- |
 | State=default / hover / focus | \`<input pInputText />\` สูง 40px ขอบซ้ายขวา 16px ตัวอักษร 16px |
 | State=disabled | \`disabled\` |
-| State=error | \`class="ng-invalid ng-dirty"\` (ฟอร์มจริงใส่ให้อัตโนมัติ) + \`.btfp-field__error\` |
+| State=error | \`class="ng-invalid ng-dirty"\` (ฟอร์มจริงใส่ให้อัตโนมัติ) + \`.p-field__error\` |
 | Textarea | \`<textarea pTextarea rows="3">\` |
 
-**ป้ายชื่อ ข้อความช่วย ข้อความผิดพลาด** ครอบด้วย \`.btfp-field\` (กำหนดใน \`styles.scss\`)
+**ป้ายชื่อ ข้อความช่วย ข้อความผิดพลาด** ครอบด้วย \`.p-field\` (กำหนดใน \`styles.scss\`)
 
 \`\`\`html
-<div class="btfp-field">
-  <label for="name">ชื่อโครงการ<span class="btfp-required" aria-hidden="true">*</span></label>
+<div class="p-field">
+  <label for="name">ชื่อโครงการ<span class="p-required" aria-hidden="true">*</span></label>
   <input pInputText id="name" placeholder="กรอกชื่อโครงการ" />
-  <p class="btfp-field__helper">กรอกข้อมูลให้ครบถ้วนตามเอกสาร</p>
+  <p class="p-field__helper">กรอกข้อมูลให้ครบถ้วนตามเอกสาร</p>
 </div>
 \`\`\`
 
-สถานะผิดพลาด: ฟอร์มจริงใส่ class \`ng-invalid ng-dirty\` ให้เอง แล้วแสดง \`<p class="btfp-field__error"><btfp-icon name="pi-exclamation-circle" size="16" />ข้อความ</p>\` แทนข้อความช่วย
+สถานะผิดพลาด: ฟอร์มจริงใส่ class \`ng-invalid ng-dirty\` ให้เอง แล้วแสดง \`<p class="p-field__error"><p-ui-icon name="pi-exclamation-circle" size="16" />ข้อความ</p>\` แทนข้อความช่วย
 `),
 };
 export default meta;

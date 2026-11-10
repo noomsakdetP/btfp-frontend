@@ -1,34 +1,34 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Button } from 'primeng/button';
-import { BtfpIcon } from '../../shared/ui/icon/icon';
-import { BtfpPublicFooter } from './public-footer';
-import { BtfpPublicTopbar } from './public-topbar';
+import { UiIcon } from '../../shared/ui/icon/icon';
+import { PublicFooter } from './public-footer';
+import { PublicTopbar } from './public-topbar';
 
 /**
- * btfp-public-layout : โครงหน้าเว็บไซต์สาธารณะ (ผู้เยี่ยมชม / ผู้ขอรับทุนที่ยังไม่เข้าสู่ระบบ)
+ * p-public-layout : โครงหน้าเว็บไซต์สาธารณะ (ผู้เยี่ยมชม / ผู้ขอรับทุนที่ยังไม่เข้าสู่ระบบ)
  *
- * แถบคุกกี้ (Figma: Public/Cookie Consent) กดยอมรับหรือปฏิเสธแล้วแถบหาย (ติ๊ก checkbox #btfp-cookie ที่ซ่อนไว้)
+ * แถบคุกกี้ (Figma: Public/Cookie Consent) กดยอมรับหรือปฏิเสธแล้วแถบหาย (ติ๊ก checkbox #p-cookie ที่ซ่อนไว้)
  * แถบกลับมาเมื่อโหลดหน้าใหม่ ตอนต่อระบบจริงต้องบันทึกการเลือก (เช่น cookie) และไม่แสดงซ้ำ
  */
 @Component({
-  selector: 'btfp-public-layout',
-  imports: [RouterOutlet, RouterLink, Button, BtfpIcon, BtfpPublicTopbar, BtfpPublicFooter],
+  selector: 'p-public-layout',
+  imports: [RouterOutlet, RouterLink, Button, UiIcon, PublicTopbar, PublicFooter],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex min-h-screen flex-col bg-[var(--p-surface-raised)]' },
   template: `
-    <btfp-public-topbar />
+    <p-public-topbar />
     <main class="flex-1">
       <router-outlet />
     </main>
-    <btfp-public-footer />
+    <p-public-footer />
 
-    <input id="btfp-cookie" type="checkbox" class="peer sr-only" aria-hidden="true" tabindex="-1" />
+    <input id="p-cookie" type="checkbox" class="peer sr-only" aria-hidden="true" tabindex="-1" />
     <section
       class="cookie fixed inset-x-4 bottom-4 z-50 mx-auto flex max-w-[1120px] flex-col gap-4 p-5 peer-checked:hidden md:flex-row md:items-center md:gap-6 md:px-6"
       aria-label="การใช้คุกกี้"
     >
-      <span class="cookie__icon hidden md:grid"><btfp-icon name="cookie" size="22" /></span>
+      <span class="cookie__icon hidden md:grid"><p-ui-icon name="cookie" size="22" /></span>
       <div class="min-w-0 flex-1">
         <h2 class="cookie__title">เว็บไซต์นี้ใช้คุกกี้</h2>
         <p class="cookie__text">
@@ -74,10 +74,10 @@ import { BtfpPublicTopbar } from './public-topbar';
     }
   `,
 })
-export class BtfpPublicLayout {
+export class PublicLayout {
   /** ปิดแถบคุกกี้: ติ๊ก checkbox ที่ซ่อน (layout ไม่ใช่ไฟล์ของหน้า จึงมีโค้ดเล็กน้อยได้) */
   protected dismiss(): void {
-    const box = document.getElementById('btfp-cookie') as HTMLInputElement | null;
+    const box = document.getElementById('p-cookie') as HTMLInputElement | null;
     if (box) box.checked = true;
   }
 }

@@ -8,7 +8,7 @@ import { InputText } from 'primeng/inputtext';
 import { Paginator } from 'primeng/paginator';
 import { Select } from 'primeng/select';
 import { Tab, TabList, Tabs } from 'primeng/tabs';
-import { BtfpExportButton, BtfpIcon, BtfpKpiCard, BtfpRowActions, BtfpStatusTag } from '../../../shared/ui';
+import { ExportButton, UiIcon, KpiCard, RowActions, StatusTag } from '../../../shared/ui';
 
 /**
  * B-21 ข้อเสนอโครงการ (มุมมองเจ้าหน้าที่)  Figma: 60:7997
@@ -17,7 +17,7 @@ import { BtfpExportButton, BtfpIcon, BtfpKpiCard, BtfpRowActions, BtfpStatusTag 
  * Drawer ตัวกรองเพิ่มเติมเป็นหน้าลูก (ProposalFilterDrawer) แสดงใน <router-outlet>
  */
 @Component({
-  selector: 'btfp-proposal-list-page',
+  selector: 'p-proposal-list-page',
   imports: [
     RouterLink,
     RouterOutlet,
@@ -31,11 +31,11 @@ import { BtfpExportButton, BtfpIcon, BtfpKpiCard, BtfpRowActions, BtfpStatusTag 
     Tabs,
     TabList,
     Tab,
-    BtfpIcon,
-    BtfpExportButton,
-    BtfpKpiCard,
-    BtfpRowActions,
-    BtfpStatusTag,
+    UiIcon,
+    ExportButton,
+    KpiCard,
+    RowActions,
+    StatusTag,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './proposal-list.html',

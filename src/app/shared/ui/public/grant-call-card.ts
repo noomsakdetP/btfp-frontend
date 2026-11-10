@@ -1,21 +1,21 @@
 import { ChangeDetectionStrategy, Component, booleanAttribute, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Button } from 'primeng/button';
-import { BtfpIcon } from '../icon/icon';
+import { UiIcon } from '../icon/icon';
 
-export type BtfpGrantCallState = 'open' | 'closing-soon' | 'closed';
+export type GrantCallState = 'open' | 'closing-soon' | 'closed';
 
 /**
- * btfp-grant-call-card : การ์ดประกาศทุน (Figma: Domain/Grant Call Card)
+ * p-grant-call-card : การ์ดประกาศทุน (Figma: Domain/Grant Call Card)
  *
  * @example
- * <btfp-grant-call-card image="images/landing/cover-1.jpg" sector="กิจการโทรคมนาคม" grantType="ทุนประเภท 1"
+ * <p-grant-call-card image="images/landing/cover-1.jpg" sector="กิจการโทรคมนาคม" grantType="ทุนประเภท 1"
  *   state="open" heading="ทุนประเภท 1 ประจำปี 2569" deadline="ปิดรับ 30 พ.ย. 2569 เวลา 16:30 น."
  *   scope="มาตรา 52(1)–(6) เลือกวัตถุประสงค์ได้ 1 ข้อ" budget="วงเงินรวม 150,000,000 บาท" />
  */
 @Component({
-  selector: 'btfp-grant-call-card',
-  imports: [RouterLink, Button, BtfpIcon],
+  selector: 'p-grant-call-card',
+  imports: [RouterLink, Button, UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class.is-closed]': "state() === 'closed'" },
   template: `
@@ -29,12 +29,12 @@ export type BtfpGrantCallState = 'open' | 'closing-soon' | 'closed';
     </div>
     <h3 class="title">{{ heading() }}</h3>
     <ul class="meta">
-      <li [class.is-urgent]="state() === 'closing-soon'"><btfp-icon name="pi-calendar" size="16" /><span>{{ deadline() }}</span></li>
-      <li><btfp-icon name="pi-building-columns" size="16" /><span>{{ scope() }}</span></li>
-      <li><btfp-icon name="pi-money-bill" size="16" /><span>{{ budget() }}</span></li>
+      <li [class.is-urgent]="state() === 'closing-soon'"><p-ui-icon name="pi-calendar" size="16" /><span>{{ deadline() }}</span></li>
+      <li><p-ui-icon name="pi-building-columns" size="16" /><span>{{ scope() }}</span></li>
+      <li><p-ui-icon name="pi-money-bill" size="16" /><span>{{ budget() }}</span></li>
     </ul>
     <div class="actions">
-      <a class="link" routerLink="/grants"><btfp-icon name="file-text" size="16" />ดูประกาศ</a>
+      <a class="link" routerLink="/grants"><p-ui-icon name="file-text" size="16" />ดูประกาศ</a>
       <p-button label="ยื่นข้อเสนอ" size="small" routerLink="/login" [disabled]="state() === 'closed' || submitDisabled()" />
     </div>
   `,
@@ -110,14 +110,14 @@ export type BtfpGrantCallState = 'open' | 'closing-soon' | 'closed';
       white-space: nowrap;
       text-overflow: ellipsis;
     }
-    .meta btfp-icon {
+    .meta p-ui-icon {
       margin-top: 3px;
       color: var(--p-icon-subtle);
     }
     .meta li.is-urgent {
       color: var(--p-orange-600);
     }
-    .meta li.is-urgent btfp-icon {
+    .meta li.is-urgent p-ui-icon {
       color: var(--p-orange-600);
     }
     .actions {
@@ -141,11 +141,11 @@ export type BtfpGrantCallState = 'open' | 'closing-soon' | 'closed';
     }
   `,
 })
-export class BtfpGrantCallCard {
+export class GrantCallCard {
   readonly image = input.required<string>();
   readonly sector = input<string>('');
   readonly grantType = input.required<string>();
-  readonly state = input<BtfpGrantCallState>('open');
+  readonly state = input<GrantCallState>('open');
   readonly heading = input.required<string>();
   readonly deadline = input<string>('');
   readonly scope = input<string>('');

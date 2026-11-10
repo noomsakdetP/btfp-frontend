@@ -34,11 +34,11 @@ export const BTFP_LOADER_CONFIG: NgxUiLoaderConfig = {
 };
 
 /**
- * ตั้งค่า ngx-ui-loader ให้ btfp-route-progress ใช้ (ใส่ใน app.config.ts ครั้งเดียว)
+ * ตั้งค่า ngx-ui-loader ให้ p-route-progress ใช้ (ใส่ใน app.config.ts ครั้งเดียว)
  *
  * แสดงเฉพาะตอนเปลี่ยนเมนู (foreground: แถบบน + ชั้นทับ + แท่งเด้งกลางจอ)
  * การเรียก API ไม่ใช้ตัวโหลดกลาง ให้แสดงสถานะที่ component ที่ผู้ใช้กด เช่น <p-button loading> หรือแถว p-skeleton ในตาราง
  */
-export function btfpLoaderProviders(): EnvironmentProviders {
+export function loaderProviders(): EnvironmentProviders {
   return importProvidersFrom(NgxUiLoaderModule.forRoot(BTFP_LOADER_CONFIG), NgxUiLoaderRouterModule.forRoot({ showForeground: true }));
 }

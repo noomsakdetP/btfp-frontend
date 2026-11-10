@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { moduleMetadata } from '@storybook/angular-vite';
 import { ConfirmDialog } from 'primeng/confirmdialog';
-import { BtfpRowActions } from './row-actions';
+import { RowActions } from './row-actions';
 
-const meta: Meta<BtfpRowActions> = {
+const meta: Meta<RowActions> = {
   title: 'Components/Actions/Row Actions',
-  component: BtfpRowActions,
+  component: RowActions,
   tags: ['autodocs'],
   decorators: [moduleMetadata({ imports: [ConfirmDialog] })],
   parameters: {
@@ -16,7 +16,7 @@ const meta: Meta<BtfpRowActions> = {
           '',
           '- ลำดับ **ดู แก้ไข ลบ** เสมอ ส่งมาลำดับไหน component จะเรียงให้เอง',
           '- กด **ลบ** จะเปิดป๊อปอัปยืนยันก่อนทุกครั้ง event `delete` จะส่งออกมาหลังผู้ใช้กดยืนยันเท่านั้น',
-          '- ต้องมี `<p-confirmdialog />` ใน layout (มีแล้วใน btfp-staff-layout)',
+          '- ต้องมี `<p-confirmdialog />` ใน layout (มีแล้วใน p-staff-layout)',
         ].join('\n'),
       },
     },
@@ -25,13 +25,13 @@ const meta: Meta<BtfpRowActions> = {
   render: (args) => ({
     props: { ...args, log: (msg: string) => console.log(msg) },
     template: `
-      <btfp-row-actions [actions]="actions" [itemLabel]="itemLabel"
+      <p-row-actions [actions]="actions" [itemLabel]="itemLabel"
         (view)="log('view')" (edit)="log('edit')" (delete)="log('deleted')" />
       <p-confirmdialog [style]="{ width: '440px' }" />`,
   }),
 };
 export default meta;
-type Story = StoryObj<BtfpRowActions>;
+type Story = StoryObj<RowActions>;
 
 export const ViewEditDelete: Story = { name: 'ดู แก้ไข ลบ' };
 export const ViewOnly: Story = { name: 'ดูอย่างเดียว (ใช้ใน B-21)', args: { actions: 'view' } };

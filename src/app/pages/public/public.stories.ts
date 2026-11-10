@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { moduleMetadata } from '@storybook/angular-vite';
-import { BtfpPublicFooter } from '../../layout/public-layout/public-footer';
-import { BtfpPublicTopbar } from '../../layout/public-layout/public-topbar';
+import { PublicFooter } from '../../layout/public-layout/public-footer';
+import { PublicTopbar } from '../../layout/public-layout/public-topbar';
 import { LandingPage } from './landing/landing';
 
 const meta: Meta = {
   title: 'Pages/หน้าแรกสาธารณะ',
   id: 'pages-public-landing',
-  decorators: [moduleMetadata({ imports: [BtfpPublicTopbar, BtfpPublicFooter, LandingPage] })],
+  decorators: [moduleMetadata({ imports: [PublicTopbar, PublicFooter, LandingPage] })],
   parameters: {
     layout: 'fullscreen',
     backgrounds: { default: 'white' },
@@ -26,9 +26,9 @@ export const Landing: StoryObj = {
   render: () => ({
     template: `
       <div style="background:var(--p-surface-raised)">
-        <btfp-public-topbar />
-        <btfp-landing-page />
-        <btfp-public-footer />
+        <p-public-topbar />
+        <p-landing-page />
+        <p-public-footer />
       </div>`,
   }),
 };

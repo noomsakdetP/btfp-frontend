@@ -2,9 +2,9 @@ import { Directive, OnInit, booleanAttribute, inject, input } from '@angular/cor
 import { Drawer } from 'primeng/drawer';
 
 /**
- * btfpDrawer : ตั้งค่า p-drawer ของ PrimeNG ตามกฎของระบบ
+ * DrawerDefaults : ตั้งค่า p-drawer ของ PrimeNG ตามกฎของระบบ
  *
- * ใช้ p-drawer ของ PrimeNG ตรง ๆ แล้วใส่ attribute btfpDrawer เพิ่ม
+ * เกาะบนแท็ก p-drawer ทุกตัวในหน้าที่ import ไม่ต้องใส่ attribute เพิ่ม (imports: [Drawer, DrawerDefaults])
  * - กว้าง 480px บนจอ sm ขึ้นไป และเต็มจอบนมือถือ
  * - มีชั้นทับ ล็อกการเลื่อนหน้า ไม่ปิดเองเมื่อกดนอกแผงหรือกด Esc (ใส่ปุ่ม/ลิงก์ปิดเองในหัว Drawer)
  * - attribute open: เปิดค้างไว้ สำหรับหน้าหุ่นจำลองที่ห้ามมี binding
@@ -13,16 +13,16 @@ import { Drawer } from 'primeng/drawer';
  * หัวและแถบปุ่มด้านล่างใช้ ng-template ของ PrimeNG (#header, #footer)
  *
  * @example
- * <p-drawer btfpDrawer open position="right">
+ * <p-drawer open position="right">
  *   <ng-template #header>...</ng-template>
  *   ...
  *   <ng-template #footer>...</ng-template>
  * </p-drawer>
  */
 @Directive({
-  selector: 'p-drawer[btfpDrawer]',
+  selector: 'p-drawer',
 })
-export class BtfpDrawer implements OnInit {
+export class DrawerDefaults implements OnInit {
   /** ใส่ attribute open เพื่อเปิด Drawer ค้างไว้ (หน้าหุ่นจำลอง) */
   readonly open = input(false, { transform: booleanAttribute });
 

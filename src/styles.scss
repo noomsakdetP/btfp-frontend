@@ -1,22 +1,22 @@
 @use 'styles/tokens';
 
 // =====================================================================
-// สไตล์กลางของระบบ (layer btfp)
-// ลำดับ layer ประกาศไว้ใน src/tailwind.css: theme, base, primeng, btfp, components, utilities
+// สไตล์กลางของระบบ (layer app)
+// ลำดับ layer ประกาศไว้ใน src/tailwind.css: theme, base, primeng, app, components, utilities
 // ค่าทุกตัวใช้ token จาก src/styles/_tokens.scss ห้ามใส่สีหรือขนาดตรง ๆ
 //
 // สารบัญ
 //   1. พื้นฐาน            box-sizing, html, body, หัวข้อ, ลิงก์
-//   2. ตัวอักษร           .btfp-text-* ตาม Text Style ใน Figma
-//   3. ฟอร์ม              .btfp-field, .btfp-required, ข้อความช่วย, ข้อความผิดพลาด, .btfp-link-button
-//   4. ตาราง              .btfp-table และเซลล์แต่ละแบบ
-//   5. ปรับ PrimeNG       ส่วนที่ preset (src/app/theme/btfp-preset.ts) ทำไม่ได้
+//   2. ตัวอักษร           .p-text-* ตาม Text Style ใน Figma
+//   3. ฟอร์ม              .p-field, .p-required, ข้อความช่วย, ข้อความผิดพลาด, .p-link-button
+//   4. ตาราง              .p-simple-table และเซลล์แต่ละแบบ
+//   5. ปรับ PrimeNG       ส่วนที่ preset (src/app/theme/theme-preset.ts) ทำไม่ได้
 //      5.1 Button  5.2 ช่องกรอก  5.3 Checkbox Radio Toggle  5.4 Tag Chip
 //      5.5 Tabs  5.6 Segmented  5.7 Avatar
-//   6. หน้าหุ่นจำลอง      .btfp-mock-value, .btfp-checkbox
+//   6. หน้าหุ่นจำลอง      .p-mock-value, .p-native-checkbox
 // =====================================================================
 
-@layer btfp {
+@layer app {
   // =====================================================================
   // 1. พื้นฐาน
   // =====================================================================
@@ -69,43 +69,43 @@
 
   // =====================================================================
   // 2. ตัวอักษร (Figma: Typography/*)
-  // ชื่อ class ตรงกับ Text Style เช่น Typography/Body/S = .btfp-text-body-s
+  // ชื่อ class ตรงกับ Text Style เช่น Typography/Body/S = .p-text-body-s
   // รูปแบบ font: น้ำหนัก ขนาด/ระยะบรรทัด ชนิดตัวอักษร
   // =====================================================================
 
   // หัวข้อ IBM Plex Sans Thai
-  .btfp-text-display-xl { font: var(--p-typography-display-xl-weight) var(--p-typography-display-xl-size)/var(--p-line-height-display-xl) var(--p-font-heading); }
-  .btfp-text-display    { font: var(--p-typography-display-weight) var(--p-typography-display-size)/var(--p-line-height-heading) var(--p-font-heading); }
-  .btfp-text-h1         { font: var(--p-typography-h1-weight) var(--p-typography-h1-size)/var(--p-line-height-heading) var(--p-font-heading); }
-  .btfp-text-h2         { font: var(--p-typography-h2-weight) var(--p-typography-h2-size)/var(--p-line-height-heading) var(--p-font-heading); }
-  .btfp-text-h3         { font: var(--p-typography-h3-weight) var(--p-typography-h3-size)/var(--p-line-height-heading) var(--p-font-heading); }
-  .btfp-text-h4         { font: var(--p-typography-h4-weight) var(--p-typography-h4-size)/var(--p-line-height-heading) var(--p-font-heading); }
+  .p-text-display-xl { font: var(--p-typography-display-xl-weight) var(--p-typography-display-xl-size)/var(--p-line-height-display-xl) var(--p-font-heading); }
+  .p-text-display    { font: var(--p-typography-display-weight) var(--p-typography-display-size)/var(--p-line-height-heading) var(--p-font-heading); }
+  .p-text-h1         { font: var(--p-typography-h1-weight) var(--p-typography-h1-size)/var(--p-line-height-heading) var(--p-font-heading); }
+  .p-text-h2         { font: var(--p-typography-h2-weight) var(--p-typography-h2-size)/var(--p-line-height-heading) var(--p-font-heading); }
+  .p-text-h3         { font: var(--p-typography-h3-weight) var(--p-typography-h3-size)/var(--p-line-height-heading) var(--p-font-heading); }
+  .p-text-h4         { font: var(--p-typography-h4-weight) var(--p-typography-h4-size)/var(--p-line-height-heading) var(--p-font-heading); }
 
   // เนื้อหา Sarabun
-  .btfp-text-body-l        { font: var(--p-typography-body-l-weight) var(--p-typography-body-l-size)/var(--p-line-height-body) var(--p-font-body); }
-  .btfp-text-body          { font: var(--p-typography-body-weight) var(--p-typography-body-size)/var(--p-line-height-body) var(--p-font-body); }
-  .btfp-text-body-medium   { font: var(--p-typography-body-medium-weight) var(--p-typography-body-medium-size)/var(--p-line-height-body) var(--p-font-body); }
-  .btfp-text-body-s        { font: var(--p-typography-body-s-weight) var(--p-typography-body-s-size)/var(--p-line-height-body) var(--p-font-body); }
-  .btfp-text-body-s-medium { font: var(--p-typography-body-s-medium-weight) var(--p-typography-body-s-medium-size)/var(--p-line-height-body) var(--p-font-body); }
-  .btfp-text-table         { font: var(--p-typography-table-weight) var(--p-typography-table-size)/var(--p-line-height-compact) var(--p-font-body); }
-  .btfp-text-caption       { font: var(--p-typography-caption-weight) var(--p-typography-caption-size)/var(--p-line-height-compact) var(--p-font-body); }
+  .p-text-body-l        { font: var(--p-typography-body-l-weight) var(--p-typography-body-l-size)/var(--p-line-height-body) var(--p-font-body); }
+  .p-text-body          { font: var(--p-typography-body-weight) var(--p-typography-body-size)/var(--p-line-height-body) var(--p-font-body); }
+  .p-text-body-medium   { font: var(--p-typography-body-medium-weight) var(--p-typography-body-medium-size)/var(--p-line-height-body) var(--p-font-body); }
+  .p-text-body-s        { font: var(--p-typography-body-s-weight) var(--p-typography-body-s-size)/var(--p-line-height-body) var(--p-font-body); }
+  .p-text-body-s-medium { font: var(--p-typography-body-s-medium-weight) var(--p-typography-body-s-medium-size)/var(--p-line-height-body) var(--p-font-body); }
+  .p-text-table         { font: var(--p-typography-table-weight) var(--p-typography-table-size)/var(--p-line-height-compact) var(--p-font-body); }
+  .p-text-caption       { font: var(--p-typography-caption-weight) var(--p-typography-caption-size)/var(--p-line-height-compact) var(--p-font-body); }
 
   // =====================================================================
   // 3. ฟอร์ม (Figma: Forms/*)
   // =====================================================================
 
   // ช่องกรอกแบบป้ายชื่อด้านบน ใช้ทั้งระบบ
-  // <div class="btfp-field"><label>ชื่อ<span class="btfp-required">*</span></label> ช่องกรอก <p class="btfp-field__helper">...</p></div>
-  .btfp-field {
+  // <div class="p-field"><label>ชื่อ<span class="p-required">*</span></label> ช่องกรอก <p class="p-field__helper">...</p></div>
+  .p-field {
     display: flex;
     flex-direction: column;
     gap: var(--p-space-xs);
     min-width: 0;
 
     // ป้ายชื่อ Sarabun Medium 16 สี text/heading
-    // มีลิงก์ขวามือ (เช่น ลืมรหัสผ่าน?) ครอบป้ายชื่อกับลิงก์ด้วย <div class="btfp-field__label-row">
+    // มีลิงก์ขวามือ (เช่น ลืมรหัสผ่าน?) ครอบป้ายชื่อกับลิงก์ด้วย <div class="p-field__label-row">
     > label,
-    > .btfp-field__label-row > label {
+    > .p-field__label-row > label {
       font-size: var(--p-typography-body-medium-size);
       font-weight: var(--p-typography-body-medium-weight);
       line-height: var(--p-line-height-body);
@@ -132,28 +132,28 @@
   }
 
   // เครื่องหมาย * ช่องบังคับกรอก
-  .btfp-required {
+  .p-required {
     margin-left: 4px;
     color: var(--p-danger-text);
   }
 
   // ข้อความช่วยใต้ช่อง
-  .btfp-field__helper {
+  .p-field__helper {
     margin: 0;
     font-size: var(--p-typography-caption-size);
     line-height: var(--p-line-height-compact);
     color: var(--p-text-secondary);
   }
 
-  // ช่องกรอกจำนวนเงิน ชิดขวาเหมือนคอลัมน์เงินในตาราง (.btfp-table__money) ตัวเลขกว้างเท่ากันให้หลักตรงกัน
-  // <input pInputText class="btfp-input-money"> หรือ <p-inputnumber inputStyleClass="btfp-input-money">
-  .btfp-input-money {
+  // ช่องกรอกจำนวนเงิน ชิดขวาเหมือนคอลัมน์เงินในตาราง (.p-simple-table__money) ตัวเลขกว้างเท่ากันให้หลักตรงกัน
+  // <input pInputText class="p-input-money"> หรือ <p-inputnumber inputStyleClass="p-input-money">
+  .p-input-money {
     text-align: right;
     font-variant-numeric: tabular-nums;
   }
 
   // ข้อความผิดพลาดใต้ช่อง พร้อมไอคอน
-  .btfp-field__error {
+  .p-field__error {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -162,14 +162,14 @@
     line-height: var(--p-line-height-compact);
     color: var(--p-danger-text);
 
-    btfp-icon {
+    p-ui-icon {
       display: inline-flex;
       color: var(--p-icon-danger);
     }
   }
 
   // ลิงก์แบบปุ่มข้อความ
-  .btfp-link-button {
+  .p-link-button {
     border: 0;
     background: none;
     padding: 0;
@@ -189,7 +189,7 @@
   // ความกว้างคอลัมน์ใส่ที่ <col class="w-[160px]"> และครอบด้วย <div class="overflow-x-auto"> ให้จอแคบเลื่อนซ้ายขวาได้
   // =====================================================================
 
-  .btfp-table {
+  .p-simple-table {
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
@@ -229,33 +229,33 @@
   }
 
   // Type=checkbox: กว้าง 56px อยู่กลาง (ใส่ <col class="w-14">)
-  .btfp-table__check {
-    .btfp-table & {
+  .p-simple-table__check {
+    .p-simple-table & {
       padding: 0;
       text-align: center;
     }
   }
 
   // Type=numeric: ใช้เฉพาะจำนวนเงิน ชิดขวา ตัวเลขกว้างเท่ากัน (ตัวเลขอื่นชิดซ้ายตามปกติ)
-  .btfp-table__money {
-    .btfp-table & {
+  .p-simple-table__money {
+    .p-simple-table & {
       text-align: right;
       font-variant-numeric: tabular-nums;
     }
   }
 
-  // Type=actions: ชิดขวา ใส่ <btfp-row-actions>
-  .btfp-table__actions {
-    .btfp-table & {
+  // Type=actions: ชิดขวา ใส่ <p-row-actions>
+  .p-simple-table__actions {
+    .p-simple-table & {
       padding: var(--p-table-actions-padding);
       text-align: right;
     }
   }
 
   // Type=text-2line: บรรทัดบน Body/S Medium บรรทัดล่าง Caption แถวสูง 64px
-  // <td class="btfp-table__2line"><span>ชื่อ</span><span class="btfp-table__sub">ข้อมูลรอง</span></td>
-  .btfp-table__2line {
-    .btfp-table & {
+  // <td class="p-simple-table__2line"><span>ชื่อ</span><span class="p-simple-table__sub">ข้อมูลรอง</span></td>
+  .p-simple-table__2line {
+    .p-simple-table & {
       height: var(--p-table-row-2line);
 
       > span {
@@ -271,7 +271,7 @@
       }
     }
   }
-  .btfp-table__sub {
+  .p-simple-table__sub {
     font-size: var(--p-typography-caption-size);
     line-height: var(--p-line-height-compact);
     color: var(--p-text-secondary);
@@ -369,8 +369,8 @@
     background: var(--p-surface-raised);
   }
 
-  // ป้ายข้อความของตัวเลือกที่ปิดใช้งานเป็นสีจาง (รวม .btfp-checkbox ของหน้าหุ่นจำลอง)
-  label:has(> :is(.p-checkbox, .p-radiobutton, .p-toggleswitch)[data-p-disabled='true'], > .btfp-checkbox:disabled) {
+  // ป้ายข้อความของตัวเลือกที่ปิดใช้งานเป็นสีจาง (รวม .p-native-checkbox ของหน้าหุ่นจำลอง)
+  label:has(> :is(.p-checkbox, .p-radiobutton, .p-toggleswitch)[data-p-disabled='true'], > .p-native-checkbox:disabled) {
     color: var(--p-text-disabled);
   }
 
@@ -430,15 +430,15 @@
   // =====================================================================
 
   // ค่าที่ "เลือกไว้แล้ว" ใน p-select / p-multiselect ผ่าน placeholder ให้เป็นสีปกติ ไม่ใช่สีจาง
-  // ใช้: <p-select placeholder="2569" styleClass="btfp-mock-value" />
-  .btfp-mock-value .p-placeholder {
+  // ใช้: <p-select placeholder="2569" styleClass="p-mock-value" />
+  .p-mock-value .p-placeholder {
     color: var(--p-text-primary);
   }
 
   // checkbox ของ HTML ที่ตกแต่งให้เหมือน p-checkbox แสดงสถานะติ๊กด้วย attribute checked
-  // ใช้: <input type="checkbox" class="btfp-checkbox" checked aria-label="..." />
+  // ใช้: <input type="checkbox" class="p-native-checkbox" checked aria-label="..." />
   // ตอนต่อ API ให้เปลี่ยนเป็น <p-checkbox [binary]="true" [(ngModel)]="..." />
-  .btfp-checkbox {
+  .p-native-checkbox {
     appearance: none;
     flex-shrink: 0;
     width: 24px; // Figma Forms/Checkbox 24px เครื่องหมาย 16px

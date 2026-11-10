@@ -31,9 +31,9 @@ export class MyPage {}
 | --- | --- |
 | Tone=neutral | \`<p-tag severity="secondary" value="ทุนประเภท 1" />\` |
 | Tone=info / success / warning / danger | \`severity="info"\` / \`"success"\` / \`"warn"\` / \`"danger"\` |
-| ตัวกรองที่ใช้อยู่ (Tag + ปุ่มลบ) | \`<p-chip label="..." removable>\` + \`<ng-template #removeicon><btfp-icon name="pi-times" size="14" /></ng-template>\` |
+| ตัวกรองที่ใช้อยู่ (Tag + ปุ่มลบ) | \`<p-chip label="..." removable>\` + \`<ng-template #removeicon><p-ui-icon name="pi-times" size="14" /></ng-template>\` |
 
-ป้าย**สถานะ** 14 แบบของข้อเสนอโครงการไม่ใช้ \`p-tag\` ให้ใช้ \`btfp-status-tag\` (ดู Components > Data Display > Status Tag)
+ป้าย**สถานะ** 14 แบบของข้อเสนอโครงการไม่ใช้ \`p-tag\` ให้ใช้ \`p-status-tag\` (ดู Components > Data Display > Status Tag)
 `),
 };
 export default meta;
@@ -48,5 +48,5 @@ export const Tones: StoryObj = {
 
 export const Chip: StoryObj = {
   name: "ตัวกรองที่ใช้อยู่ (p-chip)",
-  render: () => ({ template: rowOf(`<span style="font-size:14px;color:var(--p-text-secondary)">ตัวกรองที่ใช้:</span><p-chip label="ทุนประเภท 1" [removable]="true"><ng-template #removeicon><btfp-icon name="pi-times" size="14" /></ng-template></p-chip><p-chip label="ปีงบ 2569" [removable]="true"><ng-template #removeicon><btfp-icon name="pi-times" size="14" /></ng-template></p-chip>`) }),
+  render: () => ({ template: rowOf(`<span style="font-size:14px;color:var(--p-text-secondary)">ตัวกรองที่ใช้:</span><p-chip label="ทุนประเภท 1" [removable]="true"><ng-template #removeicon><p-ui-icon name="pi-times" size="14" /></ng-template></p-chip><p-chip label="ปีงบ 2569" [removable]="true"><ng-template #removeicon><p-ui-icon name="pi-times" size="14" /></ng-template></p-chip>`) }),
 };

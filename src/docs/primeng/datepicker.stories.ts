@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { moduleMetadata } from '@storybook/angular-vite';
 import { DatePicker } from 'primeng-buddhist-year-datepicker';
 import { DatePickerDefaults } from '../../app/shared/ui/datepicker/datepicker';
-import { BtfpIcon } from '../../app/shared/ui/icon/icon';
+import { UiIcon } from '../../app/shared/ui/icon/icon';
 import { error, helper, primengParameters } from './_shared';
 
 /**
@@ -13,7 +13,7 @@ import { error, helper, primengParameters } from './_shared';
  * ค่าที่รับเป็นข้อความ yyyy-mm-dd แบบ ค.ศ. เพื่อให้ปรับใน Controls ได้
  */
 @Component({
-  selector: 'btfp-datepicker-demo',
+  selector: 'p-datepicker-demo',
   imports: [DatePicker, DatePickerDefaults, FormsModule, DatePipe],
   template: `
     <div style="width:280px; display:flex; flex-direction:column; gap:8px; min-height:440px">
@@ -63,7 +63,7 @@ const meta: Meta<DatepickerDemo> = {
   id: 'primeng-datepicker',
   component: DatepickerDemo,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [DatePicker, DatePickerDefaults, FormsModule, BtfpIcon] })],
+  decorators: [moduleMetadata({ imports: [DatePicker, DatePickerDefaults, FormsModule, UiIcon] })],
   parameters: primengParameters(`**Figma:** \`Forms/DatePicker\` (หน้าตาตาม PrimeNG แผงปฏิทินดูได้ที่ \`DatePicker Panel\`)  
 **แพ็กเกจ:** [\`primeng-buddhist-year-datepicker\`](https://github.com/Alexiserist/primeng-buddhist-datepicker) 21.0.2 (สำเนา \`p-datepicker\` ของ PrimeNG 21.0.6 ที่แสดงปี พ.ศ. ได้ ทีม dev ใช้อยู่แล้ว) + \`DatePickerDefaults\` ของเราตั้งค่าตามระบบ
 
@@ -91,7 +91,7 @@ import { DatePickerDefaults } from '../../shared/ui';
 | State=hover, focus | PrimeNG ทำให้เองเมื่อชี้หรือคลิก |
 | State=open | กดที่ช่อง (ดูหน้าตาแผงในตัวอย่าง "แผงปฏิทิน" ด้านล่าง) |
 | State=disabled | \`disabled\` หรือ \`[disabled]="true"\` |
-| State=error | \`invalid\` (ฟอร์มจริงใส่ \`ng-invalid ng-dirty\` ให้เอง) + \`<p class="btfp-field__error">\` แทนข้อความช่วย |
+| State=error | \`invalid\` (ฟอร์มจริงใส่ \`ng-invalid ng-dirty\` ให้เอง) + \`<p class="p-field__error">\` แทนข้อความช่วย |
 | หน้าหุ่นจำลอง (ไม่มี binding) | \`<p-datepicker appendTo="body" inputId="start" />\` |
 
 \`appendTo="body"\` ต้องใส่เองทุกครั้ง (PrimeNG ไม่ให้ตั้งจากโค้ด) ไม่งั้นปฏิทินโดนตัดเมื่ออยู่ใน Drawer หรือกล่องที่เลื่อนได้
@@ -119,7 +119,7 @@ export const Disabled: Story = { name: 'ปิดการใช้งาน', a
 
 /** ฟิลด์ตาม Figma: ป้ายชื่อ + ช่อง + ข้อความช่วยหรือข้อความผิดพลาด */
 const dpField = (id: string, label: string, attrs: string, foot = helper('รองรับปีพุทธศักราช (พ.ศ.)')) =>
-  `<div class="btfp-field" style="width:336px;max-width:100%"><label for="${id}">${label}<span class="btfp-required" aria-hidden="true">*</span></label><p-datepicker appendTo="body" inputId="${id}" ${attrs} />${foot}</div>`;
+  `<div class="p-field" style="width:336px;max-width:100%"><label for="${id}">${label}<span class="p-required" aria-hidden="true">*</span></label><p-datepicker appendTo="body" inputId="${id}" ${attrs} />${foot}</div>`;
 
 export const States: Story = {
   name: 'สถานะตาม Figma (State)',
@@ -154,10 +154,10 @@ export const Panels: Story = {
   render: () => ({
     props: { day: new Date(2026, 8, 29), month: new Date(2026, 8, 1), range: [new Date(2026, 2, 1), new Date(2026, 5, 1)], year: new Date(2026, 0, 1) },
     template: `<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
-      <div><p class="btfp-field__helper">View=date</p><p-datepicker [inline]="true" [(ngModel)]="day" /></div>
-      <div><p class="btfp-field__helper">View=month</p><p-datepicker [inline]="true" view="month" [(ngModel)]="month" /></div>
-      <div><p class="btfp-field__helper">View=month-range</p><p-datepicker [inline]="true" view="month" selectionMode="range" [(ngModel)]="range" /></div>
-      <div><p class="btfp-field__helper">View=year</p><p-datepicker [inline]="true" view="year" [(ngModel)]="year" /></div>
+      <div><p class="p-field__helper">View=date</p><p-datepicker [inline]="true" [(ngModel)]="day" /></div>
+      <div><p class="p-field__helper">View=month</p><p-datepicker [inline]="true" view="month" [(ngModel)]="month" /></div>
+      <div><p class="p-field__helper">View=month-range</p><p-datepicker [inline]="true" view="month" selectionMode="range" [(ngModel)]="range" /></div>
+      <div><p class="p-field__helper">View=year</p><p-datepicker [inline]="true" view="year" [(ngModel)]="year" /></div>
     </div>`,
   }),
 };

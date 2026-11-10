@@ -22,7 +22,7 @@
 
 ### 2.1 สี
 
-ทุกสีในโค้ดต้องมาจาก token (`src/styles/_tokens.scss` เป็น CSS variable `--p-*` และ `src/app/theme/btfp-preset.ts` สำหรับ PrimeNG) ห้ามใส่รหัสสีตรง
+ทุกสีในโค้ดต้องมาจาก token (`src/styles/_tokens.scss` เป็น CSS variable `--p-*` และ `src/app/theme/theme-preset.ts` สำหรับ PrimeNG) ห้ามใส่รหัสสีตรง
 
 token ใช้ prefix `--p-*` เหมือนตัวแปรของ PrimeNG ชุดสีพื้นฐานของเราจึงทับชุดสีของ PrimeNG ด้วย (ตั้งใจ) component ของ PrimeNG จะใช้สีของเราทั้งหมด เพิ่ม token ใหม่แล้วรัน `npm run check:tokens` เพื่อตรวจว่าไม่ได้ไปทับตัวแปรอื่นของ PrimeNG โดยไม่ตั้งใจ
 
@@ -65,7 +65,7 @@ token ใช้ prefix `--p-*` เหมือนตัวแปรของ Pri
 | Table | Sarabun Regular | 14 / 150% | ข้อมูลในตาราง |
 | Caption | Sarabun Regular | 12 / 150% | ข้อความช่วย หมายเหตุ |
 
-ใช้ในโค้ดเป็น class `.btfp-text-<ชื่อ>` เช่น `.btfp-text-h2` `.btfp-text-body-s-medium` `.btfp-text-caption` (อยู่ใน `src/styles.scss`)
+ใช้ในโค้ดเป็น class `.p-text-<ชื่อ>` เช่น `.p-text-h2` `.p-text-body-s-medium` `.p-text-caption` (อยู่ใน `src/styles.scss`)
 
 Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอักษร ขนาด น้ำหนัก) ชุดเดียวกับ token ในโค้ด
 
@@ -114,11 +114,11 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 | ชุด | ใน Figma | ในโค้ด | ใช้เมื่อ |
 | --- | --- | --- | --- |
 | **PrimeIcons 7.0.0** (313 ตัว สัญญาอนุญาต MIT) | `pi-<ชื่อ>` เลือก size 16/20/24 | `<i class="pi pi-<ชื่อ>"></i>` ขนาดใช้ Tailwind `text-base` (16) `text-xl` (20) `text-2xl` (24) | ใช้ก่อนเสมอ ค้นชื่อที่ https://primeng.org/icons |
-| **Icon กลาง** (26 ตัว วาดให้เข้ากับ PrimeIcons เส้นหนา 1.5) | `icon/<หมวด>/<ชื่อ>` | `<btfp-icon name="<ชื่อ>" size="16" />` | เฉพาะตัวที่ PrimeIcons ไม่มี เช่น bold, italic, radio-tower, milestone |
+| **Icon กลาง** (26 ตัว วาดให้เข้ากับ PrimeIcons เส้นหนา 1.5) | `icon/<หมวด>/<ชื่อ>` | `<p-ui-icon name="<ชื่อ>" size="16" />` | เฉพาะตัวที่ PrimeIcons ไม่มี เช่น bold, italic, radio-tower, milestone |
 
 ห้ามอัปเกรด `primeicons` เป็นเวอร์ชัน 8 ขึ้นไป (เป็นสัญญาอนุญาตเชิงพาณิชย์) ใน `package.json` ล็อกไว้ที่ `7.0.0`
 
-ขนาดอื่นตาม Figma (14, 18, 22) หรือชื่อไอคอนที่ส่งผ่าน input ของ component ใช้ `<btfp-icon name="pi-<ชื่อ>" size="18" />` ไอคอนทุกตัวในโค้ดตรงกับ Figma แล้ว ไม่มีชุดไอคอนอื่น
+ขนาดอื่นตาม Figma (14, 18, 22) หรือชื่อไอคอนที่ส่งผ่าน input ของ component ใช้ `<p-ui-icon name="pi-<ชื่อ>" size="18" />` ไอคอนทุกตัวในโค้ดตรงกับ Figma แล้ว ไม่มีชุดไอคอนอื่น
 
 ---
 
@@ -128,79 +128,79 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 
 ของแต่ละแบบอยู่ที่ไหน
 - **PrimeNG มี ปรับแค่ธีม:** ปรับที่ preset หน้า Storybook อยู่ในหมวด PrimeNG (ธีม กทปส.) ไม่มี story แยก
-- **PrimeNG มี แต่เราเพิ่มความสามารถ:** ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive เช่น `<p-drawer btfpDrawer>` หน้า Storybook อยู่ในหมวด PrimeNG พร้อมตัวอย่างเฉพาะส่วนที่เพิ่ม ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG
-- **PrimeNG ไม่มี:** สร้าง `btfp-*` อยู่ในหมวด Components ของ Storybook
+- **PrimeNG มี แต่เราเพิ่มความสามารถ:** ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive เช่น `<p-drawer>` หน้า Storybook อยู่ในหมวด PrimeNG พร้อมตัวอย่างเฉพาะส่วนที่เพิ่ม ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG
+- **PrimeNG ไม่มี:** สร้าง `p-*` อยู่ในหมวด Components ของ Storybook
 
 ### 3.1 พื้นฐาน
 
 | Figma | ในโค้ด | สถานะ | หมายเหตุ |
 | --- | --- | --- | --- |
 | Actions/Button | `p-button` | PrimeNG | primary = ค่าเริ่มต้น, secondary = `outlined severity="secondary"` (พื้นขาว เส้น border/strong ข้อความ action/secondary), tertiary = `text`, danger = `severity="danger"` (พื้นแดงอ่อนตาม Figma ไม่ใช่แดงทึบ) Size S = `size="small"` 32px, M 40px, L = `size="large"` 48px ดู Storybook หมวด PrimeNG (ธีม กทปส.) |
-| Actions/IconButton | `p-button` + `<ng-template #icon><btfp-icon /></ng-template>` | PrimeNG | ไอคอนต้องอยู่ใน `#icon` จึงได้ 32/40/48 ตาม Figma ต้องใส่ `ariaLabel` และ `pTooltip` เสมอ ghost = `text` |
-| Actions/Export Menu Button | `btfp-export-button` | ทำแล้ว | ใช้ตัวเดียวทั้งระบบ ตัวเลือก Excel, PDF, CSV |
-| Forms/TextInput | `input pInputText` | PrimeNG | สูง 40 ขอบซ้ายขวา 16 ตัวอักษร 16 ครอบด้วย `.btfp-field` + `.btfp-required` `.btfp-field__helper` `.btfp-field__error` |
+| Actions/IconButton | `p-button` + `<ng-template #icon><p-ui-icon /></ng-template>` | PrimeNG | ไอคอนต้องอยู่ใน `#icon` จึงได้ 32/40/48 ตาม Figma ต้องใส่ `ariaLabel` และ `pTooltip` เสมอ ghost = `text` |
+| Actions/Export Menu Button | `p-export-button` | ทำแล้ว | ใช้ตัวเดียวทั้งระบบ ตัวเลือก Excel, PDF, CSV |
+| Forms/TextInput | `input pInputText` | PrimeNG | สูง 40 ขอบซ้ายขวา 16 ตัวอักษร 16 ครอบด้วย `.p-field` + `.p-required` `.p-field__helper` `.p-field__error` |
 | Forms/Textarea | `textarea pTextarea` | PrimeNG | |
 | Forms/Select | `p-select` | PrimeNG | |
 | Forms/MultiSelect | `p-multiselect` | PrimeNG | `display="chip"` |
 | Forms/Autocomplete | `p-autocomplete` | PrimeNG | |
 | Forms/DatePicker | `p-datepicker` จากแพ็กเกจ `primeng-buddhist-year-datepicker` + `DatePickerDefaults` | ทำแล้ว | แสดงแบบ 1 ม.ค. 2569 (พ.ศ.) เก็บ ค.ศ. Mode month = `view="month"` (ม.ค. 2569) month-range = `view="month" selectionMode="range"` error = `invalid` แผงปฏิทินกว้าง 280px ตาม Figma DatePicker Panel |
-| Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber inputStyleClass="btfp-input-money"` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง ตัวเลขชิดขวา หน้าหุ่นจำลองใช้ `<input pInputText class="btfp-input-money">` |
+| Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber inputStyleClass="p-input-money"` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง ตัวเลขชิดขวา หน้าหุ่นจำลองใช้ `<input pInputText class="p-input-money">` |
 | Forms/OtpInput | `p-inputotp` | PrimeNG | |
 | Forms/SearchField | `p-iconfield` + `p-inputicon` + `pInputText` | PrimeNG | |
-| Forms/Checkbox | `p-checkbox` (หน้าหุ่นจำลองใช้ `.btfp-checkbox`) | PrimeNG | 24px |
+| Forms/Checkbox | `p-checkbox` (หน้าหุ่นจำลองใช้ `.p-native-checkbox`) | PrimeNG | 24px |
 | Forms/Radio | `p-radiobutton` | PrimeNG | 24px |
 | Forms/Toggle | `p-toggleswitch` | PrimeNG | 44x24 ตอนปิดพื้นขาวปุ่มเทา |
 | Forms/Segmented Control | `p-selectbutton` | PrimeNG | ปรับแล้ว (preset + `styles.scss`) |
-| DataDisplay/Tag | `p-tag` / `p-chip` | PrimeNG | Tone neutral = `severity="secondary"` มุม 4 สูง 32 มีเส้นขอบ ตัวกรองที่ใช้อยู่ใช้ `p-chip removable` + `<ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template>` |
+| DataDisplay/Tag | `p-tag` / `p-chip` | PrimeNG | Tone neutral = `severity="secondary"` มุม 4 สูง 32 มีเส้นขอบ ตัวกรองที่ใช้อยู่ใช้ `p-chip removable` + `<ng-template #removeicon><p-ui-icon name="x" size="14" /></ng-template>` |
 | DataDisplay/Avatar | `p-avatar` | PrimeNG | S 32 = ค่าเริ่มต้น, M 40 = `size="large"`, L 48 = `size="xlarge"` |
 | Feedback/Tooltip | `pTooltip` | PrimeNG | พื้น navy/900 ตัวอักษร 12 |
 | Navigation/Breadcrumb | HTML ในหน้า | ทำแล้ว | `p-breadcrumb` ต้องใช้ข้อมูลแบบ binding จึงไม่ใช้ในหน้าหุ่นจำลอง |
 | Navigation/Tabs | `p-tabs` | PrimeNG | ตัวอักษร 16 แท็บที่เลือก Medium blue/600 เส้นใต้ 3px |
 | Navigation/Pagination | `p-paginator` | PrimeNG | ปุ่ม 32 มุม 8 |
-| Navigation/Sidebar, NavItem, NavSubItem | `btfp-sidebar` | ทำแล้ว (เจ้าหน้าที่) | ผู้บริหารและผู้ดูแลระบบยังไม่ทำ, NavSubItem ยังไม่ทำ |
-| Navigation/TopBar | `btfp-topbar`, `btfp-public-topbar` | ทำแล้ว (back-office, front-office-guest) | front-office หลังเข้าสู่ระบบและแบบมือถือยังไม่ทำ |
+| Navigation/Sidebar, NavItem, NavSubItem | `p-sidebar` | ทำแล้ว (เจ้าหน้าที่) | ผู้บริหารและผู้ดูแลระบบยังไม่ทำ, NavSubItem ยังไม่ทำ |
+| Navigation/TopBar | `p-topbar`, `p-public-topbar` | ทำแล้ว (back-office, front-office-guest) | front-office หลังเข้าสู่ระบบและแบบมือถือยังไม่ทำ |
 | Brand/Logo | `public/brand/logo-nbtc.png`, `logo-btfp.png` | ทำแล้ว | ดึงจาก Figma (PNG 4 เท่า) ถ้าได้ SVG ต้นฉบับให้แทนที่ |
 
 ### 3.2 Domain (เฉพาะระบบนี้)
 
 | Figma | ในโค้ด | สถานะ | หมายเหตุ |
 | --- | --- | --- | --- |
-| Domain/Status Badge | `btfp-status-tag` | ทำแล้ว | ครบ 14 สถานะ ใส่ `status="review"` ได้สี ไอคอน ข้อความตาม Figma ดูข้อ 4 |
-| Domain/KPI Stat Card | `btfp-kpi-card` | ทำแล้ว | Tone และ Trend ยังไม่ทำ |
-| Domain/Table Header Cell, Table Cell, Data Table | `.btfp-table` ใน `styles.scss` + `__money` (จำนวนเงิน ชิดขวา) `__check` `__actions` `__2line` (ต่อ API ใช้ `p-table` หรือ `@for`) | ทำแล้ว | แถว 56 px บรรทัดเดียว Storybook: Components/Data Display/Table ยังไม่มี Sort, skeleton |
-| Feedback/Progress Bar, Feedback/Loading Spinner | `p-progressbar` `p-progressspinner` (สีใน preset) + `btfp-route-progress` ใน `app.ts` | ทำแล้ว | โหลดหน้าและ API ใช้ ngx-ui-loader ตามค่าที่ BA เลือก (`BTFP_LOADER_CONFIG`): สีจาก token `--p-loading-*` (ผูก `--p-action-primary` `--p-bg-inverse` `--p-text-inverse`) เปลี่ยนเมนูแถบบน 3px + ชั้นทับพื้นเข้มเบลอ + แท่งเด้งกลางจอ แสดงอย่างน้อย 300 ms เรียก API ไม่ใช้ตัวโหลดกลาง แสดงที่ component (`<p-button loading>`, แถว `p-skeleton`) |
-| Domain/Table Row Actions | `btfp-row-actions` | ทำแล้ว | ดู แก้ไข ลบ ลบต้องยืนยัน |
-| Domain/Empty State | `btfp-empty-state` | ทำแล้ว | 4 แบบ: general, no-results, no-files, error |
+| Domain/Status Badge | `p-status-tag` | ทำแล้ว | ครบ 14 สถานะ ใส่ `status="review"` ได้สี ไอคอน ข้อความตาม Figma ดูข้อ 4 |
+| Domain/KPI Stat Card | `p-kpi-card` | ทำแล้ว | Tone และ Trend ยังไม่ทำ |
+| Domain/Table Header Cell, Table Cell, Data Table | `.p-simple-table` ใน `styles.scss` + `__money` (จำนวนเงิน ชิดขวา) `__check` `__actions` `__2line` (ต่อ API ใช้ `p-table` หรือ `@for`) | ทำแล้ว | แถว 56 px บรรทัดเดียว Storybook: Components/Data Display/Table ยังไม่มี Sort, skeleton |
+| Feedback/Progress Bar, Feedback/Loading Spinner | `p-progressbar` `p-progressspinner` (สีใน preset) + `p-route-progress` ใน `app.ts` | ทำแล้ว | โหลดหน้าและ API ใช้ ngx-ui-loader ตามค่าที่ BA เลือก (`BTFP_LOADER_CONFIG`): สีจาก token `--p-loading-*` (ผูก `--p-action-primary` `--p-bg-inverse` `--p-text-inverse`) เปลี่ยนเมนูแถบบน 3px + ชั้นทับพื้นเข้มเบลอ + แท่งเด้งกลางจอ แสดงอย่างน้อย 300 ms เรียก API ไม่ใช้ตัวโหลดกลาง แสดงที่ component (`<p-button loading>`, แถว `p-skeleton`) |
+| Domain/Table Row Actions | `p-row-actions` | ทำแล้ว | ดู แก้ไข ลบ ลบต้องยืนยัน |
+| Domain/Empty State | `p-empty-state` | ทำแล้ว | 4 แบบ: general, no-results, no-files, error |
 | Domain/Modal | `p-dialog` | ต้องทำ | Size S/M/L ห้ามใช้กับฟอร์มเนื้อหา |
 | Domain/Toast | `p-toast` | ต้องทำ | |
 | Domain/Alert Banner | `p-message` | ต้องทำ | |
-| Domain/Save Draft Action Bar | `btfp-save-draft-bar` | ต้องทำ | แถบล่างของหน้าฟอร์มทุกหน้า |
-| Domain/Workflow Stepper, Stepper Step | `p-stepper` หรือ `btfp-workflow-stepper` | ต้องทำ | มีสถานะ returned / blocked ที่ PrimeNG ไม่มี |
-| Domain/Form Section Tab | `btfp-form-section-tab` | ต้องทำ | สถานะ done / partial / todo / error |
-| Domain/File Uploader, File Item | `p-fileupload` + `btfp-file-item` | ต้องทำ | |
-| Domain/Budget Line-item Editor, Table Input Cell | `btfp-budget-editor` | ต้องทำ | ตารางกรอกงบประมาณ |
+| Domain/Save Draft Action Bar | `p-save-draft-bar` | ต้องทำ | แถบล่างของหน้าฟอร์มทุกหน้า |
+| Domain/Workflow Stepper, Stepper Step | `p-stepper` หรือ `p-workflow-stepper` | ต้องทำ | มีสถานะ returned / blocked ที่ PrimeNG ไม่มี |
+| Domain/Form Section Tab | `p-form-section-tab` | ต้องทำ | สถานะ done / partial / todo / error |
+| Domain/File Uploader, File Item | `p-fileupload` + `p-file-item` | ต้องทำ | |
+| Domain/Budget Line-item Editor, Table Input Cell | `p-budget-editor` | ต้องทำ | ตารางกรอกงบประมาณ |
 | Domain/Rich Text Field | `p-editor` | ต้องทำ | |
 | Domain/Status History Timeline | `p-timeline` | ต้องทำ | |
-| Domain/Notification Item | `btfp-notification-item` | ต้องทำ | |
-| Domain/Address Fields | `btfp-address-fields` | ต้องทำ | จังหวัด อำเภอ ตำบล รหัสไปรษณีย์ |
-| Domain/Grant Call Card | `btfp-grant-call-card` | ทำแล้ว | state: open / closing-soon / closed |
-| Domain/Hero Banner | `btfp-hero-banner` + `btfp-hero-slide` | ทำแล้ว | เลื่อนเองทุก 4 วินาที ลูกศร จุด ปัด รูปเดียวทั้งคอมพิวเตอร์และมือถือ (1920x720 มือถือครอปช่วงกลาง) รูปห้ามมีตัวหนังสือ ข้อความเป็น HTML ใส่ `overlay` + `tag` (กฎ CT-01) |
-| Domain/Proposal Card, Grant Cover | `btfp-*` | ต้องทำ | ฝั่งผู้ขอรับทุน |
-| Public/Section Header | `btfp-section-header` | ทำแล้ว | theme light / dark |
-| Public/Process Step | `btfp-process-step` | ทำแล้ว | |
-| Public/Project Showcase Card | `btfp-showcase-card` | ทำแล้ว | |
-| Public/Project Result Card | `btfp-result-card` | ทำแล้ว | |
-| Public/News Card | `btfp-news-card` | ทำแล้ว | |
+| Domain/Notification Item | `p-notification-item` | ต้องทำ | |
+| Domain/Address Fields | `p-address-fields` | ต้องทำ | จังหวัด อำเภอ ตำบล รหัสไปรษณีย์ |
+| Domain/Grant Call Card | `p-grant-call-card` | ทำแล้ว | state: open / closing-soon / closed |
+| Domain/Hero Banner | `p-hero-banner` + `p-hero-slide` | ทำแล้ว | เลื่อนเองทุก 4 วินาที ลูกศร จุด ปัด รูปเดียวทั้งคอมพิวเตอร์และมือถือ (1920x720 มือถือครอปช่วงกลาง) รูปห้ามมีตัวหนังสือ ข้อความเป็น HTML ใส่ `overlay` + `tag` (กฎ CT-01) |
+| Domain/Proposal Card, Grant Cover | `p-*` | ต้องทำ | ฝั่งผู้ขอรับทุน |
+| Public/Section Header | `p-section-header` | ทำแล้ว | theme light / dark |
+| Public/Process Step | `p-process-step` | ทำแล้ว | |
+| Public/Project Showcase Card | `p-showcase-card` | ทำแล้ว | |
+| Public/Project Result Card | `p-result-card` | ทำแล้ว | |
+| Public/News Card | `p-news-card` | ทำแล้ว | |
 | Public/Accordion Item | `<details>` ในหน้า | ทำแล้ว | หน้าหุ่นจำลองใช้ HTML ล้วน ต่อ API แล้วใช้ `p-accordion` ได้ |
-| Public/CTA Banner, Footer, Cookie Consent | ในหน้าแรก, `btfp-public-footer`, `btfp-public-layout` | ทำแล้ว | |
+| Public/CTA Banner, Footer, Cookie Consent | ในหน้าแรก, `p-public-footer`, `p-public-layout` | ทำแล้ว | |
 | Public/Objective Card, Announcement Bar, Utility Bar | | ต้องทำ | |
-| Drawer (ใน Figma วาดในหน้า B-21.2) | `p-drawer` + `btfpDrawer` | ทำแล้ว | ตั้งค่าตามระบบ เปิดค้างด้วย attribute `open` ได้ |
+| Drawer (ใน Figma วาดในหน้า B-21.2) | `p-drawer` + `DrawerDefaults` | ทำแล้ว | ตั้งค่าตามระบบ เปิดค้างด้วย attribute `open` ได้ |
 
 ---
 
 ## 4. สถานะ (Status Badge)
 
-ป้ายสถานะมี 14 สถานะ ใช้ `<btfp-status-tag status="..." />` อย่างเดียว ได้สี ไอคอน และข้อความตาม Figma ไม่ต้องเลือกสีเอง ค่าทั้งหมดอยู่ที่ `BTFP_STATUS` ใน `status-tag.ts`
+ป้ายสถานะมี 14 สถานะ ใช้ `<p-status-tag status="..." />` อย่างเดียว ได้สี ไอคอน และข้อความตาม Figma ไม่ต้องเลือกสีเอง ค่าทั้งหมดอยู่ที่ `BTFP_STATUS` ใน `status-tag.ts`
 
 ขนาดตาม Figma: สูง 32 มุมมน ขอบซ้ายขวา 8 ไอคอน 16 Sarabun Medium 14 สีพื้น /50 เส้นขอบ /200 ตัวอักษร /700 (yellow ใช้ /800)
 
@@ -231,7 +231,7 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 ### ตาราง
 - แถวสูง 56 px ข้อความบรรทัดเดียว ยาวเกินตัดด้วย "..." และใส่ `title` ให้อ่านเต็ม
 - ชิดขวาเฉพาะจำนวนเงิน (ทศนิยม 2 ตำแหน่ง มีจุลภาคหลักพัน) ตัวเลขอื่น เช่น จำนวนราย ร้อยละ คะแนน จำนวนวัน ชิดซ้ายเหมือนข้อความ
-- ช่องกรอกจำนวนเงินก็ชิดขวาเหมือนกัน (`.btfp-input-money`) ช่องกรอกตัวเลขอื่นชิดซ้าย
+- ช่องกรอกจำนวนเงินก็ชิดขวาเหมือนกัน (`.p-input-money`) ช่องกรอกตัวเลขอื่นชิดซ้าย
 - คอลัมน์สุดท้ายเป็นปุ่มจัดการ เรียง ดู แก้ไข ลบ
 - เลือกหลายแถวแล้วแถบจัดการรายการที่เลือกจะแสดงจำนวนและปุ่มทำทีละหลายรายการ
 - ไม่มีข้อมูลแสดง Empty State ตามกรณี (ยังไม่มีข้อมูล / ค้นหาไม่พบ / โหลดไม่สำเร็จ) แทนตาราง
@@ -249,7 +249,7 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 ต้องมีป๊อปอัปยืนยันทุกครั้ง หัวข้อ "ยืนยันการลบ" บอกชื่อรายการและว่ากู้คืนไม่ได้ ปุ่ม "ลบ" สีแดง "ยกเลิก" แบบ outlined
 
 ### การส่งออก
-ใช้ `btfp-export-button` เท่านั้น ตัวเลือก Excel (.xlsx), PDF (.pdf), CSV (.csv) ส่งออกจากแถวที่เลือกใช้ปุ่ม "ส่งออกที่เลือก" ในแถบจัดการ
+ใช้ `p-export-button` เท่านั้น ตัวเลือก Excel (.xlsx), PDF (.pdf), CSV (.csv) ส่งออกจากแถวที่เลือกใช้ปุ่ม "ส่งออกที่เลือก" ในแถบจัดการ
 
 ### วันที่และตัวเลข
 - วันที่แสดงแบบราชการ เช่น 1 ม.ค. 2569 (วันไม่มี 0 นำหน้า เดือนย่อ ปี พ.ศ.) ช่วงวันที่เขียนเต็มทั้งสองฝั่ง เช่น 1 ก.ย. 2569 - 30 ก.ย. 2569 เก็บและส่ง API เป็น ค.ศ.
@@ -279,6 +279,6 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 ## 8. เมื่อ Figma เปลี่ยน
 
 1. แก้ใน Figma ก่อนเสมอ
-2. อัปเดต `src/styles/_tokens.scss` และ `src/app/theme/btfp-preset.ts` ให้ค่าตรงกัน
+2. อัปเดต `src/styles/_tokens.scss` และ `src/app/theme/theme-preset.ts` ให้ค่าตรงกัน
 3. ถ้าเป็น component ใหม่ เพิ่มแถวในข้อ 3 ของไฟล์นี้
 4. เปิด Storybook เช็กว่า component ที่ใช้ token นั้นยังถูกต้อง

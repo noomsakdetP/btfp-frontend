@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { Button } from 'primeng/button';
-import { BtfpIcon } from '../icon/icon';
+import { UiIcon } from '../icon/icon';
 
-export type BtfpEmptyStateType = 'general' | 'no-results' | 'no-files' | 'error';
+export type EmptyStateType = 'general' | 'no-results' | 'no-files' | 'error';
 
 /**
- * btfp-empty-state : สถานะไม่พบข้อมูล (Figma: Empty State 13:3184)
+ * p-empty-state : สถานะไม่พบข้อมูล (Figma: Empty State 13:3184)
  *
  * PrimeNG ไม่มี component นี้ จึงเขียนเองโดยใช้ p-button สำหรับปุ่ม
  *
@@ -16,16 +16,16 @@ export type BtfpEmptyStateType = 'general' | 'no-results' | 'no-files' | 'error'
  * - error       โหลดข้อมูลไม่สำเร็จ
  *
  * @example
- * <btfp-empty-state type="no-results" title="ไม่พบข้อเสนอที่ตรงกับเงื่อนไข"
+ * <p-empty-state type="no-results" title="ไม่พบข้อเสนอที่ตรงกับเงื่อนไข"
  *   description="ลองเปลี่ยนคำค้นหรือล้างตัวกรอง" actionLabel="ล้างตัวกรองทั้งหมด" />
  */
 @Component({
-  selector: 'btfp-empty-state',
-  imports: [Button, BtfpIcon],
+  selector: 'p-empty-state',
+  imports: [Button, UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="empty__icon" [class]="'empty__icon--' + type()">
-      <btfp-icon [name]="iconName()" size="32" />
+      <p-ui-icon [name]="iconName()" size="32" />
     </div>
     <h3 class="empty__title">{{ title() }}</h3>
     @if (description()) {
@@ -68,8 +68,8 @@ export type BtfpEmptyStateType = 'general' | 'no-results' | 'no-files' | 'error'
     }
   `,
 })
-export class BtfpEmptyState {
-  readonly type = input<BtfpEmptyStateType>('general');
+export class EmptyState {
+  readonly type = input<EmptyStateType>('general');
   readonly title = input.required<string>();
   readonly description = input<string>();
   /** ข้อความปุ่ม ไม่ใส่ = ไม่มีปุ่ม */

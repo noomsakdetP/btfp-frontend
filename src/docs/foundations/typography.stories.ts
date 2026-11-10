@@ -11,17 +11,17 @@ const meta: Meta = {
 ใส่ class ตามชื่อ Text Style ได้เลย กำหนดไว้ใน \`src/styles.scss\`
 
 \`\`\`html
-<h2 class="btfp-text-h2">ข้อเสนอโครงการ</h2>
-<p class="btfp-text-body-s">ประกาศทุนประจำปีงบประมาณ 2569</p>
+<h2 class="p-text-h2">ข้อเสนอโครงการ</h2>
+<p class="p-text-body-s">ประกาศทุนประจำปีงบประมาณ 2569</p>
 \`\`\`
 
 | Figma | class |
 | --- | --- |
-| Typography/Display/XL, Display | \`.btfp-text-display-xl\`, \`.btfp-text-display\` |
-| Typography/H1 ถึง H4 | \`.btfp-text-h1\` ถึง \`.btfp-text-h4\` |
-| Typography/Body/L, Body, Body/Medium | \`.btfp-text-body-l\`, \`.btfp-text-body\`, \`.btfp-text-body-medium\` |
-| Typography/Body/S, Body/S Medium | \`.btfp-text-body-s\`, \`.btfp-text-body-s-medium\` |
-| Typography/Table, Caption | \`.btfp-text-table\`, \`.btfp-text-caption\` |
+| Typography/Display/XL, Display | \`.p-text-display-xl\`, \`.p-text-display\` |
+| Typography/H1 ถึง H4 | \`.p-text-h1\` ถึง \`.p-text-h4\` |
+| Typography/Body/L, Body, Body/Medium | \`.p-text-body-l\`, \`.p-text-body\`, \`.p-text-body-medium\` |
+| Typography/Body/S, Body/S Medium | \`.p-text-body-s\`, \`.p-text-body-s-medium\` |
+| Typography/Table, Caption | \`.p-text-table\`, \`.p-text-caption\` |
 
 ### Design Token
 

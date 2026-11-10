@@ -37,7 +37,7 @@ export class MyPage {}
 
 \`\`\`html
 <p-button text ariaLabel="ดูรายละเอียด" pTooltip="ดูรายละเอียด">
-  <ng-template #icon><btfp-icon name="pi-eye" size="16" /></ng-template>
+  <ng-template #icon><p-ui-icon name="pi-eye" size="16" /></ng-template>
 </p-button>
 \`\`\`
 
@@ -51,11 +51,11 @@ export const Playground: StoryObj = iconButtonPlayground;
 
 export const Types: StoryObj = {
   name: "Type",
-  render: () => ({ template: rowOf(`<p-button ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><ng-template #icon><btfp-icon name="pi-plus" size="20" /></ng-template></p-button><p-button outlined severity="secondary" ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><ng-template #icon><btfp-icon name="pi-plus" size="20" /></ng-template></p-button><p-button text ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><ng-template #icon><btfp-icon name="pi-plus" size="20" /></ng-template></p-button>`) }),
+  render: () => ({ template: rowOf(`<p-button ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><ng-template #icon><p-ui-icon name="pi-plus" size="20" /></ng-template></p-button><p-button outlined severity="secondary" ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><ng-template #icon><p-ui-icon name="pi-plus" size="20" /></ng-template></p-button><p-button text ariaLabel="เพิ่ม" pTooltip="เพิ่ม"><ng-template #icon><p-ui-icon name="pi-plus" size="20" /></ng-template></p-button>`) }),
 };
 
 export const Sizes: StoryObj = {
   name: "Size",
   parameters: { docs: { description: { story: `S 32, M 40, L 48 px` } } },
-  render: () => ({ template: rowOf(`<p-button size="small" outlined severity="secondary" ariaLabel="เพิ่ม"><ng-template #icon><btfp-icon name="pi-plus" size="16" /></ng-template></p-button><p-button outlined severity="secondary" ariaLabel="เพิ่ม"><ng-template #icon><btfp-icon name="pi-plus" size="20" /></ng-template></p-button><p-button size="large" outlined severity="secondary" ariaLabel="เพิ่ม"><ng-template #icon><btfp-icon name="pi-plus" size="20" /></ng-template></p-button>`) }),
+  render: () => ({ template: rowOf(`<p-button size="small" outlined severity="secondary" ariaLabel="เพิ่ม"><ng-template #icon><p-ui-icon name="pi-plus" size="16" /></ng-template></p-button><p-button outlined severity="secondary" ariaLabel="เพิ่ม"><ng-template #icon><p-ui-icon name="pi-plus" size="20" /></ng-template></p-button><p-button size="large" outlined severity="secondary" ariaLabel="เพิ่ม"><ng-template #icon><p-ui-icon name="pi-plus" size="20" /></ng-template></p-button>`) }),
 };

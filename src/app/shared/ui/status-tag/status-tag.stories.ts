@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
-import { BTFP_STATUS, BtfpStatusTag } from './status-tag';
+import { BTFP_STATUS, StatusTag } from './status-tag';
 
 const STATUSES = Object.keys(BTFP_STATUS);
 
-const meta: Meta<BtfpStatusTag> = {
+const meta: Meta<StatusTag> = {
   title: 'Components/Data Display/Status Tag',
-  component: BtfpStatusTag,
+  component: StatusTag,
   tags: ['autodocs'],
   parameters: {
     docs: {
@@ -23,11 +23,11 @@ const meta: Meta<BtfpStatusTag> = {
   args: { status: 'review' },
   render: (args) => ({
     props: args,
-    template: `<btfp-status-tag [status]="status" [severity]="severity" [icon]="icon" />`,
+    template: `<p-status-tag [status]="status" [severity]="severity" [icon]="icon" />`,
   }),
 };
 export default meta;
-type Story = StoryObj<BtfpStatusTag>;
+type Story = StoryObj<StatusTag>;
 
 export const Playground: Story = {};
 
@@ -38,7 +38,7 @@ export const AllStatuses: Story = {
     template: `
       <div style="display:grid; grid-template-columns:max-content max-content; gap:12px 24px; align-items:center">
         ${STATUSES.map(
-          (s) => `<code style="font-size:12px;color:var(--p-text-secondary)">status="${s}"</code><span><btfp-status-tag status="${s}" /></span>`,
+          (s) => `<code style="font-size:12px;color:var(--p-text-secondary)">status="${s}"</code><span><p-status-tag status="${s}" /></span>`,
         ).join('')}
       </div>`,
   }),
@@ -50,14 +50,14 @@ export const Custom: Story = {
   render: () => ({
     template: `
       <div style="display:flex; gap:12px; flex-wrap:wrap">
-        <btfp-status-tag severity="info" icon="pi-info-circle">info</btfp-status-tag>
-        <btfp-status-tag severity="success" icon="pi-check-circle">success</btfp-status-tag>
-        <btfp-status-tag severity="warn" icon="pi-exclamation-triangle">warn</btfp-status-tag>
-        <btfp-status-tag severity="danger" icon="pi-ban">danger</btfp-status-tag>
-        <btfp-status-tag severity="secondary">secondary</btfp-status-tag>
-        <btfp-status-tag severity="navy">navy</btfp-status-tag>
-        <btfp-status-tag severity="teal">teal</btfp-status-tag>
-        <btfp-status-tag severity="orange">orange</btfp-status-tag>
+        <p-status-tag severity="info" icon="pi-info-circle">info</p-status-tag>
+        <p-status-tag severity="success" icon="pi-check-circle">success</p-status-tag>
+        <p-status-tag severity="warn" icon="pi-exclamation-triangle">warn</p-status-tag>
+        <p-status-tag severity="danger" icon="pi-ban">danger</p-status-tag>
+        <p-status-tag severity="secondary">secondary</p-status-tag>
+        <p-status-tag severity="navy">navy</p-status-tag>
+        <p-status-tag severity="teal">teal</p-status-tag>
+        <p-status-tag severity="orange">orange</p-status-tag>
       </div>`,
   }),
 };

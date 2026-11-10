@@ -1,9 +1,9 @@
 /*
   Tailwind CSS v4 + tailwindcss-primeui (ปลั๊กอินทางการของ PrimeNG)
-  ลำดับ layer: theme, base (Tailwind) < primeng < btfp (สไตล์กลางของเรา) < components, utilities
+  ลำดับ layer: theme, base (Tailwind) < primeng < app (สไตล์กลางของเรา) < components, utilities
   ทำให้ class ของ Tailwind ในหน้า (เช่น md:grid-cols-2) ชนะสไตล์ของ PrimeNG ได้โดยไม่ต้องใช้ !important
 */
-@layer theme, base, primeng, btfp, components, utilities;
+@layer theme, base, primeng, app, components, utilities;
 
 @import 'tailwindcss';
 @plugin 'tailwindcss-primeui';

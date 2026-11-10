@@ -14,10 +14,10 @@ import {
   numberAttribute,
   signal,
 } from '@angular/core';
-import { BtfpIcon } from '../icon/icon';
+import { UiIcon } from '../icon/icon';
 
 /**
- * btfp-hero-slide : สไลด์หนึ่งแผ่นใน btfp-hero-banner (Figma: Domain/Hero Banner, Slide=1/2/3)
+ * p-hero-slide : สไลด์หนึ่งแผ่นใน p-hero-banner (Figma: Domain/Hero Banner, Slide=1/2/3)
  *
  * ตามกฎหลังบ้าน CT-01 (เนื้อหาเว็บไซต์: Banner) ที่ยืนยันแล้ว
  * - รูปเดียวใช้ทั้งคอมพิวเตอร์และมือถือ ขนาด 1920x720 จอที่สัดส่วนต่างไปจะครอปช่วงกลางของรูป (object-fit: cover)
@@ -25,18 +25,18 @@ import { BtfpIcon } from '../icon/icon';
  * ใส่ overlay เพื่อทับสีน้ำเงินไล่ระดับให้อ่านตัวหนังสือสีขาวได้ ใส่ h1/h2 (หัวข้อ) p (คำอธิบาย) และปุ่มไว้ข้างใน ตัวอักษรจัดให้แล้ว
  *
  * @example
- * <btfp-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
+ * <p-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
  *   <h2>ทุนวิจัยและพัฒนา<br />เพื่อประโยชน์สาธารณะ</h2>
  *   <p>ยื่นข้อเสนอได้ถึงวันที่ 31 ต.ค. 2569</p>
  *   <p-button size="large" routerLink="/login">...</p-button>
- * </btfp-hero-slide>
+ * </p-hero-slide>
  */
 @Component({
-  selector: 'btfp-hero-slide',
+  selector: 'p-hero-slide',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
-    class: 'btfp-hero-slide',
+    class: 'p-hero-slide',
     role: 'group',
     'aria-roledescription': 'สไลด์',
     '[class.is-active]': 'active()',
@@ -45,33 +45,33 @@ import { BtfpIcon } from '../icon/icon';
     '[attr.aria-hidden]': 'active() ? null : "true"',
   },
   template: `
-    <img class="btfp-hero-slide__img" [src]="image()" [alt]="alt()" draggable="false" />
+    <img class="p-hero-slide__img" [src]="image()" [alt]="alt()" draggable="false" />
     @if (overlay()) {
-      <div class="btfp-hero-slide__overlay"></div>
+      <div class="p-hero-slide__overlay"></div>
     }
-    <div class="btfp-hero-slide__frame">
-      <div class="btfp-hero-slide__content">
+    <div class="p-hero-slide__frame">
+      <div class="p-hero-slide__content">
         @if (tag()) {
-          <span class="btfp-hero-slide__tag" [attr.data-severity]="tagSeverity()">{{ tag() }}</span>
+          <span class="p-hero-slide__tag" [attr.data-severity]="tagSeverity()">{{ tag() }}</span>
         }
         <ng-content />
       </div>
     </div>
   `,
   styles: `
-    @layer btfp {
-      .btfp-hero-slide {
+    @layer app {
+      .p-hero-slide {
         position: absolute;
         inset: 0;
         display: block;
         opacity: 0;
         transition: opacity 600ms ease;
       }
-      .btfp-hero-slide.is-active {
+      .p-hero-slide.is-active {
         opacity: 1;
         z-index: 1;
       }
-      .btfp-hero-slide__img {
+      .p-hero-slide__img {
         position: absolute;
         inset: 0;
         width: 100%;
@@ -80,19 +80,19 @@ import { BtfpIcon } from '../icon/icon';
         object-position: center;
         user-select: none;
       }
-      .btfp-hero-slide__overlay {
+      .p-hero-slide__overlay {
         position: absolute;
         inset: 0;
         background: var(--p-hero-overlay-mobile);
       }
-      .btfp-hero-slide__frame {
+      .p-hero-slide__frame {
         position: relative;
         display: flex;
         align-items: center;
         height: 100%;
         padding: 24px 16px 56px;
       }
-      .btfp-hero-slide__content {
+      .p-hero-slide__content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -101,7 +101,7 @@ import { BtfpIcon } from '../icon/icon';
         max-width: 1600px;
         margin: 0 auto;
       }
-      .btfp-hero-slide__tag {
+      .p-hero-slide__tag {
         display: inline-flex;
         align-items: center;
         height: 32px;
@@ -112,17 +112,17 @@ import { BtfpIcon } from '../icon/icon';
         font-size: var(--p-typography-body-s-size);
         color: var(--p-info-text);
       }
-      .btfp-hero-slide__tag[data-severity='success'] {
+      .p-hero-slide__tag[data-severity='success'] {
         border-color: var(--p-success-border);
         background: var(--p-success-bg);
         color: var(--p-success-text);
       }
-      .btfp-hero-slide__tag[data-severity='warn'] {
+      .p-hero-slide__tag[data-severity='warn'] {
         border-color: var(--p-warning-border);
         background: var(--p-warning-bg);
         color: var(--p-warning-text);
       }
-      .btfp-hero-slide__content :is(h1, h2) {
+      .p-hero-slide__content :is(h1, h2) {
         margin: 0;
         font-family: var(--p-font-heading);
         /* หัวข้อ: มือถือ H1, แท็บเล็ต Display, จอใหญ่ Display/XL */
@@ -131,7 +131,7 @@ import { BtfpIcon } from '../icon/icon';
         line-height: var(--p-line-height-heading);
         color: var(--p-text-inverse);
       }
-      .btfp-hero-slide__content p {
+      .p-hero-slide__content p {
         margin: 0;
         font-size: var(--p-typography-body-size);
         line-height: var(--p-line-height-body);
@@ -140,21 +140,21 @@ import { BtfpIcon } from '../icon/icon';
 
       @media (min-width: 768px) {
         /* Figma: เนื้อหาเริ่มที่ y190 สูงกว่ากึ่งกลาง 10px */
-        .btfp-hero-slide__frame {
+        .p-hero-slide__frame {
           padding: 0 96px 20px;
         }
-        .btfp-hero-slide__overlay {
+        .p-hero-slide__overlay {
           background: var(--p-hero-overlay);
         }
-        .btfp-hero-slide__content :is(h1, h2) {
+        .p-hero-slide__content :is(h1, h2) {
           font-size: var(--p-typography-display-size);
         }
-        .btfp-hero-slide__content p {
+        .p-hero-slide__content p {
           font-size: var(--p-typography-body-l-size);
         }
       }
       @media (min-width: 1280px) {
-        .btfp-hero-slide__content :is(h1, h2) {
+        .p-hero-slide__content :is(h1, h2) {
           font-size: var(--p-typography-display-xl-size);
           line-height: var(--p-line-height-display-xl);
         }
@@ -162,20 +162,20 @@ import { BtfpIcon } from '../icon/icon';
     }
   `,
 })
-export class BtfpHeroSlide {
+export class HeroSlide {
   readonly image = input.required<string>();
   readonly alt = input('');
   /** ทับสีน้ำเงินไล่ระดับจากซ้าย เพื่อให้อ่านข้อความสีขาวได้ */
   readonly overlay = input(false, { transform: booleanAttribute });
   readonly tag = input('');
   readonly tagSeverity = input<'info' | 'success' | 'warn'>('info');
-  /** ตั้งโดย btfp-hero-banner */
+  /** ตั้งโดย p-hero-banner */
   readonly active = signal(false);
   readonly label = signal('');
 }
 
 /**
- * btfp-hero-banner : ป้ายสไลด์ด้านบนของหน้าเว็บไซต์สาธารณะ (Figma: Domain/Hero Banner)
+ * p-hero-banner : ป้ายสไลด์ด้านบนของหน้าเว็บไซต์สาธารณะ (Figma: Domain/Hero Banner)
  *
  * - สูง 720px ที่จอ 1920 (สัดส่วน 8:3) จอเล็กสูงอย่างน้อย 440px ภาพตัดขอบให้เต็มกรอบ
  * - เลื่อนอัตโนมัติทุก 4 วินาที (interval="0" เพื่อปิด) หยุดเมื่อชี้เมาส์หรือโฟกัสอยู่ในป้าย
@@ -183,19 +183,19 @@ export class BtfpHeroSlide {
  * - ลูกศรซ้ายขวา (ซ่อนบนจอเล็กกว่า 768px) ปัดซ้ายขวาบนจอสัมผัส จุดด้านล่างบอกและเลือกสไลด์
  *
  * ทำไมไม่ใช้ p-carousel / p-galleria: สองตัวนี้ต้องส่งรายการผ่าน [value] (binding)
- * แต่หน้าหุ่นจำลองห้ามมี binding จึงรับสไลด์เป็น btfp-hero-slide ที่ใส่ attribute ธรรมดา
+ * แต่หน้าหุ่นจำลองห้ามมี binding จึงรับสไลด์เป็น p-hero-slide ที่ใส่ attribute ธรรมดา
  *
  * @example
- * <btfp-hero-banner label="ประกาศและผลงานเด่น">
- *   <btfp-hero-slide image="..." overlay tag="...">...</btfp-hero-slide>
- * </btfp-hero-banner>
+ * <p-hero-banner label="ประกาศและผลงานเด่น">
+ *   <p-hero-slide image="..." overlay tag="...">...</p-hero-slide>
+ * </p-hero-banner>
  */
 @Component({
-  selector: 'btfp-hero-banner',
-  imports: [BtfpIcon],
+  selector: 'p-hero-banner',
+  imports: [UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'btfp-hero-banner',
+    class: 'p-hero-banner',
     role: 'region',
     'aria-roledescription': 'สไลด์โชว์',
     '[attr.aria-label]': 'label()',
@@ -215,10 +215,10 @@ export class BtfpHeroSlide {
 
     @if (count() > 1) {
       <button type="button" class="arrow arrow--prev" aria-label="สไลด์ก่อนหน้า" (click)="prev()">
-        <btfp-icon name="pi-chevron-left" size="24" />
+        <p-ui-icon name="pi-chevron-left" size="24" />
       </button>
       <button type="button" class="arrow arrow--next" aria-label="สไลด์ถัดไป" (click)="next()">
-        <btfp-icon name="pi-chevron-right" size="24" />
+        <p-ui-icon name="pi-chevron-right" size="24" />
       </button>
 
       <div class="dots">
@@ -310,13 +310,13 @@ export class BtfpHeroSlide {
     }
   `,
 })
-export class BtfpHeroBanner {
+export class HeroBanner {
   /** ชื่อของป้ายสำหรับโปรแกรมอ่านหน้าจอ */
   readonly label = input('ข่าวเด่น');
   /** เวลาเลื่อนอัตโนมัติ (มิลลิวินาที) ใส่ 0 เพื่อปิด */
   readonly interval = input(4000, { transform: numberAttribute });
 
-  protected readonly slides = contentChildren(BtfpHeroSlide);
+  protected readonly slides = contentChildren(HeroSlide);
   protected readonly count = computed(() => this.slides().length);
   protected readonly index = signal(0);
   protected readonly hovered = signal(false);

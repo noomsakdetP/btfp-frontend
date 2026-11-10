@@ -32,16 +32,16 @@ export class MyPage {}
 | Progress Bar Type=indeterminate (ไม่รู้เวลา) | \`<p-progressbar mode="indeterminate" />\` |
 | Loading Spinner | \`<p-progressspinner strokeWidth="4" ariaLabel="กำลังโหลด" />\` |
 
-สีตั้งไว้ใน \`btfp-preset.ts\` แล้ว (แถบ primary 600 บนพื้น primary 100, วงกลมใช้สีน้ำเงินของระบบแทนสีรุ้งของ Aura) ไม่ต้องใส่สีเอง
+สีตั้งไว้ใน \`theme-preset.ts\` แล้ว (แถบ primary 600 บนพื้น primary 100, วงกลมใช้สีน้ำเงินของระบบแทนสีรุ้งของ Aura) ไม่ต้องใส่สีเอง
 
-**โหลดตอนเปลี่ยนเมนู** ไม่ต้องใส่ในหน้า ใช้ \`btfp-route-progress\` ที่ใส่ไว้ใน \`app.ts\` แล้ว (ดู Components > Feedback > Route Progress)
+**โหลดตอนเปลี่ยนเมนู** ไม่ต้องใส่ในหน้า ใช้ \`p-route-progress\` ที่ใส่ไว้ใน \`app.ts\` แล้ว (ดู Components > Feedback > Route Progress)
 
 **โหลดตอนเรียก API** ไม่มีตัวโหลดกลาง ให้แสดงที่ component ที่ผู้ใช้กด (ดูตัวอย่าง "ระหว่างเรียก API" ด้านล่าง)
 
 | สถานการณ์ | ในโค้ด |
 | --- | --- |
 | กดบันทึก ส่ง ค้นหา | \`<p-button label="กำลังบันทึก" loading />\` ไอคอนหมุนในปุ่ม กดซ้ำไม่ได้ |
-| โหลดข้อมูลตาราง | แถว \`<p-skeleton />\` ใน \`btfp-table\` จำนวนเท่าแถวต่อหน้า (ต้อง import \`Skeleton\` จาก \`primeng/skeleton\`) |
+| โหลดข้อมูลตาราง | แถว \`<p-skeleton />\` ใน \`p-simple-table\` จำนวนเท่าแถวต่อหน้า (ต้อง import \`Skeleton\` จาก \`primeng/skeleton\`) |
 | อัปโหลดไฟล์ | \`<p-progressbar value="60" />\` |
 `),
 };
@@ -72,9 +72,9 @@ export const ApiLoading: StoryObj = {
     <p-button outlined severity="secondary" label="ยกเลิก" disabled />
     <p-button label="กำลังบันทึก" loading />
   </div>
-  <table class="btfp-table">
-    <thead><tr><th>ลำดับ</th><th>เลขที่คำขอ</th><th>ชื่อโครงการ</th><th>หน่วยงาน</th><th>มาตรา</th><th class="btfp-table__money">วงเงิน (บาท)</th></tr></thead>
-    <tbody><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="btfp-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="btfp-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="btfp-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="btfp-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="btfp-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr></tbody>
+  <table class="p-simple-table">
+    <thead><tr><th>ลำดับ</th><th>เลขที่คำขอ</th><th>ชื่อโครงการ</th><th>หน่วยงาน</th><th>มาตรา</th><th class="p-simple-table__money">วงเงิน (บาท)</th></tr></thead>
+    <tbody><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="p-simple-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="p-simple-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="p-simple-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="p-simple-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr><tr><td><p-skeleton width="24px" height="16px" /></td><td><p-skeleton width="96px" height="16px" /></td><td><p-skeleton width="70%" height="16px" /></td><td><p-skeleton width="60%" height="16px" /></td><td><p-skeleton width="56px" height="16px" /></td><td class="p-simple-table__money"><p-skeleton width="96px" height="16px" styleClass="ml-auto" /></td></tr></tbody>
   </table>
 </div>`,
   }),

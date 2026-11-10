@@ -16,5 +16,5 @@ export default meta;
 
 export const Default: StoryObj = {
   name: "ตัวอย่าง",
-  render: () => ({ template: `<nav aria-label="เส้นทาง" class="btfp-text-body-s" style="display:flex;align-items:center;gap:8px;color:var(--p-text-secondary)"><a href="#" style="color:inherit;text-decoration:none">หน้าหลัก</a><btfp-icon name="pi-chevron-right" size="16" /><a href="#" style="color:inherit;text-decoration:none">รายการทุน</a><btfp-icon name="pi-chevron-right" size="16" /><span aria-current="page" style="color:var(--p-text-primary)">รายละเอียดโครงการ</span></nav>` }),
+  render: () => ({ template: `<nav aria-label="เส้นทาง" class="p-text-body-s" style="display:flex;align-items:center;gap:8px;color:var(--p-text-secondary)"><a href="#" style="color:inherit;text-decoration:none">หน้าหลัก</a><p-ui-icon name="pi-chevron-right" size="16" /><a href="#" style="color:inherit;text-decoration:none">รายการทุน</a><p-ui-icon name="pi-chevron-right" size="16" /><span aria-current="page" style="color:var(--p-text-primary)">รายละเอียดโครงการ</span></nav>` }),
 };

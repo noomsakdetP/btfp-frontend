@@ -34,7 +34,7 @@ export class MyPage {}
 | Type=danger | \`<p-button severity="danger" label="ลบ" />\` (พื้นแดงอ่อนตาม Figma ไม่ใช่แดงทึบ) |
 | Size=S / M / L | \`size="small"\` 32px / ค่าเริ่มต้น 40px / \`size="large"\` 48px |
 | State=disabled / loading | \`disabled\` / \`loading\` |
-| leading-icon | วาง \`<btfp-icon>\` ก่อนข้อความใน \`<p-button>\` ไอคอน 20px (Size S ใช้ 16px) |
+| leading-icon | วาง \`<p-ui-icon>\` ก่อนข้อความใน \`<p-button>\` ไอคอน 20px (Size S ใช้ 16px) |
 
 **ข้อควรระวัง**
 
@@ -62,7 +62,7 @@ export const Sizes: StoryObj = {
 
 export const WithIcon: StoryObj = {
   name: "มีไอคอนนำหน้า",
-  render: () => ({ template: rowOf(`<p-button><btfp-icon name="pi-plus" size="20" /><span>เพิ่มข้อเสนอ</span></p-button><p-button outlined severity="secondary"><btfp-icon name="pi-chart-bar" size="20" /><span>รายงาน</span></p-button><p-button size="small" outlined severity="secondary"><btfp-icon name="pi-user-plus" size="16" /><span>มอบหมายเจ้าหน้าที่</span></p-button><p-button severity="danger"><btfp-icon name="pi-trash" size="20" /><span>ลบรายการ</span></p-button>`) }),
+  render: () => ({ template: rowOf(`<p-button><p-ui-icon name="pi-plus" size="20" /><span>เพิ่มข้อเสนอ</span></p-button><p-button outlined severity="secondary"><p-ui-icon name="pi-chart-bar" size="20" /><span>รายงาน</span></p-button><p-button size="small" outlined severity="secondary"><p-ui-icon name="pi-user-plus" size="16" /><span>มอบหมายเจ้าหน้าที่</span></p-button><p-button severity="danger"><p-ui-icon name="pi-trash" size="20" /><span>ลบรายการ</span></p-button>`) }),
 };
 
 export const States: StoryObj = {

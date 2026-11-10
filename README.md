@@ -6,7 +6,7 @@
 - **PrimeNG 21** ธีม Aura ปรับด้วย preset จาก Figma token
 - **Tailwind CSS 4** + `tailwindcss-primeui` (ปลั๊กอินทางการของ PrimeNG) สำหรับ Responsive Layout
 - **Storybook 10** สำหรับดู component และหน้าตัวอย่าง
-- ไอคอน **PrimeIcons 7.0.0** ชุดเดียวกับ Figma (ไอคอนที่ PrimeIcons ไม่มีอยู่ใน Icon กลาง ผ่าน `btfp-icon`)
+- ไอคอน **PrimeIcons 7.0.0** ชุดเดียวกับ Figma (ไอคอนที่ PrimeIcons ไม่มีอยู่ใน Icon กลาง ผ่าน `p-ui-icon`)
 - ฟอนต์ **Sarabun** (เนื้อหา) และ **IBM Plex Sans Thai** (หัวข้อ)
 
 หน้าที่ทำแล้ว
@@ -62,16 +62,16 @@ npm run check:tokens      # ตรวจว่าชื่อ token ชนกั
 src/
   tailwind.css                 Tailwind + ลำดับ CSS layer
   styles/_tokens.scss          token จาก Figma (สี ระยะ มุมโค้ง ขนาด) เป็น CSS variable --p-*
-  styles.scss                  สไตล์พื้นฐาน และ class กลาง (.btfp-field, .btfp-link-button)
+  styles.scss                  สไตล์พื้นฐาน และ class กลาง (.p-field, .p-link-button)
   app/
     app.config.ts              ตั้งค่า PrimeNG (preset, ภาษาไทย) ใช้ร่วมกับ Storybook
     app.routes.ts              เส้นทางหน้า
     theme/
-      btfp-preset.ts           ธีม PrimeNG ที่ปรับตาม Figma
+      theme-preset.ts           ธีม PrimeNG ที่ปรับตาม Figma
       th-locale.ts             ข้อความภาษาไทยของ PrimeNG
       icons.ts                 รายชื่อไอคอนที่ใช้ในระบบ
-    layout/                    btfp-staff-layout, btfp-sidebar, btfp-topbar
-    shared/ui/                 component กลาง btfp-* (มี .stories.ts คู่กันทุกตัว)
+    layout/                    p-staff-layout, p-sidebar, p-topbar
+    shared/ui/                 component กลาง p-* (มี .stories.ts คู่กันทุกตัว)
     pages/
       public/landing/                 หน้าแรกสาธารณะ
       proposals/proposal-list/        B-21
@@ -85,30 +85,30 @@ src/
 
 ---
 
-## Component กลาง (btfp-*)
+## Component กลาง (p-*)
 
 | Component | ใช้แทน / สร้างบน | Figma |
 | --- | --- | --- |
-| `btfp-icon` | Icon กลาง (ตัวที่ PrimeIcons ไม่มี) และ PrimeIcons ขนาด px ตาม Figma (`name="pi-trash"`) | icon/*, pi-* |
-| `btfp-status-tag` | เขียนเอง (สีเกินที่ `p-tag` มี) ใส่ `status="review"` ได้ครบ 14 สถานะ | Domain/Status Badge |
-| `btfp-row-actions` | `p-button` + `p-confirmdialog` | Domain/Table Row Actions |
-| `btfp-kpi-card` | เขียนเอง (PrimeNG ไม่มี) | Domain/KPI Stat Card |
-| `btfp-empty-state` | เขียนเอง (PrimeNG ไม่มี) | Empty State |
-| `btfp-export-button` | `p-button` + `p-menu` | Actions/Export Menu Button |
-| `btfp-hero-banner` | เขียนเอง (`p-carousel` ต้องใช้ binding) | Domain/Hero Banner |
+| `p-ui-icon` | Icon กลาง (ตัวที่ PrimeIcons ไม่มี) และ PrimeIcons ขนาด px ตาม Figma (`name="pi-trash"`) | icon/*, pi-* |
+| `p-status-tag` | เขียนเอง (สีเกินที่ `p-tag` มี) ใส่ `status="review"` ได้ครบ 14 สถานะ | Domain/Status Badge |
+| `p-row-actions` | `p-button` + `p-confirmdialog` | Domain/Table Row Actions |
+| `p-kpi-card` | เขียนเอง (PrimeNG ไม่มี) | Domain/KPI Stat Card |
+| `p-empty-state` | เขียนเอง (PrimeNG ไม่มี) | Empty State |
+| `p-export-button` | `p-button` + `p-menu` | Actions/Export Menu Button |
+| `p-hero-banner` | เขียนเอง (`p-carousel` ต้องใช้ binding) | Domain/Hero Banner |
 
 **directive ที่เติมให้ PrimeNG** (ใช้ tag ของ PrimeNG ตรง ๆ แล้วใส่ attribute เพิ่ม)
 
 | Directive | ใช้กับ | เพิ่มอะไร | Figma |
 | --- | --- | --- | --- |
 | `DatePickerDefaults` | `<p-datepicker>` จาก `primeng-buddhist-year-datepicker` | ตั้งค่าตามระบบ: ปี พ.ศ. รูปแบบ 1 ม.ค. 2569 ไอคอนในช่อง ปุ่มวันนี้/ล้าง | Forms/DatePicker |
-| `btfpDrawer` | `<p-drawer>` | กว้าง 480px ไม่ปิดเอง เปิดค้างด้วย attribute `open` (หน้าหุ่นจำลอง) | Drawer |
+| `DrawerDefaults` | `<p-drawer>` | กว้าง 480px ไม่ปิดเอง เปิดค้างด้วย attribute `open` (หน้าหุ่นจำลอง) | Drawer |
 
 **หลักการเลือก**
 
 1. PrimeNG มีและหน้าตาปรับผ่าน preset ได้ ใช้ PrimeNG ตรง ๆ (เช่น `p-select`, `p-multiselect`, `p-drawer`, `p-tabs`, `p-paginator`)
-2. PrimeNG มีแต่เราเพิ่มความสามารถ ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive `btfp*` (เช่น `<p-drawer btfpDrawer>`) ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG ถ้าประกอบจากหลายชิ้นและมีกฎเฉพาะ สร้างเป็น `btfp-*` (เช่น row actions ต้องเรียง ดู แก้ไข ลบ และลบต้องยืนยัน)
-3. PrimeNG ไม่มี เขียนเองเป็น `btfp-*` ตั้งชื่อ input แบบ PrimeNG (`severity`, `size`, `label`)
+2. PrimeNG มีแต่เราเพิ่มความสามารถ ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive `<ชื่อ>Defaults` ที่เกาะบนแท็กเดียวกัน (เช่น `<p-drawer>` + `DrawerDefaults`) ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG ถ้าประกอบจากหลายชิ้นและมีกฎเฉพาะ สร้างเป็น `p-*` (เช่น row actions ต้องเรียง ดู แก้ไข ลบ และลบต้องยืนยัน)
+3. PrimeNG ไม่มี เขียนเองเป็น `p-*` ตั้งชื่อ input แบบ PrimeNG (`severity`, `size`, `label`)
 
 ### วันที่แบบ พ.ศ.
 
@@ -126,12 +126,12 @@ src/
 หน้า B-21 ตอนนี้เป็นหุ่นจำลอง ตอนต่อ API แนะนำลำดับนี้
 
 1. สร้าง service และ type ของข้อเสนอ เช่น `ProposalService.list(filter)`
-2. เปลี่ยน `<table class="btfp-table">` เป็น `<p-table [value]="proposals()" [lazy]="true">` ใช้ความกว้างคอลัมน์และ class เดิม แถวที่พิมพ์ไว้ 6 แถวเปลี่ยนเป็นแถวเดียว
-3. `<input type="checkbox" class="btfp-checkbox">` เปลี่ยนเป็น `<p-checkbox [binary]="true" [(ngModel)]>` หรือ selection ของ p-table
+2. เปลี่ยน `<table class="p-simple-table">` เป็น `<p-table [value]="proposals()" [lazy]="true">` ใช้ความกว้างคอลัมน์และ class เดิม แถวที่พิมพ์ไว้ 6 แถวเปลี่ยนเป็นแถวเดียว
+3. `<input type="checkbox" class="p-native-checkbox">` เปลี่ยนเป็น `<p-checkbox [binary]="true" [(ngModel)]>` หรือ selection ของ p-table
 4. `p-select` ที่ใช้ `placeholder` แทนค่า ให้ใส่ `[options]` และ `[(ngModel)]` / `formControlName`
 5. Drawer ตัวกรอง (`/proposals/filters`) ย้ายมาไว้ในหน้า B-21 ใช้ `<p-drawer [(visible)]="filterOpen">` แล้วลบ route ลูก
 6. ช่องหน่วยงานใน Drawer เปลี่ยนเป็น `p-autocomplete` ที่ค้นจาก API ตาม Figma
-7. ใช้ `@if` แสดง `btfp-empty-state` แทนตารางเมื่อไม่มีข้อมูล (ดูตัวอย่างที่ `/proposals/empty`) แยก type: ยังไม่มีข้อมูล (`general`), ค้นหาไม่พบ (`no-results`), โหลดไม่สำเร็จ (`error`)
+7. ใช้ `@if` แสดง `p-empty-state` แทนตารางเมื่อไม่มีข้อมูล (ดูตัวอย่างที่ `/proposals/empty`) แยก type: ยังไม่มีข้อมูล (`general`), ค้นหาไม่พบ (`no-results`), โหลดไม่สำเร็จ (`error`)
 
 ---
 

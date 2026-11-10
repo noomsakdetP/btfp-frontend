@@ -1,17 +1,17 @@
 import { ChangeDetectionStrategy, Component, booleanAttribute, input } from '@angular/core';
-import { BtfpIcon } from '../icon/icon';
+import { UiIcon } from '../icon/icon';
 
 /**
- * btfp-kpi-card : การ์ดตัวเลขสรุป (Figma: Domain/KPI Stat Card)
+ * p-kpi-card : การ์ดตัวเลขสรุป (Figma: Domain/KPI Stat Card)
  *
  * ใช้เป็นตัวกรองขั้นตอนได้ด้วย ถ้า active จะมีเส้นขอบสีหลัก
  *
  * @example
- * <btfp-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="24" caption="ส่งกลับแก้ไข 5 รายการ" icon="clipboard-check" active />
+ * <p-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="24" caption="ส่งกลับแก้ไข 5 รายการ" icon="clipboard-check" active />
  */
 @Component({
-  selector: 'btfp-kpi-card',
-  imports: [BtfpIcon],
+  selector: 'p-kpi-card',
+  imports: [UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     role: 'button',
@@ -23,7 +23,7 @@ import { BtfpIcon } from '../icon/icon';
     <div class="kpi__top">
       <span class="kpi__label">{{ label() }}</span>
       @if (icon()) {
-        <btfp-icon class="kpi__icon" [name]="icon()!" size="24" />
+        <p-ui-icon class="kpi__icon" [name]="icon()!" size="24" />
       }
     </div>
     <span class="kpi__value">{{ value() }}</span>
@@ -81,7 +81,7 @@ import { BtfpIcon } from '../icon/icon';
     }
   `,
 })
-export class BtfpKpiCard {
+export class KpiCard {
   readonly label = input.required<string>();
   readonly value = input.required<string>();
   readonly caption = input<string>('');

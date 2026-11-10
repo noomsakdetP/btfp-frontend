@@ -48,7 +48,7 @@ export const buttonPlayground = play(
     const base = `${BUTTON_TYPE[a['Type']]}${SIZE[a['Size']]}${attr('disabled', a['disabled'])}${attr('loading', a['loading'])}`;
     if (a['icon'] === 'ไม่มี') return `<p-button${base}${val('label', a['label'])} />`;
     const size = a['Size'] === 'S' ? 16 : 20;
-    return `<p-button${base}><btfp-icon name="${a['icon']}" size="${size}" /><span>${a['label']}</span></p-button>`;
+    return `<p-button${base}><p-ui-icon name="${a['icon']}" size="${size}" /><span>${a['label']}</span></p-button>`;
   },
   DESC,
 );
@@ -65,20 +65,20 @@ export const iconButtonPlayground = play(
     disabled: bool,
   },
   (a) =>
-    `<p-button${ICON_TYPE[a['Type']]}${SIZE[a['Size']]}${attr('disabled', a['disabled'])} ariaLabel="${a['ariaLabel']}" pTooltip="${a['ariaLabel']}"><ng-template #icon><btfp-icon name="${a['icon']}" size="${a['Size'] === 'S' ? 16 : 20}" /></ng-template></p-button>`,
+    `<p-button${ICON_TYPE[a['Type']]}${SIZE[a['Size']]}${attr('disabled', a['disabled'])} ariaLabel="${a['ariaLabel']}" pTooltip="${a['ariaLabel']}"><ng-template #icon><p-ui-icon name="${a['icon']}" size="${a['Size'] === 'S' ? 16 : 20}" /></ng-template></p-button>`,
   DESC,
 );
 
 // ---------- ช่องกรอก ----------
 const fieldWrap = (a: Args, id: string, control: string) => {
-  const required = a['required'] ? '<span class="btfp-required" aria-hidden="true">*</span>' : '';
+  const required = a['required'] ? '<span class="p-required" aria-hidden="true">*</span>' : '';
   const foot =
     a['State'] === 'error'
-      ? `<p class="btfp-field__error"><btfp-icon name="pi-exclamation-circle" size="16" />${a['error']}</p>`
+      ? `<p class="p-field__error"><p-ui-icon name="pi-exclamation-circle" size="16" />${a['error']}</p>`
       : a['helper']
-        ? `<p class="btfp-field__helper">${a['helper']}</p>`
+        ? `<p class="p-field__helper">${a['helper']}</p>`
         : '';
-  return `<div class="btfp-field" style="width:336px"><label for="${id}">${a['label']}${required}</label>${control}${foot}</div>`;
+  return `<div class="p-field" style="width:336px"><label for="${id}">${a['label']}${required}</label>${control}${foot}</div>`;
 };
 const stateAttr = (a: Args) => (a['State'] === 'error' ? ' class="ng-invalid ng-dirty"' : '') + attr('disabled', a['State'] === 'disabled');
 const FIELD_TYPES = {
@@ -135,7 +135,7 @@ export const choicesPlayground = play(
     const dis = a['disabled'] ? ' [disabled]="true"' : '';
     let control: string;
     if (a['Component'] === 'Checkbox' && a['mockup']) {
-      control = `<input type="checkbox" class="btfp-checkbox"${attr('checked', a['checked'])}${attr('disabled', a['disabled'])} />`;
+      control = `<input type="checkbox" class="p-native-checkbox"${attr('checked', a['checked'])}${attr('disabled', a['disabled'])} />`;
     } else if (a['Component'] === 'Checkbox') {
       control = `<p-checkbox [binary]="true" [ngModel]="${a['checked']}"${dis} />`;
     } else if (a['Component'] === 'Radio') {
@@ -155,7 +155,7 @@ export const tagPlayground = play(
   { Tone: radio(['neutral', 'info', 'success', 'warning', 'danger']), value: text, removable: { ...bool, name: 'removable (ตัวกรองที่ใช้อยู่)', description: 'มีปุ่มลบ ใช้ p-chip' } },
   (a) =>
     a['removable']
-      ? `<p-chip label="${a['value']}" removable="true"><ng-template #removeicon><btfp-icon name="pi-times" size="14" /></ng-template></p-chip>`
+      ? `<p-chip label="${a['value']}" removable="true"><ng-template #removeicon><p-ui-icon name="pi-times" size="14" /></ng-template></p-chip>`
       : `<p-tag severity="${TONE[a['Tone']]}" value="${a['value']}" />`,
   DESC + ' ตัวกรองที่ใช้อยู่ (removable) ใช้สี info เสมอตาม Figma',
 );

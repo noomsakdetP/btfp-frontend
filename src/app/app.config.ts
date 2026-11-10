@@ -5,18 +5,18 @@ import { providePrimeNG } from 'primeng/config';
 import { ConfirmationService } from 'primeng/api';
 
 import { routes } from './app.routes';
-import { BtfpPreset } from './theme/btfp-preset';
+import { ThemePreset } from './theme/theme-preset';
 import { TH_LOCALE } from './theme/th-locale';
-import { btfpLoaderProviders } from './shared/ui/route-progress/loader-providers';
+import { loaderProviders } from './shared/ui/route-progress/loader-providers';
 
 /** ตั้งค่า PrimeNG ที่ใช้ร่วมกันทั้งแอปและ Storybook */
-export const btfpUiProviders = [
+export const uiProviders = [
   providePrimeNG({
     theme: {
-      preset: BtfpPreset,
+      preset: ThemePreset,
       options: {
         darkModeSelector: false, // ระบบราชการ ใช้โหมดสว่างอย่างเดียว
-        cssLayer: { name: 'primeng', order: 'theme, base, primeng, btfp, components, utilities' },
+        cssLayer: { name: 'primeng', order: 'theme, base, primeng, app, components, utilities' },
       },
     },
     translation: TH_LOCALE,
@@ -30,7 +30,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding()),
     provideHttpClient(),
-    btfpLoaderProviders(),
-    ...btfpUiProviders,
+    loaderProviders(),
+    ...uiProviders,
   ],
 };

@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { moduleMetadata } from '@storybook/angular-vite';
 import { Button } from 'primeng/button';
-import { BtfpIcon } from '../icon/icon';
-import { BtfpGrantCallCard } from './grant-call-card';
-import { BtfpHeroBanner, BtfpHeroSlide } from './hero-banner';
-import { BtfpNewsCard, BtfpProcessStep, BtfpResultCard, BtfpShowcaseCard } from './public-cards';
-import { BtfpSectionHeader } from './section-header';
+import { UiIcon } from '../icon/icon';
+// ชื่อ story ซ้ำกับชื่อ class จึง import ผ่าน namespace
+import * as card from './grant-call-card';
+import * as hero from './hero-banner';
+import * as cards from './public-cards';
+import * as header from './section-header';
 
 const meta: Meta = {
   title: 'Components/Public website/การ์ดและ Hero Banner',
@@ -13,7 +14,7 @@ const meta: Meta = {
   id: 'components-public',
   decorators: [
     moduleMetadata({
-      imports: [Button, BtfpIcon, BtfpHeroBanner, BtfpHeroSlide, BtfpSectionHeader, BtfpGrantCallCard, BtfpProcessStep, BtfpShowcaseCard, BtfpResultCard, BtfpNewsCard],
+      imports: [Button, UiIcon, hero.HeroBanner, hero.HeroSlide, header.SectionHeader, card.GrantCallCard, cards.ProcessStep, cards.ShowcaseCard, cards.ResultCard, cards.NewsCard],
     }),
   ],
   parameters: {
@@ -41,23 +42,23 @@ export const HeroBanner: StoryObj = {
   },
   render: () => ({
     template: `
-      <btfp-hero-banner label="ประกาศและผลงานเด่น">
-        <btfp-hero-slide image="images/landing/hero-slide-1.jpg" overlay>
+      <p-hero-banner label="ประกาศและผลงานเด่น">
+        <p-hero-slide image="images/landing/hero-slide-1.jpg" overlay>
           <h1>เปิดรับข้อเสนอโครงการ<br class="hidden md:inline" /> เพื่อขอรับทุนจาก กสทช.</h1>
           <p>สนับสนุนการพัฒนาเทคโนโลยี นวัตกรรม และการสื่อสาร เพื่อประโยชน์สูงสุดของประชาชน</p>
-          <p-button size="large"><span>ดูประกาศทุนทั้งหมด</span><btfp-icon name="pi-chevron-right" size="20" /></p-button>
-        </btfp-hero-slide>
-        <btfp-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
+          <p-button size="large"><span>ดูประกาศทุนทั้งหมด</span><p-ui-icon name="pi-chevron-right" size="20" /></p-button>
+        </p-hero-slide>
+        <p-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
           <h2>ทุนวิจัยและพัฒนาด้านโทรคมนาคม<br class="hidden md:inline" /> เพื่อประโยชน์สาธารณะ ปี 2570</h2>
           <p>ยื่นข้อเสนอโครงการได้ถึงวันที่ 31 ต.ค. 2569 ผ่านระบบออนไลน์</p>
-          <p-button size="large"><span>ยื่นข้อเสนอ</span><btfp-icon name="pi-chevron-right" size="20" /></p-button>
-        </btfp-hero-slide>
-        <btfp-hero-slide image="images/landing/hero-slide-3.jpg" overlay tag="ผลงานเด่น">
+          <p-button size="large"><span>ยื่นข้อเสนอ</span><p-ui-icon name="pi-chevron-right" size="20" /></p-button>
+        </p-hero-slide>
+        <p-hero-slide image="images/landing/hero-slide-3.jpg" overlay tag="ผลงานเด่น">
           <h2>ผลงานทุน กทปส. ที่ต่อยอด<br class="hidden md:inline" /> สู่การใช้งานจริงในชุมชน</h2>
           <p>รวมผลงานวิจัยและนวัตกรรมจากหน่วยงานผู้รับทุนทั่วประเทศ</p>
-          <p-button size="large"><span>ดูผลงานทั้งหมด</span><btfp-icon name="pi-chevron-right" size="20" /></p-button>
-        </btfp-hero-slide>
-      </btfp-hero-banner>`,
+          <p-button size="large"><span>ดูผลงานทั้งหมด</span><p-ui-icon name="pi-chevron-right" size="20" /></p-button>
+        </p-hero-slide>
+      </p-hero-banner>`,
   }),
 };
 
@@ -65,10 +66,10 @@ export const SectionHeader: StoryObj = {
   name: 'Section Header',
   render: () => ({
     template: `
-      <btfp-section-header eyebrow="ประกาศทุนที่เปิดรับ" heading="โอกาสทุนสำหรับโครงการที่พร้อมสร้างผลลัพธ์"
+      <p-section-header eyebrow="ประกาศทุนที่เปิดรับ" heading="โอกาสทุนสำหรับโครงการที่พร้อมสร้างผลลัพธ์"
         description="ตรวจสอบประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR และกำหนดส่งข้อเสนอของแต่ละประกาศ">
         <a href="#" style="color:var(--p-action-link)">ดูประกาศทั้งหมด</a>
-      </btfp-section-header>`,
+      </p-section-header>`,
   }),
 };
 
@@ -77,13 +78,13 @@ export const GrantCallCard: StoryObj = {
   render: () => ({
     template: `
       <div class="grid gap-6 md:grid-cols-3">
-        <btfp-grant-call-card image="images/landing/cover-1.jpg" sector="กิจการโทรคมนาคม" grantType="ทุนประเภท 1" state="open"
+        <p-grant-call-card image="images/landing/cover-1.jpg" sector="กิจการโทรคมนาคม" grantType="ทุนประเภท 1" state="open"
           heading="ทุนประเภท 1 ประจำปี 2569" deadline="ปิดรับ 30 พ.ย. 2569 เวลา 16:30 น."
           scope="มาตรา 52(1)–(6) เลือกวัตถุประสงค์ได้ 1 ข้อ" budget="วงเงินรวม 150,000,000 บาท" />
-        <btfp-grant-call-card image="images/landing/cover-2.jpg" sector="ทุกด้านกิจการ" grantType="ทุนประเภท 2" state="closing-soon"
+        <p-grant-call-card image="images/landing/cover-2.jpg" sector="ทุกด้านกิจการ" grantType="ทุนประเภท 2" state="closing-soon"
           heading="ทุนประเภท 2 TOR ทักษะดิจิทัลชุมชน" deadline="ปิดรับ 3 ต.ค. 2569 เหลืออีก 3 วัน"
           scope="ตามนโยบายคณะกรรมการบริหารกองทุน" budget="วงเงินรวม 150,000,000 บาท" />
-        <btfp-grant-call-card image="images/landing/cover-3.jpg" sector="ทุกด้านกิจการ" grantType="ทุนประเภท 2" state="closed"
+        <p-grant-call-card image="images/landing/cover-3.jpg" sector="ทุกด้านกิจการ" grantType="ทุนประเภท 2" state="closed"
           heading="ทุนประเภท 2 โครงการต่อเนื่อง" deadline="ปิดรับเมื่อ 15 ก.ย. 2569"
           scope="ต่อยอดโครงการทุนประเภท 2 ที่ปิดแล้ว" budget="วงเงินรวม 150,000,000 บาท" />
       </div>`,
@@ -95,8 +96,8 @@ export const ProcessStep: StoryObj = {
   render: () => ({
     template: `
       <div class="grid gap-5 p-6 md:grid-cols-2" style="background:var(--p-navy-900)">
-        <btfp-process-step step="01" icon="user-check" heading="ลงทะเบียนและยืนยันตัวตน" description="สร้างบัญชีหน่วยงาน และยืนยันตัวตนด้วยรหัส OTP ทางอีเมลทุกครั้งที่เข้าสู่ระบบ" />
-        <btfp-process-step step="02" icon="pi-filter" heading="เลือกประกาศและขอบเขต" description="เลือกประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR" />
+        <p-process-step step="01" icon="user-check" heading="ลงทะเบียนและยืนยันตัวตน" description="สร้างบัญชีหน่วยงาน และยืนยันตัวตนด้วยรหัส OTP ทางอีเมลทุกครั้งที่เข้าสู่ระบบ" />
+        <p-process-step step="02" icon="pi-filter" heading="เลือกประกาศและขอบเขต" description="เลือกประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR" />
       </div>`,
   }),
 };
@@ -106,7 +107,7 @@ export const ShowcaseCard: StoryObj = {
   render: () => ({
     template: `
       <div style="max-width:520px">
-        <btfp-showcase-card image="images/landing/showcase-1.jpg" meta="ทุนประเภท 1 2568" heading="เครือข่ายสื่อสารฉุกเฉินสำหรับชุมชนพื้นที่สูง"
+        <p-showcase-card image="images/landing/showcase-1.jpg" meta="ทุนประเภท 1 2568" heading="เครือข่ายสื่อสารฉุกเฉินสำหรับชุมชนพื้นที่สูง"
           org="มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา" description="เชื่อมศูนย์ประสานงานชุมชนกับหน่วยแพทย์และระบบเตือนภัยในพื้นที่สัญญาณจำกัด"
           outcome="เข้าถึง 18 ชุมชน อาสาสมัคร 240 คน" />
       </div>`,
@@ -118,7 +119,7 @@ export const ResultCard: StoryObj = {
   render: () => ({
     template: `
       <div style="max-width:520px">
-        <btfp-result-card image="images/landing/result-1.jpg" category="การศึกษาและรู้เท่าทันสื่อ"
+        <p-result-card image="images/landing/result-1.jpg" category="การศึกษาและรู้เท่าทันสื่อ"
           heading="หลักสูตรนักสืบข่าวดิจิทัลสำหรับโรงเรียน" meta="มูลนิธิสื่อเพื่อเยาวชน 2568" outcome="นำร่อง 35 โรงเรียน" />
       </div>`,
   }),
@@ -129,7 +130,7 @@ export const NewsCard: StoryObj = {
   render: () => ({
     template: `
       <div style="max-width:520px">
-        <btfp-news-card image="images/landing/news-1.jpg" day="30" month="พ.ย. 69" category="กำหนดการ"
+        <p-news-card image="images/landing/news-1.jpg" day="30" month="พ.ย. 69" category="กำหนดการ"
           heading="วันสุดท้ายรับข้อเสนอโครงการทุนประเภท 1 ประจำปี 2569"
           description="ระบบปิดรับข้อเสนอเวลา 16.30 น. ควรส่งล่วงหน้าเพื่อเผื่อเวลาตรวจสอบเอกสาร" />
       </div>`,

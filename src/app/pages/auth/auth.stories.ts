@@ -20,5 +20,5 @@ export default meta;
 
 export const Login: StoryObj = {
   name: 'เข้าสู่ระบบ ① อีเมลหรือเบอร์มือถือ',
-  render: () => ({ template: `<btfp-login-page />` }),
+  render: () => ({ template: `<p-login-page />` }),
 };

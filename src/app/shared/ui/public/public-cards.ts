@@ -1,20 +1,20 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { BtfpIcon } from '../icon/icon';
+import { UiIcon } from '../icon/icon';
 
 /**
  * การ์ดของเว็บไซต์สาธารณะ (Figma: Public/*)
  * รับค่าเป็น attribute ธรรมดา ใช้ในหน้าหุ่นจำลองได้โดยไม่ต้องมี binding
  */
 
-/** btfp-process-step : ขั้นตอนการสมัคร (Figma: Public/Process Step) วางบนพื้นน้ำเงินเข้ม */
+/** p-process-step : ขั้นตอนการสมัคร (Figma: Public/Process Step) วางบนพื้นน้ำเงินเข้ม */
 @Component({
-  selector: 'btfp-process-step',
-  imports: [BtfpIcon],
+  selector: 'p-process-step',
+  imports: [UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="flex items-center justify-between">
       <span class="num">{{ step() }}</span>
-      <span class="icon"><btfp-icon [name]="icon()" size="20" /></span>
+      <span class="icon"><p-ui-icon [name]="icon()" size="20" /></span>
     </div>
     <h3 class="title">{{ heading() }}</h3>
     <p class="desc">{{ description() }}</p>
@@ -56,17 +56,17 @@ import { BtfpIcon } from '../icon/icon';
     }
   `,
 })
-export class BtfpProcessStep {
+export class ProcessStep {
   readonly step = input.required<string>();
   readonly icon = input.required<string>();
   readonly heading = input.required<string>();
   readonly description = input<string>('');
 }
 
-/** btfp-showcase-card : ผลงานเด่น (Figma: Public/Project Showcase Card) */
+/** p-showcase-card : ผลงานเด่น (Figma: Public/Project Showcase Card) */
 @Component({
-  selector: 'btfp-showcase-card',
-  imports: [BtfpIcon],
+  selector: 'p-showcase-card',
+  imports: [UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="cover">
@@ -78,7 +78,7 @@ export class BtfpProcessStep {
       <h3 class="title">{{ heading() }}</h3>
       <p class="org">{{ org() }}</p>
       <p class="desc">{{ description() }}</p>
-      <p class="outcome"><btfp-icon name="trending-up" size="16" />{{ outcome() }}</p>
+      <p class="outcome"><p-ui-icon name="trending-up" size="16" />{{ outcome() }}</p>
     </div>
   `,
   styles: `
@@ -150,7 +150,7 @@ export class BtfpProcessStep {
     }
   `,
 })
-export class BtfpShowcaseCard {
+export class ShowcaseCard {
   readonly image = input.required<string>();
   readonly meta = input<string>('');
   readonly heading = input.required<string>();
@@ -159,10 +159,10 @@ export class BtfpShowcaseCard {
   readonly outcome = input<string>('');
 }
 
-/** btfp-result-card : ผลงานในฐานข้อมูล แบบรูปซ้าย (Figma: Public/Project Result Card) */
+/** p-result-card : ผลงานในฐานข้อมูล แบบรูปซ้าย (Figma: Public/Project Result Card) */
 @Component({
-  selector: 'btfp-result-card',
-  imports: [BtfpIcon],
+  selector: 'p-result-card',
+  imports: [UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="cover">
@@ -173,7 +173,7 @@ export class BtfpShowcaseCard {
       <p class="category">{{ category() }}</p>
       <h3 class="title">{{ heading() }}</h3>
       <p class="meta">{{ meta() }}</p>
-      <p class="outcome"><btfp-icon name="pi-check-circle" size="16" />{{ outcome() }}</p>
+      <p class="outcome"><p-ui-icon name="pi-check-circle" size="16" />{{ outcome() }}</p>
     </div>
   `,
   styles: `
@@ -236,7 +236,7 @@ export class BtfpShowcaseCard {
     }
   `,
 })
-export class BtfpResultCard {
+export class ResultCard {
   readonly image = input.required<string>();
   readonly category = input<string>('');
   readonly heading = input.required<string>();
@@ -244,9 +244,9 @@ export class BtfpResultCard {
   readonly outcome = input<string>('');
 }
 
-/** btfp-news-card : ข่าวสาร (Figma: Public/News Card) */
+/** p-news-card : ข่าวสาร (Figma: Public/News Card) */
 @Component({
-  selector: 'btfp-news-card',
+  selector: 'p-news-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="cover">
@@ -328,7 +328,7 @@ export class BtfpResultCard {
     }
   `,
 })
-export class BtfpNewsCard {
+export class NewsCard {
   readonly image = input.required<string>();
   readonly day = input.required<string>();
   readonly month = input.required<string>();

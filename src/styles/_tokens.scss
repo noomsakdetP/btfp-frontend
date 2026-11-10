@@ -207,7 +207,7 @@
   // ชั้นทับหลัง Drawer, Dialog, ป๊อปอัปยืนยัน (Figma: scrim ผูก color/bg/inverse โปร่ง 55%)
   --p-overlay-mask: color-mix(in srgb, var(--p-bg-inverse) 55%, transparent);
 
-  // Feedback/Loading: ตัวโหลดตอนเปลี่ยนเมนู ngx-ui-loader ผ่าน btfp-route-progress (ดู loader-providers.ts) ผูกกับ semantic ของระบบ
+  // Feedback/Loading: ตัวโหลดตอนเปลี่ยนเมนู ngx-ui-loader ผ่าน p-route-progress (ดู loader-providers.ts) ผูกกับ semantic ของระบบ
   --p-loading-overlay: color-mix(in srgb, var(--p-bg-inverse) 80%, transparent); // ชั้นทับตอนเปลี่ยนเมนู พื้นเข้มของระบบ (navy/900) โปร่ง 80%
   --p-loading-spinner: var(--p-action-primary); // แท่งเด้งกลางจอและแถบบน
   --p-loading-text: var(--p-text-inverse); // ข้อความบนชั้นทับ
@@ -224,7 +224,7 @@
   --p-table-row-2line: 64px; // เซลล์ 2 บรรทัด (Type=text-2line)
   --p-table-cell-padding-x: var(--p-space-md);
   --p-table-check-width: 56px;
-  --p-table-actions-padding: 0 12px 0 8px; // ให้ปุ่ม 3 ปุ่มของ btfp-row-actions พอดีคอลัมน์ 112px ตามหน้ารายการข้อเสนอ
+  --p-table-actions-padding: 0 12px 0 8px; // ให้ปุ่ม 3 ปุ่มของ p-row-actions พอดีคอลัมน์ 112px ตามหน้ารายการข้อเสนอ
   --p-table-row-hover-bg: var(--p-gray-50); // Figma ไม่ได้กำหนด ใช้ในโค้ดให้รู้ว่าชี้แถวไหนอยู่
   --p-table-row-selected-bg: var(--p-info-bg); // Figma: แถวที่เลือก color/blue/50
 

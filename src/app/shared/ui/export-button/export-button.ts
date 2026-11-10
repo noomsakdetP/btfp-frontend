@@ -2,27 +2,27 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 import { Button } from 'primeng/button';
 import { Menu } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
-import { BtfpIcon } from '../icon/icon';
+import { UiIcon } from '../icon/icon';
 
-export type BtfpExportFormat = 'xlsx' | 'pdf' | 'csv';
+export type ExportFormat = 'xlsx' | 'pdf' | 'csv';
 
 /**
- * btfp-export-button : ปุ่ม "ส่งออก" พร้อมเมนูรูปแบบไฟล์ (Figma: Actions/Export Menu Button 369:103570)
+ * p-export-button : ปุ่ม "ส่งออก" พร้อมเมนูรูปแบบไฟล์ (Figma: Actions/Export Menu Button 369:103570)
  *
  * ใช้ปุ่มนี้ตัวเดียวทั้งระบบ เพื่อให้ตัวเลือกส่งออกเหมือนกันทุกหน้า
  *
  * @example
- * <btfp-export-button (export)="onExport($event)" />
+ * <p-export-button (export)="onExport($event)" />
  */
 @Component({
-  selector: 'btfp-export-button',
-  imports: [Button, Menu, BtfpIcon],
+  selector: 'p-export-button',
+  imports: [Button, Menu, UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <p-button [outlined]="true" severity="secondary" (onClick)="menu.toggle($event)" [ariaLabel]="label()">
-      <btfp-icon name="pi-download" size="18" />
+      <p-ui-icon name="pi-download" size="18" />
       <span class="export__label">{{ label() }}</span>
-      <btfp-icon name="pi-chevron-down" size="16" />
+      <p-ui-icon name="pi-chevron-down" size="16" />
     </p-button>
     <p-menu #menu [model]="items" [popup]="true" appendTo="body" />
   `,
@@ -31,9 +31,9 @@ export type BtfpExportFormat = 'xlsx' | 'pdf' | 'csv';
     .export__label { font-weight: 500; }
   `,
 })
-export class BtfpExportButton {
+export class ExportButton {
   readonly label = input('ส่งออก');
-  readonly export = output<BtfpExportFormat>();
+  readonly export = output<ExportFormat>();
 
   protected readonly items: MenuItem[] = [
     { label: 'Excel (.xlsx)', command: () => this.export.emit('xlsx') },

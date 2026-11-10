@@ -10,14 +10,14 @@ export type IconNode = [tag: string, attrs: Record<string, string>][];
  *   ที่ขยายแต่ละ glyph ให้เต็ม em ไอคอนสองชุดจึงขนาดและความหนาเส้นเท่ากันเมื่อวางคู่กัน
  * - จุดทึบใช้ path สั้นมาก (h.01) เพราะ circle รัศมีเล็กจะแสดงเป็นวงแหวน
  *
- * ใช้ผ่าน <btfp-icon name="file-text" size="16" /> เส้นคงที่ 1.5 ทุกขนาด (ย่อขยายตามรูป)
+ * ใช้ผ่าน <p-ui-icon name="file-text" size="16" /> เส้นคงที่ 1.5 ทุกขนาด (ย่อขยายตามรูป)
  */
-export interface BtfpCentralIcon {
+export interface CentralIcon {
   viewBox: string;
   nodes: IconNode;
 }
 
-export const BTFP_CENTRAL_ICONS: Record<string, BtfpCentralIcon> = {
+export const BTFP_CENTRAL_ICONS: Record<string, CentralIcon> = {
   'a-large-small': {
     viewBox: '3 3.63 17.75 17.75',
     nodes: [["path",{"d":"M3.75 18.5l4.5-12 4.5 12"}],["path",{"d":"M5.4 14.25h5.7"}],["path",{"d":"M14 18.5l3-7.5 3 7.5"}],["path",{"d":"M15 16h4"}]],

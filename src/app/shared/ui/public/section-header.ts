@@ -1,18 +1,18 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 /**
- * btfp-section-header : หัวข้อของแต่ละส่วนในเว็บไซต์สาธารณะ (Figma: Public/Section Header)
+ * p-section-header : หัวข้อของแต่ละส่วนในเว็บไซต์สาธารณะ (Figma: Public/Section Header)
  *
  * ปุ่มหรือลิงก์ด้านขวาใส่เป็น content ระหว่างแท็ก
  * ขึ้นบรรทัดใหม่ในหัวข้อใช้ &#10; ใน attribute title
  *
  * @example
- * <btfp-section-header eyebrow="ประกาศทุนที่เปิดรับ" heading="โอกาสทุนสำหรับโครงการ" description="...">
+ * <p-section-header eyebrow="ประกาศทุนที่เปิดรับ" heading="โอกาสทุนสำหรับโครงการ" description="...">
  *   <a routerLink="/grants">ดูประกาศทั้งหมด</a>
- * </btfp-section-header>
+ * </p-section-header>
  */
 @Component({
-  selector: 'btfp-section-header',
+  selector: 'p-section-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class.is-dark]': "theme() === 'dark'" },
   template: `
@@ -76,7 +76,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     }
   `,
 })
-export class BtfpSectionHeader {
+export class SectionHeader {
   readonly eyebrow = input<string>();
   readonly heading = input.required<string>();
   readonly description = input<string>();

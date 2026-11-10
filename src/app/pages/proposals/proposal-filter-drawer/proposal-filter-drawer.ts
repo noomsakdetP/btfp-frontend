@@ -10,14 +10,14 @@ import { MultiSelect } from 'primeng/multiselect';
 import { Select } from 'primeng/select';
 import { DatePicker } from 'primeng-buddhist-year-datepicker';
 import { Drawer } from 'primeng/drawer';
-import { BtfpDrawer, BtfpIcon, DatePickerDefaults } from '../../../shared/ui';
+import { DrawerDefaults, UiIcon, DatePickerDefaults } from '../../../shared/ui';
 
 /**
  * B-21.2 ตัวกรองเพิ่มเติม (Drawer)  Figma: 479:132339
  * หุ่นจำลอง: เปิดที่ /proposals/filters ไม่มีตัวแปรและ logic
  */
 @Component({
-  selector: 'btfp-proposal-filter-drawer',
+  selector: 'p-proposal-filter-drawer',
   imports: [
     RouterLink,
     Button,
@@ -31,8 +31,8 @@ import { BtfpDrawer, BtfpIcon, DatePickerDefaults } from '../../../shared/ui';
     DatePicker,
     Drawer,
     DatePickerDefaults,
-    BtfpDrawer,
-    BtfpIcon,
+    DrawerDefaults,
+    UiIcon,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './proposal-filter-drawer.html',

@@ -1,4 +1,4 @@
-// รวม component กลางของระบบ (prefix btfp-) import จากที่นี่ที่เดียว
+// รวม component กลางของระบบ (prefix p-) import จากที่นี่ที่เดียว
 export * from './status-tag/status-tag';
 export * from './row-actions/row-actions';
 export * from './kpi-card/kpi-card';

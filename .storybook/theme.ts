@@ -5,7 +5,7 @@ import { create } from 'storybook/theming';
  * ใส่เป็นรหัสสีเพราะ Storybook คำนวณสีอ่อนเข้มจากค่านี้ ใช้ CSS variable ไม่ได้
  * ถ้า token เปลี่ยนให้แก้ที่นี่ด้วย
  */
-export const btfpTheme = create({
+export const storybookTheme = create({
   base: 'light',
   brandTitle: 'ระบบบริหารจัดการทุน กทปส.',
   fontBase: "'Sarabun', sans-serif", // --p-font-body

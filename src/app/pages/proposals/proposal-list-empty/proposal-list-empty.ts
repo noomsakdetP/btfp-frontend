@@ -2,18 +2,18 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Button } from 'primeng/button';
 import { Tab, TabList, Tabs } from 'primeng/tabs';
-import { BtfpIcon } from '../../../shared/ui/icon/icon';
-import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/ui';
+import { UiIcon } from '../../../shared/ui/icon/icon';
+import { EmptyState, ExportButton, KpiCard } from '../../../shared/ui';
 
 /**
  * B-21.3 ข้อเสนอโครงการ: ยังไม่มีข้อมูล (Figma: 480:66623)
  *
- * ตัวอย่างการวาง btfp-empty-state ในตาราง ตอนต่อ API ไม่ต้องแยกหน้า
- * ให้แสดง btfp-empty-state แทนตารางในหน้า B-21 เมื่อไม่มีข้อมูล
+ * ตัวอย่างการวาง p-empty-state ในตาราง ตอนต่อ API ไม่ต้องแยกหน้า
+ * ให้แสดง p-empty-state แทนตารางในหน้า B-21 เมื่อไม่มีข้อมูล
  */
 @Component({
-  selector: 'btfp-proposal-list-empty-page',
-  imports: [RouterLink, Button, Tabs, TabList, Tab, BtfpIcon, BtfpEmptyState, BtfpExportButton, BtfpKpiCard],
+  selector: 'p-proposal-list-empty-page',
+  imports: [RouterLink, Button, Tabs, TabList, Tab, UiIcon, EmptyState, ExportButton, KpiCard],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="page-header flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
@@ -23,10 +23,10 @@ import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/u
       </div>
       <div class="flex shrink-0 flex-wrap gap-3">
         <p-button outlined routerLink="/reports">
-          <btfp-icon name="pi-chart-bar" size="18" />
+          <p-ui-icon name="pi-chart-bar" size="18" />
           <span>รายงาน</span>
         </p-button>
-        <btfp-export-button />
+        <p-export-button />
       </div>
     </header>
 
@@ -41,15 +41,15 @@ import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/u
     </p-tabs>
 
     <section class="grid snap-x auto-cols-[minmax(172px,1fr)] grid-flow-col gap-4 overflow-x-auto pb-1">
-      <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="0" caption="รอเจ้าหน้าที่รับเรื่อง" icon="pi-send" />
-      <btfp-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="0" caption="ส่งกลับแก้ไข 0 รายการ" icon="clipboard-check" active />
-      <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="0" caption="รอความเห็นอนุกรรมการ" icon="pi-list-check" />
-      <btfp-kpi-card label="4. สรุปสาระสำคัญ" value="0" caption="เสนอคณะกรรมการบริหารฯ" icon="file-text" />
-      <btfp-kpi-card label="5. ผลการพิจารณา" value="0" caption="อนุมัติ 0 ไม่อนุมัติ 0" icon="pi-check-circle" />
+      <p-kpi-card label="1. ยื่นเสนอโครงการ" value="0" caption="รอเจ้าหน้าที่รับเรื่อง" icon="pi-send" />
+      <p-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="0" caption="ส่งกลับแก้ไข 0 รายการ" icon="clipboard-check" active />
+      <p-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="0" caption="รอความเห็นอนุกรรมการ" icon="pi-list-check" />
+      <p-kpi-card label="4. สรุปสาระสำคัญ" value="0" caption="เสนอคณะกรรมการบริหารฯ" icon="file-text" />
+      <p-kpi-card label="5. ผลการพิจารณา" value="0" caption="อนุมัติ 0 ไม่อนุมัติ 0" icon="pi-check-circle" />
     </section>
 
     <section class="card">
-      <btfp-empty-state
+      <p-empty-state
         type="general"
         title="ยังไม่มีข้อเสนอโครงการ"
         description="เมื่อผู้ขอรับทุนยื่นข้อเสนอในประกาศที่เปิดรับ รายการจะแสดงที่นี่"

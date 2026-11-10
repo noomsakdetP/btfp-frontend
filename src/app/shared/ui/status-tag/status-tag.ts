@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { BtfpIcon } from '../icon/icon';
+import { UiIcon } from '../icon/icon';
 
 /** สีของป้าย ตามชุดสีใน Figma */
-export type BtfpStatusSeverity = 'info' | 'success' | 'warn' | 'danger' | 'secondary' | 'navy' | 'teal' | 'orange';
+export type StatusSeverity = 'info' | 'success' | 'warn' | 'danger' | 'secondary' | 'navy' | 'teal' | 'orange';
 
 /** 14 สถานะของข้อเสนอโครงการ (Figma: Domain/Status Badge, property Status) */
-export type BtfpStatus =
+export type StatusType =
   | 'draft'
   | 'send'
   | 'review'
@@ -22,7 +22,7 @@ export type BtfpStatus =
   | 'closed';
 
 /** สี ไอคอน และข้อความของแต่ละสถานะ ตรงกับ Figma ทุกค่า แก้ที่นี่ที่เดียว */
-export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; icon: string; label: string }> = {
+export const BTFP_STATUS: Record<StatusType, { severity: StatusSeverity; icon: string; label: string }> = {
   draft: { severity: 'secondary', icon: 'pi-pencil', label: 'ฉบับร่าง' },
   send: { severity: 'info', icon: 'pi-send', label: 'ส่งแล้ว รอการตรวจสอบ' },
   review: { severity: 'navy', icon: 'pi-hourglass', label: 'รอการพิจารณา' },
@@ -40,26 +40,26 @@ export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; ico
 };
 
 /**
- * btfp-status-tag : ป้ายสถานะ (Figma: Domain/Status Badge)
+ * p-status-tag : ป้ายสถานะ (Figma: Domain/Status Badge)
  *
  * วิธีใช้ที่แนะนำ: ใส่ status อย่างเดียว ได้สี ไอคอน และข้อความตาม Figma อัตโนมัติ ไม่ต้องเลือกสีเอง
- *   <btfp-status-tag status="review" />                     แสดง "รอการพิจารณา" สี navy
+ *   <p-status-tag status="review" />                     แสดง "รอการพิจารณา" สี navy
  *
  * ใช้กับป้ายอื่นที่ไม่ใช่ 14 สถานะ: ใส่ severity + icon + ข้อความเอง
- *   <btfp-status-tag severity="teal" icon="pi-check-circle">ตรวจแล้ว</btfp-status-tag>
+ *   <p-status-tag severity="teal" icon="pi-check-circle">ตรวจแล้ว</p-status-tag>
  *
  * ขนาดตาม Figma: สูง 32px มุมมน ขอบซ้ายขวา 8px ไอคอน 16px ตัวอักษร Sarabun Medium 14px
  *
  * ทำไมไม่ใช้ p-tag: p-tag มีสีแค่ 6 แบบ แต่ Figma ใช้ 8 ชุด (มี navy, teal, orange) ต้องเขียนสีเองอยู่ดี
  */
 @Component({
-  selector: 'btfp-status-tag',
-  imports: [BtfpIcon],
+  selector: 'p-status-tag',
+  imports: [UiIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[attr.data-severity]': 'resolvedSeverity()' },
   template: `
     @if (resolvedIcon(); as name) {
-      <btfp-icon [name]="name" size="16" />
+      <p-ui-icon [name]="name" size="16" />
     }
     <span class="label"><ng-content>{{ defaultLabel() }}</ng-content></span>
   `,
@@ -84,7 +84,7 @@ export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; ico
       white-space: nowrap;
       vertical-align: middle;
     }
-    :host btfp-icon {
+    :host p-ui-icon {
       display: inline-flex;
       flex-shrink: 0;
     }
@@ -101,12 +101,12 @@ export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; ico
     :host([data-severity='orange']) { --tag-bg: var(--p-orange-50); --tag-border: var(--p-orange-200); --tag-text: var(--p-orange-700); }
   `,
 })
-export class BtfpStatusTag {
+export class StatusTag {
   /** สถานะตาม Figma ใส่แล้วไม่ต้องใส่ severity / icon / ข้อความ */
-  readonly status = input<BtfpStatus>();
+  readonly status = input<StatusType>();
   /** สีของป้าย (ใช้เมื่อไม่ได้ใส่ status หรืออยากเปลี่ยนสี) */
-  readonly severity = input<BtfpStatusSeverity>();
-  /** ชื่อไอคอนของ btfp-icon: pi-ชื่อ (PrimeIcons) หรือชื่อ Icon กลาง */
+  readonly severity = input<StatusSeverity>();
+  /** ชื่อไอคอนของ p-ui-icon: pi-ชื่อ (PrimeIcons) หรือชื่อ Icon กลาง */
   readonly icon = input<string>();
 
   private readonly preset = computed(() => {

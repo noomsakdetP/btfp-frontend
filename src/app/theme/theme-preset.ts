@@ -5,9 +5,9 @@ import Aura from '@primeuix/themes/aura';
  * ธีม PrimeNG ของระบบ กทปส.
  *
  * ใช้ Aura เป็นฐาน แล้วทับค่าด้วย token จาก Figma (ดู src/styles/_tokens.scss)
- * หลักการ: ปรับที่ preset ก่อนเสมอ ถ้าทำไม่ได้จริง ๆ ค่อยเขียน CSS ใน layer "btfp"
+ * หลักการ: ปรับที่ preset ก่อนเสมอ ถ้าทำไม่ได้จริง ๆ ค่อยเขียน CSS ใน layer "app"
  */
-export const BtfpPreset = definePreset(Aura, {
+export const ThemePreset = definePreset(Aura, {
   primitive: {
     borderRadius: {
       none: '0',
@@ -246,7 +246,7 @@ export const BtfpPreset = definePreset(Aura, {
         },
       },
     },
-    // Figma: ตัวกรองที่ใช้อยู่ = DataDisplay/Tag Tone=info + ปุ่มกากบาท 14px (ใส่ template #removeicon เป็น btfp-icon x)
+    // Figma: ตัวกรองที่ใช้อยู่ = DataDisplay/Tag Tone=info + ปุ่มกากบาท 14px (ใส่ template #removeicon เป็น p-ui-icon x)
     chip: {
       root: { borderRadius: '4px', paddingX: '0.5rem', paddingY: '0.25rem', gap: '0.25rem' },
       removeIcon: { size: '0.875rem' },
