@@ -59,7 +59,7 @@ npm run check:tokens      # ต้องผ่านเมื่อเพิ่�
 2. **ใช้ PrimeNG ก่อน** ปรับหน้าตาที่ `src/app/theme/btfp-preset.ts` ไม่เขียน CSS ทับ PrimeNG ถ้าไม่จำเป็น
 3. **ของแต่ละแบบอยู่ที่ไหน** (โค้ดและ Storybook)
    - **PrimeNG มี ปรับแค่ธีม:** ปรับที่ preset แล้วอัปเดตหน้าใน `src/docs/primeng/` (หนึ่งไฟล์ต่อ component มีตาราง Figma กับโค้ด) ไม่มี story แยก
-   - **PrimeNG มี แต่เราเพิ่มความสามารถ:** ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive `btfp*` ใน `src/app/shared/ui/` (เช่น `<p-datepicker btfpDatepicker>`, `<p-drawer btfpDrawer>`) ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG หน้า Storybook อยู่ใน `src/docs/primeng/` พร้อมตัวอย่างเฉพาะส่วนที่เราเพิ่ม
+   - **PrimeNG มี แต่เราเพิ่มความสามารถ:** ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive `btfp*` ใน `src/app/shared/ui/` (เช่น `<p-drawer btfpDrawer>`) ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG หน้า Storybook อยู่ใน `src/docs/primeng/` พร้อมตัวอย่างเฉพาะส่วนที่เราเพิ่ม
    - **PrimeNG ไม่มี:** สร้าง `btfp-*` ใน `src/app/shared/ui/` พร้อม `.stories.ts` (ใส่ `tags: ['autodocs']` และ title `Components/<หมวดตาม Figma>/<ชื่อ>`)
    ทุกตัว export ใน `index.ts`
 4. **สี ระยะ มุมโค้ง** ใช้ CSS variable `--p-*` จาก `src/styles/_tokens.scss` ห้ามใส่รหัสสีตรง
@@ -67,7 +67,7 @@ npm run check:tokens      # ต้องผ่านเมื่อเพิ่�
    ขนาดอื่นตาม Figma (14, 18, 22) หรือชื่อไอคอนส่งผ่าน input ของ component ใช้ `<btfp-icon name="pi-trash" size="18" />` (ชื่อขึ้นต้น `pi-` แสดงเป็น PrimeIcons)
    ตัวที่ PrimeIcons ไม่มี (Icon กลาง ใน Figma `icon/<หมวด>/<ชื่อ>`) ใช้ `<btfp-icon name="bold" size="16" />` ตัวใหม่วาดเพิ่มใน `src/app/theme/central-icons.ts` ตามหลักการในไฟล์นั้น
    ไอคอนในโค้ดต้องตรงกับ Figma ทุกตัว ห้ามใช้ชุดไอคอนอื่น (Lucide ถอดออกแล้ว) ห้ามอัปเกรด `primeicons` เป็น 8 ขึ้นไป (สัญญาอนุญาตเชิงพาณิชย์)
-6. **วันที่** ใช้ `<p-datepicker btfpDatepicker appendTo="body">` เสมอ (แสดงแบบ 1 ม.ค. 2569 ปี พ.ศ. เก็บ ค.ศ.) ข้อความวันที่ในหน้าใช้รูปแบบเดียวกัน ช่วงวันที่เขียน 1 ก.ย. 2569 - 30 ก.ย. 2569
+6. **วันที่** ใช้ `<p-datepicker appendTo="body">` จากแพ็กเกจ `primeng-buddhist-year-datepicker` เสมอ (import `DatePicker` จากแพ็กเกจนี้ ไม่ใช่ `primeng/datepicker` คู่กับ `DatePickerDefaults` จาก shared/ui) (แสดงแบบ 1 ม.ค. 2569 ปี พ.ศ. เก็บ ค.ศ.) ข้อความวันที่ในหน้าใช้รูปแบบเดียวกัน ช่วงวันที่เขียน 1 ก.ย. 2569 - 30 ก.ย. 2569
    **สถานะ** ใช้ `<btfp-status-tag status="review" />` ห้ามเลือกสีเอง (ดู 14 สถานะใน DESIGN.md ข้อ 4)
    **ตัวอักษร** ใช้ class `.btfp-text-h2` `.btfp-text-body-s` ฯลฯ ตาม Text Style ใน Figma
    **ช่องกรอก** ครอบด้วย `.btfp-field` + `.btfp-required` `.btfp-field__helper` `.btfp-field__error` (มีลิงก์ขวาของป้ายชื่อ เช่น ลืมรหัสผ่าน ครอบด้วย `.btfp-field__label-row`)
@@ -93,9 +93,10 @@ npm run check:tokens      # ต้องผ่านเมื่อเพิ่�
 
 ## สิ่งที่ต้องระวัง
 
-- `btfpDatepicker` แทนที่ method ภายในของ PrimeNG DatePicker ถ้าอัปเกรด PrimeNG ต้องทดสอบหน้า Storybook "PrimeNG (ธีม กทปส.)/Forms/DatePicker" ซ้ำ
-  ไม่ใช้แพ็กเกจ `primeng-buddhist-year-datepicker` เพราะเป็นสำเนา DatePicker ของ PrimeNG 21.0.6 ใช้ selector `p-datepicker` ซ้ำกับของ PrimeNG และไม่ได้รับการแก้บั๊กของ PrimeNG รุ่นใหม่
-- directive ที่เติมให้ PrimeNG (`btfpDatepicker`, `btfpDrawer`) ตั้งค่าได้เฉพาะ input แบบเดิมของ PrimeNG input ที่เป็น signal (เช่น `appendTo`, `position`) ต้องใส่เป็น attribute ในหน้าเอง
+- DatePicker ใช้แพ็กเกจ `primeng-buddhist-year-datepicker` ล็อกรุ่น 21.0.2 (ทีม dev ใช้อยู่แล้ว) เป็นสำเนา DatePicker ของ PrimeNG 21.0.6 ใช้แท็ก `p-datepicker` เหมือน PrimeNG ห้าม import คู่กับ `primeng/datepicker` ในหน้าเดียวกัน
+  ไม่ได้รับการแก้บั๊กของ PrimeNG รุ่นหลัง และรองรับ PrimeNG 21 เท่านั้น ถ้าอัปเกรด PrimeNG ต้องเช็กว่าแพ็กเกจมีรุ่นที่รองรับ แล้วทดสอบหน้า Storybook "PrimeNG (ธีม กทปส.)/Forms/DatePicker" ซ้ำ
+  `DatePickerDefaults` (ใน shared/ui) เกาะบนแท็ก `p-datepicker` ตั้งค่าตามระบบ: ปี พ.ศ. รูปแบบ 1 ม.ค. 2569 ไอคอนในช่อง ปุ่มวันนี้/ล้าง
+- directive ที่เติมให้ PrimeNG (`DatePickerDefaults`, `btfpDrawer`) ตั้งค่าได้เฉพาะ input แบบเดิมของ PrimeNG input ที่เป็น signal (เช่น `appendTo`, `position`) ต้องใส่เป็น attribute ในหน้าเอง
 - การโหลดตอนเปลี่ยนเมนูใช้ ngx-ui-loader (`btfpLoaderProviders()` ใน `app.config.ts` หน้าตาตามค่าที่ BA เลือกใน `BTFP_LOADER_CONFIG` สีผูก token `--p-loading-*`) แสดงผลผ่าน `btfp-route-progress` ใน `app.ts` เท่านั้น ห้ามใส่ `<ngx-ui-loader>` ในหน้า
 - การเรียก API ไม่มีตัวโหลดกลาง (ตกลงไม่ใช้วงหมุนมุมขวาล่าง) ให้แสดงสถานะที่ component ที่ผู้ใช้กด: ปุ่มใช้ `<p-button loading>` (กดซ้ำไม่ได้) ตารางใช้แถว `<p-skeleton>` ระหว่างรอข้อมูล ดู Storybook "PrimeNG (ธีม กทปส.)/Feedback/Progress และ Spinner"
 - ไอคอนใน Figma มีสองชุด: PrimeIcons `pi-<ชื่อ>` 313 ตัว (ขยายเต็มกรอบเหมือนฟอนต์จริง) และ Icon กลาง `icon/<หมวด>/<ชื่อ>` 26 ตัว (วาดให้เข้ากับ PrimeIcons) ใช้ชื่อหลัง `/` สุดท้ายกับ `btfp-icon`

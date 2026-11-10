@@ -1,39 +1,39 @@
 import { Directive, OnInit, inject } from '@angular/core';
-import { DatePicker } from 'primeng/datepicker';
-import { BTFP_DATE_FORMAT, BtfpBuddhistEra } from './buddhist-era.directive';
+import { DatePicker } from 'primeng-buddhist-year-datepicker';
 
 /**
- * btfpDatepicker : ตั้งค่า p-datepicker ของ PrimeNG ตามกฎของระบบ (Figma: Forms/DatePicker 4:1571)
+ * รูปแบบวันที่ของระบบ (รูปแบบราชการ) เช่น 1 ม.ค. 2569
+ * ตามรูปแบบของ PrimeNG: d = วันไม่มี 0 นำหน้า, M = ชื่อเดือนย่อจาก TH_LOCALE, yy = ปี 4 หลัก
+ */
+export const BTFP_DATE_FORMAT = 'd M yy';
+
+/**
+ * ค่าเริ่มต้นของช่องเลือกวันที่ตามกฎของระบบ (Figma: Forms/DatePicker)
  *
- * ใช้ p-datepicker ของ PrimeNG ตรง ๆ แล้วใส่ attribute btfpDatepicker เพิ่ม
- * - แสดงปีเป็น พ.ศ. รูปแบบราชการ เช่น 1 ม.ค. 2569 (ผ่าน btfpBuddhistEra)
- * - ค่าใน ngModel / formControl เป็น Date ปกติ (ค.ศ.) ส่ง API ได้เลย
- * - พิมพ์เองได้ทั้ง 1 ม.ค. 2569 และ 1/1/2569
- * - ไอคอนปฏิทินในช่อง, ปุ่ม "วันนี้" และ "ล้าง", ข้อความ "เลือกวันที่", กว้างเต็มช่อง
+ * ใช้คู่กับ DatePicker จากแพ็กเกจ primeng-buddhist-year-datepicker (สำเนา DatePicker ของ PrimeNG ที่แสดงปี พ.ศ. ได้)
+ * เกาะบนแท็ก p-datepicker ทุกตัวในหน้าที่ import ไม่ต้องใส่ attribute เพิ่ม เขียนแบบเอกสาร PrimeNG ได้เลย
  *
- * Mode ตาม Figma
- * - date (ค่าเริ่มต้น)          1 ม.ค. 2569
- * - month: view="month"        ม.ค. 2569 (รูปแบบเปลี่ยนให้เอง)
- * - month-range: view="month" selectionMode="range"  มี.ค. 2569 - มิ.ย. 2569
- *
- * ค่าที่ directive ตั้งให้ ใส่ attribute ทับได้ เช่น placeholder="เลือกวันเริ่มต้น"
- * appendTo ต้องใส่เอง (PrimeNG ไม่ให้ตั้งจากโค้ด) แนะนำ appendTo="body" ทุกครั้ง
+ * ค่าที่ตั้งให้ (ใส่ attribute ทับได้ เช่น placeholder="เลือกวันเริ่มต้น")
+ * - isBudhistYear: แสดงปีเป็น พ.ศ. ค่าใน ngModel / FormControl ยังเป็น Date ค.ศ. ส่ง API ได้เลย
+ * - dateFormat d M yy (1 ม.ค. 2569) เลือกเดือนเป็น M yy เลือกปีเป็น yy
+ * - ไอคอนปฏิทินในช่อง ปุ่ม "วันนี้" และ "ล้าง" ข้อความ "เลือกวันที่" กว้างเต็มช่อง
+ * appendTo ต้องใส่เองในหน้า (PrimeNG ไม่ให้ตั้งจากโค้ด) แนะนำ appendTo="body" ทุกครั้ง
  *
  * @example
- * <p-datepicker btfpDatepicker appendTo="body" inputId="start" [(ngModel)]="startDate" />
- * <p-datepicker btfpDatepicker appendTo="body" formControlName="startDate" [minDate]="today" />
+ * imports: [DatePicker, DatePickerDefaults]   // DatePicker จาก 'primeng-buddhist-year-datepicker'
+ * <p-datepicker appendTo="body" inputId="start" [(ngModel)]="startDate" />
  */
 @Directive({
-  selector: 'p-datepicker[btfpDatepicker], p-datePicker[btfpDatepicker]',
-  hostDirectives: [BtfpBuddhistEra],
+  selector: 'p-datepicker, p-datePicker, p-date-picker',
 })
-export class BtfpDatepicker implements OnInit {
-  // property เหล่านี้ของ PrimeNG 21 เป็น @Input แบบเดิม ตั้งค่าเริ่มต้นได้ และ attribute ในหน้าจะทับทีหลัง
+export class DatePickerDefaults implements OnInit {
+  // property ของ DatePicker เป็น @Input แบบเดิม ตั้งค่าเริ่มต้นได้ และ attribute ในหน้าจะทับทีหลัง
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private readonly dp = inject(DatePicker) as any;
 
   constructor() {
     const dp = this.dp;
+    dp.isBudhistYear = true;
     dp.dateFormat = BTFP_DATE_FORMAT;
     dp.placeholder = 'เลือกวันที่';
     dp.showIcon = true;
@@ -44,7 +44,6 @@ export class BtfpDatepicker implements OnInit {
 
   ngOnInit(): void {
     const dp = this.dp;
-    // เลือกเป็นเดือนหรือปี และหน้าไม่ได้กำหนดรูปแบบเอง ใช้รูปแบบที่ไม่มีวัน
     if (dp.dateFormat === BTFP_DATE_FORMAT) {
       if (dp.view === 'month') dp.dateFormat = 'M yy';
       if (dp.view === 'year') dp.dateFormat = 'yy';

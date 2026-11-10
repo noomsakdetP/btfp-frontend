@@ -3,8 +3,8 @@ import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { moduleMetadata } from '@storybook/angular-vite';
-import { DatePicker } from 'primeng/datepicker';
-import { BtfpDatepicker } from '../../app/shared/ui/datepicker/datepicker';
+import { DatePicker } from 'primeng-buddhist-year-datepicker';
+import { DatePickerDefaults } from '../../app/shared/ui/datepicker/datepicker';
 import { BtfpIcon } from '../../app/shared/ui/icon/icon';
 import { error, helper, primengParameters } from './_shared';
 
@@ -14,12 +14,11 @@ import { error, helper, primengParameters } from './_shared';
  */
 @Component({
   selector: 'btfp-datepicker-demo',
-  imports: [DatePicker, BtfpDatepicker, FormsModule, DatePipe],
+  imports: [DatePicker, DatePickerDefaults, FormsModule, DatePipe],
   template: `
     <div style="width:280px; display:flex; flex-direction:column; gap:8px; min-height:440px">
       <label for="demo-date" style="font-weight:500">{{ label() }}</label>
       <p-datepicker
-        btfpDatepicker
         appendTo="body"
         inputId="demo-date"
         [disabled]="disabled()"
@@ -64,40 +63,40 @@ const meta: Meta<DatepickerDemo> = {
   id: 'primeng-datepicker',
   component: DatepickerDemo,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [DatePicker, BtfpDatepicker, FormsModule, BtfpIcon] })],
+  decorators: [moduleMetadata({ imports: [DatePicker, DatePickerDefaults, FormsModule, BtfpIcon] })],
   parameters: primengParameters(`**Figma:** \`Forms/DatePicker\` (หน้าตาตาม PrimeNG แผงปฏิทินดูได้ที่ \`DatePicker Panel\`)  
-**PrimeNG:** [\`p-datepicker\`](https://primeng.org/datepicker) + \`btfpDatepicker\` ของเรา
+**แพ็กเกจ:** [\`primeng-buddhist-year-datepicker\`](https://github.com/Alexiserist/primeng-buddhist-datepicker) 21.0.2 (สำเนา \`p-datepicker\` ของ PrimeNG 21.0.6 ที่แสดงปี พ.ศ. ได้ ทีม dev ใช้อยู่แล้ว) + \`DatePickerDefaults\` ของเราตั้งค่าตามระบบ
 
-ใช้ \`p-datepicker\` ของ PrimeNG ตรง ๆ แล้วใส่ attribute \`btfpDatepicker\` เพิ่ม ส่วนที่เราเพิ่มจาก PrimeNG มีอย่างเดียวคือ **ปี พ.ศ.**
+เขียน \`<p-datepicker>\` แบบเอกสาร PrimeNG ได้เลย ไม่ต้องใส่ attribute เพิ่ม
 
-- ผู้ใช้เห็นรูปแบบราชการ เช่น 1 ม.ค. 2569 (ปี พ.ศ.) พิมพ์เองได้ทั้ง 1 ม.ค. 2569 และ 1/1/2569
+- ผู้ใช้เห็นรูปแบบราชการ เช่น 1 ม.ค. 2569 (ปี พ.ศ.) พิมพ์เองได้ในรูปแบบเดียวกัน (1 ม.ค. 2569)
 - ค่าใน ngModel / FormControl เป็น \`Date\` ปกติ (ค.ศ.) ส่ง API ได้เลย
 - หัวปฏิทินและตารางเลือกปีเป็น พ.ศ. ด้วย
-- ตั้งค่าตามระบบให้: ไอคอนปฏิทินในช่อง ปุ่ม "วันนี้" และ "ล้าง" ข้อความ "เลือกวันที่" กว้างเต็มช่อง
+- \`DatePickerDefaults\` ตั้งค่าตามระบบให้: เปิดปี พ.ศ. (\`isBudhistYear\`) ไอคอนปฏิทินในช่อง ปุ่ม "วันนี้" และ "ล้าง" ข้อความ "เลือกวันที่" กว้างเต็มช่อง
 
 **วิธีใช้**
 
 \`\`\`ts
-import { DatePicker } from 'primeng/datepicker';
-import { BtfpDatepicker } from '../../shared/ui';
+import { DatePicker } from 'primeng-buddhist-year-datepicker';   // ไม่ใช่ 'primeng/datepicker'
+import { DatePickerDefaults } from '../../shared/ui';
 
-@Component({ imports: [DatePicker, BtfpDatepicker] })
+@Component({ imports: [DatePicker, DatePickerDefaults] })
 \`\`\`
 
 | Figma | ในโค้ด |
 | --- | --- |
-| Mode=date | \`<p-datepicker btfpDatepicker appendTo="body" inputId="start" [(ngModel)]="startDate" />\` แสดง 1 ม.ค. 2569 |
+| Mode=date | \`<p-datepicker appendTo="body" inputId="start" [(ngModel)]="startDate" />\` แสดง 1 ม.ค. 2569 |
 | Mode=month | เพิ่ม \`view="month"\` แสดง ม.ค. 2569 (รูปแบบเปลี่ยนให้เอง) |
 | Mode=month-range | เพิ่ม \`view="month" selectionMode="range"\` แสดง มี.ค. 2569 - มิ.ย. 2569 ค่าเป็น \`[Date, Date]\` |
 | State=hover, focus | PrimeNG ทำให้เองเมื่อชี้หรือคลิก |
 | State=open | กดที่ช่อง (ดูหน้าตาแผงในตัวอย่าง "แผงปฏิทิน" ด้านล่าง) |
 | State=disabled | \`disabled\` หรือ \`[disabled]="true"\` |
 | State=error | \`invalid\` (ฟอร์มจริงใส่ \`ng-invalid ng-dirty\` ให้เอง) + \`<p class="btfp-field__error">\` แทนข้อความช่วย |
-| หน้าหุ่นจำลอง (ไม่มี binding) | \`<p-datepicker btfpDatepicker appendTo="body" inputId="start" />\` |
+| หน้าหุ่นจำลอง (ไม่มี binding) | \`<p-datepicker appendTo="body" inputId="start" />\` |
 
 \`appendTo="body"\` ต้องใส่เองทุกครั้ง (PrimeNG ไม่ให้ตั้งจากโค้ด) ไม่งั้นปฏิทินโดนตัดเมื่ออยู่ใน Drawer หรือกล่องที่เลื่อนได้
 
-**ทดสอบทุกครั้งที่อัปเกรด PrimeNG** \`btfpDatepicker\` แทนที่ method ภายในของ DatePicker (formatDate, parseDate, getYear, yearPickerValues, onYearSelect) เปิดตัวอย่างด้านล่างทุกตัว เลือกวัน พิมพ์วันที่ และเปลี่ยนปี ทดสอบกับ PrimeNG 21.1 แล้ว
+**ข้อควรรู้ของแพ็กเกจ:** เป็นสำเนาโค้ดของ PrimeNG 21.0.6 บั๊กที่ PrimeNG แก้ในรุ่นหลังจะไม่มีจนกว่าเจ้าของแพ็กเกจจะอัปเดต รองรับ PrimeNG 21 เท่านั้น ถ้าอัปเกรด PrimeNG ต้องเช็กว่าแพ็กเกจมีรุ่นที่รองรับ แล้วเปิดตัวอย่างด้านล่างทดสอบซ้ำ (เลือกวัน พิมพ์วันที่ เปลี่ยนปี) อย่า import \`DatePicker\` จาก \`primeng/datepicker\` คู่กันในหน้าเดียวกัน เพราะใช้ชื่อแท็กเดียวกัน
 `),
   argTypes: {
     initial: { control: 'text', description: 'ค่าเริ่มต้น yyyy-mm-dd (ค.ศ.)' },
@@ -120,7 +119,7 @@ export const Disabled: Story = { name: 'ปิดการใช้งาน', a
 
 /** ฟิลด์ตาม Figma: ป้ายชื่อ + ช่อง + ข้อความช่วยหรือข้อความผิดพลาด */
 const dpField = (id: string, label: string, attrs: string, foot = helper('รองรับปีพุทธศักราช (พ.ศ.)')) =>
-  `<div class="btfp-field" style="width:336px;max-width:100%"><label for="${id}">${label}<span class="btfp-required" aria-hidden="true">*</span></label><p-datepicker btfpDatepicker appendTo="body" inputId="${id}" ${attrs} />${foot}</div>`;
+  `<div class="btfp-field" style="width:336px;max-width:100%"><label for="${id}">${label}<span class="btfp-required" aria-hidden="true">*</span></label><p-datepicker appendTo="body" inputId="${id}" ${attrs} />${foot}</div>`;
 
 export const States: Story = {
   name: 'สถานะตาม Figma (State)',
@@ -155,10 +154,10 @@ export const Panels: Story = {
   render: () => ({
     props: { day: new Date(2026, 8, 29), month: new Date(2026, 8, 1), range: [new Date(2026, 2, 1), new Date(2026, 5, 1)], year: new Date(2026, 0, 1) },
     template: `<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
-      <div><p class="btfp-field__helper">View=date</p><p-datepicker btfpDatepicker [inline]="true" [(ngModel)]="day" /></div>
-      <div><p class="btfp-field__helper">View=month</p><p-datepicker btfpDatepicker [inline]="true" view="month" [(ngModel)]="month" /></div>
-      <div><p class="btfp-field__helper">View=month-range</p><p-datepicker btfpDatepicker [inline]="true" view="month" selectionMode="range" [(ngModel)]="range" /></div>
-      <div><p class="btfp-field__helper">View=year</p><p-datepicker btfpDatepicker [inline]="true" view="year" [(ngModel)]="year" /></div>
+      <div><p class="btfp-field__helper">View=date</p><p-datepicker [inline]="true" [(ngModel)]="day" /></div>
+      <div><p class="btfp-field__helper">View=month</p><p-datepicker [inline]="true" view="month" [(ngModel)]="month" /></div>
+      <div><p class="btfp-field__helper">View=month-range</p><p-datepicker [inline]="true" view="month" selectionMode="range" [(ngModel)]="range" /></div>
+      <div><p class="btfp-field__helper">View=year</p><p-datepicker [inline]="true" view="year" [(ngModel)]="year" /></div>
     </div>`,
   }),
 };

@@ -128,7 +128,7 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 
 ของแต่ละแบบอยู่ที่ไหน
 - **PrimeNG มี ปรับแค่ธีม:** ปรับที่ preset หน้า Storybook อยู่ในหมวด PrimeNG (ธีม กทปส.) ไม่มี story แยก
-- **PrimeNG มี แต่เราเพิ่มความสามารถ:** ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive เช่น `<p-datepicker btfpDatepicker>` (ปี พ.ศ.) `<p-drawer btfpDrawer>` หน้า Storybook อยู่ในหมวด PrimeNG พร้อมตัวอย่างเฉพาะส่วนที่เพิ่ม ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG
+- **PrimeNG มี แต่เราเพิ่มความสามารถ:** ใช้ tag ของ PrimeNG ตรง ๆ แล้วเติมด้วย directive เช่น `<p-drawer btfpDrawer>` หน้า Storybook อยู่ในหมวด PrimeNG พร้อมตัวอย่างเฉพาะส่วนที่เพิ่ม ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG
 - **PrimeNG ไม่มี:** สร้าง `btfp-*` อยู่ในหมวด Components ของ Storybook
 
 ### 3.1 พื้นฐาน
@@ -143,7 +143,7 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 | Forms/Select | `p-select` | PrimeNG | |
 | Forms/MultiSelect | `p-multiselect` | PrimeNG | `display="chip"` |
 | Forms/Autocomplete | `p-autocomplete` | PrimeNG | |
-| Forms/DatePicker | `p-datepicker` + `btfpDatepicker` | ทำแล้ว | แสดงแบบ 1 ม.ค. 2569 (พ.ศ.) เก็บ ค.ศ. Mode month = `view="month"` (ม.ค. 2569) month-range = `view="month" selectionMode="range"` error = `invalid` แผงปฏิทินกว้าง 280px ตาม Figma DatePicker Panel |
+| Forms/DatePicker | `p-datepicker` จากแพ็กเกจ `primeng-buddhist-year-datepicker` + `DatePickerDefaults` | ทำแล้ว | แสดงแบบ 1 ม.ค. 2569 (พ.ศ.) เก็บ ค.ศ. Mode month = `view="month"` (ม.ค. 2569) month-range = `view="month" selectionMode="range"` error = `invalid` แผงปฏิทินกว้าง 280px ตาม Figma DatePicker Panel |
 | Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber inputStyleClass="btfp-input-money"` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง ตัวเลขชิดขวา หน้าหุ่นจำลองใช้ `<input pInputText class="btfp-input-money">` |
 | Forms/OtpInput | `p-inputotp` | PrimeNG | |
 | Forms/SearchField | `p-iconfield` + `p-inputicon` + `pInputText` | PrimeNG | |

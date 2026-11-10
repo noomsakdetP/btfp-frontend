@@ -8,9 +8,9 @@ import { InputGroupAddon } from 'primeng/inputgroupaddon';
 import { InputText } from 'primeng/inputtext';
 import { MultiSelect } from 'primeng/multiselect';
 import { Select } from 'primeng/select';
-import { DatePicker } from 'primeng/datepicker';
+import { DatePicker } from 'primeng-buddhist-year-datepicker';
 import { Drawer } from 'primeng/drawer';
-import { BtfpDatepicker, BtfpDrawer, BtfpIcon } from '../../../shared/ui';
+import { BtfpDrawer, BtfpIcon, DatePickerDefaults } from '../../../shared/ui';
 
 /**
  * B-21.2 ตัวกรองเพิ่มเติม (Drawer)  Figma: 479:132339
@@ -30,7 +30,7 @@ import { BtfpDatepicker, BtfpDrawer, BtfpIcon } from '../../../shared/ui';
     Select,
     DatePicker,
     Drawer,
-    BtfpDatepicker,
+    DatePickerDefaults,
     BtfpDrawer,
     BtfpIcon,
   ],
