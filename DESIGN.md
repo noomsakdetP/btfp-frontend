@@ -106,8 +106,16 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 
 ### 2.5 ไอคอน
 
-Lucide ทั้งหมด 118 ตัว (Figma `icon/<หมวด>/<ชื่อ>`) เส้นหนา 1.5 ขนาด 16px ลงมาใช้ 1.25 สีตามข้อความรอบข้าง ไอคอนที่ลงทะเบียนในโค้ดแล้วดูได้ที่ Storybook > Foundations > ไอคอน
-ใช้ใน code: `<btfp-icon name="eye" size="16" />` ชื่อที่ Lucide เปลี่ยนแล้วดูใน `CLAUDE.md`
+มีสองชุด สีตามข้อความรอบข้างทั้งคู่ ขนาด 16, 20, 24 px
+
+| ชุด | ใน Figma | ในโค้ด | ใช้เมื่อ |
+| --- | --- | --- | --- |
+| **PrimeIcons 7.0.0** (313 ตัว สัญญาอนุญาต MIT) | `pi-<ชื่อ>` เลือก size 16/20/24 | `<i class="pi pi-<ชื่อ>"></i>` ขนาดใช้ Tailwind `text-base` (16) `text-xl` (20) `text-2xl` (24) | ใช้ก่อนเสมอ ค้นชื่อที่ https://primeng.org/icons |
+| **Icon กลาง** (31 ตัว วาดแบบ Lucide เส้นหนา 1.5) | `icon/<หมวด>/<ชื่อ>` | `<btfp-icon name="<ชื่อ>" size="16" />` | เฉพาะตัวที่ PrimeIcons ไม่มี เช่น bold, italic, radio-tower, milestone |
+
+ห้ามอัปเกรด `primeicons` เป็นเวอร์ชัน 8 ขึ้นไป (เป็นสัญญาอนุญาตเชิงพาณิชย์) ใน `package.json` ล็อกไว้ที่ `7.0.0`
+
+**ช่วงเปลี่ยนผ่าน:** Figma เปลี่ยนเป็น PrimeIcons ทั้งไฟล์แล้ว แต่หน้าและ component ที่ทำไปแล้วในโค้ดยังใช้ `btfp-icon` (Lucide) อยู่ จะย้ายเป็น PrimeIcons ทีละส่วน ชื่อที่เปลี่ยน เช่น trash-2 เป็น pi-trash, x เป็น pi-times, settings เป็น pi-cog, mail เป็น pi-envelope, circle-help เป็น pi-question-circle
 
 ---
 

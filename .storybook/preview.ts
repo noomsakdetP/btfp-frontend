@@ -5,6 +5,7 @@ import '@fontsource/sarabun/600.css';
 import '@fontsource/ibm-plex-sans-thai/500.css';
 import '@fontsource/ibm-plex-sans-thai/600.css';
 import '@fontsource/ibm-plex-sans-thai/700.css';
+import 'primeicons/primeicons.css';
 import '../src/tailwind.css';
 import '../src/styles.scss';
 import './docs.css';

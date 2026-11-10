@@ -36,6 +36,7 @@
               "node_modules/@fontsource/ibm-plex-sans-thai/500.css",
               "node_modules/@fontsource/ibm-plex-sans-thai/600.css",
               "node_modules/@fontsource/ibm-plex-sans-thai/700.css",
+              "node_modules/primeicons/primeicons.css",
               "src/tailwind.css",
               "src/styles.scss"
             ]

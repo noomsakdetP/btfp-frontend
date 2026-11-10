@@ -6,7 +6,7 @@
 - **PrimeNG 21** ธีม Aura ปรับด้วย preset จาก Figma token
 - **Tailwind CSS 4** + `tailwindcss-primeui` (ปลั๊กอินทางการของ PrimeNG) สำหรับ Responsive Layout
 - **Storybook 10** สำหรับดู component และหน้าตัวอย่าง
-- ไอคอน **Lucide** ชุดเดียวกับ Figma
+- ไอคอน **PrimeIcons 7.0.0** ชุดเดียวกับ Figma (ไอคอนที่ PrimeIcons ไม่มีอยู่ใน Icon กลาง ผ่าน `btfp-icon`)
 - ฟอนต์ **Sarabun** (เนื้อหา) และ **IBM Plex Sans Thai** (หัวข้อ)
 
 หน้าที่ทำแล้ว
@@ -35,16 +35,20 @@
 
 ## เริ่มใช้งาน
 
-ต้องมี Node.js 20.19 ขึ้นไป (แนะนำ 22 LTS)
+ต้องมี Node.js 22 LTS (ระบุไว้ในไฟล์ `.nvmrc` ถ้าใช้ nvm รัน `nvm use` ในโฟลเดอร์โปรเจกต์ได้เลย ส่วน nvm-windows ไม่อ่าน `.nvmrc` ให้รัน `nvm use 22`) ใช้ 20.19 หรือ 24 ก็ได้ แต่ทีมใช้ 22 เป็นหลัก
 
 ```bash
-npm install
+npm ci                    # ติดตั้งแพ็กเกจตาม package-lock.json ทุกเครื่องได้เวอร์ชันเดียวกัน
 npm start                 # เปิดแอปที่ http://localhost:4200
 npm run storybook         # เปิด Storybook ที่ http://localhost:6006
 npm run build             # build แอปไว้ที่ dist/
 npm run build-storybook   # build Storybook ไว้ที่ storybook-static/
 npm run check:tokens      # ตรวจว่าชื่อ token ชนกับตัวแปรของ PrimeNG ไหม (รันเมื่อเพิ่ม token หรืออัปเกรด PrimeNG)
 ```
+
+**ใช้ `npm ci` ไม่ใช้ `npm install`** ตอน clone ครั้งแรก หลัง `git pull` และหลังสลับ branch
+`npm ci` ลบ `node_modules` แล้วติดตั้งใหม่ตรงตาม `package-lock.json` ไม่แก้ lock file เอง ส่วน `npm install <ชื่อแพ็กเกจ>` ใช้เฉพาะตอนตั้งใจเพิ่มหรืออัปเดตแพ็กเกจ แล้ว commit `package-lock.json` ด้วย
+ถ้า `npm ci` ขึ้น `EPERM` ให้ปิด `npm start`, `npm run storybook` และ terminal ใน VS Code ก่อน (Windows ล็อกไฟล์ที่เปิดใช้อยู่)
 
 **เครื่อง Windows ที่บริษัทบล็อก PowerShell script:** ให้เปิด **Command Prompt (cmd)** แล้วรันคำสั่งเดิม ไม่ต้องใช้ PowerShell
 
@@ -85,7 +89,7 @@ src/
 
 | Component | ใช้แทน / สร้างบน | Figma |
 | --- | --- | --- |
-| `btfp-icon` | ไอคอน Lucide | icon/* |
+| `btfp-icon` | ไอคอนที่ PrimeIcons ไม่มี (Icon กลาง) และไอคอนเดิมที่ยังไม่ได้ย้าย (Lucide) | icon/* |
 | `btfp-status-tag` | เขียนเอง (สีเกินที่ `p-tag` มี) ใส่ `status="review"` ได้ครบ 14 สถานะ | Domain/Status Badge |
 | `btfp-row-actions` | `p-button` + `p-confirmdialog` | Domain/Table Row Actions |
 | `btfp-kpi-card` | เขียนเอง (PrimeNG ไม่มี) | Domain/KPI Stat Card |
@@ -168,6 +172,7 @@ git clone <URL ของโปรเจกต์บน GitLab>
 
 - Figma: ไฟล์ `pGyEKPXYJ054QjRLVHu2FD` หน้า Back-end, B-01 = node `60:7997`
 - PrimeNG 21: https://primeng.org
-- Lucide icons: https://lucide.dev/icons
+- PrimeIcons 7.0.0: https://primeng.org/icons (ห้ามอัปเกรดเป็น 8 ขึ้นไป เป็นสัญญาอนุญาตเชิงพาณิชย์)
+- Lucide icons (Icon กลาง): https://lucide.dev/icons
 - แนวทางการออกแบบ (สี ตัวอักษร component สถานะ รูปแบบหน้า) อยู่ใน `DESIGN.md`
 - คำแนะนำสำหรับ Claude Code อยู่ใน `CLAUDE.md`

@@ -26,7 +26,7 @@
     "@primeuix/themes": "^3.1.0",
     "lucide": "^1.66.0",
     "ngx-ui-loader": "^19.0.0",
-    "primeicons": "^8.0.2",
+    "primeicons": "7.0.0",
     "primeng": "^21.1.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
@@ -55,5 +55,8 @@
     "typescript": "~5.9.2",
     "vite": "^7.0.0",
     "vitest": "^4.0.8"
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || ^24.0.0"
   }
 }
