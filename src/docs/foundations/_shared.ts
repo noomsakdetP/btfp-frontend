@@ -40,7 +40,7 @@ export const PALETTES = ['blue', 'navy', 'teal', 'gray', 'red', 'orange', 'green
 export const STEPS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 export const SEMANTIC: [string, string][] = [
-  ['--p-bg-default', 'white'], ['--p-bg-subtle', 'gray/50'], ['--p-bg-inverse', 'navy/900'], ['--p-surface-raised', 'white'],
+  ['--p-bg-default', 'white'], ['--p-bg-subtle', 'gray/50'], ['--p-bg-inverse', 'navy/900'], ['--p-surface-raised', 'white'], ['--p-overlay-mask', 'bg/inverse 55%'],
   ['--p-text-primary', 'gray/800'], ['--p-text-secondary', 'gray/600'], ['--p-text-disabled', 'gray/400'], ['--p-text-heading', 'navy/900'], ['--p-text-inverse', 'white'],
   ['--p-border-default', 'gray/200'], ['--p-border-strong', 'gray/400'],
   ['--p-action-primary', 'blue/600'], ['--p-action-primary-hover', 'blue/700'], ['--p-action-primary-pressed', 'blue/800'], ['--p-action-primary-disabled', 'gray/300'],

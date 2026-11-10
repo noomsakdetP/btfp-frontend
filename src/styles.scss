@@ -28,9 +28,10 @@
   }
 
   // ไอคอน svg ของ PrimeNG ตั้งไว้ 14px ปรับเป็น 16 ตาม Figma
-  // 1. ลูกศรลง (chevron-down) ทุกที่
+  // 1. ลูกศรลงและลูกศรขึ้น (chevron-down, chevron-up) ทุกที่
   // 2. ไอคอนในช่องกรอก (ลูกศร ปฏิทิน วงหมุนตอนโหลด) และปุ่มเลื่อนเดือนในปฏิทิน ยกเว้นปุ่มลบในชิป (14 ตาม Figma)
   svg[data-p-icon='chevron-down'],
+  svg[data-p-icon='chevron-up'],
   :is(.p-select, .p-multiselect, .p-autocomplete, .p-datepicker, .p-inputnumber) svg.p-icon:not(:is(.p-chip, .p-autocomplete-chip, .p-multiselect-chip) *),
   .p-datepicker-header svg.p-icon {
     width: 16px;

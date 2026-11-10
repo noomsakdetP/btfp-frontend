@@ -22,7 +22,14 @@ import compodocJson from '../documentation.json';
 
 (globalThis as { __STORYBOOK_COMPODOC_JSON__?: unknown }).__STORYBOOK_COMPODOC_JSON__ = compodocJson;
 
+/** output (event) ของ component ไม่มีค่าให้ลอง ซ่อนช่อง Control ไว้ เหลือแค่ชื่อและคำอธิบายในตาราง */
+const hideOutputControls: NonNullable<Preview['argTypesEnhancers']>[number] = ({ argTypes }) =>
+  Object.fromEntries(
+    Object.entries(argTypes).map(([name, argType]) => [name, argType.table?.category === 'outputs' ? { ...argType, control: false } : argType]),
+  );
+
 const preview: Preview = {
+  argTypesEnhancers: [hideOutputControls],
   decorators: [
     // ใช้ธีม PrimeNG, ภาษาไทย, ไอคอน, ConfirmationService และตัวโหลด ชุดเดียวกับแอปจริง
     applicationConfig({

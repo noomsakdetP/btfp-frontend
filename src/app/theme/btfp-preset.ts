@@ -52,6 +52,10 @@ export const BtfpPreset = definePreset(Aura, {
       sm: { fontSize: '0.875rem', paddingX: '0.75rem', paddingY: '0.25rem' },
       lg: { fontSize: '1rem', paddingX: '1rem', paddingY: '0.6875rem' },
     },
+    // ชั้นทับหลัง Drawer, Dialog, ป๊อปอัปยืนยัน ใช้ token ของระบบ (Aura ใช้ดำโปร่ง 40%)
+    mask: {
+      background: 'var(--p-overlay-mask)',
+    },
     colorScheme: {
       light: {
         // Figma: color/cool-gray/*
