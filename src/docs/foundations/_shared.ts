@@ -48,6 +48,13 @@ export const SEMANTIC: [string, string][] = [
   ['--p-icon-default', 'gray/600'], ['--p-icon-subtle', 'gray/400'], ['--p-icon-strong', 'navy/900'], ['--p-icon-brand', 'blue/500'], ['--p-icon-action', 'blue/600'], ['--p-icon-disabled', 'gray/300'],
 ];
 export const FEEDBACK = ['success', 'warning', 'danger', 'info'];
+/** สีของตัวโหลด (btfp-route-progress / ngx-ui-loader) */
+export const LOADING: [string, string][] = [
+  ['--p-loading-spinner', 'action/primary'],
+  ['--p-loading-background', 'action/primary'],
+  ['--p-loading-overlay', 'bg/inverse 80%'],
+  ['--p-loading-text', 'text/inverse'],
+];
 
 export const TYPE: [string, string, string][] = [
   ['btfp-text-display-xl', 'Display/XL', 'IBM Plex Sans Thai Bold 60/120%'],
@@ -78,6 +85,18 @@ export const primitivesTpl = () =>
   ).join('');
 
 export const semanticTpl = () => grid(170, SEMANTIC.map(([n, a]) => `<sb-token name="${n}" alias="${a}" />`).join(''));
+
+export const loadingTpl = () =>
+  `<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:24px;align-items:start">` +
+  grid(150, LOADING.map(([n, a]) => `<sb-token name="${n}" alias="${a}" />`).join('')) +
+  `<div style="position:relative;height:220px;overflow:hidden;border-radius:var(--p-radius-card);border:1px solid var(--p-border-default);background:var(--p-bg-subtle)">
+     <div style="padding:24px;filter:blur(3px)"><p class="btfp-text-h4" style="margin:0">ข้อเสนอโครงการ</p><p class="btfp-text-body-s" style="margin:4px 0 0">เนื้อหาหน้าเดิม</p></div>
+     <div style="position:absolute;inset:0 0 auto;height:3px;width:40%;background:var(--p-loading-spinner)"></div>
+     <div style="position:absolute;inset:0;display:grid;place-items:center;background:var(--p-loading-overlay)">
+       <div style="display:flex;gap:6px;height:56px;align-items:center">${[1, 0.6, 1, 0.6, 1].map((h) => `<i style="display:block;width:8px;height:${h * 100}%;background:var(--p-loading-spinner)"></i>`).join('')}</div>
+     </div>
+     <div style="position:absolute;right:16px;bottom:16px;width:32px;height:32px;border-radius:50%;border:4px solid var(--p-loading-background);border-right-color:transparent;opacity:.5"></div>
+   </div></div>`;
 
 export const feedbackTpl = () =>
   grid(

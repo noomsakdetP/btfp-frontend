@@ -9,9 +9,9 @@ export type BtfpRouteProgressDemo = '' | 'foreground' | 'background';
  * ใส่ครั้งเดียวที่ app.ts ทุกหน้าได้ทันที หน้าหุ่นจำลองไม่ต้องทำอะไร
  * ภายในคือ <ngx-ui-loader> หน้าตาตั้งค่าใน loader-providers.ts (BTFP_LOADER_CONFIG) สีจาก token --p-loading-*
  *
- * - เปลี่ยนเมนู (NgxUiLoaderRouterModule) = foreground: แถบบน + ชั้นทับเทาเข้ม + แท่งเด้งกลางจอ
+ * - เปลี่ยนเมนู (NgxUiLoaderRouterModule) = foreground: แถบบน + ชั้นทับพื้นเข้ม + แท่งเด้งกลางจอ
  *   หน้าเดิมเบลอเมื่อครอบด้วย ngxUiLoaderBlurred (ทำไว้แล้วใน app.ts)
- * - เรียก API ผ่าน HttpClient (NgxUiLoaderHttpModule) = background: แถบบน + วงหมุนมุมขวาล่าง ไม่บังหน้าจอ
+ * - เรียก API ผ่าน HttpClient (NgxUiLoaderHttpModule) = background: วงหมุนมุมขวาล่างอย่างเดียว ไม่บังหน้าจอ
  * - หยุดหรือเริ่มเองได้ผ่าน NgxUiLoaderService เช่น loader.start('save') และ loader.stop('save')
  *
  * @example

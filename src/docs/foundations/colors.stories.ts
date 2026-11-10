@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
-import { foundationImports, feedbackTpl, primitivesTpl, semanticTpl } from './_shared';
+import { foundationImports, feedbackTpl, loadingTpl, primitivesTpl, semanticTpl } from './_shared';
 
 const meta: Meta = {
   title: "Foundations/สี",
@@ -36,6 +36,12 @@ export const Feedback: StoryObj = {
   name: "Feedback",
   parameters: { docs: { description: { story: `สถานะสำเร็จ เตือน ผิดพลาด ข้อมูล แต่ละแบบมีพื้น ข้อความ เส้นขอบ (ป้ายสถานะ 14 แบบใช้ \`btfp-status-tag\`)` } } },
   render: () => ({ template: feedbackTpl() }),
+};
+
+export const Loading: StoryObj = {
+  name: "Loading",
+  parameters: { docs: { description: { story: `สีของตัวโหลดตอนเปลี่ยนเมนูและเรียก API (\`btfp-route-progress\` ใช้ ngx-ui-loader) ผูกกับ semantic ของระบบ ภาพขวาเป็นภาพจำลองนิ่ง ดูตัวจริงที่ Components > Feedback > Route Progress` } } },
+  render: () => ({ template: loadingTpl() }),
 };
 
 export const Primitives: StoryObj = {

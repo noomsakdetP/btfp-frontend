@@ -165,7 +165,7 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 | Domain/Status Badge | `btfp-status-tag` | ทำแล้ว | ครบ 14 สถานะ ใส่ `status="review"` ได้สี ไอคอน ข้อความตาม Figma ดูข้อ 4 |
 | Domain/KPI Stat Card | `btfp-kpi-card` | ทำแล้ว | Tone และ Trend ยังไม่ทำ |
 | Domain/Table Header Cell, Table Cell, Data Table | `.btfp-table` ใน `styles.scss` + `__money` (จำนวนเงิน ชิดขวา) `__check` `__actions` `__2line` (ต่อ API ใช้ `p-table` หรือ `@for`) | ทำแล้ว | แถว 56 px บรรทัดเดียว Storybook: Components/Data Display/Table ยังไม่มี Sort, skeleton |
-| Feedback/Progress Bar, Feedback/Loading Spinner | `p-progressbar` `p-progressspinner` (สีใน preset) + `btfp-route-progress` ใน `app.ts` | ทำแล้ว | โหลดหน้าและ API ใช้ ngx-ui-loader ตามค่าที่ BA เลือก (`BTFP_LOADER_CONFIG`): เปลี่ยนเมนูแถบบน 3px + ชั้นทับเทาเข้มเบลอ + แท่งเด้งกลางจอ, เรียก API แถบบน + วงหมุนมุมขวาล่าง แสดงอย่างน้อย 300 ms |
+| Feedback/Progress Bar, Feedback/Loading Spinner | `p-progressbar` `p-progressspinner` (สีใน preset) + `btfp-route-progress` ใน `app.ts` | ทำแล้ว | โหลดหน้าและ API ใช้ ngx-ui-loader ตามค่าที่ BA เลือก (`BTFP_LOADER_CONFIG`): สีจาก token `--p-loading-*` (ผูก `--p-action-primary` `--p-bg-inverse` `--p-text-inverse`) เปลี่ยนเมนูแถบบน 3px + ชั้นทับพื้นเข้มเบลอ + แท่งเด้งกลางจอ, เรียก API วงหมุนมุมขวาล่าง แสดงอย่างน้อย 300 ms |
 | Domain/Table Row Actions | `btfp-row-actions` | ทำแล้ว | ดู แก้ไข ลบ ลบต้องยืนยัน |
 | Domain/Empty State | `btfp-empty-state` | ทำแล้ว | 4 แบบ: general, no-results, no-files, error |
 | Domain/Modal | `p-dialog` | ต้องทำ | Size S/M/L ห้ามใช้กับฟอร์มเนื้อหา |

@@ -2,9 +2,10 @@ import { EnvironmentProviders, importProvidersFrom } from '@angular/core';
 import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 
 /**
- * ค่าหน้าตาของ ngx-ui-loader ที่ BA เลือก (สีผูก token ใน _tokens.scss แทนรหัสสี)
- * - เปลี่ยนเมนู (foreground): แถบบน 3px + ชั้นทับเทาเข้ม เบลอหน้าเดิม 3px + แท่งเด้ง 80px กลางจอ
- * - เรียก API (background): แถบบน + วงหมุน 60px มุมขวาล่าง โปร่ง 50%
+ * ค่าหน้าตาของ ngx-ui-loader ที่ BA เลือก สีใช้ token --p-loading-* ใน _tokens.scss ซึ่งผูกกับ semantic ของระบบ
+ * (ค่าตัวเลขเป็น px ที่ ngx-ui-loader รับได้เท่านั้น gap 24 = --p-space-lg)
+ * - เปลี่ยนเมนู (foreground): แถบบน 3px + ชั้นทับพื้นเข้มของระบบ เบลอหน้าเดิม 3px + แท่งเด้ง 80px กลางจอ
+ * - เรียก API (background): วงหมุน 60px มุมขวาล่าง โปร่ง 50%
  * - แสดงอย่างน้อย 300 ms ไม่มีหน่วงก่อนขึ้น
  */
 export const BTFP_LOADER_CONFIG: NgxUiLoaderConfig = {
@@ -42,7 +43,7 @@ export const BTFP_LOADER_CONFIG: NgxUiLoaderConfig = {
  * ตั้งค่า ngx-ui-loader ให้ btfp-route-progress ใช้ (ใส่ใน app.config.ts ครั้งเดียว)
  *
  * - เปลี่ยนเมนู = foreground (แถบ + ชั้นทับ + แท่งเด้งกลางจอ)
- * - เรียก API = background (แถบ + วงหมุนมุมขวาล่าง) ต้องมี provideHttpClient(withInterceptorsFromDi()) ด้วย
+ * - เรียก API = background (วงหมุนมุมขวาล่าง) ต้องมี provideHttpClient(withInterceptorsFromDi()) ด้วย
  *   ถ้า API ไหนไม่ต้องแสดงโหลด (เช่น เช็กแจ้งเตือนทุก 30 วินาที) ใส่ใน exclude
  */
 export function btfpLoaderProviders(): EnvironmentProviders {
