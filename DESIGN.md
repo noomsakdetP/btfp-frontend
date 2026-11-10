@@ -108,6 +108,8 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 
 มีสองชุด สีตามข้อความรอบข้างทั้งคู่ ขนาด 16, 20, 24 px
 
+ลูกศรลง `pi-chevron-down` ใช้ขนาด 16 ทุกที่ (ช่องเลือก ปุ่มเมนู หัว accordion) ลูกศรใน PrimeNG ตั้งเป็น 16 ไว้ใน `styles.scss` แล้ว
+
 | ชุด | ใน Figma | ในโค้ด | ใช้เมื่อ |
 | --- | --- | --- | --- |
 | **PrimeIcons 7.0.0** (313 ตัว สัญญาอนุญาต MIT) | `pi-<ชื่อ>` เลือก size 16/20/24 | `<i class="pi pi-<ชื่อ>"></i>` ขนาดใช้ Tailwind `text-base` (16) `text-xl` (20) `text-2xl` (24) | ใช้ก่อนเสมอ ค้นชื่อที่ https://primeng.org/icons |

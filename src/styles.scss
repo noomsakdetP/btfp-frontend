@@ -27,6 +27,13 @@
     box-sizing: border-box;
   }
 
+  // ไอคอนลูกศรลง (chevron-down) ของ PrimeNG ทุกตัว (Select, MultiSelect, DatePicker ฯลฯ) ขนาด 16 ตาม Figma
+  // PrimeNG ตั้งไอคอน svg ไว้ 14px
+  svg[data-p-icon='chevron-down'] {
+    width: 16px;
+    height: 16px;
+  }
+
   html,
   body {
     margin: 0;
