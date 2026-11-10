@@ -89,7 +89,7 @@ src/
 
 | Component | ใช้แทน / สร้างบน | Figma |
 | --- | --- | --- |
-| `btfp-icon` | ไอคอนที่ PrimeIcons ไม่มี (Icon กลาง) และไอคอนเดิมที่ยังไม่ได้ย้าย (Lucide) | icon/* |
+| `btfp-icon` | Icon กลาง (ตัวที่ PrimeIcons ไม่มี) และ PrimeIcons ขนาด px ตาม Figma (`name="pi-trash"`) | icon/*, pi-* |
 | `btfp-status-tag` | เขียนเอง (สีเกินที่ `p-tag` มี) ใส่ `status="review"` ได้ครบ 14 สถานะ | Domain/Status Badge |
 | `btfp-row-actions` | `p-button` + `p-confirmdialog` | Domain/Table Row Actions |
 | `btfp-kpi-card` | เขียนเอง (PrimeNG ไม่มี) | Domain/KPI Stat Card |
@@ -173,6 +173,5 @@ git clone <URL ของโปรเจกต์บน GitLab>
 - Figma: ไฟล์ `pGyEKPXYJ054QjRLVHu2FD` หน้า Back-end, B-01 = node `60:7997`
 - PrimeNG 21: https://primeng.org
 - PrimeIcons 7.0.0: https://primeng.org/icons (ห้ามอัปเกรดเป็น 8 ขึ้นไป เป็นสัญญาอนุญาตเชิงพาณิชย์)
-- Lucide icons (Icon กลาง): https://lucide.dev/icons
 - แนวทางการออกแบบ (สี ตัวอักษร component สถานะ รูปแบบหน้า) อยู่ใน `DESIGN.md`
 - คำแนะนำสำหรับ Claude Code อยู่ใน `CLAUDE.md`

@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { BtfpIcon } from '../../app/shared/ui/icon/icon';
-import { CENTRAL_ICONS, LEGACY_TO_PRIME } from './_shared';
+import { CENTRAL_ICONS } from './_shared';
 import { PRIMEICONS_NAMES } from './primeicons-names';
 
 /**
  * หน้ารวมไอคอนใน Storybook (ใช้เฉพาะในเอกสาร)
- * แบ่งเป็นหัวข้อหุบได้: Icon กลาง, PrimeIcons (ค้นหาได้), ไอคอนเดิมที่รอย้าย, ขนาด
+ * แบ่งเป็นหัวข้อหุบได้: Icon กลาง, PrimeIcons (ค้นหาได้), ขนาด
  * กดที่ไอคอนเพื่อคัดลอกโค้ด
  */
 @Component({
@@ -62,28 +62,8 @@ import { PRIMEICONS_NAMES } from './primeicons-names';
 
     <details>
       <summary>
-        <span class="title">ไอคอนเดิมที่รอย้าย</span>
-        <span class="count">{{ legacy.length }} ตัว</span>
-        <span class="hint">ไอคอน Lucide ที่โค้ดเดิมยังใช้ Figma เปลี่ยนเป็น PrimeIcons แล้ว ห้ามใช้ในงานใหม่</span>
-      </summary>
-      <p class="note">
-        ไอคอนกลุ่มนี้ยังใช้อยู่ใน component และหน้าที่ทำไปแล้วในโค้ด (เมนูซ้าย, แถบบน, ปุ่มท้ายแถว, การ์ด, หน้าแรก)
-        ผ่าน <code>btfp-icon</code> แต่ใน Figma เปลี่ยนเป็น PrimeIcons ตัวทางขวาแล้ว เมื่อแก้หน้าหรือ component นั้น ให้เปลี่ยนเป็น PrimeIcons ตามตารางนี้
-      </p>
-      <div class="grid wide">
-        @for (n of legacy; track n) {
-          <div class="cell static">
-            <span class="pair"><btfp-icon [name]="n" size="24" /><span class="arrow">&gt;</span><i [class]="'pi pi-' + legacyMap[n]"></i></span>
-            <code>{{ n }} &gt; pi-{{ legacyMap[n] }}</code>
-          </div>
-        }
-      </div>
-    </details>
-
-    <details>
-      <summary>
         <span class="title">ขนาด</span>
-        <span class="hint">16 ในตาราง ปุ่ม S และข้อความ, 20 ในเมนูและปุ่ม M L, 24 หัวข้อ</span>
+        <span class="hint">16 ในตาราง ปุ่ม S และข้อความ, 20 ในเมนูและปุ่ม M L, 24 หัวข้อ ขนาดอื่นตาม Figma ใช้ <code>&lt;btfp-icon name="pi-ชื่อ" size="18" /&gt;</code></span>
       </summary>
       <div class="sizes">
         @for (s of sizes; track s.px) {
@@ -108,19 +88,14 @@ import { PRIMEICONS_NAMES } from './primeicons-names';
     .title { font-family: var(--p-font-heading); font-size: 18px; font-weight: 600; color: var(--p-text-heading); }
     .count { font-size: 14px; color: var(--p-action-link); font-weight: 500; }
     .hint { font-size: 14px; color: var(--p-text-secondary); }
-    .note, .empty { margin: 16px 20px 0; font-size: 14px; color: var(--p-text-secondary); line-height: 1.6; }
+    .empty { margin: 16px 20px 0; font-size: 14px; color: var(--p-text-secondary); line-height: 1.6; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; padding: 16px 20px 20px; }
-    .grid.wide { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
     .cell { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 8px; border: 1px solid var(--p-border-default); border-radius: var(--p-radius-inner); background: var(--p-surface-raised); color: var(--p-icon-default); cursor: pointer; font: inherit; }
     .cell:hover { border-color: var(--p-action-primary); color: var(--p-action-primary); }
     .cell:focus-visible { outline: 2px solid var(--p-focus-ring); outline-offset: 2px; }
     .cell.copied { border-color: var(--p-success-border); background: var(--p-success-bg); }
-    .cell.static { cursor: default; }
-    .cell.static:hover { border-color: var(--p-border-default); color: var(--p-icon-default); }
     .cell i { font-size: 24px; }
     .cell code { font-size: 12px; color: var(--p-text-secondary); text-align: center; overflow-wrap: anywhere; }
-    .pair { display: flex; align-items: center; gap: 12px; }
-    .arrow { color: var(--p-text-secondary); }
     .search { display: flex; align-items: center; gap: 8px; margin: 16px 20px 0; padding: 0 12px; height: 40px; max-width: 480px; border: 1px solid var(--p-border-strong); border-radius: var(--p-radius-input); background: var(--p-surface-raised); }
     .search:focus-within { border-color: var(--p-action-primary); }
     .search i { color: var(--p-text-secondary); }
@@ -134,8 +109,6 @@ import { PRIMEICONS_NAMES } from './primeicons-names';
 export class SbIconGallery {
   protected readonly central = [...CENTRAL_ICONS].sort();
   protected readonly primeAll = PRIMEICONS_NAMES;
-  protected readonly legacyMap = LEGACY_TO_PRIME;
-  protected readonly legacy = Object.keys(LEGACY_TO_PRIME).sort();
   protected readonly sizes = [
     { px: 16, cls: 'text-base' },
     { px: 20, cls: 'text-xl' },

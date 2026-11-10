@@ -215,10 +215,10 @@ export class BtfpHeroSlide {
 
     @if (count() > 1) {
       <button type="button" class="arrow arrow--prev" aria-label="สไลด์ก่อนหน้า" (click)="prev()">
-        <btfp-icon name="chevron-left" size="24" />
+        <btfp-icon name="pi-chevron-left" size="24" />
       </button>
       <button type="button" class="arrow arrow--next" aria-label="สไลด์ถัดไป" (click)="next()">
-        <btfp-icon name="chevron-right" size="24" />
+        <btfp-icon name="pi-chevron-right" size="24" />
       </button>
 
       <div class="dots">

@@ -75,7 +75,7 @@ export const field = (label: string, control: string, foot = '', required = true
   `<div class="btfp-field" style="width:336px;max-width:100%"><label>${label}${required ? '<span class="btfp-required" aria-hidden="true">*</span>' : ''}</label>${control}${foot}</div>`;
 
 export const helper = (t = 'กรอกข้อมูลให้ครบถ้วนตามเอกสาร') => `<p class="btfp-field__helper">${t}</p>`;
-export const error = (t = 'กรุณาตรวจสอบข้อมูลอีกครั้ง') => `<p class="btfp-field__error"><btfp-icon name="circle-alert" size="16" />${t}</p>`;
+export const error = (t = 'กรุณาตรวจสอบข้อมูลอีกครั้ง') => `<p class="btfp-field__error"><btfp-icon name="pi-exclamation-circle" size="16" />${t}</p>`;
 
 /** ค่า parameters ที่ทุก story ในหมวดนี้ใช้ */
 export const primengParameters = (component: string) => ({

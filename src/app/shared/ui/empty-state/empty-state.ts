@@ -79,10 +79,10 @@ export class BtfpEmptyState {
   protected readonly iconName = computed(
     () =>
       ({
-        general: 'folder-open',
+        general: 'pi-folder-open',
         'no-results': 'search-x',
         'no-files': 'file-x',
-        error: 'triangle-alert',
+        error: 'pi-exclamation-triangle',
       })[this.type()],
   );
 }

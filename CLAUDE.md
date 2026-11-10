@@ -62,8 +62,9 @@ npm run check:tokens      # ต้องผ่านเมื่อเพิ่�
    ทุกตัว export ใน `index.ts`
 4. **สี ระยะ มุมโค้ง** ใช้ CSS variable `--p-*` จาก `src/styles/_tokens.scss` ห้ามใส่รหัสสีตรง
 5. **ไอคอน** ใช้ PrimeIcons 7.0.0 ก่อน `<i class="pi pi-eye"></i>` (ชื่อตรงกับ Figma `pi-<ชื่อ>` ขนาดใช้ `text-base` `text-xl` `text-2xl`)
-   ตัวที่ PrimeIcons ไม่มี (Icon กลาง ใน Figma `icon/<หมวด>/<ชื่อ>`) ใช้ `<btfp-icon name="bold" size="16" />` ตัวใหม่วาดเพิ่มใน `src/app/theme/central-icons.ts` ตามหลักการในไฟล์นั้น (ห้ามเพิ่ม Lucide ใน `icons.ts`)
-   ห้ามอัปเกรด `primeicons` เป็น 8 ขึ้นไป (สัญญาอนุญาตเชิงพาณิชย์) โค้ดเดิมที่ใช้ `btfp-icon` กับไอคอนที่ PrimeIcons มี ให้ย้ายเมื่อแก้หน้านั้น
+   ขนาดอื่นตาม Figma (14, 18, 22) หรือชื่อไอคอนส่งผ่าน input ของ component ใช้ `<btfp-icon name="pi-trash" size="18" />` (ชื่อขึ้นต้น `pi-` แสดงเป็น PrimeIcons)
+   ตัวที่ PrimeIcons ไม่มี (Icon กลาง ใน Figma `icon/<หมวด>/<ชื่อ>`) ใช้ `<btfp-icon name="bold" size="16" />` ตัวใหม่วาดเพิ่มใน `src/app/theme/central-icons.ts` ตามหลักการในไฟล์นั้น
+   ไอคอนในโค้ดต้องตรงกับ Figma ทุกตัว ห้ามใช้ชุดไอคอนอื่น (Lucide ถอดออกแล้ว) ห้ามอัปเกรด `primeicons` เป็น 8 ขึ้นไป (สัญญาอนุญาตเชิงพาณิชย์)
 6. **วันที่** ใช้ `<p-datepicker btfpDatepicker appendTo="body">` เสมอ (แสดงแบบ 1 ม.ค. 2569 ปี พ.ศ. เก็บ ค.ศ.) ข้อความวันที่ในหน้าใช้รูปแบบเดียวกัน ช่วงวันที่เขียน 1 ก.ย. 2569 - 30 ก.ย. 2569
    **สถานะ** ใช้ `<btfp-status-tag status="review" />` ห้ามเลือกสีเอง (ดู 14 สถานะใน DESIGN.md ข้อ 4)
    **ตัวอักษร** ใช้ class `.btfp-text-h2` `.btfp-text-body-s` ฯลฯ ตาม Text Style ใน Figma
@@ -94,11 +95,8 @@ npm run check:tokens      # ต้องผ่านเมื่อเพิ่�
   ไม่ใช้แพ็กเกจ `primeng-buddhist-year-datepicker` เพราะเป็นสำเนา DatePicker ของ PrimeNG 21.0.6 ใช้ selector `p-datepicker` ซ้ำกับของ PrimeNG และไม่ได้รับการแก้บั๊กของ PrimeNG รุ่นใหม่
 - directive ที่เติมให้ PrimeNG (`btfpDatepicker`, `btfpDrawer`) ตั้งค่าได้เฉพาะ input แบบเดิมของ PrimeNG input ที่เป็น signal (เช่น `appendTo`, `position`) ต้องใส่เป็น attribute ในหน้าเอง
 - การโหลดหน้าและเรียก API ใช้ ngx-ui-loader เป็นตัวจับ (`btfpLoaderProviders()` ใน `app.config.ts`) แสดงผลผ่าน `btfp-route-progress` เท่านั้น ห้ามใส่ `<ngx-ui-loader>` ในหน้า
-- อย่าใช้ `@lucide/angular` (ไฟล์ใหญ่ 11MB ทำ Storybook build แรมเกิน) ใช้ `lucide` ผ่าน `btfp-icon`
 - ไอคอนใน Figma มีสองชุด: PrimeIcons `pi-<ชื่อ>` 313 ตัว (ขยายเต็มกรอบเหมือนฟอนต์จริง) และ Icon กลาง `icon/<หมวด>/<ชื่อ>` 26 ตัว (วาดให้เข้ากับ PrimeIcons) ใช้ชื่อหลัง `/` สุดท้ายกับ `btfp-icon`
-  `btfp-icon` ที่ยังใช้ชื่อ Lucide เดิม ระวัง 6 ตัวที่ Lucide v1 เปลี่ยนชื่อ: `trash-2` → `trash`, `filter` → `funnel`, `circle-help` → `circle-question-mark`,
-  `building-2` → `building-complex`, `history` → `rotate-ccw-clock`, `bold` → `letter-b`
-- `btfp-icon` ตั้งความหนาเส้นให้อัตโนมัติ ไม่ต้องใส่ `strokeWidth`: Icon กลาง 1.5 คงที่ (ย่อขยายตามรูปเหมือน PrimeIcons) ไอคอน Lucide เดิม 1.5 (16px ลงมา 1.25)
+- `btfp-icon` ตั้งความหนาเส้น Icon กลางให้อัตโนมัติ 1.5 คงที่ (ย่อขยายตามรูปเหมือน PrimeIcons) ไม่ต้องใส่ `strokeWidth`
 - `p-select`, `p-multiselect`, `p-datepicker` ใน Drawer ให้ใส่ `appendTo="body"` ไม่งั้น overlay จะโดนตัด
 - token ใช้ prefix `--p-*` เหมือน PrimeNG และอยู่นอก CSS layer จึงชนะค่าของ PrimeNG เสมอ ชุดสีพื้นฐาน (`--p-blue-500`, `--p-red-500`, `--p-gray-500` ฯลฯ 70 ตัว) ตั้งใจทับชุดสีของ PrimeNG
   token ใหม่ห้ามตั้งชื่อตรงกับตัวแปรของ PrimeNG โดยไม่ตั้งใจ `npm run check:tokens` จะหยุดถ้าเจอ

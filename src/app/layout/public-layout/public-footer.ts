@@ -21,7 +21,7 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
             </span>
             <p class="muted max-w-[480px]">กองทุนวิจัยและพัฒนากิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม เพื่อประโยชน์สาธารณะ</p>
             <p class="muted flex max-w-[480px] gap-2">
-              <btfp-icon class="mt-0.5" name="map-pin" size="18" />
+              <btfp-icon class="mt-0.5" name="pi-map-marker" size="18" />
               <span>สำนักงาน กสทช. 87 ถนนพหลโยธิน ซอย 8 แขวงสามเสนใน เขตพญาไท กรุงเทพฯ 10400</span>
             </p>
             <p class="flex flex-wrap gap-4">

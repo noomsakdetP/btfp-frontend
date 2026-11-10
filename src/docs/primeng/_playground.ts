@@ -40,7 +40,7 @@ export const buttonPlayground = play(
     Type: radio(['primary', 'secondary', 'tertiary', 'danger']),
     Size: radio(['S', 'M', 'L']),
     label: text,
-    icon: select(['ไม่มี', 'plus', 'chart-column', 'download', 'send', 'trash', 'pencil', 'search']),
+    icon: select(['ไม่มี', 'pi-plus', 'pi-chart-bar', 'pi-download', 'pi-send', 'pi-trash', 'pi-pencil', 'pi-search']),
     disabled: bool,
     loading: bool,
   },
@@ -56,11 +56,11 @@ export const buttonPlayground = play(
 // ---------- Icon Button ----------
 const ICON_TYPE: Record<string, string> = { primary: '', secondary: ' outlined severity="secondary"', ghost: ' text' };
 export const iconButtonPlayground = play(
-  { Type: 'secondary', Size: 'M', icon: 'eye', ariaLabel: 'ดูรายละเอียด', disabled: false },
+  { Type: 'secondary', Size: 'M', icon: 'pi-eye', ariaLabel: 'ดูรายละเอียด', disabled: false },
   {
     Type: radio(['primary', 'secondary', 'ghost']),
     Size: radio(['S', 'M', 'L']),
-    icon: select(['eye', 'pencil', 'trash', 'plus', 'download', 'funnel', 'bell', 'menu', 'x']),
+    icon: select(['pi-eye', 'pi-pencil', 'pi-trash', 'pi-plus', 'pi-download', 'pi-filter', 'pi-bell', 'pi-bars', 'pi-times']),
     ariaLabel: { ...text, description: 'ข้อความที่โปรแกรมอ่านหน้าจออ่าน และใช้เป็น tooltip' },
     disabled: bool,
   },
@@ -74,7 +74,7 @@ const fieldWrap = (a: Args, id: string, control: string) => {
   const required = a['required'] ? '<span class="btfp-required" aria-hidden="true">*</span>' : '';
   const foot =
     a['State'] === 'error'
-      ? `<p class="btfp-field__error"><btfp-icon name="circle-alert" size="16" />${a['error']}</p>`
+      ? `<p class="btfp-field__error"><btfp-icon name="pi-exclamation-circle" size="16" />${a['error']}</p>`
       : a['helper']
         ? `<p class="btfp-field__helper">${a['helper']}</p>`
         : '';
@@ -155,7 +155,7 @@ export const tagPlayground = play(
   { Tone: radio(['neutral', 'info', 'success', 'warning', 'danger']), value: text, removable: { ...bool, name: 'removable (ตัวกรองที่ใช้อยู่)', description: 'มีปุ่มลบ ใช้ p-chip' } },
   (a) =>
     a['removable']
-      ? `<p-chip label="${a['value']}" removable="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>`
+      ? `<p-chip label="${a['value']}" removable="true"><ng-template #removeicon><btfp-icon name="pi-times" size="14" /></ng-template></p-chip>`
       : `<p-tag severity="${TONE[a['Tone']]}" value="${a['value']}" />`,
   DESC + ' ตัวกรองที่ใช้อยู่ (removable) ใช้สี info เสมอตาม Figma',
 );

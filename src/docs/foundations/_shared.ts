@@ -133,17 +133,3 @@ export const shadowTpl = () =>
 /** Icon กลาง: ไอคอนที่ PrimeIcons ไม่มี วาดให้เข้ากับ PrimeIcons (src/app/theme/central-icons.ts) */
 export const CENTRAL_ICONS = Object.keys(BTFP_CENTRAL_ICONS);
 
-/** ไอคอนเดิม (Lucide) ที่ยังใช้อยู่ในโค้ด และชื่อ PrimeIcons ที่จะย้ายไป */
-export const LEGACY_TO_PRIME: Record<string, string> = {
-  ban: 'ban', banknote: 'money-bill', bell: 'bell', 'building-complex': 'building', calendar: 'calendar',
-  'calendar-clock': 'calendar-clock', 'calendar-days': 'calendar', 'chart-column': 'chart-bar', 'chevron-down': 'chevron-down',
-  'chevron-left': 'chevron-left', 'chevron-right': 'chevron-right', 'circle-alert': 'exclamation-circle',
-  'circle-check': 'check-circle', 'circle-question-mark': 'question-circle', 'circle-x': 'times-circle', download: 'download',
-  eye: 'eye', files: 'clone', 'folder-open': 'folder-open', funnel: 'filter', 'graduation-cap': 'graduation-cap',
-  hourglass: 'hourglass', info: 'info-circle', landmark: 'building-columns', 'layout-grid': 'th-large', 'list-checks': 'list-check',
-  'map-pin': 'map-marker', menu: 'bars', minus: 'minus', pencil: 'pencil', phone: 'phone', plus: 'plus', 'rotate-ccw': 'replay',
-  search: 'search', send: 'send', trash: 'trash', 'triangle-alert': 'exclamation-triangle', 'user-plus': 'user-plus',
-  users: 'users', wallet: 'wallet', x: 'times', tv: 'desktop', 'shield-check': 'shield', 'list-filter': 'filter',
-  signpost: 'directions',
-};
-

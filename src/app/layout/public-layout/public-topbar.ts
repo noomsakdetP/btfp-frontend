@@ -47,7 +47,7 @@ import { BtfpIcon } from '../../shared/ui/icon/icon';
           <p-button outlined severity="secondary" label="ลงทะเบียน" routerLink="/register" styleClass="hidden sm:inline-flex" />
           <p-button label="เข้าสู่ระบบ" routerLink="/login" />
           <label for="btfp-public-nav" class="menu-button grid place-items-center xl:hidden" aria-label="เปิดเมนู">
-            <btfp-icon name="menu" size="22" />
+            <btfp-icon name="pi-bars" size="22" />
           </label>
         </div>
       </div>

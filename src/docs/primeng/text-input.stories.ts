@@ -44,7 +44,7 @@ export class MyPage {}
 </div>
 \`\`\`
 
-สถานะผิดพลาด: ฟอร์มจริงใส่ class \`ng-invalid ng-dirty\` ให้เอง แล้วแสดง \`<p class="btfp-field__error"><btfp-icon name="circle-alert" size="16" />ข้อความ</p>\` แทนข้อความช่วย
+สถานะผิดพลาด: ฟอร์มจริงใส่ class \`ng-invalid ng-dirty\` ให้เอง แล้วแสดง \`<p class="btfp-field__error"><btfp-icon name="pi-exclamation-circle" size="16" />ข้อความ</p>\` แทนข้อความช่วย
 `),
 };
 export default meta;

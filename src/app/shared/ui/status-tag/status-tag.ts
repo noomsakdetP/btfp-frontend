@@ -23,19 +23,19 @@ export type BtfpStatus =
 
 /** สี ไอคอน และข้อความของแต่ละสถานะ ตรงกับ Figma ทุกค่า แก้ที่นี่ที่เดียว */
 export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; icon: string; label: string }> = {
-  draft: { severity: 'secondary', icon: 'pencil', label: 'ฉบับร่าง' },
-  send: { severity: 'info', icon: 'send', label: 'ส่งแล้ว รอการตรวจสอบ' },
-  review: { severity: 'navy', icon: 'hourglass', label: 'รอการพิจารณา' },
-  suspend: { severity: 'warn', icon: 'rotate-ccw', label: 'ไม่ผ่าน รอแก้ไข' },
-  'docs-incomplete': { severity: 'warn', icon: 'circle-alert', label: 'เอกสารไม่ครบ รอแก้ไข' },
-  'not-qualified': { severity: 'danger', icon: 'ban', label: 'ไม่ผ่านคุณสมบัติ' },
-  reject: { severity: 'danger', icon: 'circle-x', label: 'ไม่อนุมัติ' },
-  'passed-check': { severity: 'teal', icon: 'circle-check', label: 'ผ่านการตรวจสอบ' },
-  board: { severity: 'teal', icon: 'landmark', label: 'ผ่านความเห็นชอบ เสนอบอร์ด กสทช.' },
-  submitted: { severity: 'success', icon: 'circle-check', label: 'อนุมัติ' },
-  'in-progress': { severity: 'teal', icon: 'list-checks', label: 'ดำเนินโครงการ' },
-  'awaiting-disbursement': { severity: 'navy', icon: 'wallet', label: 'รอเบิกจ่าย' },
-  delayed: { severity: 'orange', icon: 'calendar-clock', label: 'ล่าช้า' },
+  draft: { severity: 'secondary', icon: 'pi-pencil', label: 'ฉบับร่าง' },
+  send: { severity: 'info', icon: 'pi-send', label: 'ส่งแล้ว รอการตรวจสอบ' },
+  review: { severity: 'navy', icon: 'pi-hourglass', label: 'รอการพิจารณา' },
+  suspend: { severity: 'warn', icon: 'pi-replay', label: 'ไม่ผ่าน รอแก้ไข' },
+  'docs-incomplete': { severity: 'warn', icon: 'pi-exclamation-circle', label: 'เอกสารไม่ครบ รอแก้ไข' },
+  'not-qualified': { severity: 'danger', icon: 'pi-ban', label: 'ไม่ผ่านคุณสมบัติ' },
+  reject: { severity: 'danger', icon: 'pi-times-circle', label: 'ไม่อนุมัติ' },
+  'passed-check': { severity: 'teal', icon: 'pi-check-circle', label: 'ผ่านการตรวจสอบ' },
+  board: { severity: 'teal', icon: 'pi-building-columns', label: 'ผ่านความเห็นชอบ เสนอบอร์ด กสทช.' },
+  submitted: { severity: 'success', icon: 'pi-check-circle', label: 'อนุมัติ' },
+  'in-progress': { severity: 'teal', icon: 'pi-list-check', label: 'ดำเนินโครงการ' },
+  'awaiting-disbursement': { severity: 'navy', icon: 'pi-wallet', label: 'รอเบิกจ่าย' },
+  delayed: { severity: 'orange', icon: 'pi-calendar-clock', label: 'ล่าช้า' },
   closed: { severity: 'secondary', icon: 'clipboard-check', label: 'ปิดโครงการ' },
 };
 
@@ -46,7 +46,7 @@ export const BTFP_STATUS: Record<BtfpStatus, { severity: BtfpStatusSeverity; ico
  *   <btfp-status-tag status="review" />                     แสดง "รอการพิจารณา" สี navy
  *
  * ใช้กับป้ายอื่นที่ไม่ใช่ 14 สถานะ: ใส่ severity + icon + ข้อความเอง
- *   <btfp-status-tag severity="teal" icon="circle-check">ตรวจแล้ว</btfp-status-tag>
+ *   <btfp-status-tag severity="teal" icon="pi-check-circle">ตรวจแล้ว</btfp-status-tag>
  *
  * ขนาดตาม Figma: สูง 32px มุมมน ขอบซ้ายขวา 8px ไอคอน 16px ตัวอักษร Sarabun Medium 14px
  *
@@ -106,7 +106,7 @@ export class BtfpStatusTag {
   readonly status = input<BtfpStatus>();
   /** สีของป้าย (ใช้เมื่อไม่ได้ใส่ status หรืออยากเปลี่ยนสี) */
   readonly severity = input<BtfpStatusSeverity>();
-  /** ชื่อไอคอน Lucide (kebab-case) */
+  /** ชื่อไอคอนของ btfp-icon: pi-ชื่อ (PrimeIcons) หรือชื่อ Icon กลาง */
   readonly icon = input<string>();
 
   private readonly preset = computed(() => {

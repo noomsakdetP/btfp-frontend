@@ -30,7 +30,7 @@
     </div>
     <div class="flex shrink-0 flex-wrap gap-3">
       <p-button outlined severity="secondary" routerLink="/reports">
-        <btfp-icon name="chart-column" size="18" />
+        <btfp-icon name="pi-chart-bar" size="18" />
         <span>รายงาน</span>
       </p-button>
       <btfp-export-button />
@@ -50,11 +50,11 @@
 
   <!-- สรุปตามขั้นตอน: แถวเดียว 5 ใบเสมอตาม Figma การ์ดกว้างอย่างน้อย 172px (5 ใบพอดีจอตั้งแต่ 1280px) ถ้าจอแคบไม่พอให้เลื่อนซ้ายขวา -->
   <section class="grid snap-x auto-cols-[minmax(172px,1fr)] grid-flow-col gap-4 overflow-x-auto pb-1" aria-label="สรุปข้อเสนอตามขั้นตอน">
-    <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="12" caption="รอเจ้าหน้าที่รับเรื่อง" icon="send" />
+    <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="12" caption="รอเจ้าหน้าที่รับเรื่อง" icon="pi-send" />
     <btfp-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="24" caption="ส่งกลับแก้ไข 5 รายการ" icon="clipboard-check" active />
-    <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="18" caption="รอความเห็นอนุกรรมการ" icon="list-checks" />
+    <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="18" caption="รอความเห็นอนุกรรมการ" icon="pi-list-check" />
     <btfp-kpi-card label="4. สรุปสาระสำคัญ" value="9" caption="เสนอคณะกรรมการบริหารฯ" icon="file-text" />
-    <btfp-kpi-card label="5. ผลการพิจารณา" value="23" caption="อนุมัติ 17 ไม่อนุมัติ 6" icon="circle-check" />
+    <btfp-kpi-card label="5. ผลการพิจารณา" value="23" caption="อนุมัติ 17 ไม่อนุมัติ 6" icon="pi-check-circle" />
   </section>
 
   <!-- การ์ดตาราง -->
@@ -64,7 +64,7 @@
       <div class="btfp-field sm:col-span-2 lg:col-span-3 wide:col-span-1">
         <label for="f-search">ค้นหา</label>
         <p-iconfield>
-          <p-inputicon><btfp-icon name="search" size="16" /></p-inputicon>
+          <p-inputicon><btfp-icon name="pi-search" size="16" /></p-inputicon>
           <input id="f-search" type="search" pInputText placeholder="รหัส ชื่อโครงการ หรือหน่วยงาน" />
         </p-iconfield>
       </div>
@@ -90,7 +90,7 @@
       </div>
 
       <p-button outlined severity="secondary" routerLink="/proposals/filters" styleClass="w-full whitespace-nowrap wide:w-auto">
-        <btfp-icon name="funnel" size="18" />
+        <btfp-icon name="pi-filter" size="18" />
         <span>ตัวกรองเพิ่มเติม (10)</span>
       </p-button>
     </div>
@@ -98,9 +98,9 @@
     <!-- ตัวกรองที่ใช้อยู่ -->
     <div class="flex flex-wrap items-center gap-2 px-4 pb-4 md:px-5">
       <span class="text-muted">ตัวกรองที่ใช้:</span>
-      <p-chip label="ทุนประเภท 1" removable="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>
-      <p-chip label="ปีงบ 2569" removable="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>
-      <p-chip label="ขั้นตอน 2" removable="true"><ng-template #removeicon><btfp-icon name="x" size="14" /></ng-template></p-chip>
+      <p-chip label="ทุนประเภท 1" removable="true"><ng-template #removeicon><btfp-icon name="pi-times" size="14" /></ng-template></p-chip>
+      <p-chip label="ปีงบ 2569" removable="true"><ng-template #removeicon><btfp-icon name="pi-times" size="14" /></ng-template></p-chip>
+      <p-chip label="ขั้นตอน 2" removable="true"><ng-template #removeicon><btfp-icon name="pi-times" size="14" /></ng-template></p-chip>
       <button type="button" class="btfp-link-button">ล้างทั้งหมด</button>
     </div>
 
@@ -108,11 +108,11 @@
     <div class="bulk-actions flex flex-wrap items-center gap-3 px-4 py-2.5 md:px-5">
       <span class="bulk-actions__count w-full sm:w-auto sm:flex-1">เลือกแล้ว 2 รายการ</span>
       <p-button outlined severity="secondary" size="small">
-        <btfp-icon name="user-plus" size="16" />
+        <btfp-icon name="pi-user-plus" size="16" />
         <span>มอบหมายเจ้าหน้าที่</span>
       </p-button>
       <p-button outlined severity="secondary" size="small">
-        <btfp-icon name="download" size="16" />
+        <btfp-icon name="pi-download" size="16" />
         <span>ส่งออกที่เลือก</span>
       </p-button>
       <button type="button" class="btfp-link-button">ยกเลิกการเลือก</button>

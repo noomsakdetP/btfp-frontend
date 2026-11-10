@@ -1,15 +1,18 @@
 import { ChangeDetectionStrategy, Component, computed, input, isDevMode, numberAttribute } from '@angular/core';
 import { BTFP_CENTRAL_ICONS } from '../../../theme/central-icons';
-import { BTFP_ICONS } from '../../../theme/icons';
 
 /**
- * btfp-icon : Icon กลาง (ไอคอนที่ PrimeIcons ไม่มี) และไอคอน Lucide เดิมที่ยังรอย้ายเป็น PrimeIcons
+ * btfp-icon : แสดงไอคอนชุดเดียวกับ Figma ด้วยขนาดเป็น px ตรงตามแบบ
  *
- * ไอคอนที่ PrimeIcons มี ให้ใช้ <i class="pi pi-ชื่อ"></i> แทน
+ * - ชื่อขึ้นต้นด้วย pi- = PrimeIcons 7.0.0 (แสดงเป็น <i class="pi pi-ชื่อ">) เช่น pi-eye, pi-trash
+ * - ชื่ออื่น = Icon กลาง ไอคอนที่ PrimeIcons ไม่มี วาดให้เข้ากับ PrimeIcons (src/app/theme/central-icons.ts)
+ *
+ * ใช้เมื่อต้องการขนาดตรงตาม Figma (14, 16, 18, 20, 22, 24 ฯลฯ) หรือชื่อไอคอนมาจากข้อมูล
+ * ไอคอน PrimeIcons ทั่วไปเขียน <i class="pi pi-ชื่อ"></i> ตรง ๆ ได้
  *
  * @example
- * <btfp-icon name="file-text" size="16" />   Icon กลาง (src/app/theme/central-icons.ts) วาดให้เข้ากับ PrimeIcons
- * <btfp-icon name="eye" size="20" />          ไอคอนเดิม (src/app/theme/icons.ts) เส้น 1.5 (16px ลงมา 1.25)
+ * <btfp-icon name="pi-eye" size="20" />
+ * <btfp-icon name="file-text" size="16" />
  *
  * สีของไอคอนใช้ currentColor ตามสีตัวอักษรของตัวที่ครอบอยู่
  */
@@ -18,6 +21,9 @@ import { BTFP_ICONS } from '../../../theme/icons';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'aria-hidden': 'true' },
   template: `
+    @if (prime()) {
+      <i [class]="'pi ' + name()" [style.font-size.px]="size()" [style.width.px]="size()" [style.height.px]="size()"></i>
+    } @else {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       [attr.viewBox]="viewBox()"
@@ -56,6 +62,7 @@ import { BTFP_ICONS } from '../../../theme/icons';
         }
       }
     </svg>
+    }
   `,
   styles: `
     :host {
@@ -63,29 +70,34 @@ import { BTFP_ICONS } from '../../../theme/icons';
       flex-shrink: 0;
       line-height: 0;
     }
+    i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
   `,
 })
 export class BtfpIcon {
-  /** ชื่อไอคอนแบบ kebab-case ต้องลงทะเบียนใน src/app/theme/icons.ts ก่อน */
+  /** pi-ชื่อ (PrimeIcons) หรือชื่อ Icon กลางใน src/app/theme/central-icons.ts */
   readonly name = input.required<string>();
   readonly size = input(20, { transform: numberAttribute });
-  /** ความหนาเส้น ไม่ใส่ = ตาม Figma: 1.5 และ 1.25 เมื่อไอคอนเล็กกว่าหรือเท่ากับ 16px */
+  /** ความหนาเส้นของ Icon กลาง ไม่ใส่ = 1.5 (ย่อขยายตามรูปเหมือน PrimeIcons) */
   readonly strokeWidth = input<number | undefined, unknown>(undefined, {
     transform: (v: unknown) => (v === undefined || v === null || v === '' ? undefined : numberAttribute(v)),
   });
 
+  protected readonly prime = computed(() => this.name().startsWith('pi-'));
   private readonly central = computed(() => BTFP_CENTRAL_ICONS[this.name()]);
 
-  /** Icon กลางตัด viewBox ให้รูปเต็มกรอบแบบ PrimeIcons ไอคอนเดิมใช้กรอบ 24 ของ Lucide */
+  /** viewBox ตัดให้รูปเต็มกรอบแบบฟอนต์ PrimeIcons */
   protected readonly viewBox = computed(() => this.central()?.viewBox ?? '0 0 24 24');
 
-  /** Icon กลางเส้น 1.5 คงที่ (ย่อขยายตามรูปเหมือน PrimeIcons) ไอคอนเดิม 1.5 และ 1.25 เมื่อ 16px ลงมา */
-  protected readonly stroke = computed(
-    () => this.strokeWidth() ?? (this.central() ? 1.5 : this.size() <= 16 ? 1.25 : 1.5),
-  );
+  protected readonly stroke = computed(() => this.strokeWidth() ?? 1.5);
 
   protected readonly nodes = computed(() => {
-    const icon = this.central()?.nodes ?? BTFP_ICONS[this.name()];
+    if (this.prime()) return [];
+    const icon = this.central()?.nodes;
     if (!icon && isDevMode()) {
       console.warn(`[btfp-icon] ไม่พบไอคอน "${this.name()}" ให้ใช้ PrimeIcons หรือเพิ่มใน src/app/theme/central-icons.ts`);
     }

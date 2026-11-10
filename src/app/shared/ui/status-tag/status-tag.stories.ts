@@ -50,10 +50,10 @@ export const Custom: Story = {
   render: () => ({
     template: `
       <div style="display:flex; gap:12px; flex-wrap:wrap">
-        <btfp-status-tag severity="info" icon="info">info</btfp-status-tag>
-        <btfp-status-tag severity="success" icon="circle-check">success</btfp-status-tag>
-        <btfp-status-tag severity="warn" icon="triangle-alert">warn</btfp-status-tag>
-        <btfp-status-tag severity="danger" icon="ban">danger</btfp-status-tag>
+        <btfp-status-tag severity="info" icon="pi-info-circle">info</btfp-status-tag>
+        <btfp-status-tag severity="success" icon="pi-check-circle">success</btfp-status-tag>
+        <btfp-status-tag severity="warn" icon="pi-exclamation-triangle">warn</btfp-status-tag>
+        <btfp-status-tag severity="danger" icon="pi-ban">danger</btfp-status-tag>
         <btfp-status-tag severity="secondary">secondary</btfp-status-tag>
         <btfp-status-tag severity="navy">navy</btfp-status-tag>
         <btfp-status-tag severity="teal">teal</btfp-status-tag>

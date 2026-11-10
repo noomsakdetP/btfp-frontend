@@ -20,9 +20,9 @@ export type BtfpExportFormat = 'xlsx' | 'pdf' | 'csv';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <p-button [outlined]="true" severity="secondary" (onClick)="menu.toggle($event)" [ariaLabel]="label()">
-      <btfp-icon name="download" size="18" />
+      <btfp-icon name="pi-download" size="18" />
       <span class="export__label">{{ label() }}</span>
-      <btfp-icon name="chevron-down" size="16" />
+      <btfp-icon name="pi-chevron-down" size="16" />
     </p-button>
     <p-menu #menu [model]="items" [popup]="true" appendTo="body" />
   `,

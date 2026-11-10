@@ -29,9 +29,9 @@ export type BtfpGrantCallState = 'open' | 'closing-soon' | 'closed';
     </div>
     <h3 class="title">{{ heading() }}</h3>
     <ul class="meta">
-      <li [class.is-urgent]="state() === 'closing-soon'"><btfp-icon name="calendar" size="16" /><span>{{ deadline() }}</span></li>
-      <li><btfp-icon name="landmark" size="16" /><span>{{ scope() }}</span></li>
-      <li><btfp-icon name="banknote" size="16" /><span>{{ budget() }}</span></li>
+      <li [class.is-urgent]="state() === 'closing-soon'"><btfp-icon name="pi-calendar" size="16" /><span>{{ deadline() }}</span></li>
+      <li><btfp-icon name="pi-building-columns" size="16" /><span>{{ scope() }}</span></li>
+      <li><btfp-icon name="pi-money-bill" size="16" /><span>{{ budget() }}</span></li>
     </ul>
     <div class="actions">
       <a class="link" routerLink="/grants"><btfp-icon name="file-text" size="16" />ดูประกาศ</a>

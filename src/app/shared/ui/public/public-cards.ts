@@ -173,7 +173,7 @@ export class BtfpShowcaseCard {
       <p class="category">{{ category() }}</p>
       <h3 class="title">{{ heading() }}</h3>
       <p class="meta">{{ meta() }}</p>
-      <p class="outcome"><btfp-icon name="circle-check" size="16" />{{ outcome() }}</p>
+      <p class="outcome"><btfp-icon name="pi-check-circle" size="16" />{{ outcome() }}</p>
     </div>
   `,
   styles: `

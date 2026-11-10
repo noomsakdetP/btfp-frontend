@@ -1,4 +1,5 @@
-import type { IconNode } from 'lucide';
+/** รูปแบบเดียวกับ Lucide: [ชื่อแท็ก SVG, attribute] */
+export type IconNode = [tag: string, attrs: Record<string, string>][];
 
 /**
  * Icon กลาง: ไอคอนที่ PrimeIcons ไม่มี วาดใหม่ให้หน้าตาเข้ากับ PrimeIcons (Figma: หน้า Design System หัวข้อ "Icon กลาง")

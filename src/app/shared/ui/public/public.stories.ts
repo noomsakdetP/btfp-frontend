@@ -45,17 +45,17 @@ export const HeroBanner: StoryObj = {
         <btfp-hero-slide image="images/landing/hero-slide-1.jpg" overlay>
           <h1>เปิดรับข้อเสนอโครงการ<br class="hidden md:inline" /> เพื่อขอรับทุนจาก กสทช.</h1>
           <p>สนับสนุนการพัฒนาเทคโนโลยี นวัตกรรม และการสื่อสาร เพื่อประโยชน์สูงสุดของประชาชน</p>
-          <p-button size="large"><span>ดูประกาศทุนทั้งหมด</span><btfp-icon name="chevron-right" size="20" /></p-button>
+          <p-button size="large"><span>ดูประกาศทุนทั้งหมด</span><btfp-icon name="pi-chevron-right" size="20" /></p-button>
         </btfp-hero-slide>
         <btfp-hero-slide image="images/landing/hero-slide-2.jpg" overlay tag="ทุนประเภท 2 เปิดรับแล้ว" tagSeverity="success">
           <h2>ทุนวิจัยและพัฒนาด้านโทรคมนาคม<br class="hidden md:inline" /> เพื่อประโยชน์สาธารณะ ปี 2570</h2>
           <p>ยื่นข้อเสนอโครงการได้ถึงวันที่ 31 ต.ค. 2569 ผ่านระบบออนไลน์</p>
-          <p-button size="large"><span>ยื่นข้อเสนอ</span><btfp-icon name="chevron-right" size="20" /></p-button>
+          <p-button size="large"><span>ยื่นข้อเสนอ</span><btfp-icon name="pi-chevron-right" size="20" /></p-button>
         </btfp-hero-slide>
         <btfp-hero-slide image="images/landing/hero-slide-3.jpg" overlay tag="ผลงานเด่น">
           <h2>ผลงานทุน กทปส. ที่ต่อยอด<br class="hidden md:inline" /> สู่การใช้งานจริงในชุมชน</h2>
           <p>รวมผลงานวิจัยและนวัตกรรมจากหน่วยงานผู้รับทุนทั่วประเทศ</p>
-          <p-button size="large"><span>ดูผลงานทั้งหมด</span><btfp-icon name="chevron-right" size="20" /></p-button>
+          <p-button size="large"><span>ดูผลงานทั้งหมด</span><btfp-icon name="pi-chevron-right" size="20" /></p-button>
         </btfp-hero-slide>
       </btfp-hero-banner>`,
   }),
@@ -96,7 +96,7 @@ export const ProcessStep: StoryObj = {
     template: `
       <div class="grid gap-5 p-6 md:grid-cols-2" style="background:var(--p-navy-900)">
         <btfp-process-step step="01" icon="user-check" heading="ลงทะเบียนและยืนยันตัวตน" description="สร้างบัญชีหน่วยงาน และยืนยันตัวตนด้วยรหัส OTP ทางอีเมลทุกครั้งที่เข้าสู่ระบบ" />
-        <btfp-process-step step="02" icon="list-filter" heading="เลือกประกาศและขอบเขต" description="เลือกประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR" />
+        <btfp-process-step step="02" icon="pi-filter" heading="เลือกประกาศและขอบเขต" description="เลือกประเภททุน วัตถุประสงค์ตามมาตรา 52 หรือ TOR" />
       </div>`,
   }),
 };

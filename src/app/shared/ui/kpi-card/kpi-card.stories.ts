@@ -25,11 +25,11 @@ export const WorkflowRow: Story = {
   render: () => ({
     template: `
       <div class="grid snap-x auto-cols-[minmax(172px,1fr)] grid-flow-col gap-4 overflow-x-auto p-6">
-        <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="12" caption="รอเจ้าหน้าที่รับเรื่อง" icon="send" />
+        <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="12" caption="รอเจ้าหน้าที่รับเรื่อง" icon="pi-send" />
         <btfp-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="24" caption="ส่งกลับแก้ไข 5 รายการ" icon="clipboard-check" active />
-        <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="18" caption="รอความเห็นอนุกรรมการ" icon="list-checks" />
+        <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="18" caption="รอความเห็นอนุกรรมการ" icon="pi-list-check" />
         <btfp-kpi-card label="4. สรุปสาระสำคัญ" value="9" caption="เสนอคณะกรรมการบริหารฯ" icon="file-text" />
-        <btfp-kpi-card label="5. ผลการพิจารณา" value="23" caption="อนุมัติ 17 ไม่อนุมัติ 6" icon="circle-check" />
+        <btfp-kpi-card label="5. ผลการพิจารณา" value="23" caption="อนุมัติ 17 ไม่อนุมัติ 6" icon="pi-check-circle" />
       </div>`,
   }),
 };

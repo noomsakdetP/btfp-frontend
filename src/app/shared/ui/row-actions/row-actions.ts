@@ -25,17 +25,17 @@ export type BtfpRowAction = 'view' | 'edit' | 'delete';
       @switch (action) {
         @case ('view') {
           <p-button [text]="true" severity="secondary" size="small" ariaLabel="ดูรายละเอียด" pTooltip="ดูรายละเอียด" tooltipPosition="top" (onClick)="view.emit()">
-            <ng-template #icon><btfp-icon name="eye" size="18" /></ng-template>
+            <ng-template #icon><btfp-icon name="pi-eye" size="18" /></ng-template>
           </p-button>
         }
         @case ('edit') {
           <p-button [text]="true" severity="secondary" size="small" ariaLabel="แก้ไข" pTooltip="แก้ไข" tooltipPosition="top" (onClick)="edit.emit()">
-            <ng-template #icon><btfp-icon name="pencil" size="18" /></ng-template>
+            <ng-template #icon><btfp-icon name="pi-pencil" size="18" /></ng-template>
           </p-button>
         }
         @case ('delete') {
           <p-button [text]="true" severity="danger" size="small" ariaLabel="ลบ" pTooltip="ลบ" tooltipPosition="top" (onClick)="confirmDelete()">
-            <ng-template #icon><btfp-icon name="trash" size="18" /></ng-template>
+            <ng-template #icon><btfp-icon name="pi-trash" size="18" /></ng-template>
           </p-button>
         }
       }

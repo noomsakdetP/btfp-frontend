@@ -23,7 +23,7 @@ import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/u
       </div>
       <div class="flex shrink-0 flex-wrap gap-3">
         <p-button outlined routerLink="/reports">
-          <btfp-icon name="chart-column" size="18" />
+          <btfp-icon name="pi-chart-bar" size="18" />
           <span>รายงาน</span>
         </p-button>
         <btfp-export-button />
@@ -41,11 +41,11 @@ import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/u
     </p-tabs>
 
     <section class="grid snap-x auto-cols-[minmax(172px,1fr)] grid-flow-col gap-4 overflow-x-auto pb-1">
-      <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="0" caption="รอเจ้าหน้าที่รับเรื่อง" icon="send" />
+      <btfp-kpi-card label="1. ยื่นเสนอโครงการ" value="0" caption="รอเจ้าหน้าที่รับเรื่อง" icon="pi-send" />
       <btfp-kpi-card label="2. ตรวจสอบคุณสมบัติ" value="0" caption="ส่งกลับแก้ไข 0 รายการ" icon="clipboard-check" active />
-      <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="0" caption="รอความเห็นอนุกรรมการ" icon="list-checks" />
+      <btfp-kpi-card label="3. ตรวจโครงการเบื้องต้น" value="0" caption="รอความเห็นอนุกรรมการ" icon="pi-list-check" />
       <btfp-kpi-card label="4. สรุปสาระสำคัญ" value="0" caption="เสนอคณะกรรมการบริหารฯ" icon="file-text" />
-      <btfp-kpi-card label="5. ผลการพิจารณา" value="0" caption="อนุมัติ 0 ไม่อนุมัติ 0" icon="circle-check" />
+      <btfp-kpi-card label="5. ผลการพิจารณา" value="0" caption="อนุมัติ 0 ไม่อนุมัติ 0" icon="pi-check-circle" />
     </section>
 
     <section class="card">

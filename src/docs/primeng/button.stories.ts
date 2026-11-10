@@ -62,7 +62,7 @@ export const Sizes: StoryObj = {
 
 export const WithIcon: StoryObj = {
   name: "มีไอคอนนำหน้า",
-  render: () => ({ template: rowOf(`<p-button><btfp-icon name="plus" size="20" /><span>เพิ่มข้อเสนอ</span></p-button><p-button outlined severity="secondary"><btfp-icon name="chart-column" size="20" /><span>รายงาน</span></p-button><p-button size="small" outlined severity="secondary"><btfp-icon name="user-plus" size="16" /><span>มอบหมายเจ้าหน้าที่</span></p-button><p-button severity="danger"><btfp-icon name="trash" size="20" /><span>ลบรายการ</span></p-button>`) }),
+  render: () => ({ template: rowOf(`<p-button><btfp-icon name="pi-plus" size="20" /><span>เพิ่มข้อเสนอ</span></p-button><p-button outlined severity="secondary"><btfp-icon name="pi-chart-bar" size="20" /><span>รายงาน</span></p-button><p-button size="small" outlined severity="secondary"><btfp-icon name="pi-user-plus" size="16" /><span>มอบหมายเจ้าหน้าที่</span></p-button><p-button severity="danger"><btfp-icon name="pi-trash" size="20" /><span>ลบรายการ</span></p-button>`) }),
 };
 
 export const States: StoryObj = {
