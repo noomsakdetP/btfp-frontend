@@ -7,7 +7,7 @@ import * as TableStories from './table.stories';
 
 ตารางข้อมูล (Figma: Domain/Data Table, Domain/Table Header Cell, Domain/Table Cell) ใช้ HTML `<table>` ใส่ class `p-simple-table` ไม่ต้องเขียน CSS ของตารางในหน้าเอง สไตล์อยู่ใน `src/styles.scss` หมวด 4
 
-ทำไมไม่ใช้ `p-table` ของ PrimeNG: `p-table` ต้องส่งข้อมูลผ่าน binding (`[value]`) ซึ่งหน้าหุ่นจำลองใช้ไม่ได้ ตอนต่อ API จะเปลี่ยนเป็น `p-table` หรือใช้ `@for` กับ class เดิมก็ได้
+ทำไมไม่ใช้ `p-table` ของ PrimeNG: `p-table` ต้องส่งข้อมูลผ่าน binding (`[value]`) ซึ่งหน้าหุ่นจำลองใช้ไม่ได้ ตอนต่อ API เปลี่ยนเป็น `p-table` แล้วใส่ class เดิมผ่าน `tableStyleClass` ดูหัวข้อ "ตอนต่อ API" ด้านล่าง
 
 <Canvas of={TableStories.Basic} />
 
@@ -86,6 +86,66 @@ import * as TableStories from './table.stories';
   <span class="p-simple-table__sub">มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี</span>
 </td>
 ```
+
+## ตอนต่อ API (สำหรับทีม dev)
+
+หน้าหุ่นจำลองเขียนข้อมูลตายตัวทีละแถว ตอนต่อ API ให้เปลี่ยนเป็น `<p-table>` ของ PrimeNG แล้วใส่ class เดิมผ่าน `tableStyleClass` หน้าตาจะเหมือนหุ่นจำลอง (ทดสอบแล้ว แถว 56px หัวตาราง 44px ระยะและเส้นเท่าเดิม แถวที่เลือกพื้นฟ้าอ่อน ตัวอักษรสีปกติ ตั้งไว้ใน preset `datatable.row`)
+
+| หุ่นจำลอง | ตอนต่อ API |
+| --- | --- |
+| `<table class="p-simple-table min-w-[...]">` | `<p-table [value]="rows()" dataKey="id" tableStyleClass="p-simple-table min-w-[...]">` |
+| `<colgroup>` | ย้ายไปไว้ใน `<ng-template #colgroup>` |
+| `<thead><tr>` | `<ng-template #header><tr>` |
+| แถวตัวอย่างหลายแถวใน `<tbody>` | แถวเดียวใน `<ng-template #body let-row>` |
+| ข้อความตายตัว `2569/0042` | `{{ row.requestNo }}` |
+| `title="ข้อความเต็ม"` | `[title]="row.name"` |
+| `1,440,000.00` | `{{ row.budget \| number: '1.2-2' }}` |
+| `<p-status-tag status="review" />` | `<p-status-tag [status]="row.status" />` |
+| `<input type="checkbox" class="p-native-checkbox">` ที่หัวตาราง | `<p-tableHeaderCheckbox />` |
+| `<input type="checkbox" class="p-native-checkbox">` ในแถว | `<p-tableCheckbox [value]="row" />` และ `[(selection)]` ที่ `p-table` |
+| `<tr class="is-selected">` | `<tr [pSelectableRow]="row">` (PrimeNG ใส่สถานะเลือกให้เอง) |
+| `<p-paginator>` ใต้ตาราง | `[paginator]="true" [rows]="10"` ที่ `p-table` หรือคง `p-paginator` เดิมถ้าแบ่งหน้าที่ API |
+
+class ของเซลล์ (`p-simple-table__money`, `__check`, `__actions`, `__2line`) และ `<col class="w-[...]">` ใช้ตามเดิมทุกตัว
+
+```html
+<div class="overflow-x-auto">
+  <p-table [value]="rows()" dataKey="id" [(selection)]="selected" tableStyleClass="p-simple-table min-w-[880px]">
+    <ng-template #colgroup>
+      <colgroup>
+        <col class="w-14" />
+        <col class="w-[130px]" />
+        <col />
+        <col class="w-[170px]" />
+        <col class="w-[216px]" />
+        <col class="w-28" />
+      </colgroup>
+    </ng-template>
+    <ng-template #header>
+      <tr>
+        <th class="p-simple-table__check"><p-tableHeaderCheckbox /></th>
+        <th>เลขที่คำขอ</th>
+        <th>ชื่อโครงการ</th>
+        <th class="p-simple-table__money">วงเงิน (บาท)</th>
+        <th>สถานะ</th>
+        <th class="p-simple-table__actions">จัดการ</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-row>
+      <tr [pSelectableRow]="row">
+        <td class="p-simple-table__check"><p-tableCheckbox [value]="row" /></td>
+        <td>{{ row.requestNo }}</td>
+        <td [title]="row.name">{{ row.name }}</td>
+        <td class="p-simple-table__money">{{ row.budget | number: '1.2-2' }}</td>
+        <td><p-status-tag [status]="row.status" /></td>
+        <td class="p-simple-table__actions"><p-row-actions actions="view,edit,delete" [itemLabel]="row.requestNo" /></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+```
+
+ไฟล์ `.ts` ของหน้า import `TableModule` จาก `primeng/table` และ `DecimalPipe` จาก `@angular/common` เพิ่ม
 
 ## Token
 

@@ -275,6 +275,15 @@ export const ThemePreset = definePreset(Aura, {
         fontSize: '0.875rem',
       },
     },
+    // Figma: Domain/Data Table ใช้ตอน dev เปลี่ยนหน้าหุ่นจำลองเป็น <p-table tableStyleClass="p-simple-table">
+    // แถวที่เลือก: พื้นฟ้าอ่อน ตัวอักษรสีปกติ (ค่าเริ่มต้นของ PrimeNG เปลี่ยนตัวอักษรเป็นสีน้ำเงิน ไม่ตรง Figma)
+    datatable: {
+      row: {
+        hoverBackground: 'var(--p-table-row-hover-bg)',
+        selectedBackground: 'var(--p-table-row-selected-bg)',
+        selectedColor: 'var(--p-text-primary)',
+      },
+    },
     // Figma: DataDisplay/Avatar พื้น bg/subtle ตัวอักษร text/heading  S 32 = ค่าเริ่มต้น, M 40 = size="large", L 48 = size="xlarge"
     avatar: {
       root: { width: '2rem', height: '2rem', fontSize: '0.75rem', background: '{surface.50}', color: '#092a48' },
