@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, inject, input, signal } from '@angular/core';
+import { PRIMEICONS_NAMES } from './primeicons-names';
 import { moduleMetadata } from '@storybook/angular-vite';
 import { BtfpIcon } from '../../app/shared/ui/icon/icon';
 import { BTFP_ICONS } from '../../app/theme/icons';
@@ -130,21 +131,62 @@ export const shadowTpl = () =>
     )
     .join('')}</div>`;
 
+const iconCell = (icon: string, label: string, sub = '') =>
+  `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border:1px solid var(--p-border-default);border-radius:var(--p-radius-inner);color:var(--p-icon-default)">${icon}<code class="btfp-text-caption" style="color:var(--p-text-secondary);text-align:center;overflow-wrap:anywhere">${label}</code>${sub}</div>`;
+
+/** Icon กลาง: ไอคอนที่ PrimeIcons ไม่มี (ตรงกับหัวข้อ "Icon กลาง" ใน Figma) ใช้ผ่าน btfp-icon */
+export const CENTRAL_ICONS = [
+  'accessibility', 'antenna', 'clipboard-check', 'cookie', 'file-text', 'file-x', 'flask-conical', 'heart-handshake',
+  'list-filter', 'radio', 'radio-tower', 'search-x', 'shield-check', 'signpost', 'trending-up', 'tv', 'user-check',
+];
+
+/** ไอคอนเดิม (Lucide) ที่ยังใช้อยู่ในโค้ด และชื่อ PrimeIcons ที่จะย้ายไป */
+export const LEGACY_TO_PRIME: Record<string, string> = {
+  ban: 'ban', banknote: 'money-bill', bell: 'bell', 'building-complex': 'building', calendar: 'calendar',
+  'calendar-clock': 'calendar-clock', 'calendar-days': 'calendar', 'chart-column': 'chart-bar', 'chevron-down': 'chevron-down',
+  'chevron-left': 'chevron-left', 'chevron-right': 'chevron-right', 'circle-alert': 'exclamation-circle',
+  'circle-check': 'check-circle', 'circle-question-mark': 'question-circle', 'circle-x': 'times-circle', download: 'download',
+  eye: 'eye', files: 'clone', 'folder-open': 'folder-open', funnel: 'filter', 'graduation-cap': 'graduation-cap',
+  hourglass: 'hourglass', info: 'info-circle', landmark: 'building-columns', 'layout-grid': 'th-large', 'list-checks': 'list-check',
+  'map-pin': 'map-marker', menu: 'bars', minus: 'minus', pencil: 'pencil', phone: 'phone', plus: 'plus', 'rotate-ccw': 'replay',
+  search: 'search', send: 'send', trash: 'trash', 'triangle-alert': 'exclamation-triangle', 'user-plus': 'user-plus',
+  users: 'users', wallet: 'wallet', x: 'times',
+};
+
+export const primeIconsTpl = () =>
+  grid(120, PRIMEICONS_NAMES.map((n) => iconCell(`<i class="pi pi-${n} text-2xl"></i>`, `pi-${n}`)).join(''));
+
 export const iconsTpl = () =>
   grid(
     120,
-    Object.keys(BTFP_ICONS)
+    CENTRAL_ICONS.filter((n) => n in BTFP_ICONS)
       .sort()
-      .map(
-        (n) =>
-          `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border:1px solid var(--p-border-default);border-radius:var(--p-radius-inner);color:var(--p-icon-default)"><btfp-icon name="${n}" size="24" /><code class="btfp-text-caption" style="color:var(--p-text-secondary);text-align:center;overflow-wrap:anywhere">${n}</code></div>`,
+      .map((n) => iconCell(`<btfp-icon name="${n}" size="24" />`, n))
+      .join(''),
+  );
+
+export const legacyIconsTpl = () =>
+  grid(
+    150,
+    Object.keys(LEGACY_TO_PRIME)
+      .filter((n) => n in BTFP_ICONS)
+      .sort()
+      .map((n) =>
+        iconCell(
+          `<span style="display:flex;align-items:center;gap:12px"><btfp-icon name="${n}" size="24" /><span style="color:var(--p-text-secondary)">&gt;</span><i class="pi pi-${LEGACY_TO_PRIME[n]} text-2xl"></i></span>`,
+          `${n} &gt; pi-${LEGACY_TO_PRIME[n]}`,
+        ),
       )
       .join(''),
   );
 
 export const iconSizesTpl = () =>
-  `<div style="display:flex;align-items:end;gap:24px;color:var(--p-icon-default)">${[14, 16, 20, 24, 32]
-    .map((s) => `<div style="display:flex;flex-direction:column;align-items:center;gap:8px"><btfp-icon name="file-text" size="${s}" /><span class="btfp-text-caption">${s}</span></div>`)
+  `<div style="display:flex;align-items:end;gap:24px;color:var(--p-icon-default)">${[
+    ['text-base', 16],
+    ['text-xl', 20],
+    ['text-2xl', 24],
+  ]
+    .map(([c, s]) => `<div style="display:flex;flex-direction:column;align-items:center;gap:8px"><i class="pi pi-file ${c}"></i><span class="btfp-text-caption">${s}px <code>${c}</code></span></div>`)
     .join('')}</div>`;
 
-export const ICON_COUNT = Object.keys(BTFP_ICONS).length;
+export const ICON_COUNT = PRIMEICONS_NAMES.length;

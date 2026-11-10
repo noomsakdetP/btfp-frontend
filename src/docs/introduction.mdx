@@ -25,7 +25,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
   <a className="doc-card" href="./?path=/docs/components-overview--docs" target="_top">
     <span className="doc-card-label">Components</span>
     <span className="doc-card-title">{'btfp-*'}</span>
-    <span className="doc-card-text">component กลางที่ทีมสร้างเอง เมื่อ PrimeNG ไม่มีหรือระบบมีกฎเฉพาะ</span>
+    <span className="doc-card-text">component กลางที่ทีมสร้างเอง เฉพาะของที่ PrimeNG ไม่มี</span>
   </a>
   <a className="doc-card" href="./?path=/story/layout-shell--sidebar" target="_top">
     <span className="doc-card-label">Layout</span>
@@ -45,9 +45,9 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <ol className="doc-rules">
   <li className="doc-rule"><span className="doc-rule-no">1</span><span><span className="doc-rule-title">ใช้ PrimeNG ก่อนเสมอ</span><span className="doc-rule-text">ปรับหน้าตาผ่าน preset ที่ <code>src/app/theme/btfp-preset.ts</code> ไม่เขียน CSS ทับเอง</span></span></li>
-  <li className="doc-rule"><span className="doc-rule-no">2</span><span><span className="doc-rule-title">PrimeNG ไม่มี หรือมีแต่ระบบมีกฎเฉพาะ ห่อเป็น <code>{'btfp-*'}</code></span><span className="doc-rule-text">ใช้ชื่อ input แบบเดียวกับ PrimeNG เช่น severity, size, label</span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">2</span><span><span className="doc-rule-title">PrimeNG มีแต่ต้องเพิ่มความสามารถ ใช้ของ PrimeNG แล้วเติม directive ถ้า PrimeNG ไม่มีจึงสร้าง <code>{'btfp-*'}</code></span><span className="doc-rule-text">เช่น <code>{'<p-datepicker btfpDatepicker>'}</code> ห้ามสร้าง component ครอบที่ชื่อซ้ำกับ PrimeNG ชื่อ input ใช้แบบเดียวกับ PrimeNG เช่น severity, size, label</span></span></li>
   <li className="doc-rule"><span className="doc-rule-no">3</span><span><span className="doc-rule-title">สีและระยะใช้ token จาก Figma</span><span className="doc-rule-text">CSS variable <code>{'--p-*'}</code> ใน <code>{'src/styles/_tokens.scss'}</code> ห้ามใส่รหัสสีตรง</span></span></li>
-  <li className="doc-rule"><span className="doc-rule-no">4</span><span><span className="doc-rule-title">ไอคอนใช้ Lucide ชุดเดียวกับ Figma</span><span className="doc-rule-text"><code>&lt;btfp-icon name="eye" size="16" /&gt;</code></span></span></li>
+  <li className="doc-rule"><span className="doc-rule-no">4</span><span><span className="doc-rule-title">ไอคอนใช้ PrimeIcons 7.0.0 ชุดเดียวกับ Figma</span><span className="doc-rule-text"><code>&lt;i class="pi pi-eye"&gt;&lt;/i&gt;</code> ตัวที่ PrimeIcons ไม่มีใช้ Icon กลาง <code>&lt;btfp-icon name="radio-tower" /&gt;</code></span></span></li>
   <li className="doc-rule"><span className="doc-rule-no">5</span><span><span className="doc-rule-title">วันที่ใช้ <code>p-datepicker btfpDatepicker</code> เสมอ</span><span className="doc-rule-text">แสดง พ.ศ. แต่เก็บค่าเป็น ค.ศ.</span></span></li>
 </ol>
 
