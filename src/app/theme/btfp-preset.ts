@@ -278,7 +278,6 @@ export const BtfpPreset = definePreset(Aura, {
       xl: { width: '3rem', height: '3rem', fontSize: '1rem' },
     },
     // Figma: Feedback/Progress Bar พื้น primary.100 แถบ primary.600 สูง 8px มุมมน
-    // แถบโหลดตอนเปลี่ยนเมนู (btfp-route-progress) ปรับเป็นสูง 3px ไม่มีมุมมนเอง
     progressbar: {
       root: { background: '{primary.100}', borderRadius: '9999px', height: '0.5rem' },
       value: { background: '{primary.600}' },

@@ -204,10 +204,10 @@
   --p-hero-control-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   --p-hero-dot: var(--p-gray-50);
 
-  // Feedback/Loading: ชั้นทับระหว่างรอเปลี่ยนเมนู (btfp-route-progress)
-  --p-loading-overlay: rgba(0, 0, 0, 0.45); // ดำโปร่ง 45%
-  --p-loading-spinner: var(--p-blue-400); // สีหลักของวงหมุนบนพื้นเข้ม
-  --p-loading-spinner-soft: var(--p-blue-200); // สีรอง
+  // Feedback/Loading: ngx-ui-loader ผ่าน btfp-route-progress (ค่าที่ BA เลือก ดู loader-providers.ts)
+  --p-loading-overlay: rgba(40, 40, 40, 0.8); // ชั้นทับเทาเข้ม 80% ตอนเปลี่ยนเมนู
+  --p-loading-spinner: var(--p-blue-600); // แท่งกลางจอและแถบบน (#0077b6)
+  --p-loading-background: var(--p-red-500); // วงหมุนมุมขวาล่างตอนเรียก API
   --p-loading-text: var(--p-text-inverse);
 
   // หน้าเข้าสู่ระบบและลงทะเบียน (Figma: F-01 ฯลฯ ใช้ค่าตรง ไม่ได้ผูก variable)
