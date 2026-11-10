@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
-import { foundationImports, iconSizesTpl, iconsTpl, legacyIconsTpl, primeIconsTpl } from './_shared';
+import { moduleMetadata } from '@storybook/angular-vite';
+import { SbIconGallery } from './icon-gallery';
 
 const meta: Meta = {
   title: 'Foundations/ไอคอน',
   id: 'foundations-icons',
   tags: ['autodocs'],
-  decorators: [foundationImports],
+  decorators: [moduleMetadata({ imports: [SbIconGallery] })],
   parameters: {
     backgrounds: { default: 'white' },
     docs: {
@@ -34,26 +35,14 @@ const meta: Meta = {
 };
 export default meta;
 
-export const PrimeIcons: StoryObj = {
-  name: 'PrimeIcons (ไอคอนหลัก)',
-  parameters: { docs: { description: { story: 'PrimeIcons 7.0.0 ครบ 314 ตัว ชื่อใต้ไอคอนคือชื่อ class ที่ใช้ในโค้ด เช่น `pi pi-calendar`' } } },
-  render: () => ({ template: primeIconsTpl() }),
-};
-
 export const All: StoryObj = {
-  name: 'Icon กลาง (PrimeIcons ไม่มี)',
-  parameters: { docs: { description: { story: 'ไอคอนที่ PrimeIcons ไม่มี วาดใหม่ให้ขนาด ความหนาเส้น และมุมโค้งเท่ากับ PrimeIcons ใช้ผ่าน `<btfp-icon name="..." />` ชื่อตรงกับ Figma' } } },
-  render: () => ({ template: iconsTpl() }),
-};
-
-export const Legacy: StoryObj = {
-  name: 'ไอคอนเดิมที่รอย้าย (Lucide > PrimeIcons)',
-  parameters: { docs: { description: { story: 'ไอคอน Lucide ที่โค้ดเดิมยังใช้ผ่าน `btfp-icon` และ PrimeIcons ที่ต้องเปลี่ยนไปใช้ (ตรงกับที่ Figma เปลี่ยนแล้ว) ห้ามใช้ชื่อเหล่านี้กับ `btfp-icon` ในงานใหม่' } } },
-  render: () => ({ template: legacyIconsTpl() }),
-};
-
-export const Sizes: StoryObj = {
-  name: 'ขนาด',
-  parameters: { docs: { description: { story: '16 ในตาราง ปุ่ม S และข้อความ, 20 ในเมนูและปุ่ม M L, 24 หัวข้อ' } } },
-  render: () => ({ template: iconSizesTpl() }),
+  name: 'ไอคอนทั้งหมด',
+  parameters: {
+    docs: {
+      description: {
+        story: 'กดหัวข้อเพื่อหุบหรือขยาย ค้นหา PrimeIcons ได้ด้วยชื่อภาษาอังกฤษ กดที่ไอคอนเพื่อคัดลอกโค้ด',
+      },
+    },
+  },
+  render: () => ({ template: '<sb-icon-gallery />' }),
 };

@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, inject, input, signal } from '@angular/core';
-import { PRIMEICONS_NAMES } from './primeicons-names';
 import { moduleMetadata } from '@storybook/angular-vite';
 import { BtfpIcon } from '../../app/shared/ui/icon/icon';
 import { BTFP_CENTRAL_ICONS } from '../../app/theme/central-icons';
-import { BTFP_ICONS } from '../../app/theme/icons';
 
 /** แสดงค่าจริงของ CSS variable ที่ browser คำนวณได้ (ใช้เฉพาะใน Storybook) */
 @Component({
@@ -132,9 +130,6 @@ export const shadowTpl = () =>
     )
     .join('')}</div>`;
 
-const iconCell = (icon: string, label: string, sub = '') =>
-  `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border:1px solid var(--p-border-default);border-radius:var(--p-radius-inner);color:var(--p-icon-default)">${icon}<code class="btfp-text-caption" style="color:var(--p-text-secondary);text-align:center;overflow-wrap:anywhere">${label}</code>${sub}</div>`;
-
 /** Icon กลาง: ไอคอนที่ PrimeIcons ไม่มี วาดให้เข้ากับ PrimeIcons (src/app/theme/central-icons.ts) */
 export const CENTRAL_ICONS = Object.keys(BTFP_CENTRAL_ICONS);
 
@@ -152,40 +147,3 @@ export const LEGACY_TO_PRIME: Record<string, string> = {
   signpost: 'directions',
 };
 
-export const primeIconsTpl = () =>
-  grid(120, PRIMEICONS_NAMES.map((n) => iconCell(`<i class="pi pi-${n} text-2xl"></i>`, `pi-${n}`)).join(''));
-
-export const iconsTpl = () =>
-  grid(
-    120,
-    [...CENTRAL_ICONS]
-      .sort()
-      .map((n) => iconCell(`<btfp-icon name="${n}" size="24" />`, n))
-      .join(''),
-  );
-
-export const legacyIconsTpl = () =>
-  grid(
-    150,
-    Object.keys(LEGACY_TO_PRIME)
-      .filter((n) => n in BTFP_ICONS)
-      .sort()
-      .map((n) =>
-        iconCell(
-          `<span style="display:flex;align-items:center;gap:12px"><btfp-icon name="${n}" size="24" /><span style="color:var(--p-text-secondary)">&gt;</span><i class="pi pi-${LEGACY_TO_PRIME[n]} text-2xl"></i></span>`,
-          `${n} &gt; pi-${LEGACY_TO_PRIME[n]}`,
-        ),
-      )
-      .join(''),
-  );
-
-export const iconSizesTpl = () =>
-  `<div style="display:flex;align-items:end;gap:24px;color:var(--p-icon-default)">${[
-    ['text-base', 16],
-    ['text-xl', 20],
-    ['text-2xl', 24],
-  ]
-    .map(([c, s]) => `<div style="display:flex;flex-direction:column;align-items:center;gap:8px"><i class="pi pi-file ${c}"></i><span class="btfp-text-caption">${s}px <code>${c}</code></span></div>`)
-    .join('')}</div>`;
-
-export const ICON_COUNT = PRIMEICONS_NAMES.length;
