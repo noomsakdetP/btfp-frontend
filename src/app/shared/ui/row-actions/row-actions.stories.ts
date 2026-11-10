@@ -34,7 +34,7 @@ export default meta;
 type Story = StoryObj<RowActions>;
 
 export const ViewEditDelete: Story = { name: 'ดู แก้ไข ลบ' };
-export const ViewOnly: Story = { name: 'ดูอย่างเดียว (ใช้ใน B-21)', args: { actions: 'view' } };
+export const ViewOnly: Story = { name: 'ดูอย่างเดียว (ใช้ใน B-20)', args: { actions: 'view' } };
 export const WrongOrder: Story = {
   name: 'ส่งลำดับผิด ระบบเรียงให้',
   args: { actions: 'delete,view,edit' },

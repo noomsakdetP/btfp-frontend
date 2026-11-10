@@ -41,19 +41,19 @@ export const routes: Routes = [
     component: StaffLayout,
     children: [
       {
-        // B-21.3 ตัวอย่างสถานะยังไม่มีข้อมูล
+        // B-20.3 ตัวอย่างสถานะยังไม่มีข้อมูล
         path: 'proposals/empty',
         title: `ข้อเสนอโครงการ | ${SITE}`,
         loadComponent: () => import('./pages/proposals/proposal-list-empty/proposal-list-empty').then((m) => m.ProposalListEmptyPage),
       },
       {
-        // B-21 ข้อเสนอโครงการ (เจ้าหน้าที่)
+        // B-20 ข้อเสนอโครงการ (เจ้าหน้าที่)
         path: 'proposals',
         title: `ข้อเสนอโครงการ | ${SITE}`,
         loadComponent: () => import('./pages/proposals/proposal-list/proposal-list').then((m) => m.ProposalListPage),
         children: [
           {
-            // B-21.2 ตัวกรองเพิ่มเติม (Drawer) เปิดทับหน้า B-21
+            // B-20.2 ตัวกรองเพิ่มเติม (Drawer) เปิดทับหน้า B-20
             path: 'filters',
             title: `ตัวกรองเพิ่มเติม | ${SITE}`,
             loadComponent: () =>

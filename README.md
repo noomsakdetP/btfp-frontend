@@ -14,9 +14,9 @@
 | หน้า | URL |
 | --- | --- |
 | หน้าแรกสาธารณะ ระบบประกาศทุนและผลงานทุน กทปส. | `/` |
-| B-21 ข้อเสนอโครงการ (เจ้าหน้าที่) | `/proposals` |
-| B-21.2 ตัวกรองเพิ่มเติม (Drawer) | `/proposals/filters` |
-| B-21.3 ยังไม่มีข้อมูล | `/proposals/empty` |
+| B-20 ข้อเสนอโครงการ (เจ้าหน้าที่) | `/proposals` |
+| B-20.2 ตัวกรองเพิ่มเติม (Drawer) | `/proposals/filters` |
+| B-20.3 ยังไม่มีข้อมูล | `/proposals/empty` |
 | F-10 เข้าสู่ระบบ ขั้นที่ 1: อีเมลหรือเบอร์มือถือ | `/login` |
 
 ## หน้าเป็นหุ่นจำลอง (Mockup)
@@ -74,9 +74,9 @@ src/
     shared/ui/                 component กลาง p-* (มี .stories.ts คู่กันทุกตัว)
     pages/
       public/landing/                 หน้าแรกสาธารณะ
-      proposals/proposal-list/        B-21
-      proposals/proposal-filter-drawer/  B-21.2
-      proposals/proposal-list-empty/  B-21.3
+      proposals/proposal-list/        B-20
+      proposals/proposal-filter-drawer/  B-20.2
+      proposals/proposal-list-empty/  B-20.3
       placeholder/                    หน้าชั่วคราวของเมนูที่ยังไม่ทำ
   docs/introduction.mdx        หน้าแรกของ Storybook
   docs/foundations/            Storybook หมวด Foundations (สี ตัวอักษร ระยะ ไอคอน)
@@ -123,13 +123,13 @@ src/
 
 ## ขั้นต่อไปของ dev (ตอนต่อ API)
 
-หน้า B-21 ตอนนี้เป็นหุ่นจำลอง ตอนต่อ API แนะนำลำดับนี้
+หน้า B-20 ตอนนี้เป็นหุ่นจำลอง ตอนต่อ API แนะนำลำดับนี้
 
 1. สร้าง service และ type ของข้อเสนอ เช่น `ProposalService.list(filter)`
 2. เปลี่ยน `<table class="p-simple-table">` เป็น `<p-table [value]="proposals()" [lazy]="true">` ใช้ความกว้างคอลัมน์และ class เดิม แถวที่พิมพ์ไว้ 6 แถวเปลี่ยนเป็นแถวเดียว
 3. `<input type="checkbox" class="p-native-checkbox">` เปลี่ยนเป็น `<p-checkbox [binary]="true" [(ngModel)]>` หรือ selection ของ p-table
 4. `p-select` ที่ใช้ `placeholder` แทนค่า ให้ใส่ `[options]` และ `[(ngModel)]` / `formControlName`
-5. Drawer ตัวกรอง (`/proposals/filters`) ย้ายมาไว้ในหน้า B-21 ใช้ `<p-drawer [(visible)]="filterOpen">` แล้วลบ route ลูก
+5. Drawer ตัวกรอง (`/proposals/filters`) ย้ายมาไว้ในหน้า B-20 ใช้ `<p-drawer [(visible)]="filterOpen">` แล้วลบ route ลูก
 6. ช่องหน่วยงานใน Drawer เปลี่ยนเป็น `p-autocomplete` ที่ค้นจาก API ตาม Figma
 7. ใช้ `@if` แสดง `p-empty-state` แทนตารางเมื่อไม่มีข้อมูล (ดูตัวอย่างที่ `/proposals/empty`) แยก type: ยังไม่มีข้อมูล (`general`), ค้นหาไม่พบ (`no-results`), โหลดไม่สำเร็จ (`error`)
 
@@ -170,7 +170,7 @@ git clone <URL ของโปรเจกต์บน GitLab>
 
 ## อ้างอิง
 
-- Figma: ไฟล์ `pGyEKPXYJ054QjRLVHu2FD` หน้า Back-end, B-21 = node `60:7997`
+- Figma: ไฟล์ `pGyEKPXYJ054QjRLVHu2FD` หน้า Back-end, B-20 = node `60:7997`
 - PrimeNG 21: https://primeng.org
 - PrimeIcons 7.0.0: https://primeng.org/icons (ห้ามอัปเกรดเป็น 8 ขึ้นไป เป็นสัญญาอนุญาตเชิงพาณิชย์)
 - แนวทางการออกแบบ (สี ตัวอักษร component สถานะ รูปแบบหน้า) อยู่ใน `DESIGN.md`

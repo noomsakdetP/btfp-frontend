@@ -6,10 +6,10 @@ import { UiIcon } from '../../../shared/ui/icon/icon';
 import { EmptyState, ExportButton, KpiCard } from '../../../shared/ui';
 
 /**
- * B-21.3 ข้อเสนอโครงการ: ยังไม่มีข้อมูล (Figma: 480:66623)
+ * B-20.3 ข้อเสนอโครงการ: ยังไม่มีข้อมูล (Figma: 480:66623)
  *
  * ตัวอย่างการวาง p-empty-state ในตาราง ตอนต่อ API ไม่ต้องแยกหน้า
- * ให้แสดง p-empty-state แทนตารางในหน้า B-21 เมื่อไม่มีข้อมูล
+ * ให้แสดง p-empty-state แทนตารางในหน้า B-20 เมื่อไม่มีข้อมูล
  */
 @Component({
   selector: 'p-proposal-list-empty-page',

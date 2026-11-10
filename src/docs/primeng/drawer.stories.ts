@@ -10,7 +10,7 @@ const meta: Meta = {
   tags: ['autodocs'],
   decorators: [moduleMetadata({ imports: [Drawer, DrawerDefaults] })],
   parameters: {
-    ...primengParameters(`**Figma:** แผงตัวกรองเพิ่มเติม (B-21.2)  
+    ...primengParameters(`**Figma:** แผงตัวกรองเพิ่มเติม (B-20.2)  
 **PrimeNG:** [\`p-drawer\`](https://primeng.org/drawer) + \`DrawerDefaults\` ของเรา
 
 ใช้ \`p-drawer\` ของ PrimeNG ตรง ๆ แล้ว import \`DrawerDefaults\` คู่กัน (เกาะบนแท็กให้เอง ไม่ต้องใส่ attribute) ส่วนที่ตั้งค่าตามระบบ

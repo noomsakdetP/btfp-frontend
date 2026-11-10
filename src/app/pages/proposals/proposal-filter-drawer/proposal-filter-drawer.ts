@@ -13,7 +13,7 @@ import { Drawer } from 'primeng/drawer';
 import { DrawerDefaults, UiIcon, DatePickerDefaults } from '../../../shared/ui';
 
 /**
- * B-21.2 ตัวกรองเพิ่มเติม (Drawer)  Figma: 479:132339
+ * B-20.2 ตัวกรองเพิ่มเติม (Drawer)  Figma: 479:132339
  * หุ่นจำลอง: เปิดที่ /proposals/filters ไม่มีตัวแปรและ logic
  */
 @Component({
