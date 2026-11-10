@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, afterNextRender, inject
 import { PRIMEICONS_NAMES } from './primeicons-names';
 import { moduleMetadata } from '@storybook/angular-vite';
 import { BtfpIcon } from '../../app/shared/ui/icon/icon';
+import { BTFP_CENTRAL_ICONS } from '../../app/theme/central-icons';
 import { BTFP_ICONS } from '../../app/theme/icons';
 
 /** แสดงค่าจริงของ CSS variable ที่ browser คำนวณได้ (ใช้เฉพาะใน Storybook) */
@@ -134,11 +135,8 @@ export const shadowTpl = () =>
 const iconCell = (icon: string, label: string, sub = '') =>
   `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border:1px solid var(--p-border-default);border-radius:var(--p-radius-inner);color:var(--p-icon-default)">${icon}<code class="btfp-text-caption" style="color:var(--p-text-secondary);text-align:center;overflow-wrap:anywhere">${label}</code>${sub}</div>`;
 
-/** Icon กลาง: ไอคอนที่ PrimeIcons ไม่มี (ตรงกับหัวข้อ "Icon กลาง" ใน Figma) ใช้ผ่าน btfp-icon */
-export const CENTRAL_ICONS = [
-  'accessibility', 'antenna', 'clipboard-check', 'cookie', 'file-text', 'file-x', 'flask-conical', 'heart-handshake',
-  'list-filter', 'radio', 'radio-tower', 'search-x', 'shield-check', 'signpost', 'trending-up', 'tv', 'user-check',
-];
+/** Icon กลาง: ไอคอนที่ PrimeIcons ไม่มี วาดให้เข้ากับ PrimeIcons (src/app/theme/central-icons.ts) */
+export const CENTRAL_ICONS = Object.keys(BTFP_CENTRAL_ICONS);
 
 /** ไอคอนเดิม (Lucide) ที่ยังใช้อยู่ในโค้ด และชื่อ PrimeIcons ที่จะย้ายไป */
 export const LEGACY_TO_PRIME: Record<string, string> = {
@@ -150,7 +148,8 @@ export const LEGACY_TO_PRIME: Record<string, string> = {
   hourglass: 'hourglass', info: 'info-circle', landmark: 'building-columns', 'layout-grid': 'th-large', 'list-checks': 'list-check',
   'map-pin': 'map-marker', menu: 'bars', minus: 'minus', pencil: 'pencil', phone: 'phone', plus: 'plus', 'rotate-ccw': 'replay',
   search: 'search', send: 'send', trash: 'trash', 'triangle-alert': 'exclamation-triangle', 'user-plus': 'user-plus',
-  users: 'users', wallet: 'wallet', x: 'times',
+  users: 'users', wallet: 'wallet', x: 'times', tv: 'desktop', 'shield-check': 'shield', 'list-filter': 'filter',
+  signpost: 'directions',
 };
 
 export const primeIconsTpl = () =>
@@ -159,7 +158,7 @@ export const primeIconsTpl = () =>
 export const iconsTpl = () =>
   grid(
     120,
-    CENTRAL_ICONS.filter((n) => n in BTFP_ICONS)
+    [...CENTRAL_ICONS]
       .sort()
       .map((n) => iconCell(`<btfp-icon name="${n}" size="24" />`, n))
       .join(''),

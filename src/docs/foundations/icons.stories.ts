@@ -15,7 +15,7 @@ const meta: Meta = {
 | ชุด | ใน Figma | ในโค้ด | ใช้เมื่อ |
 | --- | --- | --- | --- |
 | **PrimeIcons 7.0.0** (313 ตัว สัญญาอนุญาต MIT) | \`pi-<ชื่อ>\` size 16/20/24 | \`<i class="pi pi-eye"></i>\` | ใช้ก่อนเสมอ |
-| **Icon กลาง** (วาดแบบ Lucide เส้นหนา 1.5) | \`icon/<หมวด>/<ชื่อ>\` | \`<btfp-icon name="radio-tower" size="16" />\` | เฉพาะตัวที่ PrimeIcons ไม่มี |
+| **Icon กลาง** (วาดใหม่ให้เข้ากับ PrimeIcons) | \`icon/<หมวด>/<ชื่อ>\` | \`<btfp-icon name="radio-tower" size="16" />\` | เฉพาะตัวที่ PrimeIcons ไม่มี |
 
 \`\`\`html
 <i class="pi pi-eye text-base"></i>   <!-- 16px -->
@@ -25,7 +25,7 @@ const meta: Meta = {
 
 **ห้ามอัปเกรด \`primeicons\` เป็นเวอร์ชัน 8 ขึ้นไป** (สัญญาอนุญาตเชิงพาณิชย์) ใน \`package.json\` ล็อกไว้ที่ \`7.0.0\` ค้นชื่อได้ที่ [primeng.org/icons](https://primeng.org/icons)
 
-**เพิ่ม Icon กลางตัวใหม่** เช็กใน PrimeIcons ก่อน ถ้าไม่มีจึง import จาก \`lucide\` แล้วเพิ่มใน \`src/app/theme/icons.ts\` และวาดเพิ่มในหัวข้อ "Icon กลาง" ของ Figma (ห้ามใช้ \`@lucide/angular\` ไฟล์ใหญ่ 11MB ทำ Storybook build ไม่ผ่าน)
+**เพิ่ม Icon กลางตัวใหม่** เช็กใน PrimeIcons ก่อน ถ้าไม่มีจึงวาดเพิ่มใน \`src/app/theme/central-icons.ts\` และหัวข้อ "Icon กลาง" ของ Figma ตามหลักการวาด: กรอบ 24 เส้นกลาง 1.5 หัวมน มุมโค้ง 2 ไม่ใส่รายละเอียดเล็ก ตัด viewBox ให้รูปเต็มกรอบเหมือนฟอนต์ PrimeIcons
 
 **ช่วงเปลี่ยนผ่าน:** Figma ใช้ PrimeIcons ทั้งไฟล์แล้ว แต่หน้าและ component ที่ทำไปแล้วในโค้ดยังใช้ \`btfp-icon\` (Lucide) อยู่ ดูรายการและชื่อใหม่ในหัวข้อ "ไอคอนเดิมที่รอย้าย" ด้านล่าง ย้ายเมื่อแก้หน้านั้น`,
       },
@@ -42,7 +42,7 @@ export const PrimeIcons: StoryObj = {
 
 export const All: StoryObj = {
   name: 'Icon กลาง (PrimeIcons ไม่มี)',
-  parameters: { docs: { description: { story: 'ไอคอนที่ลงทะเบียนในโค้ดแล้วและ PrimeIcons ไม่มี ใช้ผ่าน `<btfp-icon name="..." />` ตัวอื่นในหัวข้อ Icon กลาง ของ Figma เพิ่มใน `icons.ts` เมื่อต้องใช้' } } },
+  parameters: { docs: { description: { story: 'ไอคอนที่ PrimeIcons ไม่มี วาดใหม่ให้ขนาด ความหนาเส้น และมุมโค้งเท่ากับ PrimeIcons ใช้ผ่าน `<btfp-icon name="..." />` ชื่อตรงกับ Figma' } } },
   render: () => ({ template: iconsTpl() }),
 };
 
