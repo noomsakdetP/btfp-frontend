@@ -141,7 +141,7 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 | Forms/MultiSelect | `p-multiselect` | PrimeNG | `display="chip"` |
 | Forms/Autocomplete | `p-autocomplete` | PrimeNG | |
 | Forms/DatePicker | `p-datepicker` + `btfpDatepicker` | ทำแล้ว | แสดงแบบ 1 ม.ค. 2569 (พ.ศ.) เก็บ ค.ศ. Mode month = `view="month"` (ม.ค. 2569) month-range = `view="month" selectionMode="range"` error = `invalid` แผงปฏิทินกว้าง 280px ตาม Figma DatePicker Panel |
-| Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง |
+| Forms/CurrencyInput | `p-inputgroup` + `p-inputnumber inputStyleClass="btfp-input-money"` + "THB" | PrimeNG | ทศนิยม 2 ตำแหน่ง ตัวเลขชิดขวา หน้าหุ่นจำลองใช้ `<input pInputText class="btfp-input-money">` |
 | Forms/OtpInput | `p-inputotp` | PrimeNG | |
 | Forms/SearchField | `p-iconfield` + `p-inputicon` + `pInputText` | PrimeNG | |
 | Forms/Checkbox | `p-checkbox` (หน้าหุ่นจำลองใช้ `.btfp-checkbox`) | PrimeNG | 24px |
@@ -228,6 +228,7 @@ Text Style ใน Figma ผูกกับ Variable (ชนิดตัวอั
 ### ตาราง
 - แถวสูง 56 px ข้อความบรรทัดเดียว ยาวเกินตัดด้วย "..." และใส่ `title` ให้อ่านเต็ม
 - ชิดขวาเฉพาะจำนวนเงิน (ทศนิยม 2 ตำแหน่ง มีจุลภาคหลักพัน) ตัวเลขอื่น เช่น จำนวนราย ร้อยละ คะแนน จำนวนวัน ชิดซ้ายเหมือนข้อความ
+- ช่องกรอกจำนวนเงินก็ชิดขวาเหมือนกัน (`.btfp-input-money`) ช่องกรอกตัวเลขอื่นชิดซ้าย
 - คอลัมน์สุดท้ายเป็นปุ่มจัดการ เรียง ดู แก้ไข ลบ
 - เลือกหลายแถวแล้วแถบจัดการรายการที่เลือกจะแสดงจำนวนและปุ่มทำทีละหลายรายการ
 - ไม่มีข้อมูลแสดง Empty State ตามกรณี (ยังไม่มีข้อมูล / ค้นหาไม่พบ / โหลดไม่สำเร็จ) แทนตาราง

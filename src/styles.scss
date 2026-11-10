@@ -134,6 +134,13 @@
     color: var(--p-text-secondary);
   }
 
+  // ช่องกรอกจำนวนเงิน ชิดขวาเหมือนคอลัมน์เงินในตาราง (.btfp-table__money) ตัวเลขกว้างเท่ากันให้หลักตรงกัน
+  // <input pInputText class="btfp-input-money"> หรือ <p-inputnumber inputStyleClass="btfp-input-money">
+  .btfp-input-money {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
   // ข้อความผิดพลาดใต้ช่อง พร้อมไอคอน
   .btfp-field__error {
     display: flex;
