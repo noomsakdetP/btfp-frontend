@@ -16,6 +16,10 @@ import { provideRouter, withHashLocation } from '@angular/router';
 import { btfpUiProviders } from '../src/app/app.config';
 import { btfpTheme } from './theme';
 import { htmlSnippetTransform } from './source-snippet';
+// documentation.json สร้างโดย Compodoc ตอนเปิด/build Storybook (ไม่ต้อง commit) ใช้ทำตาราง input/output ในหน้า Docs
+import compodocJson from '../documentation.json';
+
+(globalThis as { __STORYBOOK_COMPODOC_JSON__?: unknown }).__STORYBOOK_COMPODOC_JSON__ = compodocJson;
 
 const preview: Preview = {
   decorators: [

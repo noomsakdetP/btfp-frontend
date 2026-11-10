@@ -45,3 +45,9 @@ Thumbs.db
 
 *storybook.log
 storybook-static
+
+# Compodoc (Storybook สร้างเองทุกครั้ง)
+documentation.json
+.compodoc-*
+.compodoc.run
+.compodoc.lock

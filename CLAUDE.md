@@ -97,6 +97,7 @@ npm run check:tokens      # ต้องผ่านเมื่อเพิ่�
 - การโหลดหน้าและเรียก API ใช้ ngx-ui-loader เป็นตัวจับ (`btfpLoaderProviders()` ใน `app.config.ts`) แสดงผลผ่าน `btfp-route-progress` เท่านั้น ห้ามใส่ `<ngx-ui-loader>` ในหน้า
 - ไอคอนใน Figma มีสองชุด: PrimeIcons `pi-<ชื่อ>` 313 ตัว (ขยายเต็มกรอบเหมือนฟอนต์จริง) และ Icon กลาง `icon/<หมวด>/<ชื่อ>` 26 ตัว (วาดให้เข้ากับ PrimeIcons) ใช้ชื่อหลัง `/` สุดท้ายกับ `btfp-icon`
 - `btfp-icon` ตั้งความหนาเส้น Icon กลางให้อัตโนมัติ 1.5 คงที่ (ย่อขยายตามรูปเหมือน PrimeIcons) ไม่ต้องใส่ `strokeWidth`
+- ตาราง input/output ในหน้า Docs ของ Storybook สร้างจาก Compodoc (`documentation.json` สร้างใหม่ทุกครั้งที่เปิด Storybook ไม่ต้อง commit) คำอธิบายมาจาก comment `/** */` เหนือ input/output ให้เขียนเป็นภาษาไทยทุกตัว member ที่ไม่ใช่ API ให้เป็น `protected` หรือ `private` จะได้ไม่ขึ้นในตาราง
 - `p-select`, `p-multiselect`, `p-datepicker` ใน Drawer ให้ใส่ `appendTo="body"` ไม่งั้น overlay จะโดนตัด
 - token ใช้ prefix `--p-*` เหมือน PrimeNG และอยู่นอก CSS layer จึงชนะค่าของ PrimeNG เสมอ ชุดสีพื้นฐาน (`--p-blue-500`, `--p-red-500`, `--p-gray-500` ฯลฯ 70 ตัว) ตั้งใจทับชุดสีของ PrimeNG
   token ใหม่ห้ามตั้งชื่อตรงกับตัวแปรของ PrimeNG โดยไม่ตั้งใจ `npm run check:tokens` จะหยุดถ้าเจอ
