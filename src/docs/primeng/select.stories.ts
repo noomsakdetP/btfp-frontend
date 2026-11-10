@@ -36,7 +36,7 @@ export class MyPage {}
 
 ใน Drawer ให้ใส่ \`appendTo="body"\` ไม่งั้นรายการตัวเลือกจะโดนตัด
 
-ลูกศรลง (chevron-down) ขนาด 16px ตาม Figma ตั้งไว้ใน \`styles.scss\` แล้ว (PrimeNG ตั้งไว้ 14px) ใช้กับ Select, MultiSelect, DatePicker และทุกตัวของ PrimeNG
+ไอคอนในช่องกรอก (ลูกศร ค้นหา ปฏิทิน วงหมุนตอนโหลด) ขนาด 16px ตาม Figma ตั้งไว้ใน \`styles.scss\` แล้ว (PrimeNG ตั้งไว้ 14px) ปุ่มลบในชิปคง 14px
 
 **ป้ายชื่อ ข้อความช่วย ข้อความผิดพลาด** ครอบด้วย \`.btfp-field\` (กำหนดใน \`styles.scss\`)
 

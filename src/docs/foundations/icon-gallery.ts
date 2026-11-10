@@ -63,7 +63,7 @@ import { PRIMEICONS_NAMES } from './primeicons-names';
     <details>
       <summary>
         <span class="title">ขนาด</span>
-        <span class="hint">16 ในตาราง ปุ่ม S ข้อความ และลูกศรลง (chevron-down) ทุกที่, 20 ในเมนูและปุ่ม M L, 24 หัวข้อ ขนาดอื่นตาม Figma ใช้ <code>&lt;btfp-icon name="pi-ชื่อ" size="18" /&gt;</code></span>
+        <span class="hint">16 ในตาราง ปุ่ม S ข้อความ ไอคอนในช่องกรอก และลูกศรลง (chevron-down) ทุกที่, 20 ในเมนูและปุ่ม M L, 24 หัวข้อ ขนาดอื่นตาม Figma ใช้ <code>&lt;btfp-icon name="pi-ชื่อ" size="18" /&gt;</code></span>
       </summary>
       <div class="sizes">
         @for (s of sizes; track s.px) {

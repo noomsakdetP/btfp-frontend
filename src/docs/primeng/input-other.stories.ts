@@ -35,7 +35,7 @@ export class MyPage {}
 | --- | --- |
 | Forms/Autocomplete | \`<p-autocomplete [suggestions]="..." (completeMethod)="..." />\` เช่น ค้นหาหน่วยงานจาก API |
 | Forms/CurrencyInput | \`<p-inputgroup><p-inputnumber inputStyleClass="btfp-input-money" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2" /><p-inputgroup-addon>THB</p-inputgroup-addon></p-inputgroup>\` ตัวเลขชิดขวา (หน้าหุ่นจำลองใช้ \`<input pInputText class="btfp-input-money">\`) |
-| Forms/SearchField | \`<p-iconfield><p-inputicon><btfp-icon name="pi-search" size="20" /></p-inputicon><input pInputText /></p-iconfield>\` |
+| Forms/SearchField | \`<p-iconfield><p-inputicon><btfp-icon name="pi-search" size="16" /></p-inputicon><input pInputText /></p-iconfield>\` |
 | Forms/OtpInput | \`<p-inputotp [length]="6" [integerOnly]="true" />\` |
 
 **ป้ายชื่อ ข้อความช่วย ข้อความผิดพลาด** ครอบด้วย \`.btfp-field\` (กำหนดใน \`styles.scss\`)
@@ -56,5 +56,5 @@ export default meta;
 export const All: StoryObj = {
   name: "ตัวอย่าง",
   args: { suggestions: OPTIONS, amount: 1250000, otp: '' },
-  render: (args) => ({ props: args, template: `<div style="display:flex;flex-wrap:wrap;gap:24px">${field('หน่วยงาน', '<p-autocomplete [suggestions]="suggestions" optionLabel="label" placeholder="พิมพ์ชื่อหน่วยงาน" />', helper())}${field('งบประมาณที่ขอรับ', '<p-inputgroup><p-inputnumber [(ngModel)]="amount" inputStyleClass="btfp-input-money" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2" /><p-inputgroup-addon>THB</p-inputgroup-addon></p-inputgroup>', helper('ระบุจำนวนเงินเป็นบาท พร้อมทศนิยม 2 ตำแหน่ง'))}${field('ค้นหาโครงการ', '<p-iconfield><p-inputicon><btfp-icon name="pi-search" size="20" /></p-inputicon><input pInputText placeholder="ค้นหาชื่อ เลขที่ หรือหน่วยงาน" /></p-iconfield>', helper('ค้นหาได้ทั้งภาษาไทยและอังกฤษ'), false)}${field('รหัส OTP', '<p-inputotp [(ngModel)]="otp" [length]="6" [integerOnly]="true" />', helper('รหัส 6 หลักที่ส่งไปทางอีเมล'))}</div>` }),
+  render: (args) => ({ props: args, template: `<div style="display:flex;flex-wrap:wrap;gap:24px">${field('หน่วยงาน', '<p-autocomplete [suggestions]="suggestions" optionLabel="label" placeholder="พิมพ์ชื่อหน่วยงาน" />', helper())}${field('งบประมาณที่ขอรับ', '<p-inputgroup><p-inputnumber [(ngModel)]="amount" inputStyleClass="btfp-input-money" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2" /><p-inputgroup-addon>THB</p-inputgroup-addon></p-inputgroup>', helper('ระบุจำนวนเงินเป็นบาท พร้อมทศนิยม 2 ตำแหน่ง'))}${field('ค้นหาโครงการ', '<p-iconfield><p-inputicon><btfp-icon name="pi-search" size="16" /></p-inputicon><input pInputText placeholder="ค้นหาชื่อ เลขที่ หรือหน่วยงาน" /></p-iconfield>', helper('ค้นหาได้ทั้งภาษาไทยและอังกฤษ'), false)}${field('รหัส OTP', '<p-inputotp [(ngModel)]="otp" [length]="6" [integerOnly]="true" />', helper('รหัส 6 หลักที่ส่งไปทางอีเมล'))}</div>` }),
 };
