@@ -31,7 +31,7 @@ import * as TableStories from './table.stories';
 | status | ไม่ต้องใส่ | ใส่ `p-status-tag` ในเซลล์ |
 | text-2line | `p-simple-table__2line` | 2 บรรทัด แถวสูง 64px ดูตัวอย่างด้านล่าง |
 
-แถวที่เลือก ใส่ `class="is-selected"` ที่ `<tr>` (พื้นสีฟ้าอ่อน) ชี้เมาส์ที่แถวจะเป็นพื้นเทาอ่อน
+แถวที่ติ๊กช่องเลือก (`checked`) พื้นเป็นสีฟ้าอ่อนเอง ติ๊กออกแล้วกลับเป็นพื้นขาว ไม่ต้องใส่ class ที่ `<tr>` ชี้เมาส์ที่แถวจะเป็นพื้นเทาอ่อน
 
 ช่องเลือกในหน้าหุ่นจำลองใช้ `<input type="checkbox" class="p-native-checkbox">` หัวตารางที่เลือกบางแถวใส่ `is-indeterminate`
 
@@ -59,7 +59,7 @@ import * as TableStories from './table.stories';
       </tr>
     </thead>
     <tbody>
-      <tr class="is-selected">
+      <tr>
         <td class="p-simple-table__check"><input type="checkbox" class="p-native-checkbox" checked aria-label="เลือก 2569/0042" /></td>
         <td>2569/0042</td>
         <td title="ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน">ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน</td>
@@ -103,7 +103,7 @@ import * as TableStories from './table.stories';
 | `<p-status-tag status="review" />` | `<p-status-tag [status]="row.status" />` |
 | `<input type="checkbox" class="p-native-checkbox">` ที่หัวตาราง | `<p-tableHeaderCheckbox />` |
 | `<input type="checkbox" class="p-native-checkbox">` ในแถว | `<p-tableCheckbox [value]="row" />` และ `[(selection)]` ที่ `p-table` |
-| `<tr class="is-selected">` | `<tr [pSelectableRow]="row">` (PrimeNG ใส่สถานะเลือกให้เอง) |
+| `<tr>` | `<tr [pSelectableRow]="row">` (PrimeNG ใส่สถานะเลือกให้เอง) |
 | `<p-paginator>` ใต้ตาราง | `[paginator]="true" [rows]="10"` ที่ `p-table` หรือคง `p-paginator` เดิมถ้าแบ่งหน้าที่ API |
 
 class ของเซลล์ (`p-simple-table__money`, `__check`, `__actions`, `__2line`) และ `<col class="w-[...]">` ใช้ตามเดิมทุกตัว

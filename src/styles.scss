@@ -222,8 +222,9 @@
       background: var(--p-table-row-hover-bg);
     }
 
-    // แถวที่เลือก
-    tbody tr.is-selected {
+    // แถวที่เลือก: พื้นฟ้าอ่อนตามช่องเลือกในแถว ติ๊กออกแล้วกลับเป็นพื้นขาวเอง (CSS ล้วน ไม่ต้องใส่ class)
+    // ตอนต่อ API ใช้ <p-table> แถวที่เลือกได้สีจาก preset datatable.row
+    tbody tr:has(> .p-simple-table__check .p-native-checkbox:checked) {
       background: var(--p-table-row-selected-bg);
     }
   }

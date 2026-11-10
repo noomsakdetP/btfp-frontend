@@ -42,7 +42,7 @@ export const Basic: Story = {
       </tr>
     </thead>
     <tbody>
-      <tr class="is-selected">
+      <tr>
         <td class="p-simple-table__check"><input type="checkbox" class="p-native-checkbox" checked aria-label="เลือก 2569/0042" /></td>
         <td>2569/0042</td>
         <td title="ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน">ศูนย์ทดสอบอุปกรณ์โทรคมนาคมชุมชน</td>
