@@ -11,7 +11,7 @@ import { BtfpEmptyState } from '../../shared/ui';
     <btfp-empty-state
       type="general"
       title="หน้านี้ยังไม่ได้ขึ้นโครง"
-      description="ตัวอย่างนำร่องมีเฉพาะหน้าข้อเสนอโครงการ (B-01) หน้าอื่นจะทยอยทำตามแบบใน Figma"
+      description="ตัวอย่างนำร่องมีเฉพาะหน้าข้อเสนอโครงการ (B-21) หน้าอื่นจะทยอยทำตามแบบใน Figma"
     />
     <p class="back"><a routerLink="/proposals">กลับไปหน้าข้อเสนอโครงการ</a></p>
   `,

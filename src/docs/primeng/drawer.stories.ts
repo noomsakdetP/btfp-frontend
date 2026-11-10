@@ -10,7 +10,7 @@ const meta: Meta = {
   tags: ['autodocs'],
   decorators: [moduleMetadata({ imports: [Drawer, BtfpDrawer] })],
   parameters: {
-    ...primengParameters(`**Figma:** แผงตัวกรองเพิ่มเติม (B-01F)  
+    ...primengParameters(`**Figma:** แผงตัวกรองเพิ่มเติม (B-21.2)  
 **PrimeNG:** [\`p-drawer\`](https://primeng.org/drawer) + \`btfpDrawer\` ของเรา
 
 ใช้ \`p-drawer\` ของ PrimeNG ตรง ๆ แล้วใส่ attribute \`btfpDrawer\` เพิ่ม ส่วนที่ตั้งค่าตามระบบ

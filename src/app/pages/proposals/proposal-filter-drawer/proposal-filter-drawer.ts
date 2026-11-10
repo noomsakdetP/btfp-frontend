@@ -13,7 +13,7 @@ import { Drawer } from 'primeng/drawer';
 import { BtfpDatepicker, BtfpDrawer, BtfpIcon } from '../../../shared/ui';
 
 /**
- * B-01F ตัวกรองเพิ่มเติม (Drawer)  Figma: 479:132339
+ * B-21.2 ตัวกรองเพิ่มเติม (Drawer)  Figma: 479:132339
  * หุ่นจำลอง: เปิดที่ /proposals/filters ไม่มีตัวแปรและ logic
  */
 @Component({

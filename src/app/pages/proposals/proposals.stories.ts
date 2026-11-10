@@ -21,7 +21,7 @@ const shell = (page: string) => `
   <p-confirmdialog [style]="{ width: '440px' }" />`;
 
 const meta: Meta = {
-  title: 'Pages/B-01 ข้อเสนอโครงการ',
+  title: 'Pages/B-21 ข้อเสนอโครงการ',
   id: 'pages-b01-proposals',
   decorators: [
     moduleMetadata({ imports: [BtfpSidebar, BtfpTopbar, ConfirmDialog, ProposalListPage, ProposalListEmptyPage, ProposalFilterDrawer] }),
@@ -39,16 +39,16 @@ const meta: Meta = {
 export default meta;
 
 export const B01: StoryObj = {
-  name: 'B-01 มีข้อมูล',
+  name: 'B-21 มีข้อมูล',
   render: () => ({ template: shell('<btfp-proposal-list-page />') }),
 };
 
 export const B01Empty: StoryObj = {
-  name: 'B-01E ยังไม่มีข้อมูล',
+  name: 'B-21.3 ยังไม่มีข้อมูล',
   render: () => ({ template: shell('<btfp-proposal-list-empty-page />') }),
 };
 
 export const B01F: StoryObj = {
-  name: 'B-01F ตัวกรองเพิ่มเติม (Drawer)',
+  name: 'B-21.2 ตัวกรองเพิ่มเติม (Drawer)',
   render: () => ({ template: shell('<btfp-proposal-list-page /><btfp-proposal-filter-drawer />') }),
 };

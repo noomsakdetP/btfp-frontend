@@ -6,10 +6,10 @@ import { BtfpIcon } from '../../../shared/ui/icon/icon';
 import { BtfpEmptyState, BtfpExportButton, BtfpKpiCard } from '../../../shared/ui';
 
 /**
- * B-01E ข้อเสนอโครงการ: ยังไม่มีข้อมูล (Figma: 480:66623)
+ * B-21.3 ข้อเสนอโครงการ: ยังไม่มีข้อมูล (Figma: 480:66623)
  *
  * ตัวอย่างการวาง btfp-empty-state ในตาราง ตอนต่อ API ไม่ต้องแยกหน้า
- * ให้แสดง btfp-empty-state แทนตารางในหน้า B-01 เมื่อไม่มีข้อมูล
+ * ให้แสดง btfp-empty-state แทนตารางในหน้า B-21 เมื่อไม่มีข้อมูล
  */
 @Component({
   selector: 'btfp-proposal-list-empty-page',

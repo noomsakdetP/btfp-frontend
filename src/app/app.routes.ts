@@ -10,7 +10,7 @@ const PUBLIC_PENDING = ['grants', 'results', 'news', 'faq', 'guide', 'contact', 
 export const routes: Routes = [
   {
     // ===== เข้าสู่ระบบ (เต็มจอ ไม่มีแถบบน) =====
-    // F-01 เข้าสู่ระบบ ① อีเมลหรือเบอร์มือถือ  Figma 42:9007
+    // F-10 เข้าสู่ระบบ ขั้นที่ 1: อีเมลหรือเบอร์มือถือ  Figma 42:9007
     path: 'login',
     pathMatch: 'full',
     title: `เข้าสู่ระบบ | ${SITE}`,
@@ -41,19 +41,19 @@ export const routes: Routes = [
     component: BtfpStaffLayout,
     children: [
       {
-        // B-01E ตัวอย่างสถานะยังไม่มีข้อมูล
+        // B-21.3 ตัวอย่างสถานะยังไม่มีข้อมูล
         path: 'proposals/empty',
         title: `ข้อเสนอโครงการ | ${SITE}`,
         loadComponent: () => import('./pages/proposals/proposal-list-empty/proposal-list-empty').then((m) => m.ProposalListEmptyPage),
       },
       {
-        // B-01 ข้อเสนอโครงการ (เจ้าหน้าที่)
+        // B-21 ข้อเสนอโครงการ (เจ้าหน้าที่)
         path: 'proposals',
         title: `ข้อเสนอโครงการ | ${SITE}`,
         loadComponent: () => import('./pages/proposals/proposal-list/proposal-list').then((m) => m.ProposalListPage),
         children: [
           {
-            // B-01F ตัวกรองเพิ่มเติม (Drawer) เปิดทับหน้า B-01
+            // B-21.2 ตัวกรองเพิ่มเติม (Drawer) เปิดทับหน้า B-21
             path: 'filters',
             title: `ตัวกรองเพิ่มเติม | ${SITE}`,
             loadComponent: () =>

@@ -11,7 +11,7 @@ import { Tab, TabList, Tabs } from 'primeng/tabs';
 import { BtfpExportButton, BtfpIcon, BtfpKpiCard, BtfpRowActions, BtfpStatusTag } from '../../../shared/ui';
 
 /**
- * B-01 ข้อเสนอโครงการ (มุมมองเจ้าหน้าที่)  Figma: 60:7997
+ * B-21 ข้อเสนอโครงการ (มุมมองเจ้าหน้าที่)  Figma: 60:7997
  *
  * หุ่นจำลอง: markup + CSS เท่านั้น ไม่มีตัวแปรและ logic ในคลาสนี้
  * Drawer ตัวกรองเพิ่มเติมเป็นหน้าลูก (ProposalFilterDrawer) แสดงใน <router-outlet>
