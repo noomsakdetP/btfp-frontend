@@ -51,14 +51,14 @@
       <img class="hidden sm:block" src="brand/logo-nbtc.png" alt="กสทช." width="54" height="80" />
       <span class="brandbar__divider hidden h-20 w-px sm:block" aria-hidden="true"></span>
       <img class="hidden sm:block" src="brand/logo-btfp.png" alt="กทปส." width="58" height="80" />
-      <h1 class="brandbar__title p-text-display-xl m-0 flex flex-wrap items-baseline gap-x-4">
+      <h1 class="brandbar__title p-text-display-xl m-0 flex flex-wrap items-baseline gap-x-4 max-sm:text-[44px]">
         <span>ทุนเพื่อ</span>
         <span class="rotator relative inline-block h-[1.1em] overflow-hidden align-bottom">
           <span class="rotator__track flex flex-col">
-            <span class="rotator__item">การสื่อสารที่ทั่วถึง</span>
-            <span class="rotator__item">ไอเดียดีกลายเป็นจริง</span>
-            <span class="rotator__item">ไปถึงทุกชุมชน</span>
-            <span class="rotator__item">การสื่อสารที่ทั่วถึง</span>
+            <span class="rotator__item whitespace-nowrap">การสื่อสารที่ทั่วถึง</span>
+            <span class="rotator__item whitespace-nowrap">ไอเดียดีกลายเป็นจริง</span>
+            <span class="rotator__item whitespace-nowrap">ไปถึงทุกชุมชน</span>
+            <span class="rotator__item whitespace-nowrap">การสื่อสารที่ทั่วถึง</span>
           </span>
         </span>
       </h1>
@@ -68,7 +68,7 @@
   <main>
     <!-- ===================== Banner (ชี้แผงไหน แผงนั้นขยาย) ===================== -->
     <section class="banner group mx-auto flex w-full max-w-[1440px] flex-col lg:h-[640px] lg:flex-row lg:px-[10px]" aria-label="ไฮไลต์">
-      <a class="banner__panel banner__panel--1 relative flex min-h-[520px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[1000_1_0%] lg:group-has-[.banner__panel--2:hover]:flex-[700_1_0%] lg:group-has-[.banner__panel--3:hover]:flex-[700_1_0%]" routerLink="/grants">
+      <a class="banner__panel banner__panel--1 relative flex min-h-[680px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[1000_1_0%] lg:group-has-[.banner__panel--2:hover]:flex-[700_1_0%] lg:group-has-[.banner__panel--3:hover]:flex-[700_1_0%]" routerLink="/grants">
         <div class="relative z-10 flex w-full max-w-[340px] flex-col gap-4 px-6 pt-10 lg:px-10 lg:pt-24">
           <p class="p-text-body-medium m-0">เปิดรับข้อเสนอแล้ว</p>
           <h2 class="p-text-h1 m-0">ทุนประเภท 2<br />ประจำปีงบประมาณ 2570</h2>
@@ -82,7 +82,7 @@
         <img class="banner__photo banner__photo--side absolute bottom-0 left-0 h-[200px] w-full object-cover lg:h-[300px]" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" />
       </a>
       <a class="banner__panel banner__panel--3 relative flex min-h-[320px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[200_1_0%] lg:hover:flex-[500_1_0%]" routerLink="/results">
-        <img class="banner__photo banner__photo--side absolute left-0 top-[145px] h-[300px] w-full object-cover" src="images/landing-new/fisher-village.jpg" alt="ชาวประมงใช้แท็บเล็ตดูข้อมูลร่วมกับนักศึกษา" />
+        <img class="banner__photo banner__photo--side absolute left-0 top-0 h-[220px] w-full object-cover lg:top-[145px] lg:h-[300px]" src="images/landing-new/fisher-village.jpg" alt="ชาวประมงใช้แท็บเล็ตดูข้อมูลร่วมกับนักศึกษา" />
         <p class="banner__caption banner__caption--light p-text-h3 relative z-10 m-0 mt-auto px-6 pb-10 lg:pb-[136px]">ผลงานจากผู้รับทุน</p>
       </a>
     </section>
@@ -319,7 +319,7 @@
             <article class="spot col-start-1 row-start-1" data-slide>
               <div class="flex flex-col gap-0 md:flex-row">
                 <div class="flex w-full max-w-[440px] flex-col">
-                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round h-full w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="ครูสอนนักเรียนใช้แท็บเล็ตในห้องเรียน" /></div>
+                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round aspect-square w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="ครูสอนนักเรียนใช้แท็บเล็ตในห้องเรียน" /></div>
                   <div class="mt-8 flex flex-col gap-3">
                     <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศ<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">3 พ.ย. 2569</span></p>
                     <h3 class="spot__title p-text-h2 m-0">วันสุดท้ายรับข้อเสนอโครงการทุนประเภท 1 ประจำปี 2569</h3>
@@ -336,7 +336,7 @@
             <article class="spot col-start-1 row-start-1" data-slide>
               <div class="flex flex-col gap-0 md:flex-row">
                 <div class="flex w-full max-w-[440px] flex-col">
-                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round h-full w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="ทีมงานผลิตรายการโทรทัศน์พร้อมล่ามภาษามือ" /></div>
+                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round aspect-square w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="ทีมงานผลิตรายการโทรทัศน์พร้อมล่ามภาษามือ" /></div>
                   <div class="mt-8 flex flex-col gap-3">
                     <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ข่าวสาร<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">1 พ.ย. 2569</span></p>
                     <h3 class="spot__title p-text-h2 m-0">เครือข่ายอินเทอร์เน็ตชุมชนเปิดศูนย์เรียนรู้ดิจิทัลแห่งที่ 20</h3>
@@ -353,7 +353,7 @@
             <article class="spot col-start-1 row-start-1" data-slide>
               <div class="flex flex-col gap-0 md:flex-row">
                 <div class="flex w-full max-w-[440px] flex-col">
-                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round h-full w-full object-cover" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" /></div>
+                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round aspect-square w-full object-cover" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" /></div>
                   <div class="mt-8 flex flex-col gap-3">
                     <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศผล<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">28 ต.ค. 2569</span></p>
                     <h3 class="spot__title p-text-h2 m-0">ประกาศผลการพิจารณาข้อเสนอโครงการทุนประเภท 2</h3>
