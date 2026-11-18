@@ -110,7 +110,7 @@
     </p-auto-rotate>
 
     <!-- ===================== ประกาศทุนที่เปิดรับ ===================== -->
-    <section class="mx-auto w-full max-w-[1248px] px-6 pb-24 pt-16" aria-labelledby="calls-title">
+    <section class="mx-auto w-full max-w-[1248px] px-6 pb-24 pt-16" data-reveal aria-labelledby="calls-title">
       <h2 id="calls-title" class="section-title p-text-display m-0 text-center">ประกาศ<span class="hl p-wavy" data-reveal>ทุน</span>ที่เปิดรับ</h2>
 
       <p-tabs class="mt-10 block" value="all" scrollable="true">
@@ -146,7 +146,7 @@
 
       <!-- การ์ดเลื่อนซ้ายขวาได้ (Figma วางเป็นแถวเดียว) อยู่ซ้ายสุดแสดงเฉพาะลูกศรขวา เลื่อนไปแล้วลูกศรซ้ายจึงโผล่ -->
       <div pScrollRow class="group/row relative mt-10">
-      <div class="calls -mx-6 flex snap-x scroll-px-6 gap-6 overflow-x-auto px-6 pb-6 pt-2" data-scroll-track>
+      <div class="calls reveal-stagger -mx-6 flex snap-x scroll-px-6 gap-6 overflow-x-auto px-6 pb-6 pt-2" data-scroll-track>
         <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
           <span class="call-card__photo call-card__photo--empty grid h-[220px] place-items-center"><p-ui-icon name="pi-image" size="22" /></span>
           <span class="call-card__dash mx-2 my-4 block"></span>
@@ -226,7 +226,7 @@
     </section>
 
     <!-- ===================== พันธกิจ ===================== -->
-    <section class="mission px-6 py-24 text-center" aria-label="พันธกิจ">
+    <section class="mission px-6 py-24 text-center" data-reveal aria-label="พันธกิจ">
       <p class="mission__text p-text-display m-0 mx-auto max-w-[1100px]">
         เราอยากเห็นประเทศไทยที่ทุกคนเข้าถึง<span class="hl p-wavy" data-reveal>การสื่อสาร</span>ได้อย่าง<span class="hl p-wavy" data-reveal>ทั่วถึง</span><br class="hidden lg:block" />
         และใช้เทคโนโลยีสร้างชีวิตที่ดีขึ้นเพื่อ<span class="hl p-wavy" data-reveal>ประโยชน์สาธารณะ</span>
@@ -234,12 +234,12 @@
     </section>
 
     <!-- ===================== ประเภททุน ===================== -->
-    <section class="types px-6 py-24" aria-labelledby="types-title">
+    <section class="types px-6 py-24" data-reveal aria-labelledby="types-title">
       <div class="mx-auto w-full max-w-[1200px]">
         <h2 id="types-title" class="section-title p-text-display m-0 text-center">ทุนแบบไหน<span class="hl p-wavy" data-reveal>เหมาะ</span>กับโครงการของคุณ</h2>
         <p class="section-sub p-text-body-l m-0 mt-3 text-center">กทปส. ให้ทุน 3 ประเภท ตามวัตถุประสงค์มาตรา 52</p>
 
-        <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-0">
+        <div class="reveal-stagger mt-16 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-0">
           <a class="type-card type-card--1 relative flex min-h-[300px] flex-col p-10" routerLink="/grants">
             <span class="type-card__eyebrow p-text-body-s">ทุนประเภท 1</span>
             <span class="type-card__title p-text-h2 mt-2">เสนอหัวข้อวิจัย<br />ได้เองตามไอเดียของคุณ</span>
@@ -263,7 +263,7 @@
     </section>
 
     <!-- ===================== ข้อมูลกองทุน ===================== -->
-    <section class="relative px-6 py-24" aria-labelledby="stats-title">
+    <section class="relative px-6 py-24" data-reveal aria-labelledby="stats-title">
       <div class="relative mx-auto w-full max-w-[1200px]">
         <img class="absolute -right-12 -top-10 hidden lg:block" src="images/landing-new/dash-tl.svg" alt="" width="59" height="37" />
         <img class="absolute -bottom-12 -left-14 hidden lg:block" src="images/landing-new/dash-br.svg" alt="" width="107" height="51" />
@@ -275,7 +275,7 @@
             </div>
             <a class="link p-text-body-s-medium" routerLink="/results">เกี่ยวกับกองทุน</a>
           </div>
-          <dl class="m-0 grid grid-cols-2 gap-8 text-center sm:grid-cols-3 lg:grid-cols-5">
+          <dl class="reveal-stagger m-0 grid grid-cols-2 gap-8 text-center sm:grid-cols-3 lg:grid-cols-5">
             <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">ทุนที่อนุมัติ</dt><dd class="stat__value p-text-h1 m-0 tabular-nums" pCountUp>186</dd></div>
             <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">วงเงินที่สนับสนุน</dt><dd class="stat__value p-text-h1 m-0 tabular-nums" pCountUp>1,240 ล้าน</dd></div>
             <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">หน่วยงานผู้รับทุน</dt><dd class="stat__value p-text-h1 m-0 tabular-nums" pCountUp>142</dd></div>
@@ -287,7 +287,7 @@
     </section>
 
     <!-- ===================== ขั้นตอนการสมัคร (เปลี่ยนขั้นเองทุก 3.5 วินาที กดเลือกขั้นได้) ===================== -->
-    <section class="px-6 py-16" aria-labelledby="steps-title">
+    <section class="px-6 py-16" data-reveal aria-labelledby="steps-title">
       <div class="mx-auto w-full max-w-[1200px]">
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div>
@@ -338,7 +338,7 @@
     </section>
 
     <!-- ===================== ข่าวสารและประกาศ (Spotlight เปลี่ยนเองทุก 4 วินาที) ===================== -->
-    <section class="px-6 py-24" aria-labelledby="news-title">
+    <section class="px-6 py-24" data-reveal aria-labelledby="news-title">
       <div class="mx-auto w-full max-w-[1200px]">
         <svg class="news__doodle w-full" height="40" viewBox="0 0 1200 40" preserveAspectRatio="none" fill="none" aria-hidden="true">
           <path d="M0 26H560C586 26 600 8 590 3C578 -3 566 26 582 34C596 41 612 26 640 26H1200" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
@@ -396,12 +396,12 @@
       ผลงานจากผู้รับทุน (อิง Stories ของ gatesfoundation.org และ Figma featured-works แบบ Gates)
       ซ้าย: ชื่อหมวด กดแล้วเปลี่ยนชุดผลงาน (p-auto-rotate แบบไม่เปลี่ยนเอง) ขวา: การ์ดเลื่อนซ้ายขวาเลยขอบจอ (pScrollRow)
     -->
-    <section class="works overflow-hidden px-6 py-24" aria-labelledby="works-title">
+    <section class="works overflow-hidden px-6 py-24" data-reveal aria-labelledby="works-title">
       <p-auto-rotate class="mx-auto block w-full max-w-[1200px]" interval="0">
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-12">
           <div class="flex flex-col gap-10">
             <h2 id="works-title" class="works__title p-text-display m-0">ผลงานจาก<br class="hidden lg:block" />ผู้รับทุน</h2>
-            <nav class="-mx-6 flex gap-6 overflow-x-auto px-6 lg:mx-0 lg:flex-col lg:gap-4 lg:px-0" aria-label="หมวดผลงาน">
+            <nav class="works__nav -mx-6 flex gap-6 overflow-x-auto overflow-y-hidden px-6 lg:mx-0 lg:flex-col lg:gap-4 lg:overflow-visible lg:px-0" aria-label="หมวดผลงาน">
               <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="1">กิจการโทรคมนาคม</button>
               <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="2">กิจการกระจายเสียง</button>
               <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="3">กิจการโทรทัศน์</button>
@@ -412,7 +412,7 @@
 
           <div class="grid min-w-0 lg:mr-[min(-24px,calc((1200px-100vw)/2))]">
             <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
-              <div class="works__track -mr-6 flex snap-x gap-6 overflow-x-auto pb-2 pr-6 lg:mr-0" data-scroll-track>
+              <div class="works__track reveal-stagger -mr-6 flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6 lg:mr-0" data-scroll-track>
                 <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
                   <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tower-village.jpg" alt="" />
                   <span class="work__title p-text-h3 line-clamp-2">ระบบแจ้งเตือนภัยพิบัติผ่านเซลล์บรอดแคสต์</span>
@@ -438,7 +438,7 @@
               <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
             </div>
             <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
-              <div class="works__track -mr-6 flex snap-x gap-6 overflow-x-auto pb-2 pr-6 lg:mr-0" data-scroll-track>
+              <div class="works__track reveal-stagger -mr-6 flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6 lg:mr-0" data-scroll-track>
                 <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
                   <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/community-radio.jpg" alt="" />
                   <span class="work__title p-text-h3 line-clamp-2">วิทยุชุมชนรายงานสถานการณ์น้ำ</span>
@@ -464,7 +464,7 @@
               <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
             </div>
             <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
-              <div class="works__track -mr-6 flex snap-x gap-6 overflow-x-auto pb-2 pr-6 lg:mr-0" data-scroll-track>
+              <div class="works__track reveal-stagger -mr-6 flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6 lg:mr-0" data-scroll-track>
                 <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
                   <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="" />
                   <span class="work__title p-text-h3 line-clamp-2">ล่ามภาษามือในรายการข่าวท้องถิ่น</span>
@@ -490,7 +490,7 @@
               <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
             </div>
             <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
-              <div class="works__track -mr-6 flex snap-x gap-6 overflow-x-auto pb-2 pr-6 lg:mr-0" data-scroll-track>
+              <div class="works__track reveal-stagger -mr-6 flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6 lg:mr-0" data-scroll-track>
                 <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
                   <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/accessibility-class.jpg" alt="" />
                   <span class="work__title p-text-h3 line-clamp-2">ห้องเรียนออนไลน์สำหรับนักเรียนพิการทางการเห็น</span>
@@ -522,7 +522,7 @@
     </section>
 
     <!-- ===================== คำถามที่พบบ่อย ===================== -->
-    <section class="px-6 py-24" aria-labelledby="faq-title">
+    <section class="px-6 py-24" data-reveal aria-labelledby="faq-title">
       <div class="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-12 lg:grid-cols-[380px_minmax(0,1fr)] lg:gap-24">
         <div class="flex flex-col gap-4">
           <p class="faq__eyebrow p-text-body-s-medium m-0">คำถามที่พบบ่อย</p>
