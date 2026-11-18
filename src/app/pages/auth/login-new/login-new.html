@@ -10,24 +10,25 @@
 <main class="p-theme-new login min-h-dvh overflow-x-hidden">
  <!-- จอกว้างเกิน 1600px: เนื้อหาไม่ยืดตาม พื้นฟ้าฝั่งภาพยาวไปถึงขอบซ้าย -->
  <div class="mx-auto grid min-h-dvh max-w-[1600px] lg:grid-cols-[780fr_660fr]">
-  <!-- ฝั่งภาพ -->
-  <section class="art relative isolate flex flex-col gap-4 overflow-hidden px-6 pt-10 lg:min-h-dvh lg:overflow-visible lg:px-16 lg:pt-[88px]" aria-labelledby="art-title">
+  <!-- ฝั่งภาพ: กรอบ 780x900 เท่าเฟรม Figma วางกลางคอลัมน์ ข้อความวางทับด้านบนของภาพ (จอเล็กกว่า lg วางภาพใต้ข้อความ) -->
+  <section class="art relative isolate flex flex-col overflow-hidden px-6 pt-10 lg:min-h-dvh lg:items-center lg:justify-center lg:overflow-visible lg:p-0" aria-labelledby="art-title">
     <div class="art art__bleed absolute inset-y-0 right-0 -z-10 hidden w-[100vw] lg:block" aria-hidden="true"></div>
-    <p class="art__eyebrow p-text-body-s-medium relative z-10 m-0">ระบบบริหารจัดการทุน กทปส.</p>
-    <h2 id="art-title" class="art__title p-text-display relative z-10 m-0">
-      ทุนเพื่อการสื่อสาร<br />
-      <span class="art__highlight p-wavy">ที่ทั่วถึง</span>
-    </h2>
-    <p class="art__sub p-text-body relative z-10 m-0 max-w-[440px]">กองทุนวิจัยและพัฒนากิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม</p>
 
-    <!-- ภาพเคลื่อนไหว: ไฟล์ Rive ขนาด 780x900 เท่าฝั่งภาพใน Figma วางเต็มฝั่งซ้าย ข้อความอยู่ด้านบน (จอเล็กวางใต้ข้อความ) -->
-    <p-rive
-      class="art__rive pointer-events-none -mx-6 -mt-[30%] aspect-[780/900] lg:absolute lg:inset-0 lg:m-0 lg:aspect-auto"
-      src="rive/login-art.riv"
-      stateMachine="Idle"
-      fallback="images/login-new/login-illustration.svg"
-      align="bottom"
-    />
+    <div class="relative flex flex-col gap-4 lg:aspect-[780/900] lg:w-full lg:max-w-[min(780px,86.67dvh)] lg:px-12 lg:pt-10 xl:px-16 xl:pt-[88px]">
+      <p class="art__eyebrow p-text-body-s-medium relative z-10 m-0">ระบบบริหารจัดการทุน กทปส.</p>
+      <h2 id="art-title" class="art__title p-text-display relative z-10 m-0">
+        ทุนเพื่อการสื่อสาร<br />
+        <span class="art__highlight p-wavy">ที่ทั่วถึง</span>
+      </h2>
+      <p class="art__sub p-text-body relative z-10 m-0 max-w-[440px]">กองทุนวิจัยและพัฒนากิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม</p>
+
+      <p-rive
+        class="art__rive pointer-events-none -mx-6 -mt-[30%] aspect-[780/900] lg:absolute lg:inset-0 lg:m-0 lg:aspect-auto"
+        src="rive/login-art.riv"
+        stateMachine="Idle"
+        fallback="images/login-new/login-illustration.svg"
+      />
+    </div>
   </section>
 
   <!-- ฝั่งฟอร์ม -->
