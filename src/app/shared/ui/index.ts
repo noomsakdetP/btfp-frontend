@@ -15,3 +15,5 @@ export * from './route-progress/route-progress';
 export * from './route-progress/loader-providers';
 export * from './rive/rive';
 export * from './auto-rotate/auto-rotate';
+export * from './scroll-state/scroll-state';
+export * from './count-up/count-up';

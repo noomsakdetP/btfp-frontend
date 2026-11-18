@@ -8,13 +8,16 @@
   - ธีมแนวใหม่ (ฟอนต์ ThaiSans Neue ขนาด x1.25) มาจาก class p-theme-new ดู src/styles/_theme-new.scss
   Responsive ใช้ class ของ Tailwind
 -->
-<div class="p-theme-new page">
+<div class="p-theme-new page group/page" pScrollState="120">
   <!-- ===================== แถบบน ===================== -->
   <header class="topbar sticky top-0 z-30">
     <div class="mx-auto flex h-[76px] w-full max-w-[1248px] items-center gap-6 px-6">
-      <a class="topbar__mini-brand flex items-center gap-2 lg:hidden" routerLink="/new">
-        <img src="brand/logo-nbtc.png" alt="กสทช." width="20" height="30" />
-        <img src="brand/logo-btfp.png" alt="กทปส." width="22" height="30" />
+      <!-- โลโก้เล็ก: จอแคบแสดงตลอด จอใหญ่โผล่เมื่อเลื่อนลงจนชื่อเว็บด้านล่างหุบไป (แบบ mozillafoundation.org) -->
+      <a class="topbar__mini-brand flex shrink-0 items-center gap-3 overflow-hidden whitespace-nowrap transition-[max-width,opacity,margin] duration-500 ease-out lg:-mr-6 lg:max-w-0 lg:opacity-0 lg:group-data-[scrolled]/page:mr-0 lg:group-data-[scrolled]/page:max-w-[260px] lg:group-data-[scrolled]/page:opacity-100" routerLink="/new" aria-label="หน้าแรก ทุน กทปส.">
+        <img src="brand/logo-nbtc.png" alt="" width="27" height="40" />
+        <span class="topbar__mini-divider h-8 w-px" aria-hidden="true"></span>
+        <img src="brand/logo-btfp.png" alt="" width="29" height="40" />
+        <span class="topbar__mini-title p-text-h4 hidden sm:inline">ทุน กทปส.</span>
       </a>
       <nav class="hidden items-center gap-10 lg:flex" aria-label="เมนูหลัก">
         <a class="topbar__link p-text-body" routerLink="/grants">ประกาศทุน</a>
@@ -47,7 +50,7 @@
 
   <!-- ชื่อเว็บ: โลโก้ + พาดหัวสลับข้อความ -->
   <div class="brandbar">
-    <div class="mx-auto flex w-full max-w-[1248px] items-center justify-center gap-6 px-6 py-6 lg:py-8">
+    <div class="mx-auto flex w-full max-w-[1248px] origin-top items-center justify-center gap-6 px-6 py-6 transition-[opacity,transform] duration-500 ease-out group-data-[scrolled]/page:-translate-y-6 group-data-[scrolled]/page:scale-90 group-data-[scrolled]/page:opacity-0 lg:py-8">
       <img class="hidden sm:block" src="brand/logo-nbtc.png" alt="กสทช." width="54" height="80" />
       <span class="brandbar__divider hidden h-20 w-px sm:block" aria-hidden="true"></span>
       <img class="hidden sm:block" src="brand/logo-btfp.png" alt="กทปส." width="58" height="80" />
@@ -83,7 +86,7 @@
       </a>
       <a class="banner__panel banner__panel--3 relative flex min-h-[320px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[200_1_0%] lg:hover:flex-[500_1_0%]" routerLink="/results">
         <img class="banner__photo banner__photo--side absolute left-0 top-0 h-[220px] w-full object-cover lg:top-[145px] lg:h-[300px]" src="images/landing-new/fisher-village.jpg" alt="ชาวประมงใช้แท็บเล็ตดูข้อมูลร่วมกับนักศึกษา" />
-        <p class="banner__caption banner__caption--light p-text-h3 relative z-10 m-0 mt-auto px-6 pb-10 lg:pb-[136px]">ผลงานจากผู้รับทุน</p>
+        <p class="banner__caption p-text-h3 relative z-10 m-0 mt-auto px-6 pb-10 lg:pb-[136px]">ผลงานจากผู้รับทุน</p>
       </a>
     </section>
 
@@ -244,11 +247,11 @@
             <a class="link p-text-body-s-medium" routerLink="/results">เกี่ยวกับกองทุน</a>
           </div>
           <dl class="m-0 grid grid-cols-2 gap-8 text-center sm:grid-cols-3 lg:grid-cols-5">
-            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">ทุนที่อนุมัติ</dt><dd class="stat__value p-text-h1 m-0">186</dd></div>
-            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">วงเงินที่สนับสนุน</dt><dd class="stat__value p-text-h1 m-0">1,240 ล้าน</dd></div>
-            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">หน่วยงานผู้รับทุน</dt><dd class="stat__value p-text-h1 m-0">142</dd></div>
-            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">จังหวัดที่ได้รับประโยชน์</dt><dd class="stat__value p-text-h1 m-0">68</dd></div>
-            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">ประกาศทุนที่เปิดรับ</dt><dd class="stat__value p-text-h1 m-0">6</dd></div>
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">ทุนที่อนุมัติ</dt><dd class="stat__value p-text-h1 m-0 tabular-nums" pCountUp>186</dd></div>
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">วงเงินที่สนับสนุน</dt><dd class="stat__value p-text-h1 m-0 tabular-nums" pCountUp>1,240 ล้าน</dd></div>
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">หน่วยงานผู้รับทุน</dt><dd class="stat__value p-text-h1 m-0 tabular-nums" pCountUp>142</dd></div>
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">จังหวัดที่ได้รับประโยชน์</dt><dd class="stat__value p-text-h1 m-0 tabular-nums" pCountUp>68</dd></div>
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">ประกาศทุนที่เปิดรับ</dt><dd class="stat__value p-text-h1 m-0 tabular-nums" pCountUp>6</dd></div>
           </dl>
         </div>
       </div>
@@ -314,64 +317,41 @@
         <h2 id="news-title" class="section-title p-text-display m-0 mt-10"><span class="hl hl--blue p-wavy">ข่าวสาร</span>และประกาศ</h2>
         <p class="section-sub p-text-body m-0 mt-2">ติดตามข่าวกองทุน ประกาศผล และกิจกรรมล่าสุด</p>
 
-        <p-auto-rotate class="relative mx-auto mt-12 block max-w-[870px]" interval="4000">
-          <div class="relative grid">
-            <article class="spot col-start-1 row-start-1" data-slide>
-              <div class="flex flex-col gap-0 md:flex-row">
-                <div class="flex w-full max-w-[440px] flex-col">
-                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round aspect-square w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="ครูสอนนักเรียนใช้แท็บเล็ตในห้องเรียน" /></div>
-                  <div class="mt-8 flex flex-col gap-3">
-                    <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศ<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">3 พ.ย. 2569</span></p>
-                    <h3 class="spot__title p-text-h2 m-0">วันสุดท้ายรับข้อเสนอโครงการทุนประเภท 1 ประจำปี 2569</h3>
-                    <p class="spot__desc p-text-body m-0 line-clamp-3">ระบบเปิดรับถึง 30 พ.ย. 2569 เวลา 16.30 น. ขอให้ผู้ขอรับทุนตรวจเอกสารแนบให้ครบ และกดยื่นคำขอก่อนเวลาปิดระบบ</p>
-                    <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
-                  </div>
-                </div>
-                <div class="hidden flex-col md:mt-[72px] md:flex">
-                  <div class="spot__box spot__box--blue h-[180px] w-[180px] p-4"><img class="spot__photo spot__photo--slant h-full w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="" /></div>
-                  <div class="spot__box spot__box--orange h-[300px] w-[300px] p-5"><img class="spot__photo spot__photo--notch h-full w-full object-cover" src="images/landing-new/community-radio.jpg" alt="" /></div>
-                </div>
+        <!-- ข่าว 3 ชิ้นสลับตำแหน่งกัน: p-auto-rotate ใส่ data-pos ให้แต่ละชิ้น (0 = ข่าวเด่นกล่องเหลือง, 1 = กล่องน้ำเงิน, 2 = กล่องส้ม) จอแคบแสดงเฉพาะข่าวเด่น -->
+        <p-auto-rotate class="relative mx-auto mt-12 block max-w-[870px]" interval="4500">
+          <div class="relative grid md:block md:h-[760px]">
+            <article class="spot group/spot col-start-1 row-start-1 max-md:not-data-[active]:hidden" data-slide>
+              <div class="spot__box block aspect-square w-full p-9 transition-[left,top,width,height,padding,background-color] duration-700 ease-in-out md:absolute md:left-0 md:top-0 md:z-10 md:h-[440px] md:w-[440px] md:group-data-[pos=1]/spot:left-[440px] md:group-data-[pos=1]/spot:top-[72px] md:group-data-[pos=1]/spot:z-0 md:group-data-[pos=1]/spot:h-[180px] md:group-data-[pos=1]/spot:w-[180px] md:group-data-[pos=1]/spot:p-4 md:group-data-[pos=2]/spot:left-[440px] md:group-data-[pos=2]/spot:top-[252px] md:group-data-[pos=2]/spot:z-0 md:group-data-[pos=2]/spot:h-[300px] md:group-data-[pos=2]/spot:w-[300px] md:group-data-[pos=2]/spot:p-5"><img class="spot__photo h-full w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="ครูสอนนักเรียนใช้แท็บเล็ตในห้องเรียน" /></div>
+              <div class="spot__text mt-8 flex flex-col gap-3 md:absolute md:left-0 md:top-[440px] md:w-[440px]">
+                <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศ<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">3 พ.ย. 2569</span></p>
+                <h3 class="spot__title p-text-h2 m-0">วันสุดท้ายรับข้อเสนอโครงการทุนประเภท 1 ประจำปี 2569</h3>
+                <p class="spot__desc p-text-body m-0 line-clamp-3">ระบบเปิดรับถึง 30 พ.ย. 2569 เวลา 16.30 น. ขอให้ผู้ขอรับทุนตรวจเอกสารแนบให้ครบ และกดยื่นคำขอก่อนเวลาปิดระบบ</p>
+                <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
               </div>
             </article>
-            <article class="spot col-start-1 row-start-1" data-slide>
-              <div class="flex flex-col gap-0 md:flex-row">
-                <div class="flex w-full max-w-[440px] flex-col">
-                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round aspect-square w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="ทีมงานผลิตรายการโทรทัศน์พร้อมล่ามภาษามือ" /></div>
-                  <div class="mt-8 flex flex-col gap-3">
-                    <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ข่าวสาร<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">1 พ.ย. 2569</span></p>
-                    <h3 class="spot__title p-text-h2 m-0">เครือข่ายอินเทอร์เน็ตชุมชนเปิดศูนย์เรียนรู้ดิจิทัลแห่งที่ 20</h3>
-                    <p class="spot__desc p-text-body m-0 line-clamp-3">ผลงานจากโครงการที่ได้รับทุน ขยายการเข้าถึงอินเทอร์เน็ตในพื้นที่ห่างไกล ชาวบ้านใช้เรียนออนไลน์และขายสินค้าชุมชนได้เอง</p>
-                    <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
-                  </div>
-                </div>
-                <div class="hidden flex-col md:mt-[72px] md:flex">
-                  <div class="spot__box spot__box--blue h-[180px] w-[180px] p-4"><img class="spot__photo spot__photo--slant h-full w-full object-cover" src="images/landing-new/community-radio.jpg" alt="" /></div>
-                  <div class="spot__box spot__box--orange h-[300px] w-[300px] p-5"><img class="spot__photo spot__photo--notch h-full w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="" /></div>
-                </div>
+            <article class="spot group/spot col-start-1 row-start-1 max-md:not-data-[active]:hidden" data-slide>
+              <div class="spot__box block aspect-square w-full p-9 transition-[left,top,width,height,padding,background-color] duration-700 ease-in-out md:absolute md:left-0 md:top-0 md:z-10 md:h-[440px] md:w-[440px] md:group-data-[pos=1]/spot:left-[440px] md:group-data-[pos=1]/spot:top-[72px] md:group-data-[pos=1]/spot:z-0 md:group-data-[pos=1]/spot:h-[180px] md:group-data-[pos=1]/spot:w-[180px] md:group-data-[pos=1]/spot:p-4 md:group-data-[pos=2]/spot:left-[440px] md:group-data-[pos=2]/spot:top-[252px] md:group-data-[pos=2]/spot:z-0 md:group-data-[pos=2]/spot:h-[300px] md:group-data-[pos=2]/spot:w-[300px] md:group-data-[pos=2]/spot:p-5"><img class="spot__photo h-full w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="ทีมงานผลิตรายการโทรทัศน์พร้อมล่ามภาษามือ" /></div>
+              <div class="spot__text mt-8 flex flex-col gap-3 md:absolute md:left-0 md:top-[440px] md:w-[440px]">
+                <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ข่าวสาร<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">1 พ.ย. 2569</span></p>
+                <h3 class="spot__title p-text-h2 m-0">เครือข่ายอินเทอร์เน็ตชุมชนเปิดศูนย์เรียนรู้ดิจิทัลแห่งที่ 20</h3>
+                <p class="spot__desc p-text-body m-0 line-clamp-3">ผลงานจากโครงการที่ได้รับทุน ขยายการเข้าถึงอินเทอร์เน็ตในพื้นที่ห่างไกล ชาวบ้านใช้เรียนออนไลน์และขายสินค้าชุมชนได้เอง</p>
+                <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
               </div>
             </article>
-            <article class="spot col-start-1 row-start-1" data-slide>
-              <div class="flex flex-col gap-0 md:flex-row">
-                <div class="flex w-full max-w-[440px] flex-col">
-                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round aspect-square w-full object-cover" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" /></div>
-                  <div class="mt-8 flex flex-col gap-3">
-                    <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศผล<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">28 ต.ค. 2569</span></p>
-                    <h3 class="spot__title p-text-h2 m-0">ประกาศผลการพิจารณาข้อเสนอโครงการทุนประเภท 2</h3>
-                    <p class="spot__desc p-text-body m-0 line-clamp-3">ผู้ยื่นข้อเสนอตรวจผลได้ที่เมนูข้อเสนอของฉันหลังเข้าสู่ระบบ โครงการที่ผ่านการพิจารณาจะได้รับอีเมลนัดทำสัญญา</p>
-                    <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
-                  </div>
-                </div>
-                <div class="hidden flex-col md:mt-[72px] md:flex">
-                  <div class="spot__box spot__box--blue h-[180px] w-[180px] p-4"><img class="spot__photo spot__photo--slant h-full w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="" /></div>
-                  <div class="spot__box spot__box--orange h-[300px] w-[300px] p-5"><img class="spot__photo spot__photo--notch h-full w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="" /></div>
-                </div>
+            <article class="spot group/spot col-start-1 row-start-1 max-md:not-data-[active]:hidden" data-slide>
+              <div class="spot__box block aspect-square w-full p-9 transition-[left,top,width,height,padding,background-color] duration-700 ease-in-out md:absolute md:left-0 md:top-0 md:z-10 md:h-[440px] md:w-[440px] md:group-data-[pos=1]/spot:left-[440px] md:group-data-[pos=1]/spot:top-[72px] md:group-data-[pos=1]/spot:z-0 md:group-data-[pos=1]/spot:h-[180px] md:group-data-[pos=1]/spot:w-[180px] md:group-data-[pos=1]/spot:p-4 md:group-data-[pos=2]/spot:left-[440px] md:group-data-[pos=2]/spot:top-[252px] md:group-data-[pos=2]/spot:z-0 md:group-data-[pos=2]/spot:h-[300px] md:group-data-[pos=2]/spot:w-[300px] md:group-data-[pos=2]/spot:p-5"><img class="spot__photo h-full w-full object-cover" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" /></div>
+              <div class="spot__text mt-8 flex flex-col gap-3 md:absolute md:left-0 md:top-[440px] md:w-[440px]">
+                <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศผล<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">28 ต.ค. 2569</span></p>
+                <h3 class="spot__title p-text-h2 m-0">ประกาศผลการพิจารณาข้อเสนอโครงการทุนประเภท 2</h3>
+                <p class="spot__desc p-text-body m-0 line-clamp-3">ผู้ยื่นข้อเสนอตรวจผลได้ที่เมนูข้อเสนอของฉันหลังเข้าสู่ระบบ โครงการที่ผ่านการพิจารณาจะได้รับอีเมลนัดทำสัญญา</p>
+                <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
               </div>
             </article>
           </div>
           <svg class="spot__arrow absolute left-[650px] top-[150px] hidden md:block" width="110" height="82" viewBox="0 0 110 82" fill="none" aria-hidden="true">
             <path d="M2 16C36 6 72 4 88 24C98 38 98 58 96 78M86 66L96 80L106 66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          <div class="mt-6 flex items-center justify-end gap-3 md:-mt-[110px] md:mr-[-50px] md:justify-end">
+          <div class="mt-6 flex items-center justify-end gap-3 md:absolute md:left-[440px] md:top-[584px] md:mt-0 md:w-[300px]">
             <span class="spot__count p-text-body-medium" data-rotate-count>1 / 3</span>
             <button type="button" class="spot__btn grid h-10 w-10 place-items-center" data-rotate="prev" aria-label="ข่าวก่อนหน้า"><p-ui-icon name="pi-arrow-left" size="16" /></button>
             <button type="button" class="spot__btn grid h-10 w-10 place-items-center" data-rotate="next" aria-label="ข่าวถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>

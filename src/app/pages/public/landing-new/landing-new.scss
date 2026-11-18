@@ -154,10 +154,12 @@ a {
   background: var(--p-surface-raised);
 }
 
+.topbar__mini-divider,
 .brandbar__divider {
   background: var(--p-border-default);
 }
 
+.topbar__mini-title,
 .brandbar__title {
   color: var(--p-text-heading);
 }
@@ -447,28 +449,58 @@ a {
   color: var(--p-text-heading);
 }
 
-.spot__box--yellow {
+// ข่าวสลับตำแหน่ง: ทุกชิ้นแสดงตลอด สีกล่องและรูปทรงรูปเปลี่ยนตาม data-pos (ตำแหน่งและขนาดอยู่ใน class ของ Tailwind)
+// รูปทรงทุกแบบใช้ polygon 8 จุดเท่ากัน จึงค่อย ๆ แปลงร่างได้ตอนสลับ
+.spot[data-slide] {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.spot__box {
   background: var(--p-hero-banner-panel-2);
 }
 
-.spot__box--blue {
-  background: var(--p-hero-banner-panel-3);
-}
-
-.spot__box--orange {
-  background: var(--p-hero-banner-panel-1);
-}
-
-.spot__photo--round {
+.spot__photo {
   border-radius: 38%;
+  clip-path: polygon(0 0, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 50%);
+  transition:
+    border-radius 0.7s ease-in-out,
+    clip-path 0.7s ease-in-out;
 }
 
-.spot__photo--slant {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 24% 100%);
+.spot[data-pos='1'] {
+  .spot__box {
+    background: var(--p-hero-banner-panel-3);
+  }
+
+  .spot__photo {
+    border-radius: 0;
+    clip-path: polygon(0 0, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 24% 100%, 12% 50%);
+  }
 }
 
-.spot__photo--notch {
-  clip-path: polygon(0 0, 80% 0, 80% 20%, 100% 20%, 100% 100%, 20% 100%, 20% 80%, 0 80%);
+.spot[data-pos='2'] {
+  .spot__box {
+    background: var(--p-hero-banner-panel-1);
+  }
+
+  .spot__photo {
+    border-radius: 0;
+    clip-path: polygon(0 0, 80% 0, 80% 20%, 100% 20%, 100% 100%, 20% 100%, 20% 80%, 0 80%);
+  }
+}
+
+.spot__text {
+  transition:
+    opacity 0.5s ease-out 0.25s,
+    visibility 0.5s;
+}
+
+.spot:not([data-active]) .spot__text {
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 0s;
 }
 
 .spot__eyebrow,
@@ -557,6 +589,13 @@ a {
 
 // ผู้ใช้ที่ตั้งเครื่องให้ลดการเคลื่อนไหว: หยุดอนิเมชันทั้งหมดของหน้า
 @media (prefers-reduced-motion: reduce) {
+  .spot__box,
+  .spot__photo,
+  .topbar__mini-brand,
+  .brandbar > div {
+    transition: none !important;
+  }
+
   .rotator__track,
   .register :is(.register__beacon, .register__wave, .register__sparkle) {
     animation: none !important;
