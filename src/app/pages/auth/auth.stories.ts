@@ -26,6 +26,6 @@ export const Login: StoryObj = {
 
 export const LoginNew: StoryObj = {
   name: 'เข้าสู่ระบบ แนวใหม่ (ทดลอง)',
-  parameters: { docs: { description: { story: 'Figma 967:2965 ภาพฝั่งซ้ายเป็น Rive ฟอนต์ ThaiSans Neue (เดโมเท่านั้น รออนุญาตใช้บนเว็บ)' } } },
+  parameters: { docs: { description: { story: 'Figma 967:2965 ภาพฝั่งซ้ายเป็น Rive' } } },
   render: () => ({ template: `<p-login-new-page />` }),
 };

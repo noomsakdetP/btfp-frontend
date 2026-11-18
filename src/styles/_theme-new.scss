@@ -1,82 +1,8 @@
 // =====================================================================
 // ธีมแนวใหม่ (ทดลอง รอลูกค้าเลือก) ใช้เฉพาะหน้าที่ครอบด้วย class .p-theme-new
-// ตรงกับ Text Style "Typography (ทดลอง ThaiSans Neue)" ในหน้า Figma "แนวใหม่ (ทดลอง)"
-//
-// ฟอนต์ ThaiSans Neue (Letsego, f0nt.com) ใช้สำหรับเดโมนำเสนอลูกค้าเท่านั้น
-// สัญญาอนุญาตข้อ 2.1 และ 2.3 ยังไม่ครอบคลุมการใช้ @font-face บนเว็บจริง และห้ามแปลงไฟล์
-// ห้าม merge ขึ้นเว็บจริงจนกว่าจะได้หนังสืออนุญาตจากผู้ออกแบบ (ใช้ไฟล์ .otf ตามต้นฉบับ ไม่แปลงเป็น woff2)
+// ฟอนต์และขนาดตัวอักษรใช้ของระบบเดิม (IBM Plex Sans Thai หัวข้อ, Sarabun เนื้อหา)
+// เคยทดลอง ThaiSans Neue แต่สัญญาอนุญาตไม่ให้ใช้บนเว็บโดยไม่ขออนุญาต จึงถอดออกแล้ว
 // =====================================================================
-
-@font-face {
-  font-family: 'ThaiSans Neue';
-  src: url('/fonts/thaisans-neue/ThaiSansNeue-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ThaiSans Neue';
-  src: url('/fonts/thaisans-neue/ThaiSansNeue-SemiBold.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ThaiSans Neue';
-  src: url('/fonts/thaisans-neue/ThaiSansNeue-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-// ThaiSans Neue ตัวเล็กกว่าฟอนต์เดิม ขนาดจึงขยาย 1.25 เท่า ส่วนระยะบรรทัดคงเท่าเดิมเป็น px (หารด้วย 1.25)
-// ไม่มีน้ำหนัก Medium ใช้ SemiBold แทน
-.p-theme-new {
-  --p-font-family-thaisans-neue: 'ThaiSans Neue';
-  --p-font-heading: var(--p-font-family-thaisans-neue), var(--p-font-family-sarabun), sans-serif;
-  --p-font-body: var(--p-font-family-thaisans-neue), var(--p-font-family-sarabun), sans-serif;
-
-  --p-line-height-display-xl: 0.96;
-  --p-line-height-heading: 1.08;
-  --p-line-height-body: 1.28;
-  --p-line-height-compact: 1.2;
-
-  --p-typography-display-xl-size: 75px;
-  --p-typography-display-size: 50px;
-  --p-typography-h1-size: 40px;
-  --p-typography-h2-size: 30px;
-  --p-typography-h3-size: 25px;
-  --p-typography-h4-size: 23px;
-  --p-typography-body-l-size: 23px;
-  --p-typography-body-size: 20px;
-  --p-typography-body-medium-size: 20px;
-  --p-typography-body-medium-weight: var(--p-font-weight-semibold);
-  --p-typography-body-s-size: 18px;
-  --p-typography-body-s-medium-size: 18px;
-  --p-typography-body-s-medium-weight: var(--p-font-weight-semibold);
-  --p-typography-table-size: 18px;
-  --p-typography-caption-size: 15px;
-
-  // PrimeNG ตั้งขนาดตัวอักษรเป็น rem ตายตัว ปรับด้วย token ของ PrimeNG ในขอบเขตธีมนี้
-  --p-button-lg-font-size: 1.25rem;
-  --p-inputtext-lg-font-size: 1.25rem;
-
-  font-family: var(--p-font-body);
-}
-
-// ขนาดตัวอักษรพื้นฐานของ PrimeNG เป็น 1rem ตายตัว (ไม่มี token) ปรับเฉพาะในธีมนี้
-.p-theme-new {
-  .p-inputtext,
-  .p-button-label,
-  .p-select-label,
-  .p-tab,
-  .p-accordionheader,
-  .p-accordioncontent-content {
-    font-size: 1.25rem;
-  }
-}
 
 // ปุ่มหลักในแนวใหม่ใช้น้ำเงินเข้ม (Figma #0D3B66 ใกล้ navy-800 ที่สุดในชุดสีระบบ)
 .p-theme-new {

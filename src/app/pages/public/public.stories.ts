@@ -36,6 +36,6 @@ export const Landing: StoryObj = {
 
 export const LandingNew: StoryObj = {
   name: 'หน้าแรก แนวใหม่ (ทดลอง)',
-  parameters: { docs: { description: { story: 'Figma 827:61 ฟอนต์ ThaiSans Neue (เดโมเท่านั้น รออนุญาตใช้บนเว็บ) สไลด์อัตโนมัติใช้ p-auto-rotate' } } },
+  parameters: { docs: { description: { story: 'Figma 827:61 สไลด์อัตโนมัติใช้ p-auto-rotate' } } },
   render: () => ({ template: `<p-landing-new-page />` }),
 };
