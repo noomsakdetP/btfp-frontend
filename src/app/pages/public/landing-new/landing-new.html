@@ -1,0 +1,461 @@
+<!--
+  หน้าแรก แนวใหม่ (ทดลอง รอลูกค้าเลือก)
+  Figma: แนวใหม่ (ทดลอง) > Topbar เลื่อนจริง A: บนสุด 827:61 (ออกแบบที่ความกว้าง 1440)
+
+  หุ่นจำลอง markup + CSS เท่านั้น ไม่มีตัวแปรและ binding
+  - สไลด์อัตโนมัติ (ขั้นตอนการสมัคร ข่าวสาร ผลงาน) ใช้ p-auto-rotate (logic อยู่ใน component กลาง)
+  - hover ของ Banner การ์ด และปุ่มลงทะเบียน เป็น CSS ล้วน
+  - ธีมแนวใหม่ (ฟอนต์ ThaiSans Neue ขนาด x1.25) มาจาก class p-theme-new ดู src/styles/_theme-new.scss
+  Responsive ใช้ class ของ Tailwind
+-->
+<div class="p-theme-new page">
+  <!-- ===================== แถบบน ===================== -->
+  <header class="topbar sticky top-0 z-30">
+    <div class="mx-auto flex h-[76px] w-full max-w-[1248px] items-center gap-6 px-6">
+      <a class="topbar__mini-brand flex items-center gap-2 lg:hidden" routerLink="/new">
+        <img src="brand/logo-nbtc.png" alt="กสทช." width="20" height="30" />
+        <img src="brand/logo-btfp.png" alt="กทปส." width="22" height="30" />
+      </a>
+      <nav class="hidden items-center gap-10 lg:flex" aria-label="เมนูหลัก">
+        <a class="topbar__link p-text-body" routerLink="/grants">ประกาศทุน</a>
+        <a class="topbar__link p-text-body" routerLink="/results">ผลงานทุน</a>
+        <a class="topbar__link p-text-body" routerLink="/news">ข่าวสาร</a>
+        <a class="topbar__link p-text-body" routerLink="/guide">คู่มือ</a>
+        <a class="topbar__link p-text-body" routerLink="/faq">คำถามที่พบบ่อย</a>
+      </nav>
+      <div class="ml-auto flex items-center gap-4 lg:gap-6">
+        <a class="topbar__icon hidden sm:inline-flex" routerLink="/grants" aria-label="ค้นหาทุน"><p-ui-icon name="pi-search" size="20" /></a>
+        <a class="topbar__link p-text-body" routerLink="/new/login">เข้าสู่ระบบ</a>
+        <!-- ปุ่มลงทะเบียน: เสาสัญญาณโผล่ตอน hover หรือโฟกัส (ตัวสำรองของ register-signal.riv ทำด้วย SVG + CSS) -->
+        <a class="register p-text-body-medium relative inline-flex h-10 w-32 items-center overflow-hidden" routerLink="/register">
+          <span class="register__label">ลงทะเบียน</span>
+          <svg class="register__signal absolute right-4 top-[9px]" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <g class="register__tower">
+              <path d="M7.2 20.6C8.8 16.33 10.07 12.4 11 8.8C11.93 12.4 13.2 16.33 14.8 20.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+              <path d="M8.7 16.2C10.3 15.6 11.87 15.63 13.4 16.3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+              <path d="M11 8.8C9.1 7.6 9.6 5.2 11.2 5.4C12.8 5.6 12.6 8 11 8.8Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+              <circle class="register__beacon" cx="11.1" cy="3.7" r="1.5" />
+            </g>
+            <path class="register__wave register__wave--1" d="M6.6 2.4C5.27 4.53 5.2 6.67 6.4 8.8M15.4 2.4C16.73 4.53 16.8 6.67 15.6 8.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+            <path class="register__wave register__wave--2" d="M3.6 0.8C1.6 4 1.53 7.2 3.4 10.4M18.4 0.8C20.4 4 20.47 7.2 18.6 10.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+            <path class="register__sparkle" d="M18.6 16H20.6M19.6 15V17" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ชื่อเว็บ: โลโก้ + พาดหัวสลับข้อความ -->
+  <div class="brandbar">
+    <div class="mx-auto flex w-full max-w-[1248px] items-center justify-center gap-6 px-6 py-6 lg:py-8">
+      <img class="hidden sm:block" src="brand/logo-nbtc.png" alt="กสทช." width="54" height="80" />
+      <span class="brandbar__divider hidden h-20 w-px sm:block" aria-hidden="true"></span>
+      <img class="hidden sm:block" src="brand/logo-btfp.png" alt="กทปส." width="58" height="80" />
+      <h1 class="brandbar__title p-text-display-xl m-0 flex flex-wrap items-baseline gap-x-4">
+        <span>ทุนเพื่อ</span>
+        <span class="rotator relative inline-block h-[1.1em] overflow-hidden align-bottom">
+          <span class="rotator__track flex flex-col">
+            <span class="rotator__item">การสื่อสารที่ทั่วถึง</span>
+            <span class="rotator__item">ไอเดียดีกลายเป็นจริง</span>
+            <span class="rotator__item">ไปถึงทุกชุมชน</span>
+            <span class="rotator__item">การสื่อสารที่ทั่วถึง</span>
+          </span>
+        </span>
+      </h1>
+    </div>
+  </div>
+
+  <main>
+    <!-- ===================== Banner (ชี้แผงไหน แผงนั้นขยาย) ===================== -->
+    <section class="banner group mx-auto flex w-full max-w-[1440px] flex-col lg:h-[640px] lg:flex-row lg:px-[10px]" aria-label="ไฮไลต์">
+      <a class="banner__panel banner__panel--1 relative flex min-h-[520px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[1000_1_0%] lg:group-has-[.banner__panel--2:hover]:flex-[700_1_0%] lg:group-has-[.banner__panel--3:hover]:flex-[700_1_0%]" routerLink="/grants">
+        <div class="relative z-10 flex w-full max-w-[340px] flex-col gap-4 px-6 pt-10 lg:px-10 lg:pt-24">
+          <p class="p-text-body-medium m-0">เปิดรับข้อเสนอแล้ว</p>
+          <h2 class="p-text-h1 m-0">ทุนประเภท 2<br />ประจำปีงบประมาณ 2570</h2>
+          <p class="p-text-body m-0">โครงการตามหัวข้อมุ่งเน้นด้านกิจการโทรคมนาคม ยื่นข้อเสนอออนไลน์ได้ถึง 15 ม.ค. 2570</p>
+          <span class="banner__link p-text-body-medium">ดูประกาศทุน <span aria-hidden="true">→</span></span>
+        </div>
+        <img class="banner__photo banner__photo--main absolute bottom-0 right-0 h-[300px] w-[85%] object-cover lg:h-[544px] lg:w-[660px]" src="images/landing-new/tower-village.jpg" alt="ช่างติดตั้งเสาสัญญาณในหมู่บ้านบนดอย" />
+      </a>
+      <a class="banner__panel banner__panel--2 relative flex min-h-[320px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[220_1_0%] lg:hover:flex-[520_1_0%]" routerLink="/results">
+        <p class="banner__caption p-text-h3 relative z-10 m-0 px-6 pt-10 lg:pt-[220px]">ไอเดียของคุณ<br />เปลี่ยนชุมชนได้</p>
+        <img class="banner__photo banner__photo--side absolute bottom-0 left-0 h-[200px] w-full object-cover lg:h-[300px]" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" />
+      </a>
+      <a class="banner__panel banner__panel--3 relative flex min-h-[320px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[200_1_0%] lg:hover:flex-[500_1_0%]" routerLink="/results">
+        <img class="banner__photo banner__photo--side absolute left-0 top-[145px] h-[300px] w-full object-cover" src="images/landing-new/fisher-village.jpg" alt="ชาวประมงใช้แท็บเล็ตดูข้อมูลร่วมกับนักศึกษา" />
+        <p class="banner__caption banner__caption--light p-text-h3 relative z-10 m-0 mt-auto px-6 pb-10 lg:pb-[136px]">ผลงานจากผู้รับทุน</p>
+      </a>
+    </section>
+
+    <!-- ===================== ประกาศทุนที่เปิดรับ ===================== -->
+    <section class="mx-auto w-full max-w-[1248px] px-6 pb-24 pt-16" aria-labelledby="calls-title">
+      <h2 id="calls-title" class="section-title p-text-display m-0 text-center">ประกาศ<span class="hl p-wavy">ทุน</span>ที่เปิดรับ</h2>
+
+      <p-tabs class="mt-10 block" value="all" scrollable="true">
+        <p-tablist>
+          <p-tab value="all">ทั้งหมด</p-tab>
+          <p-tab value="edu">การศึกษา</p-tab>
+          <p-tab value="access">การเข้าถึง</p-tab>
+          <p-tab value="telecom">โทรคมนาคม</p-tab>
+          <p-tab value="research">งานวิจัย</p-tab>
+          <p-tab value="public">ประโยชน์สาธารณะ</p-tab>
+          <p-tab value="2569">ปี 2569</p-tab>
+          <p-tab value="2568">ปี 2568</p-tab>
+        </p-tablist>
+      </p-tabs>
+
+      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,568fr)_300fr_300fr]">
+        <div class="p-field">
+          <label for="c-search">ค้นหาผลงานทุน</label>
+          <p-iconfield>
+            <p-inputicon><p-ui-icon name="pi-search" size="16" /></p-inputicon>
+            <input id="c-search" type="search" pInputText placeholder="ค้นหาชื่อโครงการหรือหน่วยงาน" />
+          </p-iconfield>
+        </div>
+        <div class="p-field">
+          <label for="c-year">ปีงบประมาณ</label>
+          <p-select inputId="c-year" placeholder="ทุกปีงบประมาณ" styleClass="w-full" />
+        </div>
+        <div class="p-field">
+          <label for="c-type">ประเภททุน</label>
+          <p-select inputId="c-type" placeholder="ทุกประเภททุน" styleClass="w-full" />
+        </div>
+      </div>
+
+      <!-- การ์ดเลื่อนซ้ายขวาได้ (Figma วางเป็นแถวเดียว) -->
+      <div class="calls -mx-6 mt-10 flex snap-x gap-6 overflow-x-auto px-6 pb-6 pt-2">
+        <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
+          <span class="call-card__photo call-card__photo--empty grid h-[220px] place-items-center"><p-ui-icon name="pi-image" size="22" /></span>
+          <span class="call-card__dash mx-2 my-4 block"></span>
+          <span class="flex flex-col gap-3 px-2 pb-3">
+            <span class="flex gap-2"><span class="tag p-text-body-s">กิจการโทรคมนาคม</span><span class="tag tag--warn p-text-body-s">ทุนประเภท 2</span></span>
+            <span class="call-card__title p-text-h4 line-clamp-2">ทุนประเภท 2 ประจำปีงบประมาณ 2570 ครั้งที่ 1</span>
+            <span class="call-card__desc p-text-body-s line-clamp-2 min-h-[46px]">หัวข้อมุ่งเน้นด้านกิจการโทรคมนาคมเพื่อประโยชน์สาธารณะ</span>
+            <span class="call-card__meta flex flex-col gap-3 pt-2">
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-wallet" size="16" /><span class="meta__label">วงเงิน (บาท)</span><span class="meta__value">150,000,000</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-clock" size="16" /><span class="meta__label">ปิดรับข้อเสนอ</span><span class="meta__value">15 ม.ค. 2570</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-calendar" size="16" /><span class="meta__label">ปีงบประมาณ</span><span class="meta__value">2570</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-book" size="16" /><span class="meta__label">มาตรา</span><span class="meta__value">52(1), 52(2), 52(5)</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-list" size="16" /><span class="meta__label">TOR ย่อย</span><span class="meta__value">6 หัวข้อ</span></span>
+            </span>
+          </span>
+        </a>
+        <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
+          <img class="call-card__photo h-[220px] w-full object-cover" src="images/landing-new/accessibility-class.jpg" alt="" />
+          <span class="call-card__dash mx-2 my-4 block"></span>
+          <span class="flex flex-col gap-3 px-2 pb-3">
+            <span class="flex gap-2"><span class="tag p-text-body-s">ทุกกิจการ</span><span class="tag tag--warn p-text-body-s">ทุนประเภท 2</span></span>
+            <span class="call-card__title p-text-h4 line-clamp-2">ทุนประเภท 1 ประจำปีงบประมาณ 2570</span>
+            <span class="call-card__desc p-text-body-s line-clamp-2 min-h-[46px]">โครงการวิจัยและพัฒนาที่ผู้ขอเสนอหัวข้อเอง</span>
+            <span class="call-card__meta flex flex-col gap-3 pt-2">
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-wallet" size="16" /><span class="meta__label">วงเงิน (บาท)</span><span class="meta__value">150,000,000</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-clock" size="16" /><span class="meta__label">ปิดรับข้อเสนอ</span><span class="meta__value">28 ก.พ. 2570</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-calendar" size="16" /><span class="meta__label">ปีงบประมาณ</span><span class="meta__value">2570</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-book" size="16" /><span class="meta__label">มาตรา</span><span class="meta__value">52(2), 52(3)</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-list" size="16" /><span class="meta__label">TOR ย่อย</span><span class="meta__value">4 หัวข้อมุ่งเน้น</span></span>
+            </span>
+          </span>
+        </a>
+        <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
+          <img class="call-card__photo h-[220px] w-full object-cover" src="images/landing-new/fisher-village.jpg" alt="" />
+          <span class="call-card__dash mx-2 my-4 block"></span>
+          <span class="flex flex-col gap-3 px-2 pb-3">
+            <span class="flex gap-2"><span class="tag p-text-body-s">กิจการโทรทัศน์</span><span class="tag tag--warn p-text-body-s">ทุนประเภท 3</span></span>
+            <span class="call-card__title p-text-h4 line-clamp-2">ทุนผลิตรายการ ประจำปีงบประมาณ 2570</span>
+            <span class="call-card__desc p-text-body-s line-clamp-2 min-h-[46px]">รายการโทรทัศน์และสื่อเพื่อเด็ก เยาวชน และครอบครัว</span>
+            <span class="call-card__meta flex flex-col gap-3 pt-2">
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-wallet" size="16" /><span class="meta__label">วงเงิน (บาท)</span><span class="meta__value">150,000,000</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-clock" size="16" /><span class="meta__label">ปิดรับข้อเสนอ</span><span class="meta__value">15 มี.ค. 2570</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-calendar" size="16" /><span class="meta__label">ปีงบประมาณ</span><span class="meta__value">2570</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-book" size="16" /><span class="meta__label">มาตรา</span><span class="meta__value">52(4)</span></span>
+            </span>
+          </span>
+        </a>
+        <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
+          <span class="call-card__photo call-card__photo--empty grid h-[220px] place-items-center"><p-ui-icon name="pi-image" size="22" /></span>
+          <span class="call-card__dash mx-2 my-4 block"></span>
+          <span class="flex flex-col gap-3 px-2 pb-3">
+            <span class="flex gap-2"><span class="tag p-text-body-s">กิจการโทรคมนาคม</span><span class="tag tag--warn p-text-body-s">ทุนประเภท 2</span></span>
+            <span class="call-card__title p-text-h4 line-clamp-2">ทุนประเภท 2 ประจำปีงบประมาณ 2570 ครั้งที่ 2</span>
+            <span class="call-card__desc p-text-body-s line-clamp-2 min-h-[46px]">หัวข้อมุ่งเน้นด้านกิจการโทรคมนาคมในพื้นที่ห่างไกล</span>
+            <span class="call-card__meta flex flex-col gap-3 pt-2">
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-wallet" size="16" /><span class="meta__label">วงเงิน (บาท)</span><span class="meta__value">80,000,000</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-clock" size="16" /><span class="meta__label">ปิดรับข้อเสนอ</span><span class="meta__value">30 เม.ย. 2570</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-calendar" size="16" /><span class="meta__label">ปีงบประมาณ</span><span class="meta__value">2570</span></span>
+              <span class="meta flex items-center gap-3"><p-ui-icon name="pi-book" size="16" /><span class="meta__label">มาตรา</span><span class="meta__value">52(1)</span></span>
+            </span>
+          </span>
+        </a>
+      </div>
+
+      <div class="mt-8 flex justify-center">
+        <p-button label="ดูประกาศทั้งหมด" outlined severity="secondary" size="large" routerLink="/grants" />
+      </div>
+    </section>
+
+    <!-- ===================== พันธกิจ ===================== -->
+    <section class="mission px-6 py-24 text-center" aria-label="พันธกิจ">
+      <p class="mission__text p-text-display m-0 mx-auto max-w-[1100px]">
+        เราอยากเห็นประเทศไทยที่ทุกคนเข้าถึง<span class="hl p-wavy">การสื่อสาร</span>ได้อย่าง<span class="hl p-wavy">ทั่วถึง</span><br class="hidden lg:block" />
+        และใช้เทคโนโลยีสร้างชีวิตที่ดีขึ้นเพื่อ<span class="hl p-wavy">ประโยชน์สาธารณะ</span>
+      </p>
+    </section>
+
+    <!-- ===================== ประเภททุน ===================== -->
+    <section class="types px-6 py-24" aria-labelledby="types-title">
+      <div class="mx-auto w-full max-w-[1200px]">
+        <h2 id="types-title" class="section-title p-text-display m-0 text-center">ทุนแบบไหน<span class="hl p-wavy">เหมาะ</span>กับโครงการของคุณ</h2>
+        <p class="section-sub p-text-body-l m-0 mt-3 text-center">กทปส. ให้ทุน 3 ประเภท ตามวัตถุประสงค์มาตรา 52</p>
+
+        <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-0">
+          <a class="type-card type-card--1 relative flex min-h-[300px] flex-col p-10" routerLink="/grants">
+            <span class="type-card__eyebrow p-text-body-s">ทุนประเภท 1</span>
+            <span class="type-card__title p-text-h2 mt-2">เสนอหัวข้อวิจัย<br />ได้เองตามไอเดียของคุณ</span>
+            <span class="type-card__link p-text-body-s mt-auto">ดูรายละเอียดทุน</span>
+            <img class="type-card__doodle absolute bottom-6 right-8" src="images/landing-new/grant-1.svg" alt="" width="105" height="124" />
+          </a>
+          <a class="type-card type-card--2 relative flex min-h-[300px] flex-col p-10" routerLink="/grants">
+            <span class="type-card__eyebrow p-text-body-s">ทุนประเภท 2</span>
+            <span class="type-card__title p-text-h2 mt-2">ทำโครงการตาม<br />หัวข้อมุ่งเน้น (TOR ย่อย)</span>
+            <span class="type-card__link p-text-body-s mt-auto">ดูรายละเอียดทุน</span>
+            <img class="type-card__doodle absolute bottom-6 right-8" src="images/landing-new/grant-2.svg" alt="" width="126" height="117" />
+          </a>
+          <a class="type-card type-card--3 relative flex min-h-[300px] flex-col p-10" routerLink="/grants">
+            <span class="type-card__eyebrow p-text-body-s">ทุนผลิตรายการ</span>
+            <span class="type-card__title p-text-h2 mt-2">สื่อดีที่สร้าง<br />ประโยชน์สาธารณะ</span>
+            <span class="type-card__link p-text-body-s mt-auto">ดูรายละเอียดทุน</span>
+            <img class="type-card__doodle absolute bottom-6 right-8" src="images/landing-new/grant-3.svg" alt="" width="124" height="124" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ข้อมูลกองทุน ===================== -->
+    <section class="relative px-6 py-24" aria-labelledby="stats-title">
+      <div class="relative mx-auto w-full max-w-[1200px]">
+        <img class="absolute -right-12 -top-10 hidden lg:block" src="images/landing-new/dash-tl.svg" alt="" width="59" height="37" />
+        <img class="absolute -bottom-12 -left-14 hidden lg:block" src="images/landing-new/dash-br.svg" alt="" width="107" height="51" />
+        <div class="stats flex flex-col gap-10 px-8 py-12 lg:px-16">
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h2 id="stats-title" class="section-title p-text-h1 m-0">ข้อมูล<span class="hl p-wavy">กองทุน</span></h2>
+              <p class="section-sub p-text-body-s m-0 mt-2">ปีงบประมาณ 2569 (1 ต.ค. 2568 - 30 ก.ย. 2569) จำนวนเงินเป็นบาท</p>
+            </div>
+            <a class="link p-text-body-s-medium" routerLink="/results">เกี่ยวกับกองทุน</a>
+          </div>
+          <dl class="m-0 grid grid-cols-2 gap-8 text-center sm:grid-cols-3 lg:grid-cols-5">
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">ทุนที่อนุมัติ</dt><dd class="stat__value p-text-h1 m-0">186</dd></div>
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">วงเงินที่สนับสนุน</dt><dd class="stat__value p-text-h1 m-0">1,240 ล้าน</dd></div>
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">หน่วยงานผู้รับทุน</dt><dd class="stat__value p-text-h1 m-0">142</dd></div>
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">จังหวัดที่ได้รับประโยชน์</dt><dd class="stat__value p-text-h1 m-0">68</dd></div>
+            <div class="flex flex-col-reverse gap-2"><dt class="stat__label p-text-body-s">ประกาศทุนที่เปิดรับ</dt><dd class="stat__value p-text-h1 m-0">6</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ขั้นตอนการสมัคร (เปลี่ยนขั้นเองทุก 3.5 วินาที กดเลือกขั้นได้) ===================== -->
+    <section class="px-6 py-16" aria-labelledby="steps-title">
+      <div class="mx-auto w-full max-w-[1200px]">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h2 id="steps-title" class="section-title p-text-display m-0"><span class="hl hl--heading p-wavy">ขั้นตอน</span><span class="hl">การสมัคร</span></h2>
+            <p class="section-sub p-text-body m-0 mt-2">ยื่นข้อเสนอออนไลน์ ติดตามสถานะได้ทุกขั้นตอน</p>
+          </div>
+          <a class="link p-text-body-s-medium" routerLink="/guide">ดูคู่มือการใช้งาน</a>
+        </div>
+
+        <p-auto-rotate class="mt-16 block" interval="3500">
+          <div class="flex flex-col items-center gap-10 lg:flex-row lg:gap-10">
+            <div class="steps relative w-full max-w-[620px] shrink-0 px-8 py-12 lg:px-14">
+              <span class="steps__bump absolute -right-7 top-1/4 hidden h-1/2 w-14 lg:block" aria-hidden="true"></span>
+              <h3 class="steps__title p-text-h1 m-0">ยื่นข้อเสนอง่าย ๆ ใน 4 ขั้นตอน</h3>
+              <ol class="steps__list m-0 mt-8 flex list-none flex-col gap-4 p-0">
+                <li><button type="button" class="step flex w-full items-start gap-5 text-left" data-goto="1"><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">1</span><span class="flex flex-col"><span class="step__name p-text-body-medium">ลงทะเบียนบัญชีหน่วยงาน</span><span class="step__desc p-text-body-s">ยืนยันอีเมลด้วยรหัส OTP ใช้บัญชีเดียวยื่นได้ทุกประกาศ</span></span></button></li>
+                <li><button type="button" class="step flex w-full items-start gap-5 text-left" data-goto="2"><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">2</span><span class="flex flex-col"><span class="step__name p-text-body-medium">เลือกประกาศและกรอกแบบคำขอ</span><span class="step__desc p-text-body-s">บันทึกฉบับร่างได้ กลับมากรอกต่อได้ทุกเมื่อ</span></span></button></li>
+                <li><button type="button" class="step flex w-full items-start gap-5 text-left" data-goto="3"><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">3</span><span class="flex flex-col"><span class="step__name p-text-body-medium">ยื่นคำขอและติดตามสถานะ</span><span class="step__desc p-text-body-s">ระบบแจ้งทุกครั้งที่สถานะเปลี่ยน ทั้งทางอีเมลและในระบบ</span></span></button></li>
+                <li><button type="button" class="step flex w-full items-start gap-5 text-left" data-goto="4"><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">4</span><span class="flex flex-col"><span class="step__name p-text-body-medium">รับผลและเริ่มโครงการ</span><span class="step__desc p-text-body-s">ทำสัญญาออนไลน์ แล้วรายงานความก้าวหน้าผ่านระบบ</span></span></button></li>
+              </ol>
+            </div>
+
+            <div class="relative grid w-full flex-1 place-items-center">
+              <article class="step-card col-start-1 row-start-1 flex max-w-[400px] flex-col gap-3" data-slide>
+                <img src="images/landing-new/step-1.svg" alt="" width="140" height="140" />
+                <h3 class="step-card__title p-text-h1 m-0">ลงทะเบียนบัญชีหน่วยงาน</h3>
+                <p class="step-card__desc p-text-body m-0">ยืนยันอีเมลด้วยรหัส OTP ใช้บัญชีเดียวยื่นได้ทุกประกาศ</p>
+              </article>
+              <article class="step-card col-start-1 row-start-1 flex max-w-[400px] flex-col gap-3" data-slide>
+                <img src="images/landing-new/step-2.svg" alt="" width="140" height="140" />
+                <h3 class="step-card__title p-text-h1 m-0">เลือกประกาศและกรอกแบบคำขอ</h3>
+                <p class="step-card__desc p-text-body m-0">บันทึกฉบับร่างได้ กลับมากรอกต่อได้ทุกเมื่อ</p>
+              </article>
+              <article class="step-card col-start-1 row-start-1 flex max-w-[400px] flex-col gap-3" data-slide>
+                <img src="images/landing-new/step-3.svg" alt="" width="140" height="140" />
+                <h3 class="step-card__title p-text-h1 m-0">ยื่นคำขอและติดตามสถานะ</h3>
+                <p class="step-card__desc p-text-body m-0">ระบบแจ้งทุกครั้งที่สถานะเปลี่ยน ทั้งทางอีเมลและในระบบ</p>
+              </article>
+              <article class="step-card col-start-1 row-start-1 flex max-w-[400px] flex-col gap-3" data-slide>
+                <img src="images/landing-new/step-4.svg" alt="" width="140" height="140" />
+                <h3 class="step-card__title p-text-h1 m-0">รับผลและเริ่มโครงการ</h3>
+                <p class="step-card__desc p-text-body m-0">ทำสัญญาออนไลน์ แล้วรายงานความก้าวหน้าผ่านระบบ</p>
+              </article>
+            </div>
+          </div>
+        </p-auto-rotate>
+      </div>
+    </section>
+
+    <!-- ===================== ข่าวสารและประกาศ (Spotlight เปลี่ยนเองทุก 4 วินาที) ===================== -->
+    <section class="px-6 py-24" aria-labelledby="news-title">
+      <div class="mx-auto w-full max-w-[1200px]">
+        <svg class="news__doodle w-full" height="40" viewBox="0 0 1200 40" preserveAspectRatio="none" fill="none" aria-hidden="true">
+          <path d="M0 26H560C586 26 600 8 590 3C578 -3 566 26 582 34C596 41 612 26 640 26H1200" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        </svg>
+        <h2 id="news-title" class="section-title p-text-display m-0 mt-10"><span class="hl hl--blue p-wavy">ข่าวสาร</span>และประกาศ</h2>
+        <p class="section-sub p-text-body m-0 mt-2">ติดตามข่าวกองทุน ประกาศผล และกิจกรรมล่าสุด</p>
+
+        <p-auto-rotate class="relative mx-auto mt-12 block max-w-[870px]" interval="4000">
+          <div class="relative grid">
+            <article class="spot col-start-1 row-start-1" data-slide>
+              <div class="flex flex-col gap-0 md:flex-row">
+                <div class="flex w-full max-w-[440px] flex-col">
+                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round h-full w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="ครูสอนนักเรียนใช้แท็บเล็ตในห้องเรียน" /></div>
+                  <div class="mt-8 flex flex-col gap-3">
+                    <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศ<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">3 พ.ย. 2569</span></p>
+                    <h3 class="spot__title p-text-h2 m-0">วันสุดท้ายรับข้อเสนอโครงการทุนประเภท 1 ประจำปี 2569</h3>
+                    <p class="spot__desc p-text-body m-0 line-clamp-3">ระบบเปิดรับถึง 30 พ.ย. 2569 เวลา 16.30 น. ขอให้ผู้ขอรับทุนตรวจเอกสารแนบให้ครบ และกดยื่นคำขอก่อนเวลาปิดระบบ</p>
+                    <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
+                  </div>
+                </div>
+                <div class="hidden flex-col md:mt-[72px] md:flex">
+                  <div class="spot__box spot__box--blue h-[180px] w-[180px] p-4"><img class="spot__photo spot__photo--slant h-full w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="" /></div>
+                  <div class="spot__box spot__box--orange h-[300px] w-[300px] p-5"><img class="spot__photo spot__photo--notch h-full w-full object-cover" src="images/landing-new/community-radio.jpg" alt="" /></div>
+                </div>
+              </div>
+            </article>
+            <article class="spot col-start-1 row-start-1" data-slide>
+              <div class="flex flex-col gap-0 md:flex-row">
+                <div class="flex w-full max-w-[440px] flex-col">
+                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round h-full w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="ทีมงานผลิตรายการโทรทัศน์พร้อมล่ามภาษามือ" /></div>
+                  <div class="mt-8 flex flex-col gap-3">
+                    <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ข่าวสาร<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">1 พ.ย. 2569</span></p>
+                    <h3 class="spot__title p-text-h2 m-0">เครือข่ายอินเทอร์เน็ตชุมชนเปิดศูนย์เรียนรู้ดิจิทัลแห่งที่ 20</h3>
+                    <p class="spot__desc p-text-body m-0 line-clamp-3">ผลงานจากโครงการที่ได้รับทุน ขยายการเข้าถึงอินเทอร์เน็ตในพื้นที่ห่างไกล ชาวบ้านใช้เรียนออนไลน์และขายสินค้าชุมชนได้เอง</p>
+                    <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
+                  </div>
+                </div>
+                <div class="hidden flex-col md:mt-[72px] md:flex">
+                  <div class="spot__box spot__box--blue h-[180px] w-[180px] p-4"><img class="spot__photo spot__photo--slant h-full w-full object-cover" src="images/landing-new/community-radio.jpg" alt="" /></div>
+                  <div class="spot__box spot__box--orange h-[300px] w-[300px] p-5"><img class="spot__photo spot__photo--notch h-full w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="" /></div>
+                </div>
+              </div>
+            </article>
+            <article class="spot col-start-1 row-start-1" data-slide>
+              <div class="flex flex-col gap-0 md:flex-row">
+                <div class="flex w-full max-w-[440px] flex-col">
+                  <div class="spot__box spot__box--yellow grid aspect-square place-items-center p-9"><img class="spot__photo spot__photo--round h-full w-full object-cover" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" /></div>
+                  <div class="mt-8 flex flex-col gap-3">
+                    <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศผล<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">28 ต.ค. 2569</span></p>
+                    <h3 class="spot__title p-text-h2 m-0">ประกาศผลการพิจารณาข้อเสนอโครงการทุนประเภท 2</h3>
+                    <p class="spot__desc p-text-body m-0 line-clamp-3">ผู้ยื่นข้อเสนอตรวจผลได้ที่เมนูข้อเสนอของฉันหลังเข้าสู่ระบบ โครงการที่ผ่านการพิจารณาจะได้รับอีเมลนัดทำสัญญา</p>
+                    <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
+                  </div>
+                </div>
+                <div class="hidden flex-col md:mt-[72px] md:flex">
+                  <div class="spot__box spot__box--blue h-[180px] w-[180px] p-4"><img class="spot__photo spot__photo--slant h-full w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="" /></div>
+                  <div class="spot__box spot__box--orange h-[300px] w-[300px] p-5"><img class="spot__photo spot__photo--notch h-full w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="" /></div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <svg class="spot__arrow absolute left-[650px] top-[150px] hidden md:block" width="110" height="82" viewBox="0 0 110 82" fill="none" aria-hidden="true">
+            <path d="M2 16C36 6 72 4 88 24C98 38 98 58 96 78M86 66L96 80L106 66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="mt-6 flex items-center justify-end gap-3 md:-mt-[110px] md:mr-[-50px] md:justify-end">
+            <span class="spot__count p-text-body-medium" data-rotate-count>1 / 3</span>
+            <button type="button" class="spot__btn grid h-10 w-10 place-items-center" data-rotate="prev" aria-label="ข่าวก่อนหน้า"><p-ui-icon name="pi-arrow-left" size="16" /></button>
+            <button type="button" class="spot__btn grid h-10 w-10 place-items-center" data-rotate="next" aria-label="ข่าวถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
+          </div>
+        </p-auto-rotate>
+
+        <div class="mt-16 flex justify-center"><a class="link p-text-body-medium" routerLink="/news">ดูข่าวทั้งหมด</a></div>
+      </div>
+    </section>
+
+    <!-- ===================== ผลงานจากผู้รับทุน ===================== -->
+    <section class="works px-6 py-20" aria-labelledby="works-title">
+      <div class="mx-auto w-full max-w-[1200px]">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <h2 id="works-title" class="works__title p-text-display m-0">ผลงานจากผู้รับทุน</h2>
+          <a class="works__more p-text-body-medium flex items-center gap-2" routerLink="/results">ดูผลงานทั้งหมด <p-ui-icon name="pi-arrow-right" size="16" /></a>
+        </div>
+        <div class="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[200px_minmax(0,1fr)]">
+          <nav class="flex gap-6 overflow-x-auto lg:flex-col lg:gap-5" aria-label="หมวดผลงาน">
+            <a class="works__cat works__cat--active p-text-body-medium shrink-0" routerLink="/results">กิจการโทรคมนาคม</a>
+            <a class="works__cat p-text-body shrink-0" routerLink="/results">กิจการกระจายเสียง</a>
+            <a class="works__cat p-text-body shrink-0" routerLink="/results">กิจการโทรทัศน์</a>
+            <a class="works__cat p-text-body shrink-0" routerLink="/results">การวิจัยและพัฒนา</a>
+          </nav>
+          <p-auto-rotate class="relative block" interval="0">
+            <div class="grid">
+              <div class="col-start-1 row-start-1 grid grid-cols-1 gap-6 sm:grid-cols-2" data-slide>
+                <a class="work flex flex-col gap-4" routerLink="/results"><img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tower-village.jpg" alt="" /><span class="work__title p-text-h3">ระบบแจ้งเตือนภัยพิบัติผ่านเซลล์บรอดแคสต์</span><span class="work__desc p-text-body-s">ส่งข้อความเตือนภัยถึงโทรศัพท์มือถือทุกเครื่องในพื้นที่เสี่ยง ช่วยให้ประชาชนรับข้อมูลได้ทันเวลา</span></a>
+                <a class="work flex flex-col gap-4" routerLink="/results"><img class="work__photo aspect-video w-full object-cover" src="images/landing-new/fisher-village.jpg" alt="" /><span class="work__title p-text-h3">อินเทอร์เน็ตชุมชนสำหรับหมู่บ้านชาวประมง</span><span class="work__desc p-text-body-s">แท็บเล็ตช่วยชาวประมงดูพยากรณ์อากาศและราคาสัตว์น้ำแบบเรียลไทม์ ลดความเสี่ยงก่อนออกเรือ</span></a>
+              </div>
+              <div class="col-start-1 row-start-1 grid grid-cols-1 gap-6 sm:grid-cols-2" data-slide>
+                <a class="work flex flex-col gap-4" routerLink="/results"><img class="work__photo aspect-video w-full object-cover" src="images/landing-new/accessibility-class.jpg" alt="" /><span class="work__title p-text-h3">ห้องเรียนออนไลน์สำหรับนักเรียนพิการทางการเห็น</span><span class="work__desc p-text-body-s">เทคโนโลยีอ่านหน้าจอช่วยให้นักเรียนเข้าถึงบทเรียนออนไลน์ได้เท่าเทียม</span></a>
+                <a class="work flex flex-col gap-4" routerLink="/results"><img class="work__photo aspect-video w-full object-cover" src="images/landing-new/smart-city-5g.jpg" alt="" /><span class="work__title p-text-h3">โครงข่าย 5G ต้นแบบสำหรับเมืองอัจฉริยะ</span><span class="work__desc p-text-body-s">ทดลองใช้เครือข่าย 5G บริหารจัดการจราจรและพลังงานในเขตเมือง</span></a>
+              </div>
+            </div>
+            <button type="button" class="works__btn works__btn--prev absolute -left-5 top-[22%] hidden h-10 w-10 place-items-center sm:grid" data-rotate="prev" aria-label="ผลงานก่อนหน้า"><p-ui-icon name="pi-arrow-left" size="16" /></button>
+            <button type="button" class="works__btn works__btn--next absolute -right-5 top-[22%] hidden h-10 w-10 place-items-center sm:grid" data-rotate="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
+          </p-auto-rotate>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== คำถามที่พบบ่อย ===================== -->
+    <section class="px-6 py-24" aria-labelledby="faq-title">
+      <div class="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-12 lg:grid-cols-[380px_minmax(0,1fr)] lg:gap-24">
+        <div class="flex flex-col gap-4">
+          <p class="faq__eyebrow p-text-body-s-medium m-0">คำถามที่พบบ่อย</p>
+          <h2 id="faq-title" class="section-title p-text-h1 m-0">สงสัยเรื่องการขอรับทุน?</h2>
+          <p class="section-sub p-text-body m-0">ถ้ายังไม่เจอคำตอบ ติดต่อเจ้าหน้าที่ได้ทุกวันทำการ 8.30 - 16.30 น.</p>
+          <p class="p-text-body-s-medium m-0 flex flex-col gap-2">
+            <a class="link" href="tel:026708888">โทร 0 2670 8888</a>
+            <a class="link" href="mailto:grant@btfp.or.th">อีเมล grant&#64;btfp.or.th</a>
+          </p>
+          <img class="mt-4" src="images/landing-new/faq.svg" alt="" width="120" height="100" />
+        </div>
+        <p-accordion value="0" class="faq flex flex-col gap-3">
+          <p-accordion-panel value="0">
+            <p-accordion-header>หน่วยงานใดสามารถยื่นขอรับทุนได้?</p-accordion-header>
+            <p-accordion-content><p class="m-0">หน่วยงานรัฐ หน่วยงานเอกชน สถานศึกษา บริษัท สมาคม และมูลนิธิที่มีสถานะนิติบุคคลและมีคุณสมบัติตามประกาศแต่ละประเภททุน สามารถลงทะเบียนเพื่อยื่นข้อเสนอได้</p></p-accordion-content>
+          </p-accordion-panel>
+          <p-accordion-panel value="1">
+            <p-accordion-header>ทุนประเภท 1 กับทุนประเภท 2 ต่างกันอย่างไร?</p-accordion-header>
+            <p-accordion-content><p class="m-0">ทุนประเภท 1 ผู้ขอเสนอหัวข้อเอง ส่วนทุนประเภท 2 ต้องทำตามหัวข้อมุ่งเน้น (TOR ย่อย) ที่กองทุนกำหนดในแต่ละประกาศ</p></p-accordion-content>
+          </p-accordion-panel>
+          <p-accordion-panel value="2">
+            <p-accordion-header>หนึ่งหน่วยงานยื่นข้อเสนอได้กี่โครงการ?</p-accordion-header>
+            <p-accordion-content><p class="m-0">ขึ้นกับเงื่อนไขของแต่ละประกาศ ตรวจได้ที่หน้ารายละเอียดประกาศทุน</p></p-accordion-content>
+          </p-accordion-panel>
+          <p-accordion-panel value="3">
+            <p-accordion-header>บันทึกฉบับร่างแล้วกลับมากรอกต่อได้ไหม?</p-accordion-header>
+            <p-accordion-content><p class="m-0">ได้ ระบบบันทึกฉบับร่างไว้ในเมนูข้อเสนอของฉัน กลับมากรอกต่อได้จนถึงวันปิดรับ</p></p-accordion-content>
+          </p-accordion-panel>
+          <p-accordion-panel value="4">
+            <p-accordion-header>จะรู้ผลการพิจารณาได้อย่างไร?</p-accordion-header>
+            <p-accordion-content><p class="m-0">ระบบแจ้งผลทางอีเมลและแสดงสถานะในเมนูข้อเสนอของฉัน</p></p-accordion-content>
+          </p-accordion-panel>
+          <p-accordion-panel value="5">
+            <p-accordion-header>ลืมรหัสผ่านต้องทำอย่างไร?</p-accordion-header>
+            <p-accordion-content><p class="m-0">กดลืมรหัสผ่านในหน้าเข้าสู่ระบบ ระบบจะส่งลิงก์ตั้งรหัสผ่านใหม่ไปที่อีเมลที่ลงทะเบียนไว้</p></p-accordion-content>
+          </p-accordion-panel>
+        </p-accordion>
+      </div>
+    </section>
+  </main>
+
+  <p-public-footer />
+</div>

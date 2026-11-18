@@ -3,11 +3,12 @@ import { moduleMetadata } from '@storybook/angular-vite';
 import { PublicFooter } from '../../layout/public-layout/public-footer';
 import { PublicTopbar } from '../../layout/public-layout/public-topbar';
 import { LandingPage } from './landing/landing';
+import { LandingNewPage } from './landing-new/landing-new';
 
 const meta: Meta = {
   title: 'Pages/หน้าแรกสาธารณะ',
   id: 'pages-public-landing',
-  decorators: [moduleMetadata({ imports: [PublicTopbar, PublicFooter, LandingPage] })],
+  decorators: [moduleMetadata({ imports: [PublicTopbar, PublicFooter, LandingPage, LandingNewPage] })],
   parameters: {
     layout: 'fullscreen',
     backgrounds: { default: 'white' },
@@ -31,4 +32,10 @@ export const Landing: StoryObj = {
         <p-public-footer />
       </div>`,
   }),
+};
+
+export const LandingNew: StoryObj = {
+  name: 'หน้าแรก แนวใหม่ (ทดลอง)',
+  parameters: { docs: { description: { story: 'Figma 827:61 ฟอนต์ ThaiSans Neue (เดโมเท่านั้น รออนุญาตใช้บนเว็บ) สไลด์อัตโนมัติใช้ p-auto-rotate' } } },
+  render: () => ({ template: `<p-landing-new-page />` }),
 };

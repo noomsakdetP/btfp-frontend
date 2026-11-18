@@ -69,7 +69,11 @@
 // ขนาดตัวอักษรพื้นฐานของ PrimeNG เป็น 1rem ตายตัว (ไม่มี token) ปรับเฉพาะในธีมนี้
 .p-theme-new {
   .p-inputtext,
-  .p-button-label {
+  .p-button-label,
+  .p-select-label,
+  .p-tab,
+  .p-accordionheader,
+  .p-accordioncontent-content {
     font-size: 1.25rem;
   }
 }
@@ -92,4 +96,11 @@
   text-decoration-thickness: 2px;
   text-underline-offset: 0.3em;
   text-decoration-skip-ink: none;
+}
+
+// สีของ Banner และการ์ดประเภททุนในแนวใหม่ (Figma: component/hero/banner/panel-1..3) ยังไม่มีใน token กลาง
+.p-theme-new {
+  --p-hero-banner-panel-1: #f95738;
+  --p-hero-banner-panel-2: var(--p-yellow-400);
+  --p-hero-banner-panel-3: var(--p-blue-500);
 }

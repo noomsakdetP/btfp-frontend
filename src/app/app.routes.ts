@@ -17,6 +17,13 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/auth/login/login').then((m) => m.LoginPage),
   },
   {
+    // หน้าแรก แนวใหม่ (ทดลอง รอลูกค้าเลือก)  Figma 827:61
+    path: 'new',
+    pathMatch: 'full',
+    title: `ระบบประกาศทุนและผลงานทุน กทปส. | ${SITE}`,
+    loadComponent: () => import('./pages/public/landing-new/landing-new').then((m) => m.LandingNewPage),
+  },
+  {
     // เข้าสู่ระบบ แนวใหม่ (ทดลอง รอลูกค้าเลือก)  Figma 967:2965
     path: 'new/login',
     pathMatch: 'full',

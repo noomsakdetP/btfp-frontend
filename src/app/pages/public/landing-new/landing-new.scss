@@ -1,0 +1,568 @@
+// สไตล์หน้าตา (สี ตัวอักษร เส้น) และลูกเล่นตอน hover เท่านั้น การจัดวางและ Responsive อยู่ใน class ของ Tailwind ใน landing-new.html
+
+:host {
+  display: block;
+}
+
+.page {
+  background: var(--p-surface-raised);
+  color: var(--p-text-primary);
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-title {
+  color: var(--p-text-heading);
+}
+
+.section-sub {
+  color: var(--p-text-secondary);
+}
+
+.hl {
+  color: var(--p-action-primary);
+}
+
+.hl--heading {
+  color: var(--p-text-heading);
+}
+
+.link {
+  color: var(--p-action-link);
+  text-decoration: underline;
+}
+
+// ---------- แถบบน ----------
+.topbar {
+  background: var(--p-surface-raised);
+  border-bottom: 1px solid var(--p-border-default);
+}
+
+.topbar__link,
+.topbar__icon {
+  color: var(--p-text-heading);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ปุ่มลงทะเบียน: ข้อความเลื่อนซ้าย เสาสัญญาณขยายขึ้นมา คลื่นแผ่วนซ้ำ (ตัวสำรองของไฟล์ Rive)
+.register {
+  border-radius: var(--p-radius-button);
+  background: var(--p-navy-800);
+  color: var(--p-text-inverse);
+  transition: background 0.35s ease-out;
+}
+
+.register__label {
+  margin-inline: auto;
+  transition: transform 0.35s ease-out;
+}
+
+.register__signal {
+  color: var(--p-text-inverse);
+  opacity: 0;
+  transform: scale(0.4);
+  transform-origin: center;
+  transition:
+    opacity 0.25s ease-out,
+    transform 0.25s ease-out;
+}
+
+.register__beacon {
+  fill: var(--p-yellow-400);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.register__wave {
+  opacity: 0;
+}
+
+.register__sparkle {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.register:is(:hover, :focus-visible) {
+  background: var(--p-navy-900);
+
+  .register__label {
+    transform: translateX(-14px);
+  }
+
+  .register__signal {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .register__beacon {
+    animation: beacon 1.2s ease-in-out infinite;
+  }
+
+  .register__wave--1 {
+    animation: wave 1.2s ease-in-out infinite;
+  }
+
+  .register__wave--2 {
+    animation: wave 1.2s ease-in-out 0.2s infinite;
+  }
+
+  .register__sparkle {
+    animation: sparkle 1.2s ease-in-out infinite;
+  }
+}
+
+.register:active .register__signal {
+  transform: translateY(1px) scale(0.92);
+}
+
+@keyframes beacon {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes sparkle {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+// ---------- ชื่อเว็บ ----------
+.brandbar {
+  background: var(--p-surface-raised);
+}
+
+.brandbar__divider {
+  background: var(--p-border-default);
+}
+
+.brandbar__title {
+  color: var(--p-text-heading);
+}
+
+.rotator__item {
+  display: block;
+  height: 1.1em;
+  line-height: 1.1em;
+  color: var(--p-action-primary);
+}
+
+.rotator__track {
+  animation: rotate-words 9s ease-in-out infinite;
+}
+
+@keyframes rotate-words {
+  0%,
+  28% {
+    transform: translateY(0);
+  }
+  33%,
+  61% {
+    transform: translateY(-1.1em);
+  }
+  66%,
+  94% {
+    transform: translateY(-2.2em);
+  }
+  100% {
+    transform: translateY(-3.3em);
+  }
+}
+
+// ---------- Banner ----------
+.banner__panel {
+  color: var(--p-text-heading);
+}
+
+.banner__panel--1 {
+  background: var(--p-hero-banner-panel-1);
+}
+
+.banner__panel--2 {
+  background: var(--p-hero-banner-panel-2);
+}
+
+.banner__panel--3 {
+  background: var(--p-hero-banner-panel-3);
+}
+
+.banner__caption--light {
+  color: var(--p-text-inverse);
+}
+
+.banner__link {
+  text-decoration: underline;
+}
+
+.banner__photo--main {
+  border-top-left-radius: 280px;
+}
+
+.banner__photo--side {
+  border-top-left-radius: 110px;
+}
+
+.banner__photo {
+  transition: transform 0.5s ease-out;
+}
+
+.banner__panel:hover .banner__photo {
+  transform: scale(1.03);
+}
+
+// ---------- การ์ดประกาศทุน ----------
+.calls {
+  scrollbar-width: thin;
+}
+
+.call-card {
+  border: 1px solid var(--p-border-default);
+  border-radius: 28px;
+  background: var(--p-surface-raised);
+  color: var(--p-text-primary);
+  transition:
+    transform 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: var(--p-shadow-2);
+  }
+}
+
+.call-card__photo {
+  border-radius: 20px;
+}
+
+.call-card__photo--empty {
+  background: var(--p-bg-subtle);
+  color: var(--p-gray-400);
+}
+
+.call-card__dash {
+  border-top: 2px dashed var(--p-blue-200);
+}
+
+.call-card__title {
+  color: var(--p-text-heading);
+}
+
+.call-card__desc,
+.meta__label {
+  color: var(--p-text-secondary);
+}
+
+.meta {
+  color: var(--p-text-secondary);
+}
+
+.meta__value {
+  margin-left: auto;
+  color: var(--p-text-heading);
+}
+
+.tag {
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: var(--p-gray-100);
+  color: var(--p-gray-700);
+}
+
+.tag--warn {
+  background: var(--p-yellow-400);
+  color: var(--p-navy-900);
+}
+
+// ---------- พันธกิจ ----------
+.mission__text {
+  color: var(--p-text-heading);
+}
+
+// ---------- ประเภททุน ----------
+.types {
+  background: var(--p-blue-50); // Figma ผูก color/blue/50 ตรง ยังไม่มี semantic (รอ token กลุ่ม 2)
+}
+
+.type-card {
+  color: var(--p-text-heading);
+  transition:
+    transform 0.35s ease-out,
+    box-shadow 0.35s ease-out;
+}
+
+.type-card--1 {
+  border-radius: 40px 12px 12px 12px;
+  background: var(--p-blue-300);
+  transform: rotate(-2deg);
+}
+
+.type-card--2 {
+  border-radius: 12px 12px 12px 40px;
+  background: var(--p-red-400);
+  transform: rotate(2deg);
+}
+
+.type-card--3 {
+  border-radius: 12px 40px 12px 12px;
+  background: var(--p-yellow-300);
+  transform: rotate(-1deg);
+}
+
+// hover: หมุนไปอีกทางและยกขึ้น
+.type-card--1:hover {
+  transform: rotate(1deg) translateY(-8px);
+  box-shadow: var(--p-shadow-3);
+}
+
+.type-card--2:hover {
+  transform: rotate(-1deg) translateY(-8px);
+  box-shadow: var(--p-shadow-3);
+}
+
+.type-card--3:hover {
+  transform: rotate(2deg) translateY(-8px);
+  box-shadow: var(--p-shadow-3);
+}
+
+.type-card__link {
+  text-decoration: underline;
+}
+
+// ---------- ข้อมูลกองทุน ----------
+.stats {
+  border-radius: 40px;
+  background: var(--p-blue-50);
+  box-shadow: var(--p-shadow-2);
+}
+
+.stat__value {
+  color: var(--p-text-heading);
+}
+
+.stat__label {
+  color: var(--p-text-secondary);
+}
+
+// ---------- ขั้นตอนการสมัคร ----------
+.steps,
+.steps__bump {
+  background: var(--p-action-primary-hover);
+}
+
+.steps {
+  border-radius: 24px;
+}
+
+.steps__bump {
+  border-radius: var(--p-radius-full);
+}
+
+.steps__title {
+  color: var(--p-text-inverse);
+}
+
+.step {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--p-text-inverse);
+  opacity: 0.7;
+  cursor: pointer;
+  font: inherit;
+}
+
+.step__num {
+  border: 1.5px solid currentColor;
+  border-radius: var(--p-radius-full);
+}
+
+.step__desc {
+  display: none;
+}
+
+.step[data-active] {
+  opacity: 1;
+
+  .step__num {
+    border-color: var(--p-yellow-400);
+    background: var(--p-yellow-400);
+    color: var(--p-navy-900);
+  }
+
+  .step__desc {
+    display: block;
+  }
+}
+
+// สไลด์ของ p-auto-rotate ซ้อนกันในช่องเดียว แสดงเฉพาะสไลด์ที่มี data-active
+[data-slide] {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+
+  &[data-active] {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+.step-card__title {
+  color: var(--p-text-heading);
+}
+
+.step-card__desc {
+  color: var(--p-text-secondary);
+}
+
+// ---------- ข่าวสาร ----------
+.news__doodle,
+.spot__arrow {
+  color: var(--p-text-heading);
+}
+
+.spot__box--yellow {
+  background: var(--p-hero-banner-panel-2);
+}
+
+.spot__box--blue {
+  background: var(--p-hero-banner-panel-3);
+}
+
+.spot__box--orange {
+  background: var(--p-hero-banner-panel-1);
+}
+
+.spot__photo--round {
+  border-radius: 38%;
+}
+
+.spot__photo--slant {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 24% 100%);
+}
+
+.spot__photo--notch {
+  clip-path: polygon(0 0, 80% 0, 80% 20%, 100% 20%, 100% 100%, 20% 100%, 20% 80%, 0 80%);
+}
+
+.spot__eyebrow,
+.spot__title,
+.spot__count {
+  color: var(--p-text-heading);
+}
+
+.spot__date,
+.spot__desc {
+  color: var(--p-text-secondary);
+}
+
+.spot__sep {
+  background: var(--p-border-default);
+}
+
+.spot__btn {
+  border: 0;
+  border-radius: var(--p-radius-full);
+  background: var(--p-hero-banner-panel-1);
+  color: var(--p-text-heading);
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+}
+
+// ---------- ผลงาน ----------
+.works {
+  background: var(--p-bg-inverse);
+}
+
+.works__title,
+.works__more,
+.works__cat--active,
+.work__title {
+  color: var(--p-text-inverse);
+}
+
+.works__cat {
+  color: var(--p-navy-200);
+}
+
+.work__desc {
+  color: var(--p-navy-100);
+}
+
+.work__photo {
+  border-radius: 16px;
+  transition: transform 0.4s ease-out;
+}
+
+.work:hover .work__photo {
+  transform: translateY(-4px);
+}
+
+.works__btn {
+  border: 0;
+  border-radius: var(--p-radius-button);
+  cursor: pointer;
+}
+
+.works__btn--prev {
+  background: var(--p-navy-700);
+  color: var(--p-text-inverse);
+}
+
+.works__btn--next {
+  background: var(--p-yellow-400);
+  color: var(--p-navy-900);
+}
+
+// ---------- คำถามที่พบบ่อย ----------
+.faq__eyebrow {
+  color: var(--p-action-primary);
+}
+
+.faq p-accordion-panel {
+  overflow: hidden;
+  border: 1px solid var(--p-border-default);
+  border-radius: var(--p-radius-card);
+}
+
+// ผู้ใช้ที่ตั้งเครื่องให้ลดการเคลื่อนไหว: หยุดอนิเมชันทั้งหมดของหน้า
+@media (prefers-reduced-motion: reduce) {
+  .rotator__track,
+  .register :is(.register__beacon, .register__wave, .register__sparkle) {
+    animation: none !important;
+  }
+
+  .register__wave {
+    opacity: 1;
+  }
+}

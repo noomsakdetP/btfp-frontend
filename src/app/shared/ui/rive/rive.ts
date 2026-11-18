@@ -96,7 +96,7 @@ export class RiveView {
 
   protected readonly ready = signal(false);
   private readonly canvas = viewChild.required<ElementRef<HTMLCanvasElement>>('canvas');
-  private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private rive?: Rive;
 
   constructor() {
