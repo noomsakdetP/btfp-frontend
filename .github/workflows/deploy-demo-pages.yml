@@ -1,0 +1,45 @@
+# ลิงก์เดโมให้ลูกค้าดูบน GitHub Pages: https://noomsakdetp.github.io/btfp-frontend/new
+# build ใหม่ทุกครั้งที่ push ขึ้น branch เดโม (กดรันเองได้ที่แท็บ Actions)
+name: Deploy demo to GitHub Pages
+
+on:
+  push:
+    branches: [feat/new-direction-demo]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      # เว็บอยู่ใต้ /btfp-frontend/ จึงต้องตั้ง base href ให้ตรงชื่อ repo
+      - run: npx ng build --base-href /btfp-frontend/
+      # GitHub Pages ไม่รู้จัก route ของ Angular เปิดลิงก์ย่อยตรง ๆ จะเจอ 404 ใช้ index.html เป็นหน้า 404 แทน
+      - run: cp dist/btfp-frontend/browser/index.html dist/btfp-frontend/browser/404.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/btfp-frontend/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

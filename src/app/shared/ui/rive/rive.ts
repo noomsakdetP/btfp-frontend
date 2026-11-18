@@ -11,8 +11,11 @@ import {
 } from '@angular/core';
 import { Alignment, Fit, Layout, Rive, RuntimeLoader } from '@rive-app/canvas-lite';
 
-/** ไฟล์ wasm ของ Rive เสิร์ฟจากเว็บเราเอง (angular.json และ .storybook/main.ts คัดลอกไว้ที่ /rive-wasm) ไม่โหลดจาก CDN */
-RuntimeLoader.setWasmUrl('/rive-wasm/rive.wasm');
+/**
+ * ไฟล์ wasm ของ Rive เสิร์ฟจากเว็บเราเอง (angular.json และ .storybook/main.ts คัดลอกไว้ที่ rive-wasm/) ไม่โหลดจาก CDN
+ * อ้างอิงจาก base href จึงใช้ได้ทั้งเว็บที่อยู่ที่ราก (/) และใต้โฟลเดอร์ย่อย เช่น GitHub Pages (/btfp-frontend/)
+ */
+RuntimeLoader.setWasmUrl(new URL('rive-wasm/rive.wasm', document.baseURI).href);
 
 /**
  * p-rive : แสดงภาพเคลื่อนไหวจากไฟล์ Rive (.riv)
