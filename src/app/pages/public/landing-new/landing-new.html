@@ -148,7 +148,7 @@
       <div pScrollRow class="group/row relative mt-10">
       <div class="calls reveal-stagger -mx-6 flex snap-x scroll-px-6 gap-6 overflow-x-auto px-6 pb-6 pt-2" data-scroll-track>
         <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
-          <span class="call-card__photo call-card__photo--empty grid h-[220px] place-items-center"><p-ui-icon name="pi-image" size="22" /></span>
+          <span class="call-card__media relative block h-[220px] overflow-hidden"><span class="call-card__photo call-card__photo--empty grid h-full w-full place-items-center"><p-ui-icon name="pi-image" size="22" /></span><span class="call-card__go absolute bottom-3 right-2.5 grid h-12 w-12 place-items-center" aria-hidden="true"><p-ui-icon name="pi-arrow-up-right" size="16" /></span></span>
           <span class="call-card__dash mx-2 my-4 block"></span>
           <span class="flex flex-col gap-3 px-2 pb-3">
             <span class="flex gap-2"><span class="tag p-text-body-s">กิจการโทรคมนาคม</span><span class="tag tag--warn p-text-body-s">ทุนประเภท 2</span></span>
@@ -164,7 +164,7 @@
           </span>
         </a>
         <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
-          <img class="call-card__photo h-[220px] w-full object-cover" src="images/landing-new/accessibility-class.jpg" alt="" />
+          <span class="call-card__media relative block h-[220px] overflow-hidden"><img class="call-card__photo h-full w-full object-cover" src="images/landing-new/accessibility-class.jpg" alt="" /><span class="call-card__go absolute bottom-3 right-2.5 grid h-12 w-12 place-items-center" aria-hidden="true"><p-ui-icon name="pi-arrow-up-right" size="16" /></span></span>
           <span class="call-card__dash mx-2 my-4 block"></span>
           <span class="flex flex-col gap-3 px-2 pb-3">
             <span class="flex gap-2"><span class="tag p-text-body-s">ทุกกิจการ</span><span class="tag tag--warn p-text-body-s">ทุนประเภท 2</span></span>
@@ -180,7 +180,7 @@
           </span>
         </a>
         <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
-          <img class="call-card__photo h-[220px] w-full object-cover" src="images/landing-new/fisher-village.jpg" alt="" />
+          <span class="call-card__media relative block h-[220px] overflow-hidden"><img class="call-card__photo h-full w-full object-cover" src="images/landing-new/fisher-village.jpg" alt="" /><span class="call-card__go absolute bottom-3 right-2.5 grid h-12 w-12 place-items-center" aria-hidden="true"><p-ui-icon name="pi-arrow-up-right" size="16" /></span></span>
           <span class="call-card__dash mx-2 my-4 block"></span>
           <span class="flex flex-col gap-3 px-2 pb-3">
             <span class="flex gap-2"><span class="tag p-text-body-s">กิจการโทรทัศน์</span><span class="tag tag--warn p-text-body-s">ทุนประเภท 3</span></span>
@@ -195,7 +195,7 @@
           </span>
         </a>
         <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
-          <span class="call-card__photo call-card__photo--empty grid h-[220px] place-items-center"><p-ui-icon name="pi-image" size="22" /></span>
+          <span class="call-card__media relative block h-[220px] overflow-hidden"><span class="call-card__photo call-card__photo--empty grid h-full w-full place-items-center"><p-ui-icon name="pi-image" size="22" /></span><span class="call-card__go absolute bottom-3 right-2.5 grid h-12 w-12 place-items-center" aria-hidden="true"><p-ui-icon name="pi-arrow-up-right" size="16" /></span></span>
           <span class="call-card__dash mx-2 my-4 block"></span>
           <span class="flex flex-col gap-3 px-2 pb-3">
             <span class="flex gap-2"><span class="tag p-text-body-s">กิจการโทรคมนาคม</span><span class="tag tag--warn p-text-body-s">ทุนประเภท 2</span></span>
@@ -398,21 +398,21 @@
     -->
     <section class="works overflow-hidden px-6 py-24" data-reveal aria-labelledby="works-title">
       <p-auto-rotate class="mx-auto block w-full max-w-[1200px]" interval="0">
-        <div class="grid grid-cols-1 gap-10 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-12">
-          <div class="flex flex-col gap-10">
-            <h2 id="works-title" class="works__title p-text-display m-0">ผลงานจาก<br class="hidden lg:block" />ผู้รับทุน</h2>
-            <nav class="works__nav -mx-6 flex gap-6 overflow-x-auto overflow-y-hidden px-6 lg:mx-0 lg:flex-col lg:gap-4 lg:overflow-visible lg:px-0" aria-label="หมวดผลงาน">
-              <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="1">กิจการโทรคมนาคม</button>
-              <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="2">กิจการกระจายเสียง</button>
-              <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="3">กิจการโทรทัศน์</button>
-              <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="4">การวิจัยและพัฒนา</button>
-            </nav>
-            <a class="works__more p-text-body-medium hidden items-center gap-2 lg:flex" routerLink="/results">ดูผลงานทั้งหมด <p-ui-icon name="pi-arrow-right" size="16" /></a>
+        <div class="flex flex-col gap-8">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <h2 id="works-title" class="works__title p-text-display m-0">ผลงานจากผู้รับทุน</h2>
+            <a class="works__more p-text-body-medium flex items-center gap-2" routerLink="/results">ดูผลงานทั้งหมด <p-ui-icon name="pi-arrow-right" size="16" /></a>
           </div>
+          <nav class="works__nav -mx-6 flex gap-8 overflow-x-auto overflow-y-hidden px-6 lg:mx-0 lg:px-0" aria-label="หมวดผลงาน">
+            <button type="button" class="works__cat p-text-h4 shrink-0 pb-2 text-left" data-goto="1">กิจการโทรคมนาคม</button>
+            <button type="button" class="works__cat p-text-h4 shrink-0 pb-2 text-left" data-goto="2">กิจการกระจายเสียง</button>
+            <button type="button" class="works__cat p-text-h4 shrink-0 pb-2 text-left" data-goto="3">กิจการโทรทัศน์</button>
+            <button type="button" class="works__cat p-text-h4 shrink-0 pb-2 text-left" data-goto="4">การวิจัยและพัฒนา</button>
+          </nav>
 
-          <div class="grid min-w-0 lg:mr-[min(-24px,calc((1200px-100vw)/2))]">
+          <div class="grid min-w-0 mr-[min(-24px,calc((1200px-100vw)/2))]">
             <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
-              <div class="works__track reveal-stagger -mr-6 flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6 lg:mr-0" data-scroll-track>
+              <div class="works__track reveal-stagger flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6" data-scroll-track>
                 <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
                   <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tower-village.jpg" alt="" />
                   <span class="work__title p-text-h3 line-clamp-2">ระบบแจ้งเตือนภัยพิบัติผ่านเซลล์บรอดแคสต์</span>
@@ -438,7 +438,7 @@
               <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
             </div>
             <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
-              <div class="works__track reveal-stagger -mr-6 flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6 lg:mr-0" data-scroll-track>
+              <div class="works__track reveal-stagger flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6" data-scroll-track>
                 <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
                   <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/community-radio.jpg" alt="" />
                   <span class="work__title p-text-h3 line-clamp-2">วิทยุชุมชนรายงานสถานการณ์น้ำ</span>
@@ -464,7 +464,7 @@
               <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
             </div>
             <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
-              <div class="works__track reveal-stagger -mr-6 flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6 lg:mr-0" data-scroll-track>
+              <div class="works__track reveal-stagger flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6" data-scroll-track>
                 <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
                   <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="" />
                   <span class="work__title p-text-h3 line-clamp-2">ล่ามภาษามือในรายการข่าวท้องถิ่น</span>
@@ -490,7 +490,7 @@
               <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
             </div>
             <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
-              <div class="works__track reveal-stagger -mr-6 flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6 lg:mr-0" data-scroll-track>
+              <div class="works__track reveal-stagger flex snap-x gap-6 overflow-x-auto overflow-y-hidden pb-2 pr-6" data-scroll-track>
                 <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
                   <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/accessibility-class.jpg" alt="" />
                   <span class="work__title p-text-h3 line-clamp-2">ห้องเรียนออนไลน์สำหรับนักเรียนพิการทางการเห็น</span>
@@ -517,7 +517,6 @@
             </div>
           </div>
         </div>
-        <a class="works__more p-text-body-medium mt-10 flex items-center gap-2 lg:hidden" routerLink="/results">ดูผลงานทั้งหมด <p-ui-icon name="pi-arrow-right" size="16" /></a>
       </p-auto-rotate>
     </section>
 

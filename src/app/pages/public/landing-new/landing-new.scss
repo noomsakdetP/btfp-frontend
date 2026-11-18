@@ -50,12 +50,13 @@ section[data-reveal] .reveal-stagger > * {
     opacity 0.7s $reveal-ease,
     translate 0.7s $reveal-ease,
     transform 0.35s ease-out,
-    box-shadow 0.35s ease-out;
+    box-shadow 0.35s ease-out,
+    border-color 0.35s ease-out;
 
   @for $i from 1 through 6 {
     &:nth-child(#{$i}) {
       $d: #{0.15 + $i * 0.09}s;
-      transition-delay: $d, $d, 0s, 0s;
+      transition-delay: $d, $d, 0s, 0s, 0s;
     }
   }
 }
@@ -311,19 +312,52 @@ section[data-revealed] .reveal-stagger > * {
   }
 }
 
+// การ์ดประกาศทุน hover ตาม Figma (Card/Grant Call: State=Hover): การ์ดไม่ยก เส้นขอบเข้มขึ้น เงาเข้มขึ้น
+// รูปขยายเล็กน้อยในกรอบ และปุ่มวงกลมลูกศรเฉียงลอยขึ้นมาที่มุมขวาล่างของรูป
 .call-card {
   border: 1px solid var(--p-border-default);
   border-radius: 28px;
   background: var(--p-surface-raised);
+  box-shadow: var(--p-shadow-1);
   color: var(--p-text-primary);
   transition:
-    transform 0.3s ease-out,
-    box-shadow 0.3s ease-out;
+    border-color 0.35s ease-out,
+    box-shadow 0.35s ease-out;
 
   &:hover,
   &:focus-visible {
-    transform: translateY(-6px);
+    border-color: var(--p-border-strong);
     box-shadow: var(--p-shadow-2);
+  }
+}
+
+.call-card__media {
+  border-radius: 20px;
+}
+
+.call-card__photo {
+  transition: scale 0.5s ease-out;
+}
+
+.call-card__go {
+  border-radius: var(--p-radius-full);
+  background: var(--p-navy-600);
+  color: var(--p-text-inverse);
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity 0.35s ease-out,
+    translate 0.35s ease-out;
+}
+
+.call-card:is(:hover, :focus-visible) {
+  .call-card__photo {
+    scale: 1.06;
+  }
+
+  .call-card__go {
+    opacity: 1;
+    translate: none;
   }
 }
 
@@ -350,10 +384,6 @@ section[data-revealed] .reveal-stagger > * {
   &[data-active] {
     background: var(--p-action-primary);
   }
-}
-
-.call-card__photo {
-  border-radius: 20px;
 }
 
 .call-card__photo--empty {
@@ -663,16 +693,21 @@ section[data-revealed] .reveal-stagger > * {
 }
 
 .works__cat {
-  padding: 0;
   border: 0;
   background: none;
   color: var(--p-navy-300);
   cursor: pointer;
   transition: color 0.2s;
 
+  border-bottom: 2px solid transparent;
+
   &:hover,
   &[data-active] {
     color: var(--p-text-inverse);
+  }
+
+  &[data-active] {
+    border-bottom-color: var(--p-yellow-400);
   }
 }
 
