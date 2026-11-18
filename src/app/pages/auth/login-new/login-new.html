@@ -14,16 +14,15 @@
   <section class="art relative isolate flex flex-col overflow-hidden px-6 pt-10 lg:min-h-dvh lg:items-center lg:justify-center lg:overflow-visible lg:p-0" aria-labelledby="art-title">
     <div class="art art__bleed absolute inset-y-0 right-0 -z-10 hidden w-[100vw] lg:block" aria-hidden="true"></div>
 
-    <div class="relative flex flex-col gap-4 lg:aspect-[780/900] lg:w-full lg:max-w-[min(780px,86.67dvh)] lg:px-12 lg:pt-10 xl:px-16 xl:pt-[88px]">
+    <div class="relative flex flex-col items-center gap-4 text-center lg:aspect-[780/900] lg:w-full lg:max-w-[min(780px,86.67dvh)] lg:px-12 lg:pt-10 xl:px-16 xl:pt-[88px]">
       <p class="art__eyebrow p-text-body-s-medium relative z-10 m-0">ระบบบริหารจัดการทุน กทปส.</p>
       <h2 id="art-title" class="art__title p-text-display relative z-10 m-0">
-        ทุนเพื่อการสื่อสาร<br />
-        <span class="art__highlight p-wavy">ที่ทั่วถึง</span>
+        ทุนเพื่อการสื่อสาร<br class="sm:hidden" /><span class="art__highlight p-wavy">ที่ทั่วถึง</span>
       </h2>
-      <p class="art__sub p-text-body relative z-10 m-0 max-w-[440px]">กองทุนวิจัยและพัฒนากิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม</p>
+      <p class="art__sub p-text-body relative z-10 m-0">กองทุนวิจัยและพัฒนากิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม</p>
 
       <p-rive
-        class="art__rive pointer-events-none -mx-6 -mt-[30%] aspect-[780/900] lg:absolute lg:inset-0 lg:m-0 lg:aspect-auto"
+        class="art__rive pointer-events-none -mx-6 self-stretch -mt-[30%] aspect-[780/900] lg:absolute lg:inset-0 lg:m-0 lg:aspect-auto"
         src="rive/login-art.riv"
         stateMachine="Idle"
         fallback="images/login-new/login-illustration.svg"
