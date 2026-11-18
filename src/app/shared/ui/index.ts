@@ -13,3 +13,4 @@ export * from './public/public-cards';
 export * from './public/hero-banner';
 export * from './route-progress/route-progress';
 export * from './route-progress/loader-providers';
+export * from './rive/rive';

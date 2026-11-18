@@ -1,0 +1,67 @@
+<svg width="780" height="900" viewBox="0 0 780 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="illustration">
+<g id="ground">
+<path id="ground-line" d="M20 800C150 790 250 810 380 800C500 790 640 810 760 800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+</g>
+<g id="links">
+<path id="link-radio" d="M300 464Q240 380 176 476" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 8" stroke="#092A48"/>
+<path id="link-house" d="M300 464Q150 520 120 662" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 8" stroke="#092A48"/>
+<path id="link-school" d="M300 464Q440 470 500 606" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 8" stroke="#092A48"/>
+<path id="link-tv" d="M300 464Q480 360 655 500" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 8" stroke="#092A48"/>
+</g>
+<g id="tower">
+<path id="tower-legs" d="M272 800L300 500L328 800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="tower-lattice" d="M280 720H320M287 650H313M293 580H307M280 720L313 650M320 720L287 650M287 650L307 580M313 650L293 580" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="tower-mast" d="M300 500V472" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<circle id="tower-beacon" cx="300" cy="464" r="6.75" fill="#FACC15" stroke-width="2.5" stroke="#092A48"/>
+</g>
+<g id="waves">
+<path id="wave-1" d="M273.8 482.4C266.067 470.133 266.067 457.867 273.8 445.6M326.2 445.6C333.933 457.867 333.933 470.133 326.2 482.4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="wave-2" d="M254.1 496.1C240.633 474.7 240.633 453.3 254.1 431.9M345.9 431.9C359.367 453.3 359.367 474.7 345.9 496.1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="wave-3" d="M234.5 509.9C215.167 479.3 215.167 448.7 234.5 418.1M365.5 418.1C384.833 448.7 384.833 479.3 365.5 509.9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="wave-4" d="M214.8 523.7C189.733 483.9 189.733 444.1 214.8 404.3M385.2 404.3C410.267 444.1 410.267 483.9 385.2 523.7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+</g>
+<g id="dest-radio">
+<rect id="radio-body" x="71.25" y="521.25" width="97.5" height="67.5" rx="10.75" fill="white" stroke-width="2.5" stroke="#092A48"/>
+<circle id="radio-speaker" cx="100" cy="555" r="17" stroke-width="2" stroke="#092A48"/>
+<path id="radio-dials" d="M130 543H155M130 557H155M130 571H147" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="radio-antenna" d="M150 520L174 480" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+</g>
+<g id="dest-house">
+<rect id="house-body" x="71.25" y="721.25" width="97.5" height="77.5" fill="white" stroke-width="2.5" stroke="#092A48"/>
+<path id="house-roof" d="M58 726L120 672L182 726" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<rect id="house-door" x="109" y="763" width="22" height="36" rx="3" stroke-width="2" stroke="#092A48"/>
+<rect id="house-light" x="83" y="737" width="18" height="16" rx="2" fill="#FACC15" stroke-width="2" stroke="#092A48"/>
+</g>
+<g id="dest-school">
+<rect id="school-body" x="401.25" y="705.25" width="137.5" height="93.5" fill="white" stroke-width="2.5" stroke="#092A48"/>
+<path id="school-roof" d="M390 708L470 662L550 708" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="school-flagpole" d="M470 662V606" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="school-flag" d="M470 608L500 617L470 626V608Z" fill="#0095DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<rect id="school-light-1" x="415" y="727" width="22" height="18" rx="2" fill="#FACC15" stroke-width="2" stroke="#092A48"/>
+<rect id="school-light-2" x="503" y="727" width="22" height="18" rx="2" fill="#FACC15" stroke-width="2" stroke="#092A48"/>
+<rect id="school-door" x="459" y="757" width="22" height="42" rx="3" stroke-width="2" stroke="#092A48"/>
+</g>
+<g id="dest-tv">
+<rect id="tv-screen" x="577.25" y="521.25" width="155.5" height="105.5" rx="8.75" fill="white" stroke-width="2.5" stroke="#092A48"/>
+<path id="tv-stand" d="M640 628L630 660M670 628L680 660M612 660H698" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="tv-news-lines" d="M592 548H660M592 566H648M592 584H654" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<circle id="interpreter-inset" cx="700" cy="584" r="25" fill="#FACC15" stroke-width="2" stroke="#092A48"/>
+<circle id="interpreter-head" cx="700" cy="576" r="6" stroke-width="2" stroke="#092A48"/>
+<path id="interpreter-body" d="M686 604C695.333 590.667 704.667 590.667 714 604" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="interpreter-hands" d="M688 596L682 588M712 596L718 588" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+</g>
+<g id="pings">
+<circle id="ping-radio" cx="176" cy="476" r="5.75" fill="white" stroke-width="2.5" stroke="#092A48"/>
+<circle id="ping-house" cx="120" cy="662" r="5.75" fill="white" stroke-width="2.5" stroke="#092A48"/>
+<circle id="ping-school" cx="500" cy="606" r="5.75" fill="white" stroke-width="2.5" stroke="#092A48"/>
+<circle id="ping-tv" cx="655" cy="500" r="5.75" fill="white" stroke-width="2.5" stroke="#092A48"/>
+</g>
+<g id="sparkles">
+<path id="sparkle-1" d="M513 430H527M520 423V437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="sparkle-2" d="M45 640H59M52 633V647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="sparkle-3" d="M737 720H751M744 713V727" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+<path id="sparkle-4" d="M223 560H237M230 553V567" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#092A48"/>
+</g>
+</g>
+</svg>

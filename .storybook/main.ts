@@ -24,6 +24,6 @@ const config: StorybookConfig = {
   features: { experimentalDocgenServer: true, componentsManifest: true },
   // ไม่ส่งสถิติการใช้งานไปที่ Storybook
   core: { disableTelemetry: true },
-  staticDirs: ['../public', { from: './fonts', to: '/sb-fonts' }],
+  staticDirs: ['../public', { from: './fonts', to: '/sb-fonts' }, { from: '../node_modules/@rive-app/canvas-lite', to: '/rive-wasm' }],
 };
 export default config;

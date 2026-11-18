@@ -17,6 +17,13 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/auth/login/login').then((m) => m.LoginPage),
   },
   {
+    // เข้าสู่ระบบ แนวใหม่ (ทดลอง รอลูกค้าเลือก)  Figma 967:2965
+    path: 'new/login',
+    pathMatch: 'full',
+    title: `เข้าสู่ระบบ | ${SITE}`,
+    loadComponent: () => import('./pages/auth/login-new/login-new').then((m) => m.LoginNewPage),
+  },
+  {
     // ===== เว็บไซต์สาธารณะ (ผู้เยี่ยมชม / ผู้ขอรับทุนที่ยังไม่เข้าสู่ระบบ) =====
     path: '',
     component: PublicLayout,

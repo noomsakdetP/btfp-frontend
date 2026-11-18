@@ -1,0 +1,74 @@
+// สไตล์หน้าตา (สี ตัวอักษร เส้น) เท่านั้น การจัดวางและ Responsive อยู่ใน class ของ Tailwind ใน login-new.html
+
+:host {
+  display: block;
+}
+
+.login {
+  background: var(--p-surface-raised);
+}
+
+// ---------- ฝั่งภาพ ----------
+.art {
+  background: var(--p-blue-50); // Figma ผูก color/blue/50 ตรง ยังไม่มี semantic (รอ token กลุ่ม 2)
+}
+
+.art__eyebrow,
+.art__title,
+.art__sub {
+  color: var(--p-text-heading);
+}
+
+.art__highlight,
+.title__highlight {
+  color: var(--p-action-primary);
+}
+
+// ---------- ฝั่งฟอร์ม ----------
+.brand__divider {
+  background: var(--p-border-default);
+}
+
+.brand__account,
+.subtitle,
+.note {
+  color: var(--p-text-secondary);
+}
+
+.title,
+.doodle {
+  color: var(--p-text-heading);
+}
+
+.remember {
+  color: var(--p-text-primary);
+  cursor: pointer;
+}
+
+.link {
+  color: var(--p-action-link);
+  text-decoration: underline;
+}
+
+.divider {
+  border: 0;
+  border-top: 1.5px dashed var(--p-border-default);
+}
+
+// ---------- ลิงก์ช่วยเหลือ ----------
+.help {
+  border-radius: var(--p-radius-full);
+  background: var(--p-navy-900);
+}
+
+.help__link {
+  font-size: var(--p-typography-body-s-medium-size);
+  font-weight: var(--p-typography-body-s-medium-weight);
+  line-height: var(--p-line-height-body);
+  color: var(--p-text-inverse);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

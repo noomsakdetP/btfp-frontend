@@ -1,0 +1,93 @@
+<!--
+  เข้าสู่ระบบ แนวใหม่ (ทดลอง รอลูกค้าเลือก)
+  Figma: แนวใหม่ (ทดลอง) > เข้าสู่ระบบ (แนวใหม่) 967:2965
+
+  หุ่นจำลอง markup + CSS เท่านั้น ไม่มีตัวแปรและ binding
+  ภาพฝั่งซ้ายเป็น Rive (public/rive/login-art.riv) มีภาพนิ่งสำรอง
+  ธีมแนวใหม่ (ฟอนต์ ThaiSans Neue ขนาด x1.25) มาจาก class p-theme-new ดู src/styles/_theme-new.scss
+  Responsive ใช้ class ของ Tailwind
+-->
+<main class="p-theme-new login grid min-h-dvh lg:grid-cols-[780fr_660fr]">
+  <!-- ฝั่งภาพ -->
+  <section class="art relative flex flex-col gap-4 overflow-hidden px-6 pt-10 lg:min-h-dvh lg:px-16 lg:pt-[88px]" aria-labelledby="art-title">
+    <p class="art__eyebrow p-text-body-s-medium relative z-10 m-0">ระบบบริหารจัดการทุน กทปส.</p>
+    <h2 id="art-title" class="art__title p-text-display relative z-10 m-0">
+      ทุนเพื่อการสื่อสาร<br />
+      <span class="art__highlight p-wavy">ที่ทั่วถึง</span>
+    </h2>
+    <p class="art__sub p-text-body relative z-10 m-0 max-w-[440px]">กองทุนวิจัยและพัฒนากิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคม</p>
+
+    <!-- ภาพเคลื่อนไหว: ไฟล์ Rive ขนาด 780x900 เท่าฝั่งภาพใน Figma วางเต็มฝั่งซ้าย ข้อความอยู่ด้านบน (จอเล็กวางใต้ข้อความ) -->
+    <p-rive
+      class="art__rive pointer-events-none -mx-6 -mt-[30%] aspect-[780/900] lg:absolute lg:inset-0 lg:m-0 lg:aspect-auto"
+      src="rive/login-art.riv"
+      stateMachine="Idle"
+      fallback="images/login-new/login-illustration.svg"
+      align="bottom"
+    />
+  </section>
+
+  <!-- ฝั่งฟอร์ม -->
+  <section class="relative flex flex-col items-center justify-center px-6 pb-28 pt-12" aria-labelledby="login-title">
+    <div class="flex w-full max-w-[448px] flex-col gap-6">
+      <div class="flex items-center gap-4">
+        <img src="brand/logo-nbtc.png" alt="กสทช." width="27" height="40" />
+        <span class="brand__divider h-7 w-px" aria-hidden="true"></span>
+        <img src="brand/logo-btfp.png" alt="กทปส." width="29" height="40" />
+        <span class="brand__divider h-7 w-px" aria-hidden="true"></span>
+        <span class="brand__account p-text-body-s-medium">บัญชีผู้ขอรับทุน</span>
+      </div>
+
+      <div class="relative flex flex-col gap-2">
+        <!-- ลูกศรวาดมือชี้หัวข้อ (ตกแต่ง) -->
+        <svg class="doodle absolute -left-24 top-3 hidden xl:block" width="90" height="48" viewBox="0 0 90 48" fill="none" aria-hidden="true">
+          <path d="M2 8C28 40 60 46 86 30M72 26L88 30L82 44" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h1 id="login-title" class="title p-text-h1 m-0">เข้าสู่<span class="title__highlight p-wavy">ระบบ</span></h1>
+        <p class="subtitle p-text-body m-0">ใช้อีเมลหรือเบอร์มือถือที่ลงทะเบียนไว้กับ กทปส.</p>
+      </div>
+
+      <form class="flex flex-col gap-6" aria-labelledby="login-title">
+        <div class="p-field">
+          <label for="login-id">อีเมล หรือ เบอร์มือถือ<span class="p-required">*</span></label>
+          <input pInputText id="login-id" type="text" autocomplete="username" value="somchai@example.ac.th" />
+        </div>
+        <div class="p-field">
+          <label for="login-password">รหัสผ่าน<span class="p-required">*</span></label>
+          <input pInputText id="login-password" type="password" autocomplete="current-password" />
+        </div>
+        <div class="flex items-center gap-2.5">
+          <label class="remember flex min-w-0 flex-1 items-center gap-2 py-1">
+            <input type="checkbox" class="p-native-checkbox" />
+            <span class="p-text-body">จดจำชื่อผู้ใช้ในเครื่องนี้</span>
+          </label>
+          <a class="link p-text-body-s-medium shrink-0" routerLink="/forgot-password">ลืมรหัสผ่าน?</a>
+        </div>
+        <p-button label="ดำเนินการต่อ" size="large" fluid routerLink="/login/verify" />
+      </form>
+
+      <p class="note p-text-body-s m-0 flex flex-wrap justify-center gap-1">
+        <span>ยังไม่มีบัญชีผู้ขอรับทุน?</span>
+        <a class="link p-text-body-s-medium" routerLink="/register">ลงทะเบียน</a>
+      </p>
+
+      <hr class="divider m-0 w-full" />
+
+      <p class="note p-text-body-s m-0 flex flex-wrap justify-center gap-1">
+        <span>เจ้าหน้าที่ กสทช.?</span>
+        <a class="link p-text-body-s-medium" routerLink="/login/staff">เข้าสู่ระบบด้วยบัญชี Active Directory</a>
+      </p>
+    </div>
+
+    <nav class="help absolute bottom-8 flex items-center gap-5 px-4 py-2" aria-label="ความช่วยเหลือ">
+      <a class="help__link flex items-center gap-1.5" routerLink="/guide">
+        <p-ui-icon name="file-text" size="16" />
+        <span>คู่มือการใช้งาน (PDF)</span>
+      </a>
+      <a class="help__link flex items-center gap-1.5" routerLink="/contact">
+        <p-ui-icon name="pi-phone" size="16" />
+        <span>ติดต่อเจ้าหน้าที่</span>
+      </a>
+    </nav>
+  </section>
+</main>

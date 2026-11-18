@@ -24,6 +24,7 @@
     "@fontsource/ibm-plex-sans-thai": "^5.3.0",
     "@fontsource/sarabun": "^5.3.0",
     "@primeuix/themes": "3.1.0",
+    "@rive-app/canvas-lite": "2.51.0",
     "ngx-ui-loader": "^19.0.0",
     "primeicons": "7.0.0",
     "primeng": "21.1.10",
