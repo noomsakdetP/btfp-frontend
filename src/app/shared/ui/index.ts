@@ -17,3 +17,5 @@ export * from './rive/rive';
 export * from './auto-rotate/auto-rotate';
 export * from './scroll-state/scroll-state';
 export * from './count-up/count-up';
+export * from './scroll-row/scroll-row';
+export * from './reveal/reveal';

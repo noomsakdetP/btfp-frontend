@@ -25,6 +25,20 @@ a {
   color: var(--p-action-primary);
 }
 
+// เส้นใต้คลื่นค่อย ๆ ลอยขึ้นมาเข้าที่เมื่อเลื่อนมาเห็น (pReveal ใส่ data-revealed)
+.p-wavy[data-reveal] {
+  text-decoration-color: transparent;
+  text-underline-offset: 0.9em;
+  transition:
+    text-decoration-color 0.8s ease-out,
+    text-underline-offset 0.8s ease-out;
+
+  &[data-revealed] {
+    text-decoration-color: currentColor;
+    text-underline-offset: 0.3em;
+  }
+}
+
 .hl--heading {
   color: var(--p-text-heading);
 }
@@ -210,8 +224,19 @@ a {
   background: var(--p-hero-banner-panel-3);
 }
 
-.banner__caption--light {
-  color: var(--p-text-inverse);
+// แผงที่กดแล้วขยาย: ทุกแผงมองเห็นตลอด (ไม่ใช้การจางของสไลด์ทั่วไป)
+.banner__panel[data-slide] {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.banner__caption {
+  padding-block: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .banner__link {
@@ -252,6 +277,31 @@ a {
   &:focus-visible {
     transform: translateY(-6px);
     box-shadow: var(--p-shadow-2);
+  }
+}
+
+.row-btn {
+  border: 0;
+  border-radius: var(--p-radius-button);
+  cursor: pointer;
+}
+
+.row-btn--prev {
+  background: var(--p-navy-400);
+  color: var(--p-text-inverse);
+}
+
+.row-btn--next {
+  background: var(--p-yellow-400);
+  color: var(--p-navy-900);
+}
+
+.row-dot {
+  border-radius: var(--p-radius-full);
+  background: var(--p-border-default);
+
+  &[data-active] {
+    background: var(--p-action-primary);
   }
 }
 
@@ -405,6 +455,29 @@ a {
   display: none;
 }
 
+// เส้นเชื่อมเลขขั้นตอน: ขั้นที่เลือกอยู่เป็นเส้นเหลืองพร้อมหัวลูกศรชี้ขั้นถัดไป
+.step__line {
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.step[data-active] .step__line {
+  background: var(--p-yellow-400);
+  opacity: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    border-right: 1.5px solid var(--p-yellow-400);
+    border-bottom: 1.5px solid var(--p-yellow-400);
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
 .step[data-active] {
   opacity: 1;
 
@@ -457,8 +530,17 @@ a {
   pointer-events: auto;
 }
 
-.spot__box {
+// สีกล่องติดไปกับข่าวแต่ละชิ้น รูปทรงรูปเปลี่ยนตามตำแหน่ง
+.spot--yellow .spot__box {
   background: var(--p-hero-banner-panel-2);
+}
+
+.spot--orange .spot__box {
+  background: var(--p-hero-banner-panel-1);
+}
+
+.spot--blue .spot__box {
+  background: var(--p-hero-banner-panel-3);
 }
 
 .spot__photo {
@@ -469,26 +551,16 @@ a {
     clip-path 0.7s ease-in-out;
 }
 
-.spot[data-pos='1'] {
-  .spot__box {
-    background: var(--p-hero-banner-panel-3);
-  }
-
-  .spot__photo {
-    border-radius: 0;
-    clip-path: polygon(0 0, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 24% 100%, 12% 50%);
-  }
+// ข่าวถัดไป: กล่องใหญ่ด้านล่าง รูปมุมหยัก
+.spot[data-pos='1'] .spot__photo {
+  border-radius: 0;
+  clip-path: polygon(0 0, 80% 0, 80% 20%, 100% 20%, 100% 100%, 20% 100%, 20% 80%, 0 80%);
 }
 
-.spot[data-pos='2'] {
-  .spot__box {
-    background: var(--p-hero-banner-panel-1);
-  }
-
-  .spot__photo {
-    border-radius: 0;
-    clip-path: polygon(0 0, 80% 0, 80% 20%, 100% 20%, 100% 100%, 20% 100%, 20% 80%, 0 80%);
-  }
+// ข่าวลำดับถัดไปอีก: กล่องเล็กด้านบน รูปขอบเฉียง
+.spot[data-pos='2'] .spot__photo {
+  border-radius: 0;
+  clip-path: polygon(0 0, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 24% 100%, 12% 50%);
 }
 
 .spot__text {
@@ -544,7 +616,21 @@ a {
 }
 
 .works__cat {
-  color: var(--p-navy-200);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--p-navy-300);
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover,
+  &[data-active] {
+    color: var(--p-text-inverse);
+  }
+}
+
+.works__track {
+  scrollbar-width: none;
 }
 
 .work__desc {
@@ -552,7 +638,7 @@ a {
 }
 
 .work__photo {
-  border-radius: 16px;
+  border-radius: 10px;
   transition: transform 0.4s ease-out;
 }
 

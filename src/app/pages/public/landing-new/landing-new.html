@@ -8,7 +8,7 @@
   - ธีมแนวใหม่ (ฟอนต์ ThaiSans Neue ขนาด x1.25) มาจาก class p-theme-new ดู src/styles/_theme-new.scss
   Responsive ใช้ class ของ Tailwind
 -->
-<div class="p-theme-new page group/page" pScrollState="120">
+<div class="p-theme-new page group/page" pScrollState="120" pReveal>
   <!-- ===================== แถบบน ===================== -->
   <header class="topbar sticky top-0 z-30">
     <div class="mx-auto flex h-[76px] w-full max-w-[1248px] items-center gap-6 px-6">
@@ -70,29 +70,48 @@
 
   <main>
     <!-- ===================== Banner (ชี้แผงไหน แผงนั้นขยาย) ===================== -->
-    <section class="banner group mx-auto flex w-full max-w-[1440px] flex-col lg:h-[640px] lg:flex-row lg:px-[10px]" aria-label="ไฮไลต์">
-      <a class="banner__panel banner__panel--1 relative flex min-h-[680px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[1000_1_0%] lg:group-has-[.banner__panel--2:hover]:flex-[700_1_0%] lg:group-has-[.banner__panel--3:hover]:flex-[700_1_0%]" routerLink="/grants">
-        <div class="relative z-10 flex w-full max-w-[340px] flex-col gap-4 px-6 pt-10 lg:px-10 lg:pt-24">
-          <p class="p-text-body-medium m-0">เปิดรับข้อเสนอแล้ว</p>
-          <h2 class="p-text-h1 m-0">ทุนประเภท 2<br />ประจำปีงบประมาณ 2570</h2>
-          <p class="p-text-body m-0">โครงการตามหัวข้อมุ่งเน้นด้านกิจการโทรคมนาคม ยื่นข้อเสนอออนไลน์ได้ถึง 15 ม.ค. 2570</p>
-          <span class="banner__link p-text-body-medium">ดูประกาศทุน <span aria-hidden="true">→</span></span>
+    <!--
+      Banner แบบแผง (Figma: Hero/Accordion Banner) กดแผงไหน แผงนั้นขยายพร้อมรายละเอียด แผงอื่นหุบเหลือรูปกับข้อความสั้น
+      ใช้ p-auto-rotate แบบไม่เปลี่ยนเอง (interval 0) แผงคือสไลด์ที่กดได้ทุกแผง (lockInactive false) จอแคบแสดงทุกแผงเต็ม
+    -->
+    <p-auto-rotate class="mx-auto block w-full max-w-[1440px] lg:px-[10px]" interval="0" lockInactive="false">
+      <section class="banner flex flex-col lg:h-[640px] lg:flex-row" aria-label="ไฮไลต์">
+        <div class="banner__panel banner__panel--1 group/panel relative flex flex-col overflow-hidden lg:min-w-0 lg:flex-[220_1_0%] lg:cursor-pointer lg:transition-[flex-grow] lg:duration-500 lg:ease-in-out lg:data-[active]:flex-[1000_1_0%] lg:data-[active]:cursor-auto" data-slide data-goto="1">
+          <div class="banner__body relative z-10 flex w-full max-w-[340px] flex-col gap-4 px-6 pt-10 lg:absolute lg:left-0 lg:top-0 lg:px-10 lg:pt-24 lg:opacity-0 lg:invisible lg:transition-[opacity,visibility] lg:duration-300 lg:group-data-[active]/panel:visible lg:group-data-[active]/panel:opacity-100 lg:group-data-[active]/panel:delay-200">
+            <p class="p-text-body-medium m-0">เปิดรับข้อเสนอแล้ว</p>
+            <h2 class="p-text-h1 m-0">ทุนประเภท 2<br />ประจำปีงบประมาณ 2570</h2>
+            <p class="p-text-body m-0">โครงการตามหัวข้อมุ่งเน้นด้านกิจการโทรคมนาคม ยื่นข้อเสนอออนไลน์ได้ถึง 15 ม.ค. 2570</p>
+            <a class="banner__link p-text-body-medium" routerLink="/grants">ดูประกาศทุน <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="banner__photo relative mx-6 mb-10 mt-8 block h-[260px] w-[calc(100%-48px)] rounded-tl-[130px] object-cover lg:absolute lg:right-0 lg:top-[145px] lg:m-0 lg:h-[300px] lg:w-full lg:rounded-tl-[110px] lg:transition-[top,width,height,border-radius] lg:duration-500 lg:ease-in-out lg:group-data-[active]/panel:top-12 lg:group-data-[active]/panel:h-[544px] lg:group-data-[active]/panel:w-[660px] lg:group-data-[active]/panel:rounded-tl-[240px]" src="images/landing-new/tower-village.jpg" alt="ช่างติดตั้งเสาสัญญาณในหมู่บ้านบนดอย" />
+          <button type="button" class="banner__caption p-text-h3 absolute left-0 top-[461px] z-10 hidden w-full px-6 text-left lg:block lg:transition-opacity lg:duration-300 lg:group-data-[active]/panel:invisible lg:group-data-[active]/panel:opacity-0" data-goto="1">เปิดรับข้อเสนอแล้ว</button>
         </div>
-        <img class="banner__photo banner__photo--main absolute bottom-0 right-0 h-[300px] w-[85%] object-cover lg:h-[544px] lg:w-[660px]" src="images/landing-new/tower-village.jpg" alt="ช่างติดตั้งเสาสัญญาณในหมู่บ้านบนดอย" />
-      </a>
-      <a class="banner__panel banner__panel--2 relative flex min-h-[320px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[220_1_0%] lg:hover:flex-[520_1_0%]" routerLink="/results">
-        <p class="banner__caption p-text-h3 relative z-10 m-0 px-6 pt-10 lg:pt-[220px]">ไอเดียของคุณ<br />เปลี่ยนชุมชนได้</p>
-        <img class="banner__photo banner__photo--side absolute bottom-0 left-0 h-[200px] w-full object-cover lg:h-[300px]" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" />
-      </a>
-      <a class="banner__panel banner__panel--3 relative flex min-h-[320px] flex-col overflow-hidden transition-[flex-grow] duration-500 lg:min-h-0 lg:flex-[200_1_0%] lg:hover:flex-[500_1_0%]" routerLink="/results">
-        <img class="banner__photo banner__photo--side absolute left-0 top-0 h-[220px] w-full object-cover lg:top-[145px] lg:h-[300px]" src="images/landing-new/fisher-village.jpg" alt="ชาวประมงใช้แท็บเล็ตดูข้อมูลร่วมกับนักศึกษา" />
-        <p class="banner__caption p-text-h3 relative z-10 m-0 mt-auto px-6 pb-10 lg:pb-[136px]">ผลงานจากผู้รับทุน</p>
-      </a>
-    </section>
+        <div class="banner__panel banner__panel--2 group/panel relative flex flex-col overflow-hidden lg:min-w-0 lg:flex-[220_1_0%] lg:cursor-pointer lg:transition-[flex-grow] lg:duration-500 lg:ease-in-out lg:data-[active]:flex-[1000_1_0%] lg:data-[active]:cursor-auto" data-slide data-goto="2">
+          <div class="banner__body relative z-10 flex w-full max-w-[340px] flex-col gap-4 px-6 pt-10 lg:absolute lg:left-0 lg:top-0 lg:px-10 lg:pt-24 lg:opacity-0 lg:invisible lg:transition-[opacity,visibility] lg:duration-300 lg:group-data-[active]/panel:visible lg:group-data-[active]/panel:opacity-100 lg:group-data-[active]/panel:delay-200">
+            <p class="p-text-body-medium m-0">ไอเดียของคุณ เปลี่ยนชุมชนได้</p>
+            <h2 class="p-text-h1 m-0">ทุนประเภท 1<br />เสนอหัวข้อวิจัยได้เอง</h2>
+            <p class="p-text-body m-0">สำหรับหน่วยงานที่มีโครงการวิจัยและพัฒนาด้านการสื่อสาร เพื่อประโยชน์สาธารณะ</p>
+            <a class="banner__link p-text-body-medium" routerLink="/grants">ยื่นข้อเสนอ <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="banner__photo relative mx-6 mb-10 mt-8 block h-[260px] w-[calc(100%-48px)] rounded-tl-[130px] object-cover lg:absolute lg:right-0 lg:top-[145px] lg:m-0 lg:h-[300px] lg:w-full lg:rounded-tl-[110px] lg:transition-[top,width,height,border-radius] lg:duration-500 lg:ease-in-out lg:group-data-[active]/panel:top-12 lg:group-data-[active]/panel:h-[544px] lg:group-data-[active]/panel:w-[660px] lg:group-data-[active]/panel:rounded-tl-[240px]" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" />
+          <button type="button" class="banner__caption p-text-h3 absolute left-0 top-[461px] z-10 hidden w-full px-6 text-left lg:block lg:transition-opacity lg:duration-300 lg:group-data-[active]/panel:invisible lg:group-data-[active]/panel:opacity-0" data-goto="2">ไอเดียของคุณ<br />เปลี่ยนชุมชนได้</button>
+        </div>
+        <div class="banner__panel banner__panel--3 group/panel relative flex flex-col overflow-hidden lg:min-w-0 lg:flex-[220_1_0%] lg:cursor-pointer lg:transition-[flex-grow] lg:duration-500 lg:ease-in-out lg:data-[active]:flex-[1000_1_0%] lg:data-[active]:cursor-auto" data-slide data-goto="3">
+          <div class="banner__body relative z-10 flex w-full max-w-[340px] flex-col gap-4 px-6 pt-10 lg:absolute lg:left-0 lg:top-0 lg:px-10 lg:pt-24 lg:opacity-0 lg:invisible lg:transition-[opacity,visibility] lg:duration-300 lg:group-data-[active]/panel:visible lg:group-data-[active]/panel:opacity-100 lg:group-data-[active]/panel:delay-200">
+            <p class="p-text-body-medium m-0">ผลงานจากผู้รับทุน</p>
+            <h2 class="p-text-h1 m-0">แพลตฟอร์มสื่อสารสาธารณะเพื่อผู้สูงอายุ</h2>
+            <p class="p-text-body m-0">ดูว่าทุนจาก กทปส. ช่วยให้ชุมชนเข้าถึงข่าวสารและบริการได้อย่างไร</p>
+            <a class="banner__link p-text-body-medium" routerLink="/results">ดูผลงานทุน <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="banner__photo relative mx-6 mb-10 mt-8 block h-[260px] w-[calc(100%-48px)] rounded-tl-[130px] object-cover lg:absolute lg:right-0 lg:top-[145px] lg:m-0 lg:h-[300px] lg:w-full lg:rounded-tl-[110px] lg:transition-[top,width,height,border-radius] lg:duration-500 lg:ease-in-out lg:group-data-[active]/panel:top-12 lg:group-data-[active]/panel:h-[544px] lg:group-data-[active]/panel:w-[660px] lg:group-data-[active]/panel:rounded-tl-[240px]" src="images/landing-new/fisher-village.jpg" alt="ชาวประมงใช้แท็บเล็ตดูข้อมูลร่วมกับนักศึกษา" />
+          <button type="button" class="banner__caption p-text-h3 absolute left-0 top-[461px] z-10 hidden w-full px-6 text-left lg:block lg:transition-opacity lg:duration-300 lg:group-data-[active]/panel:invisible lg:group-data-[active]/panel:opacity-0" data-goto="3">ผลงานจากผู้รับทุน</button>
+        </div>
+      </section>
+    </p-auto-rotate>
 
     <!-- ===================== ประกาศทุนที่เปิดรับ ===================== -->
     <section class="mx-auto w-full max-w-[1248px] px-6 pb-24 pt-16" aria-labelledby="calls-title">
-      <h2 id="calls-title" class="section-title p-text-display m-0 text-center">ประกาศ<span class="hl p-wavy">ทุน</span>ที่เปิดรับ</h2>
+      <h2 id="calls-title" class="section-title p-text-display m-0 text-center">ประกาศ<span class="hl p-wavy" data-reveal>ทุน</span>ที่เปิดรับ</h2>
 
       <p-tabs class="mt-10 block" value="all" scrollable="true">
         <p-tablist>
@@ -125,8 +144,9 @@
         </div>
       </div>
 
-      <!-- การ์ดเลื่อนซ้ายขวาได้ (Figma วางเป็นแถวเดียว) -->
-      <div class="calls -mx-6 mt-10 flex snap-x gap-6 overflow-x-auto px-6 pb-6 pt-2">
+      <!-- การ์ดเลื่อนซ้ายขวาได้ (Figma วางเป็นแถวเดียว) อยู่ซ้ายสุดแสดงเฉพาะลูกศรขวา เลื่อนไปแล้วลูกศรซ้ายจึงโผล่ -->
+      <div pScrollRow class="group/row relative mt-10">
+      <div class="calls -mx-6 flex snap-x scroll-px-6 gap-6 overflow-x-auto px-6 pb-6 pt-2" data-scroll-track>
         <a class="call-card flex w-[382px] shrink-0 snap-start flex-col p-3" routerLink="/grants">
           <span class="call-card__photo call-card__photo--empty grid h-[220px] place-items-center"><p-ui-icon name="pi-image" size="22" /></span>
           <span class="call-card__dash mx-2 my-4 block"></span>
@@ -191,6 +211,15 @@
         </a>
       </div>
 
+        <button type="button" class="row-btn row-btn--prev absolute -left-2 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 place-items-center sm:grid lg:-left-5 transition-opacity duration-300 group-data-[at-start]/row:invisible group-data-[at-start]/row:opacity-0" data-scroll="prev" aria-label="ประกาศทุนก่อนหน้า"><p-ui-icon name="pi-arrow-left" size="16" /></button>
+        <button type="button" class="row-btn row-btn--next absolute -right-2 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 place-items-center sm:grid lg:-right-5 transition-opacity duration-300 group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ประกาศทุนถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
+        <div class="mt-4 flex justify-center gap-1.5" aria-hidden="true">
+          <span class="row-dot h-1.5 w-1.5 transition-[width] duration-300 data-[active]:w-6" data-scroll-dot></span>
+          <span class="row-dot h-1.5 w-1.5 transition-[width] duration-300 data-[active]:w-6" data-scroll-dot></span>
+          <span class="row-dot h-1.5 w-1.5 transition-[width] duration-300 data-[active]:w-6" data-scroll-dot></span>
+        </div>
+      </div>
+
       <div class="mt-8 flex justify-center">
         <p-button label="ดูประกาศทั้งหมด" outlined severity="secondary" size="large" routerLink="/grants" />
       </div>
@@ -199,15 +228,15 @@
     <!-- ===================== พันธกิจ ===================== -->
     <section class="mission px-6 py-24 text-center" aria-label="พันธกิจ">
       <p class="mission__text p-text-display m-0 mx-auto max-w-[1100px]">
-        เราอยากเห็นประเทศไทยที่ทุกคนเข้าถึง<span class="hl p-wavy">การสื่อสาร</span>ได้อย่าง<span class="hl p-wavy">ทั่วถึง</span><br class="hidden lg:block" />
-        และใช้เทคโนโลยีสร้างชีวิตที่ดีขึ้นเพื่อ<span class="hl p-wavy">ประโยชน์สาธารณะ</span>
+        เราอยากเห็นประเทศไทยที่ทุกคนเข้าถึง<span class="hl p-wavy" data-reveal>การสื่อสาร</span>ได้อย่าง<span class="hl p-wavy" data-reveal>ทั่วถึง</span><br class="hidden lg:block" />
+        และใช้เทคโนโลยีสร้างชีวิตที่ดีขึ้นเพื่อ<span class="hl p-wavy" data-reveal>ประโยชน์สาธารณะ</span>
       </p>
     </section>
 
     <!-- ===================== ประเภททุน ===================== -->
     <section class="types px-6 py-24" aria-labelledby="types-title">
       <div class="mx-auto w-full max-w-[1200px]">
-        <h2 id="types-title" class="section-title p-text-display m-0 text-center">ทุนแบบไหน<span class="hl p-wavy">เหมาะ</span>กับโครงการของคุณ</h2>
+        <h2 id="types-title" class="section-title p-text-display m-0 text-center">ทุนแบบไหน<span class="hl p-wavy" data-reveal>เหมาะ</span>กับโครงการของคุณ</h2>
         <p class="section-sub p-text-body-l m-0 mt-3 text-center">กทปส. ให้ทุน 3 ประเภท ตามวัตถุประสงค์มาตรา 52</p>
 
         <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-0">
@@ -241,7 +270,7 @@
         <div class="stats flex flex-col gap-10 px-8 py-12 lg:px-16">
           <div class="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <h2 id="stats-title" class="section-title p-text-h1 m-0">ข้อมูล<span class="hl p-wavy">กองทุน</span></h2>
+              <h2 id="stats-title" class="section-title p-text-h1 m-0">ข้อมูล<span class="hl p-wavy" data-reveal>กองทุน</span></h2>
               <p class="section-sub p-text-body-s m-0 mt-2">ปีงบประมาณ 2569 (1 ต.ค. 2568 - 30 ก.ย. 2569) จำนวนเงินเป็นบาท</p>
             </div>
             <a class="link p-text-body-s-medium" routerLink="/results">เกี่ยวกับกองทุน</a>
@@ -262,7 +291,7 @@
       <div class="mx-auto w-full max-w-[1200px]">
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h2 id="steps-title" class="section-title p-text-display m-0"><span class="hl hl--heading p-wavy">ขั้นตอน</span><span class="hl">การสมัคร</span></h2>
+            <h2 id="steps-title" class="section-title p-text-display m-0"><span class="hl hl--heading p-wavy" data-reveal>ขั้นตอน</span><span class="hl">การสมัคร</span></h2>
             <p class="section-sub p-text-body m-0 mt-2">ยื่นข้อเสนอออนไลน์ ติดตามสถานะได้ทุกขั้นตอน</p>
           </div>
           <a class="link p-text-body-s-medium" routerLink="/guide">ดูคู่มือการใช้งาน</a>
@@ -274,9 +303,9 @@
               <span class="steps__bump absolute -right-7 top-1/4 hidden h-1/2 w-14 lg:block" aria-hidden="true"></span>
               <h3 class="steps__title p-text-h1 m-0">ยื่นข้อเสนอง่าย ๆ ใน 4 ขั้นตอน</h3>
               <ol class="steps__list m-0 mt-8 flex list-none flex-col gap-4 p-0">
-                <li><button type="button" class="step flex w-full items-start gap-5 text-left" data-goto="1"><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">1</span><span class="flex flex-col"><span class="step__name p-text-body-medium">ลงทะเบียนบัญชีหน่วยงาน</span><span class="step__desc p-text-body-s">ยืนยันอีเมลด้วยรหัส OTP ใช้บัญชีเดียวยื่นได้ทุกประกาศ</span></span></button></li>
-                <li><button type="button" class="step flex w-full items-start gap-5 text-left" data-goto="2"><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">2</span><span class="flex flex-col"><span class="step__name p-text-body-medium">เลือกประกาศและกรอกแบบคำขอ</span><span class="step__desc p-text-body-s">บันทึกฉบับร่างได้ กลับมากรอกต่อได้ทุกเมื่อ</span></span></button></li>
-                <li><button type="button" class="step flex w-full items-start gap-5 text-left" data-goto="3"><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">3</span><span class="flex flex-col"><span class="step__name p-text-body-medium">ยื่นคำขอและติดตามสถานะ</span><span class="step__desc p-text-body-s">ระบบแจ้งทุกครั้งที่สถานะเปลี่ยน ทั้งทางอีเมลและในระบบ</span></span></button></li>
+                <li><button type="button" class="step relative flex w-full items-start gap-5 text-left" data-goto="1"><span class="step__line absolute bottom-[-14px] left-[17px] top-[40px] w-[1.5px]" aria-hidden="true"></span><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">1</span><span class="flex flex-col"><span class="step__name p-text-body-medium">ลงทะเบียนบัญชีหน่วยงาน</span><span class="step__desc p-text-body-s">ยืนยันอีเมลด้วยรหัส OTP ใช้บัญชีเดียวยื่นได้ทุกประกาศ</span></span></button></li>
+                <li><button type="button" class="step relative flex w-full items-start gap-5 text-left" data-goto="2"><span class="step__line absolute bottom-[-14px] left-[17px] top-[40px] w-[1.5px]" aria-hidden="true"></span><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">2</span><span class="flex flex-col"><span class="step__name p-text-body-medium">เลือกประกาศและกรอกแบบคำขอ</span><span class="step__desc p-text-body-s">บันทึกฉบับร่างได้ กลับมากรอกต่อได้ทุกเมื่อ</span></span></button></li>
+                <li><button type="button" class="step relative flex w-full items-start gap-5 text-left" data-goto="3"><span class="step__line absolute bottom-[-14px] left-[17px] top-[40px] w-[1.5px]" aria-hidden="true"></span><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">3</span><span class="flex flex-col"><span class="step__name p-text-body-medium">ยื่นคำขอและติดตามสถานะ</span><span class="step__desc p-text-body-s">ระบบแจ้งทุกครั้งที่สถานะเปลี่ยน ทั้งทางอีเมลและในระบบ</span></span></button></li>
                 <li><button type="button" class="step flex w-full items-start gap-5 text-left" data-goto="4"><span class="step__num p-text-body-s grid h-9 w-9 shrink-0 place-items-center">4</span><span class="flex flex-col"><span class="step__name p-text-body-medium">รับผลและเริ่มโครงการ</span><span class="step__desc p-text-body-s">ทำสัญญาออนไลน์ แล้วรายงานความก้าวหน้าผ่านระบบ</span></span></button></li>
               </ol>
             </div>
@@ -314,14 +343,14 @@
         <svg class="news__doodle w-full" height="40" viewBox="0 0 1200 40" preserveAspectRatio="none" fill="none" aria-hidden="true">
           <path d="M0 26H560C586 26 600 8 590 3C578 -3 566 26 582 34C596 41 612 26 640 26H1200" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
         </svg>
-        <h2 id="news-title" class="section-title p-text-display m-0 mt-10"><span class="hl hl--blue p-wavy">ข่าวสาร</span>และประกาศ</h2>
+        <h2 id="news-title" class="section-title p-text-display m-0 mt-10"><span class="hl hl--blue p-wavy" data-reveal>ข่าวสาร</span>และประกาศ</h2>
         <p class="section-sub p-text-body m-0 mt-2">ติดตามข่าวกองทุน ประกาศผล และกิจกรรมล่าสุด</p>
 
-        <!-- ข่าว 3 ชิ้นสลับตำแหน่งกัน: p-auto-rotate ใส่ data-pos ให้แต่ละชิ้น (0 = ข่าวเด่นกล่องเหลือง, 1 = กล่องน้ำเงิน, 2 = กล่องส้ม) จอแคบแสดงเฉพาะข่าวเด่น -->
+        <!-- ข่าว 3 ชิ้นสลับตำแหน่งกัน สีกล่องติดไปกับข่าว: p-auto-rotate ใส่ data-pos ให้แต่ละชิ้น (0 = ข่าวเด่น, 1 = ข่าวถัดไป กล่องใหญ่ล่าง, 2 = กล่องเล็กบน) จอแคบแสดงเฉพาะข่าวเด่น -->
         <p-auto-rotate class="relative mx-auto mt-12 block max-w-[870px]" interval="4500">
           <div class="relative grid md:block md:h-[760px]">
-            <article class="spot group/spot col-start-1 row-start-1 max-md:not-data-[active]:hidden" data-slide>
-              <div class="spot__box block aspect-square w-full p-9 transition-[left,top,width,height,padding,background-color] duration-700 ease-in-out md:absolute md:left-0 md:top-0 md:z-10 md:h-[440px] md:w-[440px] md:group-data-[pos=1]/spot:left-[440px] md:group-data-[pos=1]/spot:top-[72px] md:group-data-[pos=1]/spot:z-0 md:group-data-[pos=1]/spot:h-[180px] md:group-data-[pos=1]/spot:w-[180px] md:group-data-[pos=1]/spot:p-4 md:group-data-[pos=2]/spot:left-[440px] md:group-data-[pos=2]/spot:top-[252px] md:group-data-[pos=2]/spot:z-0 md:group-data-[pos=2]/spot:h-[300px] md:group-data-[pos=2]/spot:w-[300px] md:group-data-[pos=2]/spot:p-5"><img class="spot__photo h-full w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="ครูสอนนักเรียนใช้แท็บเล็ตในห้องเรียน" /></div>
+            <article class="spot spot--yellow group/spot col-start-1 row-start-1 max-md:not-data-[active]:hidden" data-slide>
+              <div class="spot__box block aspect-square w-full p-9 transition-[left,top,width,height,padding,background-color] duration-700 ease-in-out md:absolute md:left-0 md:top-0 md:z-10 md:h-[440px] md:w-[440px] md:group-data-[pos=1]/spot:left-[440px] md:group-data-[pos=1]/spot:top-[252px] md:group-data-[pos=1]/spot:z-0 md:group-data-[pos=1]/spot:h-[300px] md:group-data-[pos=1]/spot:w-[300px] md:group-data-[pos=1]/spot:p-5 md:group-data-[pos=2]/spot:left-[440px] md:group-data-[pos=2]/spot:top-[72px] md:group-data-[pos=2]/spot:z-0 md:group-data-[pos=2]/spot:h-[180px] md:group-data-[pos=2]/spot:w-[180px] md:group-data-[pos=2]/spot:p-4"><img class="spot__photo h-full w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="ครูสอนนักเรียนใช้แท็บเล็ตในห้องเรียน" /></div>
               <div class="spot__text mt-8 flex flex-col gap-3 md:absolute md:left-0 md:top-[440px] md:w-[440px]">
                 <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศ<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">3 พ.ย. 2569</span></p>
                 <h3 class="spot__title p-text-h2 m-0">วันสุดท้ายรับข้อเสนอโครงการทุนประเภท 1 ประจำปี 2569</h3>
@@ -329,8 +358,8 @@
                 <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
               </div>
             </article>
-            <article class="spot group/spot col-start-1 row-start-1 max-md:not-data-[active]:hidden" data-slide>
-              <div class="spot__box block aspect-square w-full p-9 transition-[left,top,width,height,padding,background-color] duration-700 ease-in-out md:absolute md:left-0 md:top-0 md:z-10 md:h-[440px] md:w-[440px] md:group-data-[pos=1]/spot:left-[440px] md:group-data-[pos=1]/spot:top-[72px] md:group-data-[pos=1]/spot:z-0 md:group-data-[pos=1]/spot:h-[180px] md:group-data-[pos=1]/spot:w-[180px] md:group-data-[pos=1]/spot:p-4 md:group-data-[pos=2]/spot:left-[440px] md:group-data-[pos=2]/spot:top-[252px] md:group-data-[pos=2]/spot:z-0 md:group-data-[pos=2]/spot:h-[300px] md:group-data-[pos=2]/spot:w-[300px] md:group-data-[pos=2]/spot:p-5"><img class="spot__photo h-full w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="ทีมงานผลิตรายการโทรทัศน์พร้อมล่ามภาษามือ" /></div>
+            <article class="spot spot--orange group/spot col-start-1 row-start-1 max-md:not-data-[active]:hidden" data-slide>
+              <div class="spot__box block aspect-square w-full p-9 transition-[left,top,width,height,padding,background-color] duration-700 ease-in-out md:absolute md:left-0 md:top-0 md:z-10 md:h-[440px] md:w-[440px] md:group-data-[pos=1]/spot:left-[440px] md:group-data-[pos=1]/spot:top-[252px] md:group-data-[pos=1]/spot:z-0 md:group-data-[pos=1]/spot:h-[300px] md:group-data-[pos=1]/spot:w-[300px] md:group-data-[pos=1]/spot:p-5 md:group-data-[pos=2]/spot:left-[440px] md:group-data-[pos=2]/spot:top-[72px] md:group-data-[pos=2]/spot:z-0 md:group-data-[pos=2]/spot:h-[180px] md:group-data-[pos=2]/spot:w-[180px] md:group-data-[pos=2]/spot:p-4"><img class="spot__photo h-full w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="ทีมงานผลิตรายการโทรทัศน์พร้อมล่ามภาษามือ" /></div>
               <div class="spot__text mt-8 flex flex-col gap-3 md:absolute md:left-0 md:top-[440px] md:w-[440px]">
                 <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ข่าวสาร<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">1 พ.ย. 2569</span></p>
                 <h3 class="spot__title p-text-h2 m-0">เครือข่ายอินเทอร์เน็ตชุมชนเปิดศูนย์เรียนรู้ดิจิทัลแห่งที่ 20</h3>
@@ -338,8 +367,8 @@
                 <a class="link p-text-body-medium" routerLink="/news">อ่านข่าวนี้ →</a>
               </div>
             </article>
-            <article class="spot group/spot col-start-1 row-start-1 max-md:not-data-[active]:hidden" data-slide>
-              <div class="spot__box block aspect-square w-full p-9 transition-[left,top,width,height,padding,background-color] duration-700 ease-in-out md:absolute md:left-0 md:top-0 md:z-10 md:h-[440px] md:w-[440px] md:group-data-[pos=1]/spot:left-[440px] md:group-data-[pos=1]/spot:top-[72px] md:group-data-[pos=1]/spot:z-0 md:group-data-[pos=1]/spot:h-[180px] md:group-data-[pos=1]/spot:w-[180px] md:group-data-[pos=1]/spot:p-4 md:group-data-[pos=2]/spot:left-[440px] md:group-data-[pos=2]/spot:top-[252px] md:group-data-[pos=2]/spot:z-0 md:group-data-[pos=2]/spot:h-[300px] md:group-data-[pos=2]/spot:w-[300px] md:group-data-[pos=2]/spot:p-5"><img class="spot__photo h-full w-full object-cover" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" /></div>
+            <article class="spot spot--blue group/spot col-start-1 row-start-1 max-md:not-data-[active]:hidden" data-slide>
+              <div class="spot__box block aspect-square w-full p-9 transition-[left,top,width,height,padding,background-color] duration-700 ease-in-out md:absolute md:left-0 md:top-0 md:z-10 md:h-[440px] md:w-[440px] md:group-data-[pos=1]/spot:left-[440px] md:group-data-[pos=1]/spot:top-[252px] md:group-data-[pos=1]/spot:z-0 md:group-data-[pos=1]/spot:h-[300px] md:group-data-[pos=1]/spot:w-[300px] md:group-data-[pos=1]/spot:p-5 md:group-data-[pos=2]/spot:left-[440px] md:group-data-[pos=2]/spot:top-[72px] md:group-data-[pos=2]/spot:z-0 md:group-data-[pos=2]/spot:h-[180px] md:group-data-[pos=2]/spot:w-[180px] md:group-data-[pos=2]/spot:p-4"><img class="spot__photo h-full w-full object-cover" src="images/landing-new/community-radio.jpg" alt="เจ้าหน้าที่ใช้ระบบติดตามข้อมูลในศูนย์ชุมชน" /></div>
               <div class="spot__text mt-8 flex flex-col gap-3 md:absolute md:left-0 md:top-[440px] md:w-[440px]">
                 <p class="spot__eyebrow p-text-body-s-medium m-0 flex items-center gap-3">ประกาศผล<span class="spot__sep h-3.5 w-px"></span><span class="spot__date p-text-body-s">28 ต.ค. 2569</span></p>
                 <h3 class="spot__title p-text-h2 m-0">ประกาศผลการพิจารณาข้อเสนอโครงการทุนประเภท 2</h3>
@@ -363,35 +392,133 @@
     </section>
 
     <!-- ===================== ผลงานจากผู้รับทุน ===================== -->
-    <section class="works px-6 py-20" aria-labelledby="works-title">
-      <div class="mx-auto w-full max-w-[1200px]">
-        <div class="flex flex-wrap items-center justify-between gap-4">
-          <h2 id="works-title" class="works__title p-text-display m-0">ผลงานจากผู้รับทุน</h2>
-          <a class="works__more p-text-body-medium flex items-center gap-2" routerLink="/results">ดูผลงานทั้งหมด <p-ui-icon name="pi-arrow-right" size="16" /></a>
-        </div>
-        <div class="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[200px_minmax(0,1fr)]">
-          <nav class="flex gap-6 overflow-x-auto lg:flex-col lg:gap-5" aria-label="หมวดผลงาน">
-            <a class="works__cat works__cat--active p-text-body-medium shrink-0" routerLink="/results">กิจการโทรคมนาคม</a>
-            <a class="works__cat p-text-body shrink-0" routerLink="/results">กิจการกระจายเสียง</a>
-            <a class="works__cat p-text-body shrink-0" routerLink="/results">กิจการโทรทัศน์</a>
-            <a class="works__cat p-text-body shrink-0" routerLink="/results">การวิจัยและพัฒนา</a>
-          </nav>
-          <p-auto-rotate class="relative block" interval="0">
-            <div class="grid">
-              <div class="col-start-1 row-start-1 grid grid-cols-1 gap-6 sm:grid-cols-2" data-slide>
-                <a class="work flex flex-col gap-4" routerLink="/results"><img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tower-village.jpg" alt="" /><span class="work__title p-text-h3">ระบบแจ้งเตือนภัยพิบัติผ่านเซลล์บรอดแคสต์</span><span class="work__desc p-text-body-s">ส่งข้อความเตือนภัยถึงโทรศัพท์มือถือทุกเครื่องในพื้นที่เสี่ยง ช่วยให้ประชาชนรับข้อมูลได้ทันเวลา</span></a>
-                <a class="work flex flex-col gap-4" routerLink="/results"><img class="work__photo aspect-video w-full object-cover" src="images/landing-new/fisher-village.jpg" alt="" /><span class="work__title p-text-h3">อินเทอร์เน็ตชุมชนสำหรับหมู่บ้านชาวประมง</span><span class="work__desc p-text-body-s">แท็บเล็ตช่วยชาวประมงดูพยากรณ์อากาศและราคาสัตว์น้ำแบบเรียลไทม์ ลดความเสี่ยงก่อนออกเรือ</span></a>
+    <!--
+      ผลงานจากผู้รับทุน (อิง Stories ของ gatesfoundation.org และ Figma featured-works แบบ Gates)
+      ซ้าย: ชื่อหมวด กดแล้วเปลี่ยนชุดผลงาน (p-auto-rotate แบบไม่เปลี่ยนเอง) ขวา: การ์ดเลื่อนซ้ายขวาเลยขอบจอ (pScrollRow)
+    -->
+    <section class="works overflow-hidden px-6 py-24" aria-labelledby="works-title">
+      <p-auto-rotate class="mx-auto block w-full max-w-[1200px]" interval="0">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-12">
+          <div class="flex flex-col gap-10">
+            <h2 id="works-title" class="works__title p-text-display m-0">ผลงานจาก<br class="hidden lg:block" />ผู้รับทุน</h2>
+            <nav class="-mx-6 flex gap-6 overflow-x-auto px-6 lg:mx-0 lg:flex-col lg:gap-4 lg:px-0" aria-label="หมวดผลงาน">
+              <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="1">กิจการโทรคมนาคม</button>
+              <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="2">กิจการกระจายเสียง</button>
+              <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="3">กิจการโทรทัศน์</button>
+              <button type="button" class="works__cat p-text-h4 shrink-0 text-left" data-goto="4">การวิจัยและพัฒนา</button>
+            </nav>
+            <a class="works__more p-text-body-medium hidden items-center gap-2 lg:flex" routerLink="/results">ดูผลงานทั้งหมด <p-ui-icon name="pi-arrow-right" size="16" /></a>
+          </div>
+
+          <div class="grid min-w-0 lg:mr-[min(-24px,calc((1200px-100vw)/2))]">
+            <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
+              <div class="works__track -mr-6 flex snap-x gap-6 overflow-x-auto pb-2 pr-6 lg:mr-0" data-scroll-track>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tower-village.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">ระบบแจ้งเตือนภัยพิบัติผ่านเซลล์บรอดแคสต์</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">ส่งข้อความเตือนภัยถึงโทรศัพท์มือถือทุกเครื่องในพื้นที่เสี่ยง ช่วยให้ประชาชนรับข้อมูลได้ทันเวลา</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/fisher-village.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">อินเทอร์เน็ตชุมชนสำหรับหมู่บ้านชาวประมง</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">แท็บเล็ตช่วยชาวประมงดูพยากรณ์อากาศและราคาสัตว์น้ำแบบเรียลไทม์ ลดความเสี่ยงก่อนออกเรือ</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/smart-city-5g.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">โครงข่าย 5G ต้นแบบสำหรับเมืองอัจฉริยะ</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">ทดลองใช้เครือข่ายความเร็วสูงกับระบบจราจรและกล้องความปลอดภัยของเทศบาล</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/community-radio.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">ศูนย์ข้อมูลชุมชนเชื่อมต่อทุกหมู่บ้าน</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">เจ้าหน้าที่ติดตามข้อมูลน้ำและสภาพอากาศจากศูนย์กลาง แจ้งเตือนชาวบ้านได้ในทันที</span>
+                </a>
               </div>
-              <div class="col-start-1 row-start-1 grid grid-cols-1 gap-6 sm:grid-cols-2" data-slide>
-                <a class="work flex flex-col gap-4" routerLink="/results"><img class="work__photo aspect-video w-full object-cover" src="images/landing-new/accessibility-class.jpg" alt="" /><span class="work__title p-text-h3">ห้องเรียนออนไลน์สำหรับนักเรียนพิการทางการเห็น</span><span class="work__desc p-text-body-s">เทคโนโลยีอ่านหน้าจอช่วยให้นักเรียนเข้าถึงบทเรียนออนไลน์ได้เท่าเทียม</span></a>
-                <a class="work flex flex-col gap-4" routerLink="/results"><img class="work__photo aspect-video w-full object-cover" src="images/landing-new/smart-city-5g.jpg" alt="" /><span class="work__title p-text-h3">โครงข่าย 5G ต้นแบบสำหรับเมืองอัจฉริยะ</span><span class="work__desc p-text-body-s">ทดลองใช้เครือข่าย 5G บริหารจัดการจราจรและพลังงานในเขตเมือง</span></a>
-              </div>
+              <button type="button" class="works__btn works__btn--prev absolute -left-5 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-start]/row:invisible group-data-[at-start]/row:opacity-0" data-scroll="prev" aria-label="ผลงานก่อนหน้า"><p-ui-icon name="pi-arrow-left" size="16" /></button>
+              <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
             </div>
-            <button type="button" class="works__btn works__btn--prev absolute -left-5 top-[22%] hidden h-10 w-10 place-items-center sm:grid" data-rotate="prev" aria-label="ผลงานก่อนหน้า"><p-ui-icon name="pi-arrow-left" size="16" /></button>
-            <button type="button" class="works__btn works__btn--next absolute -right-5 top-[22%] hidden h-10 w-10 place-items-center sm:grid" data-rotate="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
-          </p-auto-rotate>
+            <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
+              <div class="works__track -mr-6 flex snap-x gap-6 overflow-x-auto pb-2 pr-6 lg:mr-0" data-scroll-track>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/community-radio.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">วิทยุชุมชนรายงานสถานการณ์น้ำ</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">สถานีวิทยุท้องถิ่นรายงานระดับน้ำทุกชั่วโมงช่วงฤดูฝน ชาวบ้านเตรียมรับมือได้ก่อน</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">รายการเสียงบรรยายภาพสำหรับผู้พิการทางการเห็น</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">ผลิตเสียงบรรยายภาพให้รายการข่าวและสารคดี ฟังได้ทั้งทางวิทยุและออนไลน์</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/fisher-village.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">สถานีวิทยุชายฝั่งสำหรับชาวประมง</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">กระจายเสียงประกาศเตือนคลื่นลมแรงเป็นภาษาท้องถิ่น ครอบคลุมพื้นที่ชายฝั่งอันดามัน</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">พอดแคสต์รู้ทันสื่อสำหรับเยาวชน</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">เยาวชนผลิตรายการเสียงเอง เรียนรู้การตรวจสอบข่าวปลอมจากสถานการณ์จริง</span>
+                </a>
+              </div>
+              <button type="button" class="works__btn works__btn--prev absolute -left-5 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-start]/row:invisible group-data-[at-start]/row:opacity-0" data-scroll="prev" aria-label="ผลงานก่อนหน้า"><p-ui-icon name="pi-arrow-left" size="16" /></button>
+              <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
+            </div>
+            <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
+              <div class="works__track -mr-6 flex snap-x gap-6 overflow-x-auto pb-2 pr-6 lg:mr-0" data-scroll-track>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tv-studio.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">ล่ามภาษามือในรายการข่าวท้องถิ่น</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">เพิ่มล่ามภาษามือในข่าวภาคค่ำ ผู้พิการทางการได้ยินเข้าถึงข่าวสารได้เท่าเทียม</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">สารคดีเพื่อเด็กและครอบครัว</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">ชุดสารคดีสั้นเรื่องวิทยาศาสตร์รอบตัว ใช้เป็นสื่อการสอนในโรงเรียนได้</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/accessibility-class.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">รายการสอนทักษะดิจิทัลสำหรับผู้สูงอายุ</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">สอนใช้สมาร์ตโฟนและบริการภาครัฐออนไลน์ ออกอากาศทุกสัปดาห์และดูย้อนหลังได้</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/tower-village.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">ข่าวชุมชนบนพื้นที่สูง</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">ทีมข่าวท้องถิ่นเล่าเรื่องชุมชนบนดอยด้วยภาษาของตัวเอง เผยแพร่ทางทีวีดิจิทัล</span>
+                </a>
+              </div>
+              <button type="button" class="works__btn works__btn--prev absolute -left-5 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-start]/row:invisible group-data-[at-start]/row:opacity-0" data-scroll="prev" aria-label="ผลงานก่อนหน้า"><p-ui-icon name="pi-arrow-left" size="16" /></button>
+              <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
+            </div>
+            <div pScrollRow class="works__set group/row relative col-start-1 row-start-1 min-w-0" data-slide>
+              <div class="works__track -mr-6 flex snap-x gap-6 overflow-x-auto pb-2 pr-6 lg:mr-0" data-scroll-track>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/accessibility-class.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">ห้องเรียนออนไลน์สำหรับนักเรียนพิการทางการเห็น</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">พัฒนาแพลตฟอร์มเรียนที่ใช้เสียงนำทาง ครูและนักเรียนใช้งานได้จากทุกที่</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/smart-city-5g.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">ระบบตรวจวัดคุณภาพอากาศผ่าน IoT</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">เซนเซอร์ราคาประหยัดส่งข้อมูลฝุ่น PM2.5 ผ่านเครือข่ายมือถือ ดูค่าได้แบบเรียลไทม์</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/media-literacy-class.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">เครื่องมือตรวจข่าวปลอมภาษาไทย</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">ต้นแบบระบบช่วยตรวจสอบข้อความที่แชร์ต่อกัน แสดงแหล่งข้อมูลอ้างอิงให้ผู้ใช้</span>
+                </a>
+                <a class="work flex w-[300px] shrink-0 snap-start flex-col gap-4 sm:w-[373px]" routerLink="/results">
+                  <img class="work__photo aspect-video w-full object-cover" src="images/landing-new/community-radio.jpg" alt="" />
+                  <span class="work__title p-text-h3 line-clamp-2">แผนที่ความครอบคลุมสัญญาณแบบเปิด</span>
+                  <span class="work__desc p-text-body-s line-clamp-3">รวบรวมข้อมูลคุณภาพสัญญาณจากผู้ใช้จริง ช่วยวางแผนขยายโครงข่ายในพื้นที่ห่างไกล</span>
+                </a>
+              </div>
+              <button type="button" class="works__btn works__btn--prev absolute -left-5 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-start]/row:invisible group-data-[at-start]/row:opacity-0" data-scroll="prev" aria-label="ผลงานก่อนหน้า"><p-ui-icon name="pi-arrow-left" size="16" /></button>
+              <button type="button" class="works__btn works__btn--next absolute right-6 top-[190px] z-10 hidden h-10 w-10 place-items-center transition-opacity duration-300 sm:grid group-data-[at-end]/row:invisible group-data-[at-end]/row:opacity-0" data-scroll="next" aria-label="ผลงานถัดไป"><p-ui-icon name="pi-arrow-right" size="16" /></button>
+            </div>
+          </div>
         </div>
-      </div>
+        <a class="works__more p-text-body-medium mt-10 flex items-center gap-2 lg:hidden" routerLink="/results">ดูผลงานทั้งหมด <p-ui-icon name="pi-arrow-right" size="16" /></a>
+      </p-auto-rotate>
     </section>
 
     <!-- ===================== คำถามที่พบบ่อย ===================== -->

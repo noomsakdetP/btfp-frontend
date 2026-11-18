@@ -20,6 +20,7 @@ import {
  * - ทุกสไลด์ได้ `data-pos` = ลำดับนับจากสไลด์ที่แสดง (0 = แสดงอยู่, 1 = ถัดไป, ...) ใช้ทำสไลด์ที่ภาพสลับตำแหน่งกัน
  * - ปุ่มที่มี `data-rotate="next"` หรือ `data-rotate="prev"` เลื่อนสไลด์ (อยู่ในสไลด์หรือนอกสไลด์ก็ได้)
  * - ปุ่มที่มี `data-goto="2"` ไปสไลด์ที่ 2 (เริ่มนับ 1) ใช้กับรายการขั้นตอนที่กดได้
+ * - สไลด์ที่มี `data-goto` เอง กดที่สไลด์แล้วสไลด์นั้นจะแสดง (ใช้คู่กับ lockInactive="false")
  * - ข้อความที่มี `data-rotate-count` แสดง "1 / 3" ให้อัตโนมัติ
  * - หยุดเปลี่ยนเองเมื่อเมาส์ชี้หรือโฟกัสอยู่ข้างใน และเมื่อผู้ใช้ตั้งเครื่องให้ลดการเคลื่อนไหว
  *
@@ -52,6 +53,8 @@ export class AutoRotate {
   readonly interval = input(4000, { transform: numberAttribute });
   /** หยุดเปลี่ยนเองตอนเมาส์ชี้หรือโฟกัสอยู่ข้างใน */
   readonly pauseOnHover = input(true, { transform: booleanAttribute });
+  /** ใส่ inert ให้สไลด์ที่ไม่ได้แสดง (กด/โฟกัสไม่ได้) ใส่ "false" เมื่อทุกสไลด์มองเห็นและกดได้ เช่น Banner แบบแผงที่กดแล้วขยาย */
+  readonly lockInactive = input(true, { transform: booleanAttribute });
 
   protected paused = false;
   private index = 0;
@@ -89,7 +92,7 @@ export class AutoRotate {
     this.index = (i + slides.length) % slides.length;
     slides.forEach((s, n) => {
       s.toggleAttribute('data-active', n === this.index);
-      s.toggleAttribute('inert', n !== this.index);
+      s.toggleAttribute('inert', this.lockInactive() && n !== this.index);
       s.dataset['pos'] = String((n - this.index + slides.length) % slides.length);
     });
     this.host.nativeElement.querySelectorAll<HTMLElement>('[data-goto]').forEach((b) => {

@@ -8,7 +8,7 @@ import { InputText } from 'primeng/inputtext';
 import { Select } from 'primeng/select';
 import { Tab, TabList, Tabs } from 'primeng/tabs';
 import { PublicFooter } from '../../../layout/public-layout/public-footer';
-import { AutoRotate, CountUp, ScrollState, UiIcon } from '../../../shared/ui';
+import { AutoRotate, CountUp, Reveal, ScrollRow, ScrollState, UiIcon } from '../../../shared/ui';
 
 /** หน้าแรก แนวใหม่ (ทดลอง รอลูกค้าเลือก)  Figma: แนวใหม่ (ทดลอง) > Topbar เลื่อนจริง A: บนสุด 827:61 */
 @Component({
@@ -30,6 +30,8 @@ import { AutoRotate, CountUp, ScrollState, UiIcon } from '../../../shared/ui';
     PublicFooter,
     CountUp,
     ScrollState,
+    ScrollRow,
+    Reveal,
     AutoRotate,
     UiIcon,
   ],
